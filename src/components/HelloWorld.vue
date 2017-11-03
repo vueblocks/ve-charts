@@ -1,32 +1,43 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <div class="charts-content">
+      <BarChart
+        :data="chartData"
+        :settings="chartSettings"
+        :title="title"
+        @chartclick="onClick"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import BarChart from '../lib/bar/index'
+import bar from '../demos/data/bar'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'ECharts 3.x for Vue.js 2.x.',
+      chartData: bar.data,
+      title: {
+        text: 'ECharts 柱形图示例'
+      }
     }
+  },
+  created () {
+    this.chartSettings = {
+    }
+  },
+  methods: {
+    onClick (e) {
+      console.log(e)
+    }
+  },
+  components: {
+    BarChart
   }
 }
 </script>
@@ -49,5 +60,14 @@ li {
 
 a {
   color: #42b983;
+}
+
+.charts-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
 }
 </style>
