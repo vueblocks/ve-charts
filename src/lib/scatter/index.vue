@@ -17,7 +17,7 @@
   import { options } from '../../echarts-base'
   import { scatter } from './chartHandler'
 
-  import EchartsBase from '../../EchartsBase.vue'
+  import EchartsBase from '@/components.EchartsBase.vue'
 
   export default {
     name: 'VeScatter',

@@ -18,7 +18,7 @@
   import { line } from './chartHandler'
   import 'echarts/lib/chart/line'
 
-  import EchartsBase from '../../EchartsBase.vue'
+  import EchartsBase from '@/components.EchartsBase.vue'
 
   export default {
     name: 'VeLine',

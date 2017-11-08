@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import BarChart from '../lib/bar/index'
-import bar from '../demos/data/bar'
+import BarChart from '../../src/lib/bar/index'
+import bar from '../data/bar'
 
 export default {
   name: 'HelloWorld',

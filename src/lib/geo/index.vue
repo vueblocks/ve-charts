@@ -17,7 +17,7 @@
   import { options } from '../../echarts-base'
   import { geo } from './chartHandler'
 
-  import EchartsBase from '../../EchartsBase.vue'
+  import EchartsBase from '@/components.EchartsBase.vue'
   import chinaMap from './china.json'
 
   export default {
