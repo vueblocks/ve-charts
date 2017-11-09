@@ -21,7 +21,7 @@
   import chinaMap from './china.json'
 
   export default {
-    name: 'VeGeo',
+    name: 'VeGeoChart',
     mixins: [Core],
     data () {
       return {

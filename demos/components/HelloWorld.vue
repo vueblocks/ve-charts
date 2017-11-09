@@ -1,18 +1,16 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <div class="charts-content">
-      <BarChart
-        :data="chartData"
-        :settings="chartSettings"
-        :title="title"
-      />
-    </div>
+    <ve-bar-chart
+      class="charts-content"
+      :data="chartData"
+      :settings="chartSettings"
+      :title="title"
+    />
   </div>
 </template>
 
 <script>
-import BarChart from '../../src/packages/bar/index'
 import bar from '../data/bar'
 
 export default {
@@ -35,9 +33,6 @@ export default {
     onClick (e) {
       console.log(e)
     }
-  },
-  components: {
-    BarChart
   }
 }
 </script>

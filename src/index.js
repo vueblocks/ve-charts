@@ -1,25 +1,25 @@
-import VeBar from './packages/bar'
-import VeDonut from './packages/donut'
-import VeGauge from './packages/gauge'
-// import VeGeo from './packages/geo'
-import VeLine from './packages/line'
-import VePie from './packages/pie'
-import VeRadar from './packages/radar'
-import VeScatter from './packages/scatter'
-import VeStrip from './packages/strip'
-import VeTreemap from './packages/treemap'
+import VeBarChart from './packages/bar'
+import VeDonutChart from './packages/donut'
+import VeGaugeChart from './packages/gauge'
+import VeGeoChart from './packages/geo'
+import VeLineChart from './packages/line'
+import VePieChart from './packages/pie'
+import VeRadarChart from './packages/radar'
+import VeScatterChart from './packages/scatter'
+import VeStripChart from './packages/strip'
+import VeTreemapChart from './packages/treemap'
 
 const components = [
-  VeBar,
-  VeDonut,
-  VeGauge,
-  // VeGeo,
-  VeLine,
-  VePie,
-  VeRadar,
-  VeScatter,
-  VeStrip,
-  VeTreemap
+  VeBarChart,
+  VeDonutChart,
+  VeGaugeChart,
+  VeGeoChart,
+  VeLineChart,
+  VePieChart,
+  VeRadarChart,
+  VeScatterChart,
+  VeStripChart,
+  VeTreemapChart
 ]
 
 function install(Vue, _) {
@@ -28,16 +28,16 @@ function install(Vue, _) {
   })
 }
 
-export {
-  VeBar,
-  VeDonut,
-  VeGauge,
-  // VeGeo,
-  VeLine,
-  VePie,
-  VeRadar,
-  VeScatter,
-  VeStrip,
-  VeTreemap,
+export default {
+  VeBarChart,
+  VeDonutChart,
+  VeGaugeChart,
+  VeGeoChart,
+  VeLineChart,
+  VePieChart,
+  VeRadarChart,
+  VeScatterChart,
+  VeStripChart,
+  VeTreemapChart,
   install
 }

@@ -20,7 +20,7 @@
   import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeDonut',
+    name: 'VeDonutChart',
     mixins: [Core],
     data () {
       return {

@@ -20,7 +20,7 @@
   import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeTreemap',
+    name: 'VeTreemapChart',
     mixins: [Core],
     data () {
       return {

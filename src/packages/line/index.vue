@@ -20,7 +20,7 @@
   import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeLine',
+    name: 'VeLineChart',
     mixins: [Core],
     data () {
       return {

@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import VeCharts from '../lib/ve-charts.min'
+import '../lib/ve-charts.min.css'
+
+Vue.use(VeCharts)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
