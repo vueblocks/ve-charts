@@ -8,14 +8,14 @@
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
     "build": "node build/build.js",
+    "bundle": "node build/bundle.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
     "echarts": "^3.7.2",
-    "lodash": "^4.17.4",
-    "vue": "^2.5.2"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -73,6 +73,7 @@
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
     "url-loader": "^0.5.8",
+    "vue": "^2.5.2",
     "vue-loader": "^13.3.0",
     "vue-router": "^3.0.1",
     "vue-style-loader": "^3.0.1",
