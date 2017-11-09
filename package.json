@@ -1,9 +1,10 @@
 {
   "name": "ve-charts",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "ECharts 3.x for Vue.js 2.x.",
+  "main": "lib/ve-charts.min.js",
+  "unpkg": "lib/ve-charts.min.js",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",

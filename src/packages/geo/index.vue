@@ -1,5 +1,5 @@
 <template>
-  <div class="base-echarts">
+  <div>
     <base-echarts
       :options="options"
       :autoResize="true"
@@ -42,6 +42,3 @@
     }
   }
 </script>
-
-<style lang="less">
-</style>

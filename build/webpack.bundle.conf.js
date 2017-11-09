@@ -28,7 +28,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     path: config.bundle.assetsRoot,
     publicPath: config.bundle.assetsPublicRoot,
     filename: 've-charts.min.js',
-    library: 'VeCharts',
+    library: 've-charts',
     libraryTarget: 'umd',
   },
   plugins: [
