@@ -1,44 +1,42 @@
 <template>
-  <div class="echarts-base">
-    <echarts-base
+  <div class="base-echarts">
+    <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data==null" />
+      <empty-data v-if="data == null" />
     </slot>
   </div>
 </template>
 
 <script>
   import Core from '../../Core'
-  import { options } from '../../echarts-base'
-  import { geo } from './chartHandler'
+  import { options } from '../../base-options'
+  import { scatter } from './chartHandler'
 
-  import EchartsBase from '@/components.EchartsBase.vue'
-  import chinaMap from './china.json'
+  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeGeo',
+    name: 'VeScatter',
     mixins: [Core],
     data () {
       return {
         options
       }
     },
+    created () {
+      this.chartHandler = scatter
+    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    created () {
-      EchartsBase.registerMap('china', chinaMap)
-      this.chartHandler = geo
-    },
     components: {
-      EchartsBase
+      BaseEcharts
     }
   }
 </script>

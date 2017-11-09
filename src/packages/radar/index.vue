@@ -1,6 +1,6 @@
 <template>
-  <div class="echarts-base">
-    <echarts-base
+  <div class="base-echarts">
+    <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
@@ -14,14 +14,13 @@
 
 <script>
   import Core from '../../Core'
-  import { options } from '../../echarts-base'
-  import { line } from './chartHandler'
-  import 'echarts/lib/chart/line'
+  import { options } from '../../base-options'
+  import { radar } from './chartHandler'
 
-  import EchartsBase from '@/components.EchartsBase.vue'
+  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeLine',
+    name: 'VeRadar',
     mixins: [Core],
     data () {
       return {
@@ -29,7 +28,7 @@
       }
     },
     created () {
-      this.chartHandler = line
+      this.chartHandler = radar
     },
     methods: {
       onClick (e) {
@@ -37,7 +36,7 @@
       }
     },
     components: {
-      EchartsBase
+      BaseEcharts
     }
   }
 </script>

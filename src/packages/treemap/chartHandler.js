@@ -1,4 +1,4 @@
-import { treemapLevels } from '../../echarts-base'
+import { treemapLevels } from '../../base-options'
 
 function getTreemapTooltip (args) {
   return {

@@ -12,7 +12,7 @@ function convertCityData(data, options) {
   const symbolSize = connect ? connect.symbolSize : 10
   const normalShadowBlur = connect ? connect.normalShadowBlur : 0
 
-  const res = [];
+  const res = []
   for (let i = 0; i < data.length; i++) {
     const name = isNaN(data[i].name * 1) ? data[i].name : mapCityId[data[i].name]
     const value = data[i].value

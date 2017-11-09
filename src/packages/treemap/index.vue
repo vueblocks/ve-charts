@@ -1,6 +1,6 @@
 <template>
-  <div class="echarts-base">
-    <echarts-base
+  <div class="base-echarts">
+    <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
@@ -14,13 +14,13 @@
 
 <script>
   import Core from '../../Core'
-  import { options } from '../../echarts-base'
-  import { strip } from '../bar/chartHandler'
+  import { options } from '../../base-options'
+  import { treemap } from './chartHandler'
 
-  import EchartsBase from '@/components.EchartsBase.vue'
+  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeStrip',
+    name: 'VeTreemap',
     mixins: [Core],
     data () {
       return {
@@ -28,7 +28,7 @@
       }
     },
     created () {
-      this.chartHandler = strip
+      this.chartHandler = treemap
     },
     methods: {
       onClick (e) {
@@ -36,7 +36,7 @@
       }
     },
     components: {
-      EchartsBase
+      BaseEcharts
     }
   }
 </script>

@@ -1,26 +1,26 @@
 <template>
-  <div class="echarts-base">
-    <echarts-base
+  <div class="base-echarts">
+    <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data==null" />
+      <empty-data v-if="data == null" />
     </slot>
   </div>
 </template>
 
 <script>
   import Core from '../../Core'
-  import { options } from '../../echarts-base'
-  import { gauge } from './chartHandler'
+  import { options } from '../../base-options'
+  import { strip } from '../bar/chartHandler'
 
-  import EchartsBase from '@/components.EchartsBase.vue'
+  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeGauge',
+    name: 'VeStrip',
     mixins: [Core],
     data () {
       return {
@@ -28,7 +28,7 @@
       }
     },
     created () {
-      this.chartHandler = gauge
+      this.chartHandler = strip
     },
     methods: {
       onClick (e) {
@@ -36,7 +36,7 @@
       }
     },
     components: {
-      EchartsBase
+      BaseEcharts
     }
   }
 </script>

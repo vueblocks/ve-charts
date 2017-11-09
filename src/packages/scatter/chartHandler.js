@@ -6,7 +6,7 @@ function getScatterData(args) {
   const seriesData = []
 
   data.measure.forEach(({ name, data }, i) => {
-    legendData.push(name);
+    legendData.push(name)
     seriesData[i] = {
       type: 'scatter',
       data: dataIndex === -1 ? data : getSeriesData(data, {
@@ -17,8 +17,8 @@ function getScatterData(args) {
         return data[2] == null ? 12 : Math.sqrt(data[2] / 5e2)
       },
       name
-    };
-  });
+    }
+  })
 
   return {
     legendData,
@@ -95,11 +95,11 @@ function getScatterXAxis() {
 }
 
 function getScatterYAxis(args) {
-  const { data, settings } = args
+  const { settings } = args
   const { yAxisScale } = settings
 
   return {
-    scale: yAxisScale ? yAxisScale : false,
+    scale: yAxisScale || false,
     splitLine: {
       lineStyle: {
         type: 'dashed'

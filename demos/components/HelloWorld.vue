@@ -6,14 +6,13 @@
         :data="chartData"
         :settings="chartSettings"
         :title="title"
-        @chartclick="onClick"
       />
     </div>
   </div>
 </template>
 
 <script>
-import BarChart from '../../src/lib/bar/index'
+import BarChart from '../../src/packages/bar/index'
 import bar from '../data/bar'
 
 export default {
@@ -22,6 +21,7 @@ export default {
     return {
       msg: 'ECharts 3.x for Vue.js 2.x.',
       chartData: bar.data,
+      colors: bar.colors,
       title: {
         text: 'ECharts 柱形图示例'
       }

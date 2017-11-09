@@ -1,6 +1,6 @@
 <template>
-  <div class="echarts-base">
-    <echarts-base
+  <div class="base-echarts">
+    <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
@@ -14,13 +14,13 @@
 
 <script>
   import Core from '../../Core'
-  import { options } from '../../echarts-base'
-  import { radar } from './chartHandler'
+  import { options } from '../../base-options'
+  import { pie } from './chartHandler'
 
-  import EchartsBase from '@/components.EchartsBase.vue'
+  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
-    name: 'VeRadar',
+    name: 'VePie',
     mixins: [Core],
     data () {
       return {
@@ -28,7 +28,7 @@
       }
     },
     created () {
-      this.chartHandler = radar
+      this.chartHandler = pie
     },
     methods: {
       onClick (e) {
@@ -36,7 +36,7 @@
       }
     },
     components: {
-      EchartsBase
+      BaseEcharts
     }
   }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="echarts-base">
-    <echarts-base
+  <div class="base-echarts">
+    <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
@@ -14,10 +14,10 @@
 
 <script>
   import Core from '../../Core'
-  import { options } from '../../echarts-base'
+  import { options } from '../../base-options'
   import { donut } from '../pie/chartHandler'
 
-  import EchartsBase from '@/components.EchartsBase.vue'
+  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
     name: 'VeDonut',
@@ -36,7 +36,7 @@
       }
     },
     components: {
-      EchartsBase
+      BaseEcharts
     }
   }
 </script>
