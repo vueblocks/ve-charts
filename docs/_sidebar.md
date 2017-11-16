@@ -9,7 +9,8 @@
 - 实例
   - [折线图](chart-line.md)
   - [柱状图](chart-bar.md)
-  - [仪表盘](chart-donut.md)
+  - [饼图](chart-donut.md)
+  - [仪表盘](chart-gause.md)
 
 - 其他
  - [事件监听]()
