@@ -16,14 +16,20 @@
 <style>
   section.cover.show {
     background-image: url(./_media/bg.jpg) !important;
-    background-size: 100% auto !important;
+    background-size: cover !important;
   }
+
+  @font-face {
+    font-family: PangMenZhengDao;
+    src: url('./_media/PangMenZhengDao.TTF');
+  }
+
 </style>
 <body>
-<nav>
-  <a href="#">Home</a>
-  <a href="#">Documentation</a>
-</nav>
+<!--<nav>-->
+<!--<a href="#">Home</a>-->
+<!--<a href="#">Documentation</a>-->
+<!--</nav>-->
 <div id="app"></div>
 <script>
   window.$docsify = {
@@ -31,7 +37,7 @@
     repo: 'xiaoluoboding/ve-charts',  // 右上角github链接
     loadSidebar: true, // 定制侧边栏
     coverpage: true, // 封面
-    themeColor: '#3F51B5',
+    themeColor: '#3c78eb',
     homepage: 'base-quickstart.md',  // 默认是README.md
     mergeNavbar: true   // 小屏设备下合并导航栏到侧边栏
   }

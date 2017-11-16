@@ -2,12 +2,16 @@
 ![logo](_media/icon.svg)
 
 
-<h1> ve-charts </h1>
+<h1 style="color:#fff;font-family:'PangMenZhengDao'"> ve<span style="color:#fed24a">-</span>charts </h1>
 
-> DPD-数据产品研发部前端组件库
+<blockquote>
+  <p style="color:#fff;">DPD-数据产品研发部前端组件库</p>
+</blockquote>
 
-- 简单而轻便
-- 在线修改静态HTML文件
+<ul style="color:#fff">
+  <li>简单而轻便</li>
+  <li>在线修改静态HTML文件</li>
+</ul>
 
 
 <!-- <p> -->
