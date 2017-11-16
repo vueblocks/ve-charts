@@ -2,7 +2,9 @@
 ![logo](_media/icon.svg)
 
 
-<h1 style="color:#fff;font-family:'PangMenZhengDao'"> ve<span style="color:#fed24a">-</span>charts </h1>
+<h1 style="color:#fff;font-family:'PangMenZhengDao'">
+  ve<span style="color:#fed24a">-</span>charts
+</h1>
 
 <blockquote>
   <p style="color:#fff;">DPD-数据产品研发部前端组件库</p>
