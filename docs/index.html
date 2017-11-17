@@ -44,7 +44,7 @@
     margin: 0;
     color: #0f49b3;
     font-size: 18px;
-    font-family: "PangMenZhengDao";
+    font-family: PangMenZhengDao;
   }
 
   aside.sidebar ul li {
@@ -97,6 +97,30 @@
     background-color: #fed24a;
     box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
   }
+
+  section .headbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 10px;
+    margin-bottom: 56px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 6px 0 rgba(131, 142, 162, 0.22);
+  }
+
+  section .headbar > div {
+    display: flex;
+  }
+
+  section .headbar > div > span {
+    padding-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #35495e;
+  }
 </style>
 <body>
 <!--<nav>-->
@@ -112,20 +136,21 @@
     coverpage: true,
     themeColor: '#3c78eb',
     homepage: 'base-quickstart.md',
-    mergeNavbar: true   // 小屏设备下合并导航栏到侧边栏
-  }
+    mergeNavbar: true,   // 小屏设备下合并导航栏到侧边栏
+//    search: 'auto' // 全文搜索
+  };
 
-  // remove sidebar's title and add my logo
+  //   remove sidebar's title and add my logo
   let interval = setInterval(function () {
     if (document.getElementsByTagName("aside")[0]) {
       let parent = document.getElementsByTagName("aside")[0];
       parent.removeChild(parent.getElementsByTagName("h1")[0]);
-//    <div style="width: 80px;margin: auto;text-align: center;">
-//      <img src="./_media/icon.svg">
-//      <p style="color: #0f49b3;font-size: 18px;margin: 0 0 10px 0;font-family:'PangMenZhengDao';">
-//      ve<span style="color:#fed24a">-</span>charts
-//      </p>
-//    </div>
+      //    <div style="width: 80px;margin: auto;text-align: center;">
+      //      <img src="./_media/icon.svg">
+      //      <p style="color: #0f49b3;font-size: 18px;margin: 0 0 10px 0;font-family:'PangMenZhengDao';">
+      //      ve<span style="color:#fed24a">-</span>charts
+      //      </p>
+      //    </div>
       let div = document.createElement("div");
       div.setAttribute("class", "logo");
       let img = document.createElement("img");
@@ -145,7 +170,7 @@
 <script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
 <script src="//unpkg.com/echarts/dist/echarts.min.js"></script>
 <script src="//unpkg.com/ve-charts@0.1.1/lib/ve-charts.min.js"></script>
-
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 </body>
 </html>
 
