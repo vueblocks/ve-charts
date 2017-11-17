@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="78" viewBox="0 0 80 78">
+    <defs>
+        <path id="b" d="M0 0h240v1962H0z"/>
+        <filter id="a" width="112.5%" height="101.5%" x="-6.2%" y="-.8%" filterUnits="objectBoundingBox">
+            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.51366668 0 0 0 0 0.555518121 0 0 0 0 0.634964923 0 0 0 0.220193614 0"/>
+        </filter>
+        <path id="c" d="M27 49.923c14.36 0 27-4.176 27-18.658C54 16.783 44.36 0 27 0S0 16.783 0 31.265s12.64 18.658 27 18.658z"/>
+        <radialGradient id="e" cx="51.202%" cy="46.882%" r="54.532%" fx="51.202%" fy="46.882%" gradientTransform="matrix(0 .99152 -1 0 .98 -.039)">
+            <stop offset="0%"/>
+            <stop offset="75.335%"/>
+            <stop offset="91.866%" stop-color="#303032"/>
+            <stop offset="100%"/>
+        </radialGradient>
+        <path id="f" d="M30.75 13.111c1.282 0 3.25-.734 3.25-1.398C34 9.054 32.496 0 30.75 0S27.5 9.536 27.5 11.713c0 .664 1.968 1.398 3.25 1.398z"/>
+        <path id="g" d="M1.268 3.682l4.446-.4a.5.5 0 0 0 .273-.112L9.517.264a.5.5 0 0 1 .643.006l3.865 3.3a.25.25 0 0 0 .261.04l1.939-.841a.5.5 0 0 1 .238-.04l4.737.377a.3.3 0 0 1 .032.594l-3.66.686a.5.5 0 0 0-.166.063l-3.502 2.105a.5.5 0 0 1-.552-.024L9.98 4.07a.25.25 0 0 0-.284-.008l-2.29 1.496a.5.5 0 0 1-.387.068L1.227 4.273a.3.3 0 0 1 .04-.59z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(-80 -16)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#FFF" xlink:href="#b"/>
+        </g>
+        <g transform="translate(13 17.077)">
+            <mask id="d" fill="#fff">
+                <use xlink:href="#c"/>
+            </mask>
+            <use fill="#3B79EB" xlink:href="#c"/>
+            <path stroke="#121E2F" stroke-width="2" d="M27 50.923c-17.534 0-28-6.029-28-19.658C-1 14.21 10.599-1 27-1s28 15.21 28 32.265c0 13.63-10.466 19.658-28 19.658z"/>
+            <path fill="#0F49B3" d="M-.595 29.745c-.027.556-.041 1.11-.041 1.66C-.636 46.23 12.302 50.504 27 50.504c14.698 0 27.636-4.274 27.636-19.097 0-.55-.014-1.105-.04-1.66C53.791 43.427 41.218 47.428 27 47.428c-14.22 0-26.792-4-27.595-17.684z" mask="url(#d)"/>
+        </g>
+        <g transform="translate(16 25.65)">
+            <path fill="#0F49B3" d="M7.517 17.397c-.011.251-.017.503-.017.757 0 9.19 7.387 16.64 16.5 16.64s16.5-7.45 16.5-16.64c0-.254-.006-.506-.017-.757-.392 8.84-7.622 15.885-16.483 15.885S7.909 26.237 7.517 17.397z"/>
+            <ellipse cx="24" cy="16.641" fill="#FFF" rx="16.5" ry="16.641"/>
+            <ellipse cx="42.962" cy="27.919" fill="#E78F7F" rx="4.25" ry="2.269" style="mix-blend-mode:screen" transform="rotate(-6 42.962 27.919)"/>
+            <ellipse cx="5.462" cy="27.919" fill="#F38E82" rx="4.25" ry="2.269" style="mix-blend-mode:screen" transform="scale(-1 1) rotate(-6 0 132.138)"/>
+            <ellipse cx="24" cy="16.137" fill="url(#e)" rx="11" ry="11.094"/>
+            <ellipse cx="24" cy="16.137" fill="#2E396B" rx="6.5" ry="6.556"/>
+            <ellipse cx="28.25" cy="10.842" fill="#FFF" rx="2.25" ry="2.269"/>
+            <ellipse cx="19.75" cy="18.91" fill="#FED24A" fill-opacity=".3" rx="4.25" ry="4.286"/>
+        </g>
+        <g transform="translate(23 12.538)">
+            <path fill="#0F49B3" d="M27.002 11.598c-.063 1.816 1.132 2.745 3.588 2.789 2.553.045 3.85-.885 3.891-2.789h-7.479zM7.479 11.598c.064 1.816-1.132 2.745-3.588 2.789-2.553.045-3.85-.885-3.891-2.789h7.479z"/>
+            <path fill="#FED24A" stroke="#222100" d="M3.75 13.111c-1.282 0-3.25-.734-3.25-1.398C.5 9.054 2.004 0 3.75 0S7 9.536 7 11.713c0 .664-1.968 1.398-3.25 1.398z"/>
+            <use fill="#FED24A" stroke="#222100" xlink:href="#f"/>
+        </g>
+        <g transform="translate(29 7)">
+            <mask id="h" fill="#fff">
+                <use xlink:href="#g"/>
+            </mask>
+            <use fill="#FED24A" transform="matrix(-1 0 0 1 22.471 0)" xlink:href="#g"/>
+            <path fill="#FED24A" d="M.873 3.319l4.711.527 2.94 1.374 4.145-2.954 3.28 2.167 5.687-.44.321.44-7.02 1.964-6.413.57-4.983-.57C1.792 5.457.903 4.971.873 4.94c-.03-.03-.277-.395-.742-1.094l.742-.527z" mask="url(#h)" style="mix-blend-mode:multiply"/>
+        </g>
+    </g>
+</svg>
