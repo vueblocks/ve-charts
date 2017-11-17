@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import VeCharts from '../lib/ve-charts.min'
+import VeCharts from '../src/index'
+import 'normalize.css'
 import '../lib/ve-charts.min.css'
 
 Vue.use(VeCharts)
