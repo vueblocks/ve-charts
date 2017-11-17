@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ve-charts - ECharts 3.x for Vue.js 2.x.</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="description" content="ECharts 3.x for Vue.js 2.x.">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="_media/favicon.ico" mce_href="_media/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"/>
+  <!-- inject css file -->
+  <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css"/>
+  <link rel="stylesheet" href="//unpkg.com/ve-charts@0.1.1/lib/ve-charts.min.css"/>
+</head>
+<style>
+  @font-face {
+    font-family: PangMenZhengDao;
+    src: url('./_media/PangMenZhengDao.TTF');
+  }
+
+  section.cover.show {
+    background-image: url(./_media/bg.jpg) !important;
+    background-size: cover !important;
+  }
+
+  aside.sidebar {
+    width: 240px;
+    box-shadow: 0 0 10px 0 rgba(131, 142, 162, 0.22);
+  }
+
+  aside.sidebar > h1 {
+    height: 102px;
+    visibility: hidden;
+  }
+
+  aside.sidebar .logo {
+    width: 80px;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  aside.sidebar .logo > p {
+    margin: 0;
+    color: #0f49b3;
+    font-size: 18px;
+    font-family: "PangMenZhengDao";
+  }
+
+  aside.sidebar ul li {
+    margin: 0;
+    position: relative;
+  }
+
+  aside.sidebar ul li p {
+    padding-left: 87px;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  aside.sidebar ul li a {
+    height: 42px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #7285a1;
+    padding: 3px 0 3px 87px;
+  }
+
+  aside.sidebar ul:first-child > li:first-child > p {
+    background: url(./_media/sidebar1.svg) no-repeat 48px;
+  }
+
+  aside.sidebar ul:first-child > li:nth-child(2) > p {
+    background: url(./_media/sidebar2.svg) no-repeat 48px;
+  }
+
+  aside.sidebar ul:first-child > li:nth-child(3) > p {
+    background: url(./_media/sidebar3.svg) no-repeat 48px;
+  }
+
+  aside.sidebar ul li.active > a {
+    border: 0;
+    color: #3d78e8;
+    border-left: 4px solid;
+    background-color: rgba(61, 120, 232, 0.05);
+  }
+
+  aside.sidebar ul li.active > a:before {
+    content: '';
+    position: absolute;
+    margin: 0;
+    width: 10px;
+    height: 10px;
+    top: 15px;
+    left: 56px;
+    border-radius: 50%;
+    background-color: #fed24a;
+    box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
+  }
+</style>
+<body>
+<!--<nav>-->
+<!--<a href="#">Home</a>-->
+<!--<a href="#">Documentation</a>-->
+<!--</nav>-->
+<div id="app"></div>
+<script>
+  window.$docsify = {
+    name: 've-charts',
+    repo: 'xiaoluoboding/ve-charts',  // connect to github
+    loadSidebar: true,
+    coverpage: true,
+    themeColor: '#3c78eb',
+    homepage: 'base-quickstart.md',
+    mergeNavbar: true   // 小屏设备下合并导航栏到侧边栏
+  }
+
+  // remove sidebar's title and add my logo
+  let interval = setInterval(function () {
+    if (document.getElementsByTagName("aside")[0]) {
+      let parent = document.getElementsByTagName("aside")[0];
+      parent.removeChild(parent.getElementsByTagName("h1")[0]);
+//    <div style="width: 80px;margin: auto;text-align: center;">
+//      <img src="./_media/icon.svg">
+//      <p style="color: #0f49b3;font-size: 18px;margin: 0 0 10px 0;font-family:'PangMenZhengDao';">
+//      ve<span style="color:#fed24a">-</span>charts
+//      </p>
+//    </div>
+      let div = document.createElement("div");
+      div.setAttribute("class", "logo");
+      let img = document.createElement("img");
+      img.setAttribute("src", "./_media/icon.svg");
+      let p = document.createElement("p");
+      p.innerHTML = "ve<span style='color:#fed24a'>-</span>charts";
+      div.appendChild(img);
+      div.appendChild(p);
+      parent.prepend(div);
+      clearInterval(interval);
+    }
+  }, 0);
+</script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<!-- inject js file -->
+<script src="//unpkg.com/vue/dist/vue.min.js"></script>
+<script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
+<script src="//unpkg.com/echarts/dist/echarts.min.js"></script>
+<script src="//unpkg.com/ve-charts@0.1.1/lib/ve-charts.min.js"></script>
+
+</body>
+</html>
+
+
