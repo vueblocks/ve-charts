@@ -69,7 +69,7 @@ export default {
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
 
-      const options = this.chartHandler(data, this.settings, extra)
+      const options = this.chartHandler(data, cloneDeep(this.settings), extra)
 
       if (options) {
         if (typeof options.then === 'function') {
@@ -85,9 +85,10 @@ export default {
       if (this.legendPosition && options.legend) {
         const position = this.legendPosition.split('-').shift()
         options.legend.left = this.legendPosition.split('-').pop()
-        if (~['top'].indexOf(position)) options.legend.top = 0
-        if (~['bottom'].indexOf(position)) options.legend.bottom = 0
+        if (['top'].indexOf(position) !== -1) options.legend.top = 0
+        if (['bottom'].indexOf(position) !== -1) options.legend.bottom = 0
       }
+      if (this.colors) options.color = this.colors
       const echartsSettings = [
         'grid', 'dataZoom', 'visualMap', 'toolbox', 'title', 'legend',
         'xAxis', 'yAxis', 'radar', 'tooltip', 'axisPointer', 'brush',
