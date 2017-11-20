@@ -1,0 +1,127 @@
+@font-face {
+  font-family: PangMenZhengDao;
+  src: url('./_media/PangMenZhengDao.TTF');
+}
+
+iframe {
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+}
+
+iframe:focus {
+  box-shadow: 0 0 6px 0 rgba(131, 142, 162, 0.22);
+}
+
+section.cover.show {
+  background-image: url(./_media/bg.jpg) !important;
+  background-size: cover !important;
+}
+
+aside.sidebar {
+  width: 240px;
+  box-shadow: 0 0 10px 0 rgba(131, 142, 162, 0.22);
+}
+
+aside.sidebar > h1 {
+  height: 102px;
+  visibility: hidden;
+}
+
+aside.sidebar .logo {
+  width: 80px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+aside.sidebar .logo > p {
+  margin: 0;
+  color: #0f49b3;
+  font-size: 18px;
+  font-family: PangMenZhengDao;
+}
+
+aside.sidebar ul li {
+  margin: 0;
+  position: relative;
+}
+
+aside.sidebar ul li p {
+  padding-left: 87px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+aside.sidebar ul li a {
+  height: 42px;
+  line-height: 36px;
+  font-size: 14px;
+  color: #7285a1;
+  padding: 3px 0 3px 87px;
+}
+
+aside.sidebar ul:first-child > li:first-child > p {
+  background: url(./_media/sidebar1.svg) no-repeat 48px;
+}
+
+aside.sidebar ul:first-child > li:nth-child(2) > p {
+  background: url(./_media/sidebar2.svg) no-repeat 48px;
+}
+
+aside.sidebar ul:first-child > li:nth-child(3) > p {
+  background: url(./_media/sidebar3.svg) no-repeat 48px;
+}
+
+aside.sidebar ul li.active > a {
+  border: 0;
+  color: #3d78e8;
+  border-left: 4px solid;
+  background-color: rgba(61, 120, 232, 0.05);
+}
+
+aside.sidebar ul li.active > a:before {
+  content: '';
+  position: absolute;
+  margin: 0;
+  width: 10px;
+  height: 10px;
+  top: 15px;
+  left: 56px;
+  border-radius: 50%;
+  background-color: #fed24a;
+  box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
+}
+
+section .headbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+  line-height: 56px;
+  padding: 0 10px;
+  margin-bottom: 56px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 6px 0 rgba(131, 142, 162, 0.22);
+}
+
+section .headbar > div {
+  display: flex;
+}
+
+section .headbar > div > span {
+  padding-left: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #35495e;
+}
+
+.vuep-editor, .vuep-preview, .vuep-error {
+  margin: 0;
+}
+
+/*.echarts, .echarts-empty-data {*/
+  /*width: auto;*/
+  /*height: 340px;*/
+  /*position: relative;*/
+/*}*/
