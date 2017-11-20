@@ -2,29 +2,24 @@
 
 ## 示例
 
-<iframe width="100%" height="450" src="//jsfiddle.net/xiaoluoboding/hryjek7j/15/embedded/result,resources,html,js,css/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="450" src="//jsfiddle.net/xiaoluoboding/hryjek7j/15/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-### 条形轴配置双y轴
+### 双y轴
 
-<vuep template="#double-yAxis"></vuep>
+<vuep template="#twoYaxis"></vuep>
 
-<script v-pre type="text/x-template" id="double-yAxis">
+<script v-pre type="text/x-template" id="twoYaxis">
 <template>
-<div id="app">
-  <div class="charts-content">
-    <ve-bar-chart :data="data" :title="title" />
-  </div>
-</div>
+  <ve-bar-chart :data="chartData" />
 </template>
 
 <script>
-new Vue({
-	components: {
-  	VeBarChart: window['ve-charts'].default.VeBarChart
-	},
-  data() {
-    return {
-      data: {
+ module.exports = {
+    components: {
+    	VeBarChart: window['ve-charts'].default.VeBarChart
+  	},
+    created: function() {
+      this.chartData = {
         dimension: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
         measure: [{
           name: '蒸发量',
@@ -33,13 +28,9 @@ new Vue({
           name: '降水量',
           data: [2.6, 5.9, 9, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6, 2.3]
         }]
-      },
-      title: {
-        text: 'ECharts 柱形图示例'
       }
     }
   }
-}).$mount('#app')
 </script>
 </script>
 
@@ -50,4 +41,4 @@ new Vue({
 | --- | --- | --- | --- |
 | --- | --- | --- | --- |
 
-> 111
+> Tip:
