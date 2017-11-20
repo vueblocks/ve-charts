@@ -7,13 +7,13 @@
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data==null" />
+      <empty-data v-if="data===null" />
     </slot>
   </div>
 </template>
 
 <script>
-  import Core from '../../Core'
+  import Core from '../..//mixins/Core'
   import { options } from '../../base-options'
   import { gauge } from './chartHandler'
 

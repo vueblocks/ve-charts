@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import Core from '../../Core'
+  import Core from '../..//mixins/Core'
   import { options } from '../../base-options'
   import { treemap } from './chartHandler'
 

@@ -22,10 +22,15 @@ export const itemPoint = (color) => {
   ].join('')
 }
 
+// export const color = [
+//   '#E57373', '#64B5F6', '#AED581', '#FF8A65',
+//   '#4DB6AC', '#FFD54F', '#81C784', '#FFB74D',
+//   '#F06292', '#4FC3F7', '#DCE775', '#A1887F'
+// ]
+
 export const color = [
-  '#E57373', '#64B5F6', '#AED581', '#FF8A65',
-  '#F06292', '#4FC3F7', '#DCE775', '#A1887F',
-  '#4DB6AC', '#FFD54F', '#81C784', '#FFB74D'
+  '#5282e4', '#40b17e', '#ffd600', '#f88d48', '#2ebce2',
+  '#f35352', '#ce62d6', '#8954d4', '#5257b8', '#d42d6b'
 ]
 
 export const treemapLevels = [{
