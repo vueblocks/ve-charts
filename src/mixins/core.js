@@ -1,11 +1,13 @@
 import { cloneDeep } from 'lodash'
-import { getType } from './utils'
-import EmptyData from './components/EmptyData'
+
+import { getType } from '../utils'
+import { color } from '../base-options'
+import EmptyData from '../components/EmptyData'
 
 export default {
   props: {
-    data: { type: [Object, Array], default () { return {} } },
-    settings: { type: Object, default () { return {} } },
+    data: { type: [Object, Array], default() { return {} } },
+    settings: { type: Object, default() { return {} } },
     beforeConfig: { type: Function },
     afterConfig: { type: Function },
     afterSetOption: { type: Function },
@@ -22,7 +24,7 @@ export default {
     visualMap: { type: [Object, Array] },
     dataZoom: { type: [Object, Array] },
     toolbox: { type: Object },
-    initOptions: { type: Object, default () { return {} } },
+    initOptions: { type: Object, default() { return {} } },
     title: Object,
     legend: Object,
     xAxis: Object,
@@ -38,10 +40,16 @@ export default {
     backgroundColor: [Object, String],
     textStyle: Object,
     animation: Object,
-    // theme: { type: String, default () { return 'default' } },
-    theme: String,
+    theme: Object,
+    themeName: { type: String, default() { return 'default' } },
     loading: Boolean,
     dataEmpty: Boolean
+  },
+
+  computed: {
+    chartColor() {
+      return this.colors || (this.theme && this.theme.color) || color
+    }
   },
 
   watch: {
@@ -81,6 +89,8 @@ export default {
     },
 
     optionsHandler (options) {
+      // const themeName = this.themeName || (this.theme ? 'custom-theme' : 've-charts')
+      options.color = this.chartColor
       // handle legend
       if (this.legendPosition && options.legend) {
         const position = this.legendPosition.split('-').shift()
@@ -88,7 +98,6 @@ export default {
         if (['top'].indexOf(position) !== -1) options.legend.top = 0
         if (['bottom'].indexOf(position) !== -1) options.legend.bottom = 0
       }
-      if (this.colors) options.color = this.colors
       const echartsSettings = [
         'grid', 'dataZoom', 'visualMap', 'toolbox', 'title', 'legend',
         'xAxis', 'yAxis', 'radar', 'tooltip', 'axisPointer', 'brush',
