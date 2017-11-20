@@ -147,3 +147,9 @@ aside.sidebar ul li.active > a:before {
   background-color: #fed24a;
   box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
 }
+
+section.content .vuep-preview {
+  position: relative;
+  width: 50%;
+  height: 400px;
+}
