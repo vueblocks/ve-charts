@@ -69,7 +69,7 @@ export default {
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
 
-      const options = this.chartHandler(data, this.settings, extra)
+      const options = this.chartHandler(data, cloneDeep(this.settings), extra)
 
       if (options) {
         if (typeof options.then === 'function') {
