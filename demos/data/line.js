@@ -10,11 +10,11 @@ const baseData = {
 }
 
 export default {
-  name: '柱形图',
-  type: 'bar',
+  name: '折线图',
+  type: 'line',
   chartData: [
     {
-      title: '简单柱形图',
+      title: '简单折线图',
       data: baseData,
       settings: {}
     },

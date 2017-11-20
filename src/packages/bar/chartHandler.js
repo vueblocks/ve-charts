@@ -69,35 +69,35 @@ function getBarMeaAxis (args) {
 }
 
 // build label
-// function getLabel(args, isBar) {
-//   const {
-//     showLabel,
-//     labelFontFamily = 'sans-serif',
-//     labelFontSize = '12',
-//     labelFontWeight = 'normal',
-//     labelColor = 'auto',
-//     labelPosition
-//   } = args
-//   const defaultPosition = isBar ? 'top' : 'right'
-//   const position = labelPosition === 'auto' ? defaultPosition : labelPosition
-//   return {
-//     normal: {
-//       show: showLabel,
-//       position,
-//       fontFamily: labelFontFamily,
-//       fontSize: labelFontSize,
-//       fontWeight: labelFontWeight,
-//       color: labelColor
-//     }
-//   }
-// }
+function getLabel(args, isBar) {
+  const {
+    showLabel,
+    labelFontFamily = 'sans-serif',
+    labelFontSize = '12',
+    labelFontWeight = 'normal',
+    labelColor = 'auto',
+    labelPosition
+  } = args
+  const defaultPosition = isBar ? 'top' : 'right'
+  const position = labelPosition === 'auto' ? defaultPosition : labelPosition
+  return {
+    normal: {
+      show: showLabel,
+      position,
+      fontFamily: labelFontFamily,
+      fontSize: labelFontSize,
+      fontWeight: labelFontWeight,
+      color: labelColor
+    }
+  }
+}
 
 function getBarSeries(args) {
   const {
     data,
     isBar,
     showLine = [],
-    // labelStyle = {},
+    labelStyle = {},
     connect
   } = args
   const { measure } = data
@@ -116,10 +116,9 @@ function getBarSeries(args) {
         index: i,
         type,
         connect
-      })
+      }),
+      label: getLabel(labelStyle, isBar)
     }
-
-    // const labelObj = labelStyle ? getLabel(labelStyle, isBar) : {}
 
     series.push(seriesItem)
   })
