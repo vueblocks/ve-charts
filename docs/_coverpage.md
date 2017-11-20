@@ -15,7 +15,8 @@
   <li>在线修改静态HTML文件</li>
 </ul>
 
-
+<!-- [GitHub](#) -->
+[Get Started](base-quickstart.md)
 <!-- <p> -->
   <!-- <img src="/_media/icon.svg" data-origin="_media/icon.svg" alt="logo"> -->
 <!-- </p> -->
@@ -30,5 +31,4 @@
 <!-- <li>简单而轻便</li> -->
 <!-- <li>在线修改静态HTML文件</li> -->
 <!-- </ul> -->
- <!--[GitHub](#) -->
- <!--[Get Started](base-quickstart.md) -->
+
