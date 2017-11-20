@@ -24,6 +24,60 @@
     background-size: cover !important;
   }
 
+  section.cover .cover-main > p:last-child a:last-child {
+    padding: 0;
+    width: 1.8em;
+    height: 3em;
+    border: 0.2em solid #fff;
+    background-color: transparent;
+  }
+
+  section.cover .cover-main > p:last-child a:last-child:hover {
+    background-color: #fff;
+  }
+
+  @keyframes line-repetition {
+    from {
+      top: 0;
+      opacity: 1;
+    }
+    to {
+      top: 1em;
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes line-repetition /*Safari and Chrome*/
+  {
+    from {
+      top: 0;
+      opacity: 1;
+    }
+    to {
+      top: 1em;
+      opacity: 0;
+    }
+  }
+
+  section.cover .cover-main > p:last-child a:last-child > span {
+    color: #fed24a;
+    position: relative;
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 0.1em solid;
+    border-bottom: 0.1em solid;
+    display: inline-block;
+    transform: rotate(45deg);
+    -webkit-animation-name: line-repetition;
+    animation-name: line-repetition;
+    animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.37, 0.16, 0.12, 1);
+    -webkit-animation-timing-function: cubic-bezier(0.37, 0.16, 0.12, 1);
+  }
+
   aside.sidebar {
     width: 240px;
     box-shadow: 0 0 10px 0 rgba(131, 142, 162, 0.22);

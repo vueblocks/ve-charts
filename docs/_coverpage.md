@@ -15,20 +15,13 @@
   <li>在线修改静态HTML文件</li>
 </ul>
 
+<p>
+  <a href="#/base-quickstart">
+    <span class="arrow"></span>
+  </a>
+</p>
+
 <!-- [GitHub](#) -->
-[Get Started](base-quickstart.md)
-<!-- <p> -->
-  <!-- <img src="/_media/icon.svg" data-origin="_media/icon.svg" alt="logo"> -->
-<!-- </p> -->
+<!-- [Get Started](base-quickstart.md) -->
 
-<!-- <h1>ve-charts</h1> -->
-
-<!-- <blockquote> -->
-  <!-- <p>DPD-数据产品研发部前端组件库</p> -->
-<!-- </blockquote> -->
-
-<!-- <ul> -->
-<!-- <li>简单而轻便</li> -->
-<!-- <li>在线修改静态HTML文件</li> -->
-<!-- </ul> -->
 
