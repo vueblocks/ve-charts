@@ -12,146 +12,8 @@
   <!-- inject css file -->
   <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css"/>
   <link rel="stylesheet" href="//unpkg.com/ve-charts@0.1.1/lib/ve-charts.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
-<style>
-  @font-face {
-    font-family: PangMenZhengDao;
-    src: url('./_media/PangMenZhengDao.TTF');
-  }
-
-  section.cover.show {
-    background-image: url(./_media/bg.jpg) !important;
-    background-size: cover !important;
-  }
-
-  section.cover .cover-main > p:last-child a:last-child {
-    padding: 0;
-    width: 1.8em;
-    height: 3em;
-    border: 0.2em solid #fff;
-    background-color: transparent;
-  }
-
-  section.cover .cover-main > p:last-child a:last-child:hover {
-    background-color: #fff;
-  }
-
-  @keyframes line-repetition {
-    from {
-      top: 0;
-      opacity: 1;
-    }
-    to {
-      top: 1em;
-      opacity: 0;
-    }
-  }
-
-  @-webkit-keyframes line-repetition /*Safari and Chrome*/
-  {
-    from {
-      top: 0;
-      opacity: 1;
-    }
-    to {
-      top: 1em;
-      opacity: 0;
-    }
-  }
-
-  section.cover .cover-main > p:last-child a:last-child > span {
-    color: #fed24a;
-    position: relative;
-    width: 0.5em;
-    height: 0.5em;
-    border-right: 0.1em solid;
-    border-bottom: 0.1em solid;
-    display: inline-block;
-    transform: rotate(45deg);
-    -webkit-animation-name: line-repetition;
-    animation-name: line-repetition;
-    animation-duration: 2s;
-    -webkit-animation-duration: 2s;
-    animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(0.37, 0.16, 0.12, 1);
-    -webkit-animation-timing-function: cubic-bezier(0.37, 0.16, 0.12, 1);
-  }
-
-  aside.sidebar {
-    width: 240px;
-    box-shadow: 0 0 10px 0 rgba(131, 142, 162, 0.22);
-  }
-
-  aside.sidebar > h1 {
-    height: 102px;
-    visibility: hidden;
-  }
-
-  aside.sidebar .logo {
-    width: 80px;
-    margin: 10px auto;
-    text-align: center;
-  }
-
-  aside.sidebar .logo > p {
-    margin: 0;
-    color: #0f49b3;
-    font-size: 18px;
-    font-family: "PangMenZhengDao";
-  }
-
-  aside.sidebar ul li {
-    margin: 0;
-    position: relative;
-  }
-
-  aside.sidebar ul li p {
-    padding-left: 87px;
-    font-size: 18px;
-    font-weight: normal;
-  }
-
-  aside.sidebar ul li a {
-    height: 42px;
-    line-height: 36px;
-    font-size: 14px;
-    color: #7285a1;
-    padding: 3px 0 3px 87px;
-  }
-
-  aside.sidebar ul:first-child > li:first-child > p {
-    background: url(./_media/sidebar1.svg) no-repeat 48px;
-  }
-
-  aside.sidebar ul:first-child > li:nth-child(2) > p {
-    background: url(./_media/sidebar2.svg) no-repeat 48px;
-  }
-
-  aside.sidebar ul:first-child > li:nth-child(3) > p {
-    background: url(./_media/sidebar3.svg) no-repeat 48px;
-  }
-
-  aside.sidebar ul li.active > a {
-    border: 0;
-    color: #3d78e8;
-    border-left: 4px solid;
-    background-color: rgba(61, 120, 232, 0.05);
-  }
-
-  aside.sidebar ul li.active > a:before {
-    content: '';
-    position: absolute;
-    margin: 0;
-    width: 10px;
-    height: 10px;
-    top: 15px;
-    left: 56px;
-    border-radius: 50%;
-    background-color: #fed24a;
-    box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
-  }
-</style>
 <body>
 <!--<nav>-->
 <!--<a href="#">Home</a>-->
@@ -166,8 +28,21 @@
     coverpage: true,
     themeColor: '#3c78eb',
     homepage: 'base-quickstart.md',
+    search: {
+      maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      paths: [], // or 'auto'
+      placeholder: {
+        '/': '搜索',
+        '/en': 'Type to search'
+      },
+      noData: {
+        '/': '找不到结果',
+        '/en': 'No Results'
+      },
+      depth: 2
+    },
     mergeNavbar: true   // 小屏设备下合并导航栏到侧边栏
-  }
+  };
 
   // remove sidebar's title and add my logo
   let interval = setInterval(function () {
@@ -199,6 +74,7 @@
 <script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
 <script src="//unpkg.com/echarts/dist/echarts.min.js"></script>
 <script src="//unpkg.com/ve-charts@0.1.1/lib/ve-charts.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 
 </body>
 </html>

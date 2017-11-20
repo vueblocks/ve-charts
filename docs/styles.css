@@ -3,19 +3,75 @@
   src: url('./_media/PangMenZhengDao.TTF');
 }
 
-iframe {
-  border-radius: 4px;
-  background-color: #fff;
-  border: solid 1px #ebebeb;
-}
-
-iframe:focus {
-  box-shadow: 0 0 6px 0 rgba(131, 142, 162, 0.22);
+.search {
+  margin: 0 2.2em 1em !important;
+  padding: 0 !important;
 }
 
 section.cover.show {
   background-image: url(./_media/bg.jpg) !important;
   background-size: cover !important;
+}
+
+section.cover .cover-main > p:last-child {
+  position: fixed;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+}
+
+section.cover .cover-main > p:last-child a:last-child {
+  padding: 0;
+  width: 1.8em;
+  height: 3em;
+  border: 0.2em solid #fff;
+  background-color: transparent;
+}
+
+section.cover .cover-main > p:last-child a:last-child:hover {
+  background-color: #fff;
+}
+
+@keyframes line-repetition {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: 1em;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes line-repetition /*Safari and Chrome*/
+{
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: 1em;
+    opacity: 0;
+  }
+}
+
+section.cover .cover-main > p:last-child a:last-child > span {
+  color: #fed24a;
+  position: relative;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 0.1em solid;
+  border-bottom: 0.1em solid;
+  display: inline-block;
+  transform: rotate(45deg);
+  -webkit-animation-name: line-repetition;
+  animation-name: line-repetition;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.37, 0.16, 0.12, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.37, 0.16, 0.12, 1);
 }
 
 aside.sidebar {
@@ -38,7 +94,7 @@ aside.sidebar .logo > p {
   margin: 0;
   color: #0f49b3;
   font-size: 18px;
-  font-family: PangMenZhengDao;
+  font-family: "PangMenZhengDao";
 }
 
 aside.sidebar ul li {
@@ -91,37 +147,3 @@ aside.sidebar ul li.active > a:before {
   background-color: #fed24a;
   box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
 }
-
-section .headbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  height: 56px;
-  line-height: 56px;
-  padding: 0 10px;
-  margin-bottom: 56px;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: 0 0 6px 0 rgba(131, 142, 162, 0.22);
-}
-
-section .headbar > div {
-  display: flex;
-}
-
-section .headbar > div > span {
-  padding-left: 5px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #35495e;
-}
-
-.vuep-editor, .vuep-preview, .vuep-error {
-  margin: 0;
-}
-
-/*.echarts, .echarts-empty-data {*/
-  /*width: auto;*/
-  /*height: 340px;*/
-  /*position: relative;*/
-/*}*/
