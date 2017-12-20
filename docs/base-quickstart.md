@@ -20,11 +20,11 @@
 ## npm安装
 
 ```bash
-npm i ...
+npm i ve-charts -S
 ```
 
 ## 示例
 
-<iframe width="100%" height="450" src="//jsfiddle.net/xiaoluoboding/hryjek7j/15/embedded/result,resources,html,js,css/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="450" src="//jsfiddle.net/xiaoluoboding/hryjek7j/18/embedded/result,resources,html,js,css/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 

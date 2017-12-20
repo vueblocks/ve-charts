@@ -12,7 +12,8 @@
     "bundle": "node build/bundle.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "docs": "docsify serve docs"
   },
   "dependencies": {
     "echarts": "^3.7.2",
