@@ -18,5 +18,5 @@
   - [矩形树图](chart-treemap.md)
 
 - 其他
- - [事件监听]()
- - [图表切换]()
+ - [事件监听](help-event.md)
+ - [图表切换](help-changeChart.md)

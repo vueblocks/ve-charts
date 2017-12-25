@@ -7,12 +7,12 @@
 </h1>
 
 <blockquote>
-  <p style="color:#fff;">DPD-数据产品研发部前端组件库</p>
+  <p style="color:#fff;">ECharts 3.x for Vue.js 2.x.</p>
 </blockquote>
 
 <ul style="color:#fff">
-  <li>简单而轻便</li>
-  <li>在线修改静态HTML文件</li>
+  <li>`VeCharts` 是基于 `Vue2.x` 与 `Echarts3.x` 构建封装的组件库</li>
+  <li>提供高可配置化、简捷、高效地构建图表组件化方案</li>
 </ul>
 
 <p>

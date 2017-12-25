@@ -32,6 +32,11 @@ section.cover .cover-main > p:last-child a:last-child:hover {
   background-color: #fff;
 }
 
+section.cover .cover-main > ul > li > code {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
 @keyframes line-repetition {
   from {
     top: 0;
