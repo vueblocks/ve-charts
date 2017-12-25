@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
   .chart-content {
     .chart-item {
       display: flex;
@@ -73,16 +73,16 @@ export default {
         flex: 1;
         width: 60%;
         margin: 0 auto;
-        .chart-demo {
-          position: relative;
-          width: auto;
-          height: calc(~'400px - 18px');
-        }
       }
       .right-section {
         margin-left: 20px;
         width: 40%;
       }
+    }
+  }
+  .chart-demo {
+    .echarts {
+      width: auto;
     }
   }
 </style>
