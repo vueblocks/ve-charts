@@ -4,8 +4,20 @@
 }
 
 .search {
-  margin: 0 2.2em 1em !important;
+  margin: 0 2em 1em !important;
   padding: 0 !important;
+  border-bottom: 1px solid #d8d8d8 !important;
+}
+
+.search input {
+  padding: 0.4em 1.5em !important;
+  background: url(./_media/search.svg) no-repeat 24px;
+  background-position: right;
+}
+
+.search input:focus {
+  background: url(./_media/search-focus.svg) no-repeat 24px;
+  background-position: right;
 }
 
 section.cover.show {
