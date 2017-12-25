@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "0.1.1",
+  "version": "0.1.6",
   "description": "ECharts 3.x for Vue.js 2.x.",
   "main": "lib/ve-charts.min.js",
   "unpkg": "lib/ve-charts.min.js",
@@ -12,7 +12,8 @@
     "bundle": "node build/bundle.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "docs": "docsify serve docs"
   },
   "dependencies": {
     "echarts": "^3.7.2",

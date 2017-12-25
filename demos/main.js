@@ -6,7 +6,6 @@ import router from './router'
 
 import VeCharts from '../src/index'
 import 'normalize.css'
-import '../lib/ve-charts.min.css'
 
 Vue.use(VeCharts)
 
