@@ -16,6 +16,7 @@
   import Core from '../../mixins/Core'
   import { options } from '../../base-options'
   import { bar } from './chartHandler'
+  import 'echarts/lib/chart/bar'
 
   import BaseEcharts from '../../components/BaseEcharts'
 

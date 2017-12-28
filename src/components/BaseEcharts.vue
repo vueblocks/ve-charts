@@ -3,10 +3,14 @@
 </template>
 
 <script>
-// import echarts from 'echarts/lib/echarts'
-import echarts from 'echarts'
+import echarts from 'echarts/lib/echarts'
+// import echarts from 'echarts'
 import { debounce } from 'lodash'
 import Vue from 'vue'
+// default echarts's component in VeCharts
+import 'echarts/lib/component/title'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/legend'
 // enumerating ECharts events for now
 const ACTION_EVENTS = [
   'legendselectchanged',
@@ -235,7 +239,7 @@ export default {
 
 <style>
 .echarts {
-  width: 600px;
+  width: auto;
   height: 400px;
 }
 </style>
