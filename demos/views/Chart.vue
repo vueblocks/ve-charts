@@ -80,11 +80,6 @@ export default {
       }
     }
   }
-  .chart-demo {
-    .echarts {
-      width: auto;
-    }
-  }
 </style>
 
 
