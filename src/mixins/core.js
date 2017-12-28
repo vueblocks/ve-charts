@@ -8,38 +8,34 @@ export default {
   props: {
     data: { type: [Object, Array], default() { return {} } },
     settings: { type: Object, default() { return {} } },
-    beforeConfig: { type: Function },
-    afterConfig: { type: Function },
-    afterSetOption: { type: Function },
-    afterSetOptionOnce: { type: Function },
-    events: { type: Object },
-    grid: { type: Object },
-    colors: { type: Array },
-    tooltipVisible: { type: Boolean, default: true },
-    legendVisible: { type: Boolean, default: true },
-    legendPosition: { type: String },
-    markLine: { type: Object },
-    markArea: { type: Object },
-    markPoint: { type: Object },
-    visualMap: { type: [Object, Array] },
-    dataZoom: { type: [Object, Array] },
-    toolbox: { type: Object },
-    initOptions: { type: Object, default() { return {} } },
+    // echarts default options
     title: Object,
     legend: Object,
+    grid: Object,
     xAxis: Object,
     yAxis: Object,
-    radar: Object,
+    dataZoom: { type: [Object, Array] },
+    visualMap: { type: [Object, Array] },
     tooltip: Object,
     axisPointer: Object,
+    toolbox: { type: Object },
     brush: Object,
     geo: Object,
     timeline: Object,
     graphic: Object,
     series: [Object, Array],
+    color: Array,
     backgroundColor: [Object, String],
     textStyle: Object,
     animation: Object,
+    // ve-charts custom props
+    beforeConfig: { type: Function },
+    afterConfig: { type: Function },
+    afterSetOption: { type: Function },
+    afterSetOptionOnce: { type: Function },
+    tooltipVisible: { type: Boolean, default: true },
+    legendVisible: { type: Boolean, default: true },
+    legendPosition: { type: String },
     theme: Object,
     themeName: { type: String, default() { return 'default' } },
     loading: Boolean,
@@ -48,7 +44,7 @@ export default {
 
   computed: {
     chartColor() {
-      return this.colors || (this.theme && this.theme.color) || color
+      return this.color || (this.theme && this.theme.color) || color
     }
   },
 

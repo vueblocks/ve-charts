@@ -16,6 +16,7 @@
   import Core from '../..//mixins/Core'
   import { options } from '../../base-options'
   import { line } from './chartHandler'
+  import 'echarts/lib/chart/line'
 
   import BaseEcharts from '../../components/BaseEcharts'
 
