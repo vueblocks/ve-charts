@@ -12,12 +12,12 @@ function getBarTooltip (args) {
 
 function getBarLegend (args) {
   const { data, settings } = args
-  const { measure } = data
+  const { measures } = data
   const { legendType, legendPadding } = settings
   return {
     type: legendType || 'plain',
     padding: legendPadding || 5,
-    data: measure.map(v => v.name)
+    data: measures.map(v => v.name)
   }
 }
 
@@ -34,7 +34,7 @@ function getBarDimAxis (args) {
       margin: 10,
       fontWeight: 400
     },
-    data: data.dimension
+    data: data.dimensions
   }
   const disAxis = []
   disAxis.push(axisItem)
@@ -100,12 +100,12 @@ function getBarSeries(args) {
     labelStyle = {},
     connect
   } = args
-  const { measure } = data
+  const { measures } = data
   const secondDimAxisIndex = isBar ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
   const dataIndex = connect ? connect.dataIndex : -1
 
-  measure.forEach((item, i) => {
+  measures.forEach((item, i) => {
     const { name, data } = item
     const type = showLine.includes(name) ? 'line' : 'bar'
     const seriesItem = {

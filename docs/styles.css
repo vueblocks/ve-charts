@@ -153,8 +153,23 @@ aside.sidebar ul li.active > a:before {
   box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
 }
 
+section.content .vuep-editor,
 section.content .vuep-preview {
   position: relative;
   width: 50%;
-  height: 400px;
+  height: 432px;
+}
+
+section.content .vuep-preview {
+  padding: 15px 25px;
+}
+
+section.content .markdown-section {
+  max-width: 1280px;
+  min-width: 960px;
+  padding: 0 60px 0 0;
+}
+
+.vuep {
+  height: 432px;
 }
