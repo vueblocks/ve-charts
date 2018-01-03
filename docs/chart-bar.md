@@ -2,7 +2,7 @@
 
 ## 示例
 
-<iframe width="100%" height="450" src="//jsfiddle.net/xiaoluoboding/hryjek7j/18/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="450" src="//jsfiddle.net/xiaoluoboding/hryjek7j/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ### 基础柱状图
 
@@ -20,13 +20,13 @@
   	},
     created: function() {
       this.chartData = {
-        dimensions: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
         measures: [{
-          name: '蒸发量',
-          data: [2, 4.9, 7, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20, 6.4, 3.3]
+          name: 'pv',
+          data: [256, 767, 1356, 2087, 803, 582, 432]
         }, {
-          name: '降水量',
-          data: [2.6, 5.9, 9, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6, 2.3]
+          name: 'uv',
+          data: [287, 707, 1756, 1822, 987, 432, 322]
         }]
       }
     }
@@ -34,8 +34,7 @@
 </script>
 </script>
 
-
-#### settings 配置项
+### settings 配置项
 
 | 配置项 | 简介 | 类型 | 备注 |
 | --- | --- | --- | --- |
