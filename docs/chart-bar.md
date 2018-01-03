@@ -4,11 +4,11 @@
 
 <iframe width="100%" height="450" src="//jsfiddle.net/xiaoluoboding/hryjek7j/18/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-### 双y轴
+### 基础柱状图
 
-<vuep template="#twoYaxis"></vuep>
+<vuep template="#basicBar"></vuep>
 
-<script v-pre type="text/x-template" id="twoYaxis">
+<script v-pre type="text/x-template" id="basicBar">
 <template>
   <ve-bar-chart :data="chartData" />
 </template>
@@ -20,8 +20,8 @@
   	},
     created: function() {
       this.chartData = {
-        dimension: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-        measure: [{
+        dimensions: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        measures: [{
           name: '蒸发量',
           data: [2, 4.9, 7, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20, 6.4, 3.3]
         }, {
