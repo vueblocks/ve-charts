@@ -41,7 +41,7 @@
 
 ### 映射 ECharts
 
-按照[柱状图示例]()，柱状图的 X 轴为维度，Y轴为度量。
+按照[柱状图示例](https://gammafe.github.io/ve-charts/#/chart-bar)，柱状图的 X 轴为维度，Y轴为度量。
 
 #### 维度
 
@@ -109,7 +109,7 @@ data: {
 
 ## 图表配置
 
-[柱状图配置]()
+[柱状图配置](https://gammafe.github.io/ve-charts/#/chart-bar)
 
 [条形图配置]()
 

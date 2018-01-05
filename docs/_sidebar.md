@@ -20,3 +20,4 @@
 - 其他
  - [事件监听](help-event.md)
  - [图表切换](help-changeChart.md)
+ - [更新日志](change-log.md)
