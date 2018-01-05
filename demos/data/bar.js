@@ -22,11 +22,22 @@ export default {
       title: '显示文本标签',
       data: baseData,
       settings: {
-        labelStyle: {
-          showLabel: true,
-          labelPosition: 'top',
-          labelFontSize: '12px',
-          labelFontWeight: 'bold'
+        label: {
+          show: true,
+          fontSize: '12px',
+          fontWeight: 'bold'
+        }
+      }
+    },
+    {
+      title: '堆叠柱状图',
+      data: baseData,
+      settings: {
+        stack: {
+          量级: [
+            '蒸发量',
+            '降水量'
+          ]
         }
       }
     }
