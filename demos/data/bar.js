@@ -10,11 +10,11 @@ const baseData = {
 }
 
 export default {
-  name: '柱形图',
+  name: '柱状图',
   type: 'bar',
   chartData: [
     {
-      title: '简单柱形图',
+      title: '简单柱状图',
       data: baseData,
       settings: {}
     },
@@ -22,11 +22,22 @@ export default {
       title: '显示文本标签',
       data: baseData,
       settings: {
-        labelStyle: {
-          showLabel: true,
-          labelPosition: 'top',
-          labelFontSize: '12px',
-          labelFontWeight: 'bold'
+        label: {
+          show: true,
+          fontSize: '12px',
+          fontWeight: 'bold'
+        }
+      }
+    },
+    {
+      title: '堆叠柱状图',
+      data: baseData,
+      settings: {
+        stack: {
+          量级: [
+            '蒸发量',
+            '降水量'
+          ]
         }
       }
     }

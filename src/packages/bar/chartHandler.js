@@ -1,4 +1,4 @@
-import { formatMeasure } from '../../utils'
+import { formatMeasure, getStackMap } from '../../utils'
 import { isUndefined } from 'lodash'
 
 function getBarTooltip (args) {
@@ -71,23 +71,21 @@ function getBarMeaAxis (args) {
 // build label
 function getLabel(args, isBar) {
   const {
-    showLabel,
-    labelFontFamily = 'sans-serif',
-    labelFontSize = '12',
-    labelFontWeight = 'normal',
-    labelColor = 'auto',
-    labelPosition
+    show,
+    fontFamily = 'sans-serif',
+    fontSize = '12',
+    fontWeight = 'normal',
+    color,
+    position = isBar ? 'top' : 'right'
   } = args
-  const defaultPosition = isBar ? 'top' : 'right'
-  const position = labelPosition === 'auto' ? defaultPosition : labelPosition
   return {
     normal: {
-      show: showLabel,
+      show,
       position,
-      fontFamily: labelFontFamily,
-      fontSize: labelFontSize,
-      fontWeight: labelFontWeight,
-      color: labelColor
+      fontFamily,
+      fontSize,
+      fontWeight,
+      color
     }
   }
 }
@@ -97,13 +95,15 @@ function getBarSeries(args) {
     data,
     isBar,
     showLine = [],
-    labelStyle = {},
-    connect
+    label = {},
+    connect,
+    stack
   } = args
   const { measures } = data
   const secondDimAxisIndex = isBar ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
   const dataIndex = connect ? connect.dataIndex : -1
+  const stackMap = stack && getStackMap(stack)
 
   measures.forEach((item, i) => {
     const { name, data } = item
@@ -117,11 +117,13 @@ function getBarSeries(args) {
         type,
         connect
       }),
-      label: getLabel(labelStyle, isBar)
+      label: getLabel(label, isBar),
+      stack: (stack && stackMap[name]) && stackMap[name]
     }
 
     series.push(seriesItem)
   })
+  // console.log(series)
   return series
 }
 
@@ -161,12 +163,13 @@ export const bar = (data, settings, extra, isBar = true) => {
   const { tooltipVisible, legendVisible } = extra
   const {
     showLine,
-    labelStyle,
+    label,
     yAxisType,
     yAxisName,
     xAxisType,
     xAxisName,
-    connect
+    connect,
+    stack = {}
   } = settings
 
   const defaultMeaAxisType = showLine ? ['normal', 'normal'] : ['normal']
@@ -187,9 +190,10 @@ export const bar = (data, settings, extra, isBar = true) => {
   const series = getBarSeries({
     data,
     showLine,
-    labelStyle,
+    label,
     isBar,
-    connect
+    connect,
+    stack
   })
 
   // build echarts options
