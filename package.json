@@ -16,8 +16,9 @@
     "docs": "docsify serve docs"
   },
   "dependencies": {
-    "echarts": "^3.8.5",
-    "lodash": "^4.17.4"
+    "echarts": "^4.0.2",
+    "lodash": "^4.17.4",
+    "resize-detector": "0.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

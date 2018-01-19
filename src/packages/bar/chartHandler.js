@@ -1,6 +1,36 @@
 import { formatMeasure, getStackMap } from '../../utils'
-import { isUndefined } from 'lodash'
 
+// build dataset
+function getBarDataset(args) {
+  const { data, settings } = args
+  const {
+    dimName = 'dimensions'
+  } = settings
+
+  const dimensions = {
+    [dimName]: data.dimensions
+  }
+
+  let measures = {}
+
+  data.measures.map(v => {
+    Object.assign(measures, {
+      [v.name]: v.data
+    })
+  })
+
+  const source = {
+    ...dimensions,
+    ...measures
+  }
+
+  const dataset = {
+    source
+  }
+  return dataset
+}
+
+// build tooltip
 function getBarTooltip (args) {
   return {
     trigger: 'axis',
@@ -10,19 +40,19 @@ function getBarTooltip (args) {
   }
 }
 
+// build legend
 function getBarLegend (args) {
-  const { data, settings } = args
-  const { measures } = data
+  const { settings } = args
   const { legendType, legendPadding } = settings
   return {
     type: legendType || 'plain',
-    padding: legendPadding || 5,
-    data: measures.map(v => v.name)
+    padding: legendPadding || 5
   }
 }
 
+// build dimension Axis
 function getBarDimAxis (args) {
-  const { data, settings } = args
+  const { settings } = args
   const { dimAxisType } = settings
 
   const axisItem = {
@@ -33,14 +63,14 @@ function getBarDimAxis (args) {
     axisLabel: {
       margin: 10,
       fontWeight: 400
-    },
-    data: data.dimensions
+    }
   }
   const disAxis = []
   disAxis.push(axisItem)
   return disAxis
 }
 
+// build measure axis
 function getBarMeaAxis (args) {
   const { settings } = args
   const { meaAxisType, yAxisScale } = settings
@@ -69,7 +99,7 @@ function getBarMeaAxis (args) {
 }
 
 // build label
-function getLabel(args, isBar) {
+function getBarLabel(args, isBar) {
   const {
     show,
     fontFamily = 'sans-serif',
@@ -90,73 +120,36 @@ function getLabel(args, isBar) {
   }
 }
 
+// build series
 function getBarSeries(args) {
   const {
     data,
     isBar,
     showLine = [],
     label = {},
-    connect,
+    seriesLayoutBy = 'column',
     stack
   } = args
   const { measures } = data
   const secondDimAxisIndex = isBar ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
-  const dataIndex = connect ? connect.dataIndex : -1
   const stackMap = stack && getStackMap(stack)
 
   measures.forEach((item, i) => {
-    const { name, data } = item
+    const { name } = item
     const type = showLine.includes(name) ? 'line' : 'bar'
     const seriesItem = {
       name,
       type,
       [secondDimAxisIndex]: showLine.includes(name) ? '1' : '0',
-      data: dataIndex === -1 ? data : getSeriesData(data, {
-        index: i,
-        type,
-        connect
-      }),
-      label: getLabel(label, isBar),
-      stack: (stack && stackMap[name]) && stackMap[name]
+      label: getBarLabel(label, isBar),
+      stack: (stack && stackMap[name]) && stackMap[name],
+      seriesLayoutBy
     }
 
     series.push(seriesItem)
   })
-  // console.log(series)
   return series
-}
-
-function getSeriesData(data, options) {
-  const {
-    index,
-    type,
-    connect: {
-      dataIndex,
-      seriesIndex,
-      symbolSize,
-      normalShadowBlur
-    }
-  } = options
-
-  if (!isUndefined(seriesIndex) && index !== seriesIndex) {
-    return data
-  }
-
-  return data.map((v, i) => {
-    if (i === dataIndex) {
-      return {
-        ...v,
-        symbolSize: type === 'line' ? symbolSize : null,
-        itemStyle: {
-          normal: {
-            shadowBlur: !isUndefined(normalShadowBlur) ? normalShadowBlur : 0
-          }
-        }
-      }
-    }
-    return v
-  })
 }
 
 export const bar = (data, settings, extra, isBar = true) => {
@@ -179,13 +172,15 @@ export const bar = (data, settings, extra, isBar = true) => {
   settings.dimAxisType = (isBar ? xAxisType : yAxisType) || 'category'
   settings.dimAxisName = (isBar ? xAxisName : yAxisName) || ''
 
+  const dataset = getBarDataset({ data, settings })
+
   const tooltip = tooltipVisible && getBarTooltip()
 
-  const legend = legendVisible && getBarLegend({ data, settings })
+  const legend = legendVisible && getBarLegend({ settings })
 
-  const xAxis = isBar ? getBarDimAxis({ data, settings }) : getBarMeaAxis({ data, settings })
+  const xAxis = isBar ? getBarDimAxis({ settings }) : getBarMeaAxis({ settings })
 
-  const yAxis = isBar ? getBarMeaAxis({ data, settings }) : getBarDimAxis({ data, settings })
+  const yAxis = isBar ? getBarMeaAxis({ settings }) : getBarDimAxis({ settings })
 
   const series = getBarSeries({
     data,
@@ -198,12 +193,15 @@ export const bar = (data, settings, extra, isBar = true) => {
 
   // build echarts options
   const options = {
+    dataset,
     tooltip,
     legend,
     xAxis,
     yAxis,
     series
   }
+
+  console.log(options)
 
   return options
 }

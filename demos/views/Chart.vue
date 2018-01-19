@@ -10,6 +10,7 @@
           class="chart-demo"
           :data="item.data"
           :settings="item.settings"
+          :color="color"
         />
       </div>
       <div class="right-section">
@@ -54,6 +55,7 @@ export default {
     initData () {
       this.chartData = DATA[this.type].chartData
       this.chartType = DATA[this.type].type
+      this.color = DATA.color
     }
   },
   created () {
