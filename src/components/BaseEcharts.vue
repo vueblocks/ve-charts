@@ -6,13 +6,16 @@
 import echarts from 'echarts/lib/echarts'
 // import echarts from 'echarts'
 import { debounce } from 'lodash'
+import { addListener, removeListener } from 'resize-detector'
 import Vue from 'vue'
 // default echarts's component in VeCharts
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'
+import 'echarts/lib/component/dataset'
+
 // enumerating ECharts events for now
-const ACTION_EVENTS = [
+const EVENTS = [
   'legendselectchanged',
   'legendselected',
   'legendunselected',
@@ -36,9 +39,7 @@ const ACTION_EVENTS = [
   'focusnodeadjacency',
   'unfocusnodeadjacency',
   'brush',
-  'brushselected'
-]
-const MOUSE_EVENTS = [
+  'brushselected',
   'click',
   'dblclick',
   'mouseover',
@@ -49,13 +50,13 @@ const MOUSE_EVENTS = [
 ]
 
 export default {
-  name: 'EchartsBase',
   props: {
     options: Object,
     theme: [String, Object],
     initOptions: Object,
     group: String,
-    autoResize: Boolean
+    autoResize: Boolean,
+    watchShallow: Boolean
   },
   data () {
     return {
@@ -92,23 +93,8 @@ export default {
     }
   },
   watch: {
-    // use assign statements to tigger "options" and "group" setters
-    options: {
-      handler (options) {
-        if (!this.chart && options) {
-          this.init()
-        } else {
-          this.chart.setOption(this.options, true)
-        }
-      },
-      deep: true
-    },
     group (group) {
       this.chart.group = group
-    },
-    theme () {
-      this.destroy()
-      this.init()
     }
   },
   methods: {
@@ -118,6 +104,9 @@ export default {
     },
     // just delegates ECharts methods to Vue component
     // use explicit params to reduce transpiled size for now
+    appendData (params) {
+      this.delegateMethod('appendData', params)
+    },
     resize (options) {
       this.delegateMethod('resize', options)
     },
@@ -168,39 +157,58 @@ export default {
       if (this.chart) {
         return
       }
+
       let chart = echarts.init(this.$el, this.theme, this.initOptions)
+
       if (this.group) {
         chart.group = this.group
       }
+
       chart.setOption(this.options, true)
+
       // expose ECharts events as custom events
-      ACTION_EVENTS.forEach(event => {
+      EVENTS.forEach(event => {
         chart.on(event, params => {
           this.$emit(event, params)
         })
       })
-      MOUSE_EVENTS.forEach(event => {
-        chart.on(event, params => {
-          this.$emit(event, params)
-          // for backward compatibility, may remove in the future
-          this.$emit('chart' + event, params)
-        })
-      })
+
       if (this.autoResize) {
         this.__resizeHanlder = debounce(() => {
           chart.resize()
         }, 100, { leading: true })
-        window.addEventListener('resize', this.__resizeHanlder)
+        addListener(this.$el, this.__resizeHanlder)
       }
+
       this.chart = chart
     },
     destroy () {
       if (this.autoResize) {
-        window.removeEventListener('resize', this.__resizeHanlder)
+        removeListener(this.$el, this.__resizeHanlder)
       }
       this.dispose()
       this.chart = null
+    },
+    refresh () {
+      this.destroy()
+      this.init()
     }
+  },
+  created () {
+    this.$watch('options', options => {
+      if (!this.chart && options) {
+        this.init()
+      } else {
+        this.chart.setOption(this.options, true)
+      }
+    }, { deep: !this.watchShallow })
+
+    let watched = ['theme', 'initOptions', 'autoResize', 'watchShallow']
+    watched.forEach(prop => {
+      this.$watch(prop, () => {
+        this.refresh()
+      }, { deep: true })
+    })
   },
   mounted () {
     // auto init if `options` is already provided
@@ -228,12 +236,13 @@ export default {
   disconnect (group) {
     echarts.disConnect(group)
   },
-  registerMap (...args) {
-    echarts.registerMap(...args)
+  registerMap (mapName, geoJSON, specialAreas) {
+    echarts.registerMap(mapName, geoJSON, specialAreas)
   },
-  registerTheme (...args) {
-    echarts.registerTheme(...args)
-  }
+  registerTheme (name, theme) {
+    echarts.registerTheme(name, theme)
+  },
+  graphic: echarts.graphic
 }
 </script>
 
