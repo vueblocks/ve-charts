@@ -1,6 +1,6 @@
 function getRadarTooltip() {
   return {
-    trigger: 'axis'
+    trigger: 'item'
   }
 }
 
@@ -8,11 +8,10 @@ function getRadarLegend(args) {
   const { data, settings } = args
   const { legendType, legendPadding } = settings
   const { measure } = data
-
   return {
     type: legendType || 'plain',
     padding: legendPadding || 5,
-    data: measure[0].data.map(v => v.name)
+    data: measure.map(v => v.name)
   }
 }
 
@@ -33,17 +32,20 @@ function getRadarRadar(args) {
 }
 
 function getRadarSeries(args) {
+  const { settings } = args
   const { measure } = args.data
-
   const series = []
 
-  measure.forEach(({ data }, idx) => {
+  measure.forEach((data, idx) => {
     series.push({
       type: 'radar',
-      data
+      data: [{
+        name: data.name,
+        value: data.data
+      }],
+      itemStyle: Object.assign({}, settings.itemStyle)
     })
   })
-
   return series
 }
 
@@ -56,7 +58,7 @@ export const radar = (data, settings, extra) => {
 
   const radar = getRadarRadar({ data, settings })
 
-  const series = getRadarSeries({ data })
+  const series = getRadarSeries({ data, settings })
 
   // build echarts options
   const options = {
@@ -65,5 +67,8 @@ export const radar = (data, settings, extra) => {
     radar,
     series
   }
+
+  console.log(options)
+
   return options
 }
