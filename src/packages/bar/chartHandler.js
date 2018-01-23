@@ -1,34 +1,5 @@
-import { formatMeasure, getStackMap } from '../../utils'
-
-// build dataset
-function getBarDataset(args) {
-  const { data, settings } = args
-  const {
-    dimName = 'dimensions'
-  } = settings
-
-  const dimensions = {
-    [dimName]: data.dimensions
-  }
-
-  let measures = {}
-
-  data.measures.map(v => {
-    Object.assign(measures, {
-      [v.name]: v.data
-    })
-  })
-
-  const source = {
-    ...dimensions,
-    ...measures
-  }
-
-  const dataset = {
-    source
-  }
-  return dataset
-}
+// import { formatMeasure, getStackMap, getDataset } from '../../utils'
+import { getStackMap, getDataset } from '../../utils'
 
 // build tooltip
 function getBarTooltip (args) {
@@ -88,8 +59,8 @@ function getBarMeaAxis (args) {
     const formatter = {
       axisLabel: {
         margin: 10,
-        fontWeight: 400,
-        formatter: (value) => formatMeasure(value)
+        fontWeight: 400
+        // formatter: (value) => formatMeasure(value)
       }
     }
     const axisItem = Object.assign({}, meaAxisBase, formatter)
@@ -122,18 +93,28 @@ function getBarLabel(args, isBar) {
 
 // build series
 function getBarSeries(args) {
+  const { data, settings, isBar } = args
+  const { measures } = data
   const {
-    data,
-    isBar,
+    xAxisName = 'dimensions',
     showLine = [],
     label = {},
     seriesLayoutBy = 'column',
     stack
-  } = args
-  const { measures } = data
+  } = settings
   const secondDimAxisIndex = isBar ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
   const stackMap = stack && getStackMap(stack)
+
+  const getEncode = (measure) => {
+    const { name } = measure
+    const xEncode = xAxisName
+    const yEncode = name
+    return {
+      x: xEncode,
+      y: yEncode
+    }
+  }
 
   measures.forEach((item, i) => {
     const { name } = item
@@ -144,6 +125,7 @@ function getBarSeries(args) {
       [secondDimAxisIndex]: showLine.includes(name) ? '1' : '0',
       label: getBarLabel(label, isBar),
       stack: (stack && stackMap[name]) && stackMap[name],
+      encode: getEncode(item),
       seriesLayoutBy
     }
 
@@ -156,13 +138,10 @@ export const bar = (data, settings, extra, isBar = true) => {
   const { tooltipVisible, legendVisible } = extra
   const {
     showLine,
-    label,
     yAxisType,
     yAxisName,
     xAxisType,
-    xAxisName,
-    connect,
-    stack = {}
+    xAxisName
   } = settings
 
   const defaultMeaAxisType = showLine ? ['normal', 'normal'] : ['normal']
@@ -172,7 +151,7 @@ export const bar = (data, settings, extra, isBar = true) => {
   settings.dimAxisType = (isBar ? xAxisType : yAxisType) || 'category'
   settings.dimAxisName = (isBar ? xAxisName : yAxisName) || ''
 
-  const dataset = getBarDataset({ data, settings })
+  const dataset = getDataset({ data, settings })
 
   const tooltip = tooltipVisible && getBarTooltip()
 
@@ -182,14 +161,7 @@ export const bar = (data, settings, extra, isBar = true) => {
 
   const yAxis = isBar ? getBarMeaAxis({ settings }) : getBarDimAxis({ settings })
 
-  const series = getBarSeries({
-    data,
-    showLine,
-    label,
-    isBar,
-    connect,
-    stack
-  })
+  const series = getBarSeries({ data, settings, isBar })
 
   // build echarts options
   const options = {
@@ -201,7 +173,7 @@ export const bar = (data, settings, extra, isBar = true) => {
     series
   }
 
-  console.log(options)
+  // console.log(options)
 
   return options
 }
