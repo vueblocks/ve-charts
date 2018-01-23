@@ -147,3 +147,41 @@ export const formatMeasure = (value, isFixed) => {
     return (Math.abs(value) >= 100) ? formatNumToY(value, isFixed) : isFixedX(value)
   } else return formatNumToY(value, isFixed)
 }
+
+export const getDataset = ({ data, settings = {} }) => {
+  const {
+    dimName = 'dimensions'
+  } = settings
+
+  const dimensions = {
+    [dimName]: data.dimensions
+  }
+
+  let measures = {}
+
+  data.measures.map(v => {
+    Object.assign(measures, {
+      [v.name]: v.data
+    })
+  })
+
+  const source = Object.assign({}, dimensions, measures)
+
+  const dataset = {
+    source
+  }
+
+  return dataset
+}
+
+export const strMapToObj = (strMap) => {
+  let obj = Object.create(null)
+
+  for (let [k, v] of strMap) {
+    console.log(k)
+
+    obj[k] = v
+  }
+
+  return obj
+}

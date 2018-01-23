@@ -13,9 +13,10 @@
 </template>
 
 <script>
-  import Core from '../..//mixins/Core'
+  import Core from '../../mixins/Core'
   import { options } from '../../base-options'
   import { radar } from './chartHandler'
+  import 'echarts/lib/chart/radar'
 
   import BaseEcharts from '../../components/BaseEcharts'
 
