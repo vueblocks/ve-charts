@@ -34,7 +34,7 @@ export default {
       settings: {}
     },
     {
-      title: '平滑折线图',
+      title: '平滑曲线折线图',
       data: simpleData,
       settings: {
         smooth: true
@@ -46,6 +46,13 @@ export default {
       settings: {
         smooth: true,
         areaStyle: {}
+      }
+    },
+    {
+      title: '折线图拐点设置',
+      data: simpleData,
+      settings: {
+        symbol: 'circle'
       }
     },
     {
@@ -71,6 +78,13 @@ export default {
             'Angular'
           ]
         }
+      }
+    },
+    {
+      title: '阶梯折线图',
+      data: baseData,
+      settings: {
+        step: 'start'
       }
     }
   ]

@@ -79,6 +79,7 @@ function getLineSeries(args) {
     showSymbol = true,
     smooth = false,
     stack = null,
+    step = null,
     symbol = 'emptyCircle',
     symbolSize = 4,
     ...others
@@ -101,6 +102,7 @@ function getLineSeries(args) {
       showSymbol,
       smooth,
       stack,
+      step,
       symbol,
       symbolSize: symbolSize || 4,
       ...others
@@ -135,7 +137,7 @@ export const line = (data, settings, extra) => {
     series
   }
 
-  console.log(options)
+  // console.log(options)
 
   return options
 }

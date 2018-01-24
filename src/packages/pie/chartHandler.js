@@ -73,7 +73,7 @@ export const pie = (data, settings, extra, isDonut) => {
     series
   }
 
-  console.log(options)
+  // console.log(options)
 
   return options
 }

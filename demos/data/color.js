@@ -60,6 +60,19 @@ const purpleStyle = [
   '#a9bab2'
 ]
 
-const colors = [defaultColor, coldStyle, retroStyle, summerStyle, fallStyle, purpleStyle]
+const jarvisStyle = [
+  '#6bcbca',
+  '#4d67ed',
+  '#f1763e',
+  '#87b927',
+  '#1eacd2',
+  '#ffde33',
+  '#815acd',
+  '#408680',
+  '#c88a05',
+  '#d1473e'
+]
+
+const colors = [defaultColor, coldStyle, retroStyle, summerStyle, fallStyle, purpleStyle, jarvisStyle]
 
 export default colors[Math.floor(Math.random() * colors.length)]
