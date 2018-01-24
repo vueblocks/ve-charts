@@ -71,7 +71,7 @@ export const radar = (data, settings, extra) => {
     series
   }
 
-  console.log(options)
+  // console.log(options)
 
   return options
 }

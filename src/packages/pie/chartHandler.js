@@ -8,10 +8,13 @@ function getPieTooltip (args) {
 
 function getPieLegend (args) {
   const { settings } = args
-  const { legendType, legendPadding } = settings
+  const {
+    legendType = 'plain',
+    legendPadding = 5
+  } = settings
   return {
-    type: legendType || 'plain',
-    padding: legendPadding || 5
+    type: legendType,
+    padding: legendPadding
   }
 }
 
@@ -19,13 +22,14 @@ function getPieSeries(args) {
   const { data, settings, isDonut } = args
   const { measures } = data
   const {
+    dimName = 'dimensions',
+    label = {},
     offsetY,
     radius = isDonut
       ? ['50%', '70%']
       : [0, '75%'],
-    label = {},
     selectedMode = false,
-    dimName = 'dimensions'
+    ...others
   } = settings
 
   const series = []
@@ -43,7 +47,8 @@ function getPieSeries(args) {
       encode: {
         itemName: dimName,
         value: meaName
-      }
+      },
+      ...others
     })
   })
   return series
@@ -56,7 +61,7 @@ export const pie = (data, settings, extra, isDonut) => {
 
   const tooltip = tooltipVisible && getPieTooltip()
 
-  const legend = legendVisible && getPieLegend({ data, settings })
+  const legend = legendVisible && getPieLegend({ settings })
 
   const series = getPieSeries({ data, settings, isDonut })
 

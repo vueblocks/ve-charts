@@ -96,11 +96,12 @@ function getBarSeries(args) {
   const { data, settings, isBar } = args
   const { measures } = data
   const {
-    xAxisName = 'dimensions',
-    showLine = [],
     label = {},
     seriesLayoutBy = 'column',
-    stack
+    showLine = [],
+    stack = null,
+    xAxisName = 'dimensions',
+    ...others
   } = settings
   const secondDimAxisIndex = isBar ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
@@ -120,13 +121,13 @@ function getBarSeries(args) {
     const { name } = item
     const type = showLine.includes(name) ? 'line' : 'bar'
     const seriesItem = {
-      name,
       type,
-      [secondDimAxisIndex]: showLine.includes(name) ? '1' : '0',
-      label: getBarLabel(label, isBar),
-      stack: (stack && stackMap[name]) && stackMap[name],
       encode: getEncode(item),
-      seriesLayoutBy
+      label: getBarLabel(label, isBar),
+      seriesLayoutBy,
+      stack: (stack && stackMap[name]) && stackMap[name],
+      [secondDimAxisIndex]: showLine.includes(name) ? '1' : '0',
+      ...others
     }
 
     series.push(seriesItem)
