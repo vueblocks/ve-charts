@@ -7,7 +7,7 @@
 </h1>
 
 <blockquote>
-  <p style="color:#fff;">ECharts 3.x for Vue.js 2.x.</p>
+  <p style="color:#fff;">ECharts 4.x for Vue.js 2.x.</p>
 </blockquote>
 
 <ul style="color:#fff">
