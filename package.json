@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.min.js",
   "unpkg": "lib/ve-charts.min.js",
@@ -77,6 +77,7 @@
     "shelljs": "^0.7.6",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.5.8",
     "vue": "^2.5.2",
     "vue-loader": "^13.3.0",
