@@ -21,7 +21,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'Vue',
           data: [30, 40, 35, 50, 49, 70, 90]
@@ -47,10 +50,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: [
-          'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
-          'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
-        ],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'Vue',
           data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
@@ -87,10 +90,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: [
-          'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
-          'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
-        ],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'Vue',
           data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
@@ -129,10 +132,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: [
-          'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
-          'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
-        ],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'Vue',
           data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
@@ -169,7 +172,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'Vue',
           data: [30, 40, 35, 50, 49, 70, 90]
@@ -198,10 +204,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: [
-          'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
-          'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
-        ],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'Vue',
           data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]

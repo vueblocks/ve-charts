@@ -20,7 +20,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'pv',
           data: [256, 767, 1356, 2087, 803, 582, 432]
@@ -46,7 +49,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'pv',
           data: [256, 767, 1356, 2087, 803, 582, 432]
@@ -75,7 +81,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'pv',
           data: [256, 767, 1356, 2087, 803, 582, 432]
@@ -118,7 +127,10 @@
   	},
     created () {
       this.chartData = {
-        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
         measures: [{
           name: 'pv',
           data: [256, 767, 1356, 2087, 803, 582, 432]
