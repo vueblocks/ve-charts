@@ -1,8 +1,11 @@
 const baseData = {
-  dimensions: [
-    'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
-    'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
-  ],
+  dimensions: {
+    name: 'Year',
+    data: [
+      'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
+      'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
+    ]
+  },
   measures: [{
     name: 'Vue',
     data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]

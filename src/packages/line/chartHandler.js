@@ -104,7 +104,7 @@ function getLineSeries(args) {
       stack,
       step,
       symbol,
-      symbolSize: symbolSize || 4,
+      symbolSize,
       ...others
     })
   })

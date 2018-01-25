@@ -1,10 +1,11 @@
 const baseData = {
-  dimensions: [
-    'Vue', 'React', 'Puppeteer', 'VS Code', 'React Native', 'Electron'
-  ],
+  dimensions: {
+    name: '渠道',
+    data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
+  },
   measures: [{
-    name: '2017',
-    data: [40000, 27800, 22000, 20200, 15600, 14800]
+    name: 'PV',
+    data: [40000, 27800, 22000, 20200, 15600, 13600]
   }]
 }
 
@@ -18,7 +19,7 @@ export default {
       settings: {}
     },
     {
-      title: '选中饼图扇区',
+      title: '饼图 - 选中扇区',
       data: baseData,
       settings: {
         selectedMode: 'single'
@@ -28,14 +29,16 @@ export default {
       title: '南丁格尔玫瑰图（半径模式）',
       data: baseData,
       settings: {
-        roseType: 'radius'
+        roseType: 'radius',
+        radius: [30, 110]
       }
     },
     {
       title: '南丁格尔玫瑰图（面积模式）',
       data: baseData,
       settings: {
-        roseType: 'area'
+        roseType: 'area',
+        radius: [30, 110]
       }
     }
   ]

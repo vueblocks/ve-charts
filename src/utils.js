@@ -148,13 +148,10 @@ export const formatMeasure = (value, isFixed) => {
   } else return formatNumToY(value, isFixed)
 }
 
-export const getDataset = ({ data, settings = {} }) => {
-  const {
-    dimName = 'dimensions'
-  } = settings
-
+export const getDataset = ({ data }) => {
+  const { name: dimName, data: dimData } = data.dimensions
   const dimensions = {
-    [dimName]: data.dimensions
+    [dimName]: dimData
   }
 
   let measures = {}

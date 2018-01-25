@@ -2,6 +2,7 @@
   <div>
     <base-echarts
       :options="options"
+      :init-options="initOptions"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
@@ -25,7 +26,10 @@
     mixins: [Core],
     data () {
       return {
-        options
+        options,
+        initOptions: {
+          renderer: 'canvas'
+        }
       }
     },
     created () {

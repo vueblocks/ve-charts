@@ -14,11 +14,11 @@ export default {
     grid: Object,
     xAxis: Object,
     yAxis: Object,
-    dataZoom: { type: [Object, Array] },
-    visualMap: { type: [Object, Array] },
+    dataZoom: [Object, Array],
+    visualMap: [Object, Array],
     tooltip: Object,
     axisPointer: Object,
-    toolbox: { type: Object },
+    toolbox: Object,
     brush: Object,
     geo: Object,
     timeline: Object,
@@ -29,17 +29,18 @@ export default {
     textStyle: Object,
     animation: Object,
     // ve-charts custom props
-    beforeConfig: { type: Function },
-    afterConfig: { type: Function },
-    afterSetOption: { type: Function },
-    afterSetOptionOnce: { type: Function },
+    beforeConfig: Function,
+    afterConfig: Function,
+    afterSetOption: Function,
+    afterSetOptionOnce: Function,
     tooltipVisible: { type: Boolean, default: true },
     legendVisible: { type: Boolean, default: true },
-    legendPosition: { type: String },
+    legendPosition: String,
     theme: Object,
     themeName: { type: String, default() { return 'default' } },
     loading: Boolean,
-    dataEmpty: Boolean
+    dataEmpty: Boolean,
+    renderer: { type: String, default: 'canvas' }
   },
 
   computed: {
@@ -85,6 +86,10 @@ export default {
     },
 
     optionsHandler (options) {
+      // init options
+      this.initOptions = {
+        renderer: this.renderer
+      }
       // const themeName = this.themeName || (this.theme ? 'custom-theme' : 've-charts')
       options.color = this.chartColor
       // handle legend

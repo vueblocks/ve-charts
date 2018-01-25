@@ -1,10 +1,11 @@
 const baseData = {
-  dimensions: [
-    'Vue', 'React', 'Puppeteer', 'VS Code', 'React Native', 'Electron'
-  ],
+  dimensions: {
+    name: '渠道',
+    data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
+  },
   measures: [{
-    name: '2017',
-    data: [40000, 27800, 22000, 20200, 15600, 14800]
+    name: 'PV',
+    data: [40000, 27800, 22000, 20200, 15600, 13600]
   }]
 }
 
@@ -18,17 +19,41 @@ export default {
       settings: {}
     },
     {
-      title: '选中环形图扇区',
+      title: '环形图 - 选中扇区',
       data: baseData,
       settings: {
         selectedMode: 'single'
       }
     },
     {
-      title: '设置环形图半径',
+      title: '环形图 - 半径设置',
       data: baseData,
       settings: {
         radius: ['35%', '55%']
+      }
+    },
+    {
+      title: '环形图 - 中心显示标签',
+      data: baseData,
+      settings: {
+        label: {
+          normal: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            show: true,
+            textStyle: {
+              fontSize: '24',
+              fontWeight: 'bold'
+            }
+          }
+        },
+        labelLine: {
+          normal: {
+            show: false
+          }
+        }
       }
     }
   ]
