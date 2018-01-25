@@ -2,7 +2,7 @@
 
 ## 示例
 
-<iframe width="100%" height="450" src="//jsfiddle.net/vecharts/udnhk7wm/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="480" src="//jsfiddle.net/vecharts/udnhk7wm/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 ### 基础折线图
@@ -31,11 +31,11 @@
   }
 </script>
 
-### 平滑曲线折线图
+### 区域折线图
 
-<vuep template="#smoothLine"></vuep>
+<vuep template="#areaLine"></vuep>
 
-<script v-pre type="text/x-template" id="smoothLine">
+<script v-pre type="text/x-template" id="areaLine">
 <template>
   <ve-line-chart :data="chartData" :settings="chartSettings" />
 </template>
@@ -47,14 +47,25 @@
   	},
     created () {
       this.chartData = {
-        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        dimensions: [
+          'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
+          'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
+        ],
         measures: [{
           name: 'Vue',
-          data: [30, 40, 35, 50, 49, 70, 90]
+          data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        },
+        {
+          name: 'Angular',
+          data: [827, 949, 1400, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
         }]
       }
       this.chartSettings = {
-        smooth: true
+        areaStyle: {}
       }
     }
   }
@@ -97,6 +108,120 @@
         stack: {
           lang: ['React', 'Angular']
         }
+      }
+    }
+  }
+</script>
+
+### 阶梯折线图
+
+<vuep template="#stepLine"></vuep>
+
+<script v-pre type="text/x-template" id="stepLine">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    components: {
+    	VeLineChart: window['ve-charts'].default.VeLineChart
+  	},
+    created () {
+      this.chartData = {
+        dimensions: [
+          'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
+          'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
+        ],
+        measures: [{
+          name: 'Vue',
+          data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        },
+        {
+          name: 'Angular',
+          data: [827, 949, 1400, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
+        }]
+      }
+      this.chartSettings = {
+        step: 'start'
+      }
+    }
+  }
+</script>
+
+### 折线图设置 - 平滑曲线
+
+<vuep template="#smoothLine"></vuep>
+
+<script v-pre type="text/x-template" id="smoothLine">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    components: {
+    	VeLineChart: window['ve-charts'].default.VeLineChart
+  	},
+    created () {
+      this.chartData = {
+        dimensions: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.'],
+        measures: [{
+          name: 'Vue',
+          data: [30, 40, 35, 50, 49, 70, 90]
+        }]
+      }
+      this.chartSettings = {
+        smooth: true
+      }
+    }
+  }
+</script>
+
+### 折线图设置 - 数据标签
+
+<vuep template="#labelLine"></vuep>
+
+<script v-pre type="text/x-template" id="labelLine">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    components: {
+    	VeLineChart: window['ve-charts'].default.VeLineChart
+  	},
+    created () {
+      this.chartData = {
+        dimensions: [
+          'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
+          'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
+        ],
+        measures: [{
+          name: 'Vue',
+          data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        },
+        {
+          name: 'Angular',
+          data: [827, 949, 1400, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
+        }]
+      }
+      this.chartSettings = {
+        label: {
+          show: true,
+          fontSize: '12px',
+          fontWeight: 'bold'
+        },
+        smooth: true
       }
     }
   }

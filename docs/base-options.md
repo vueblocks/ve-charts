@@ -18,7 +18,10 @@
 
 ```json
 {
-  dimensions: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+  dimensions: {
+    name: '月份',
+    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+  },
   measures: [{
     name: '蒸发量',
     data: [2, 4.9, 7, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20, 6.4, 3.3]
@@ -51,6 +54,7 @@
 xAxis: [
   {
     type : 'category',
+    name: '月份',
     data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
   }
 ]
@@ -60,7 +64,10 @@ xAxis: [
 
 ```js
 data: {
-  dimensions: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+  dimensions: {
+    name: '月份'
+    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+  }
 }
 ```
 
@@ -103,8 +110,25 @@ data: {
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | data | 图表数据，dimensions: 维度，measures: 度量 | Object | {} |
-| settings | 图表配置项，内容参考图表具体配置。 | Object | {} |
-| title | 图表标题 | Object | {} |
+| settings | 图表配置项，内容参考图表具体配置 | Object | {} |
+| title | 标题组件 | Object | [参考配置](http://echarts.baidu.com/option.html#title) |
+| legend | 图例组件 | Object | [参考配置](http://echarts.baidu.com/option.html#legend) |
+| xAxis | 直角坐标系 grid 中的 x 轴 | Object | [参考配置](http://echarts.baidu.com/option.html#xAxis) |
+| yAxis | 直角坐标系 grid 中的 y 轴 | Object | [参考配置](http://echarts.baidu.com/option.html#yAxis) |
+| dataZoom | 区域缩放 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#dataZoom) |
+| visualMap | 视觉映射 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#visualMap) |
+| tooltip | 提示框组件 | Object | [参考配置](http://echarts.baidu.com/option.html#tooltip) |
+| axisPointer | 坐标轴指示器 | Object | [参考配置](http://echarts.baidu.com/option.html#axisPointer) |
+| toolbox | 工具栏 | Object | [参考配置](http://echarts.baidu.com/option.html#toolbox) |
+| brush | 区域选择组件 | Object | [参考配置](http://echarts.baidu.com/option.html#brush) |
+| geo | 地理坐标系组件 | Object | [参考配置](http://echarts.baidu.com/option.html#geo) |
+| timeline | 时间线组件 | Object | [参考配置](http://echarts.baidu.com/option.html#timeline) |
+| graphic | 原生图形元素组件 | Object | [参考配置](http://echarts.baidu.com/option.html#graphic) |
+| series | 系列列表 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#series) |
+| color | 调色盘组件 | Object | [参考配置](http://echarts.baidu.com/option.html#color) |
+| backgroundColor | 背景色，默认无背景 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#backgroundColor) |
+| textStyle | 全局的字体样式 | Object | [参考配置](http://echarts.baidu.com/option.html#textStyle) |
+| animation | 是否开启动画 | Object | [参考配置](http://echarts.baidu.com/option.html#animation) |
 | --- | --- | --- | --- |
 
 ## 图表配置
