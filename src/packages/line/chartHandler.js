@@ -97,6 +97,7 @@ function getLineSeries(args) {
   measures.forEach(({ name, data }, i) => {
     series.push({
       type: 'line',
+      name,
       label: getLineLabel(label),
       lineStyle: getLineStyle(),
       showSymbol,
