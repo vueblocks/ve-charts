@@ -94,22 +94,22 @@ function getBarLabel(args, isBar) {
 // build series
 function getBarSeries(args) {
   const { data, settings, isBar } = args
-  const { measures } = data
+  const { dimensions, measures } = data
   const {
     label = {},
     seriesLayoutBy = 'column',
     showLine = [],
     stack = null,
-    xAxisName = 'dimensions',
     ...others
   } = settings
   const secondDimAxisIndex = isBar ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
   const stackMap = stack && getStackMap(stack)
 
-  const getEncode = (measure) => {
-    const { name } = measure
-    const xEncode = xAxisName
+  console.log(dimensions.name)
+
+  const getEncode = (name) => {
+    const xEncode = dimensions.name
     const yEncode = name
     return {
       x: xEncode,
@@ -117,12 +117,12 @@ function getBarSeries(args) {
     }
   }
 
-  measures.forEach((item, i) => {
-    const { name } = item
+  measures.forEach(({name, data}, i) => {
     const type = showLine.includes(name) ? 'line' : 'bar'
     const seriesItem = {
       type,
-      encode: getEncode(item),
+      name,
+      encode: getEncode(name),
       label: getBarLabel(label, isBar),
       seriesLayoutBy,
       stack: (stack && stackMap[name]) && stackMap[name],
@@ -174,7 +174,7 @@ export const bar = (data, settings, extra, isBar = true) => {
     series
   }
 
-  // console.log(options)
+  console.log(options)
 
   return options
 }

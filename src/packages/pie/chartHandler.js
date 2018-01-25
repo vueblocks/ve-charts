@@ -20,10 +20,8 @@ function getPieLegend (args) {
 
 function getPieSeries(args) {
   const { data, settings, isDonut } = args
-  const { measures } = data
+  const { dimensions, measures } = data
   const {
-    dimName = 'dimensions',
-    label = {},
     offsetY,
     radius = isDonut
       ? ['50%', '70%']
@@ -34,7 +32,8 @@ function getPieSeries(args) {
 
   const series = []
   // 默认度量第一个属性为饼图值
-  const {meaName} = measures.map(v => v.name)
+  const { name: dimName } = dimensions
+  const [meaName = ''] = measures.map(v => v.name)
   measures.forEach(({ name, data }, idx) => {
     series.push({
       id: 'pie',
@@ -42,7 +41,6 @@ function getPieSeries(args) {
       selectedMode,
       center: offsetY ? ['50%', offsetY] : ['50%', '50%'],
       radius,
-      label,
       avoidLabelOverlap: !isDonut,
       encode: {
         itemName: dimName,
