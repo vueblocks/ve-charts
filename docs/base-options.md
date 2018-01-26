@@ -16,7 +16,7 @@
 
 例如：
 
-```json
+```js
 {
   dimensions: {
     name: '月份',
