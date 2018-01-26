@@ -106,8 +106,6 @@ function getBarSeries(args) {
   const series = []
   const stackMap = stack && getStackMap(stack)
 
-  console.log(dimensions.name)
-
   const getEncode = (name) => {
     const xEncode = dimensions.name
     const yEncode = name
@@ -174,7 +172,7 @@ export const bar = (data, settings, extra, isBar = true) => {
     series
   }
 
-  console.log(options)
+  // console.log(options)
 
   return options
 }
