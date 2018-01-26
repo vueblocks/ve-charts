@@ -11,6 +11,7 @@
           :data="item.data"
           :settings="item.settings"
           :color="color"
+          v-bind="item.xprops"
         />
       </div>
       <div class="right-section">
@@ -20,7 +21,7 @@
         </section>
         <section class="settings">
           <div class="title">配置项</div>
-          <code-block :sourcecode="item.settings" />
+          <code-block :sourcecode="item.settings||item.xprops" />
         </section>
       </div>
     </div>
@@ -32,6 +33,7 @@
 import CodeBlock from '@/components/CodeBlock'
 
 import DATA from '@/data'
+import color from '@/data/color'
 
 export default {
   name: 'Chart',
@@ -55,7 +57,7 @@ export default {
     initData () {
       this.chartData = DATA[this.type].chartData
       this.chartType = DATA[this.type].type
-      this.color = DATA.color
+      this.color = color
     }
   },
   created () {
