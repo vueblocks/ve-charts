@@ -38,6 +38,7 @@ function getPieSeries(args) {
     series.push({
       id: 'pie',
       type: 'pie',
+      name,
       selectedMode,
       center: offsetY ? ['50%', offsetY] : ['50%', '50%'],
       radius,
