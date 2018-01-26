@@ -1,5 +1,6 @@
 import VeBarChart from './packages/bar'
 import VeDonutChart from './packages/donut'
+import VeFunnelChart from './packages/funnel'
 import VeGaugeChart from './packages/gauge'
 import VeGeoChart from './packages/geo'
 import VeLineChart from './packages/line'
@@ -12,6 +13,7 @@ import VeTreemapChart from './packages/treemap'
 const components = [
   VeBarChart,
   VeDonutChart,
+  VeFunnelChart,
   VeGaugeChart,
   VeGeoChart,
   VeLineChart,
