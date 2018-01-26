@@ -33,6 +33,7 @@ function install(Vue, _) {
 export default {
   VeBarChart,
   VeDonutChart,
+  VeFunnelChart,
   VeGaugeChart,
   VeGeoChart,
   VeLineChart,

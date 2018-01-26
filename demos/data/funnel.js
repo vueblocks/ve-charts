@@ -61,14 +61,14 @@ export default {
       }
     },
     {
-      title: '对比漏斗图',
+      title: '对称漏斗图',
       data: compareData,
       settings: {
         symmetric: true
       }
     },
     {
-      title: '对称漏斗图',
+      title: '对称漏斗图 - 标签在内部',
       data: compareData,
       settings: {
         symmetric: true,
