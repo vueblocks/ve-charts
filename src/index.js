@@ -7,7 +7,6 @@ import VeLineChart from './packages/line'
 import VePieChart from './packages/pie'
 import VeRadarChart from './packages/radar'
 import VeScatterChart from './packages/scatter'
-import VeStripChart from './packages/strip'
 import VeTreemapChart from './packages/treemap'
 
 const components = [
@@ -20,7 +19,6 @@ const components = [
   VePieChart,
   VeRadarChart,
   VeScatterChart,
-  VeStripChart,
   VeTreemapChart
 ]
 
@@ -40,7 +38,6 @@ export default {
   VePieChart,
   VeRadarChart,
   VeScatterChart,
-  VeStripChart,
   VeTreemapChart,
   install
 }

@@ -1,6 +1,6 @@
 const simpleData = {
   dimensions: {
-    name: 'Lang',
+    name: 'Week',
     data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
   },
   measures: [{
@@ -10,7 +10,7 @@ const simpleData = {
 }
 const baseData = {
   dimensions: {
-    name: 'Year',
+    name: 'Month',
     data: [
       'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
       'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'

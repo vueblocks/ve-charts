@@ -1,5 +1,5 @@
-// import { formatMeasure, getStackMap, getDataset } from '../../utils'
-import { getStackMap, getDataset } from '../../utils'
+import { options } from '../../base-options'
+import { getDataset, getStackMap } from '../../utils'
 
 // build tooltip
 function getBarTooltip (args) {
@@ -18,6 +18,17 @@ function getBarLegend (args) {
   return {
     type: legendType || 'plain',
     padding: legendPadding || 5
+  }
+}
+
+// build grid
+function getBarGrid (args) {
+  const { isColumn } = args
+  return isColumn ? options.grid : {
+    right: 30,
+    bottom: 10,
+    left: 30,
+    containLabel: true
   }
 }
 
@@ -70,15 +81,17 @@ function getBarMeaAxis (args) {
 }
 
 // build label
-function getBarLabel(args, isBar) {
+function getBarLabel(args) {
+  const { label, settings } = args
+  const { isColumn } = settings
   const {
     show,
     fontFamily = 'sans-serif',
     fontSize = '12',
     fontWeight = 'normal',
     color,
-    position = isBar ? 'top' : 'right'
-  } = args
+    position = isColumn ? 'top' : 'right'
+  } = label
   return {
     normal: {
       show,
@@ -93,7 +106,7 @@ function getBarLabel(args, isBar) {
 
 // build series
 function getBarSeries(args) {
-  const { data, settings, isBar } = args
+  const { data, settings, isColumn } = args
   const { dimensions, measures } = data
   const {
     label = {},
@@ -102,13 +115,14 @@ function getBarSeries(args) {
     stack = null,
     ...others
   } = settings
-  const secondDimAxisIndex = isBar ? 'yAxisIndex' : 'xAxisIndex'
+
+  const secondDimAxisIndex = isColumn ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
   const stackMap = stack && getStackMap(stack)
 
   const getEncode = (name) => {
-    const xEncode = dimensions.name
-    const yEncode = name
+    const xEncode = isColumn ? dimensions.name : name
+    const yEncode = isColumn ? name : dimensions.name
     return {
       x: xEncode,
       y: yEncode
@@ -121,7 +135,7 @@ function getBarSeries(args) {
       type,
       name,
       encode: getEncode(name),
-      label: getBarLabel(label, isBar),
+      label: getBarLabel({label, settings: { isColumn }}),
       seriesLayoutBy,
       stack: (stack && stackMap[name]) && stackMap[name],
       [secondDimAxisIndex]: showLine.includes(name) ? '1' : '0',
@@ -133,9 +147,10 @@ function getBarSeries(args) {
   return series
 }
 
-export const bar = (data, settings, extra, isBar = true) => {
+export const bar = (data, settings, extra) => {
   const { tooltipVisible, legendVisible } = extra
   const {
+    direction = 'column',
     showLine,
     yAxisType,
     yAxisName,
@@ -143,12 +158,15 @@ export const bar = (data, settings, extra, isBar = true) => {
     xAxisName
   } = settings
 
+  // 默认柱状图
+  const isColumn = direction === 'column'
+
   const defaultMeaAxisType = showLine ? ['normal', 'normal'] : ['normal']
 
-  settings.meaAxisType = (isBar ? yAxisType : xAxisType) || defaultMeaAxisType
-  settings.meaAxisName = (isBar ? yAxisName : xAxisName) || []
-  settings.dimAxisType = (isBar ? xAxisType : yAxisType) || 'category'
-  settings.dimAxisName = (isBar ? xAxisName : yAxisName) || ''
+  settings.meaAxisType = (isColumn ? yAxisType : xAxisType) || defaultMeaAxisType
+  settings.meaAxisName = (isColumn ? yAxisName : xAxisName) || []
+  settings.dimAxisType = (isColumn ? xAxisType : yAxisType) || 'category'
+  settings.dimAxisName = (isColumn ? xAxisName : yAxisName) || ''
 
   const dataset = getDataset({ data, settings })
 
@@ -156,14 +174,17 @@ export const bar = (data, settings, extra, isBar = true) => {
 
   const legend = legendVisible && getBarLegend({ settings })
 
-  const xAxis = isBar ? getBarDimAxis({ settings }) : getBarMeaAxis({ settings })
+  const grid = getBarGrid({ isColumn })
 
-  const yAxis = isBar ? getBarMeaAxis({ settings }) : getBarDimAxis({ settings })
+  const xAxis = isColumn ? getBarDimAxis({ settings }) : getBarMeaAxis({ settings })
 
-  const series = getBarSeries({ data, settings, isBar })
+  const yAxis = isColumn ? getBarMeaAxis({ settings }) : getBarDimAxis({ settings })
+
+  const series = getBarSeries({ data, settings, isColumn })
 
   // build echarts options
   const options = {
+    grid,
     dataset,
     tooltip,
     legend,
@@ -172,11 +193,7 @@ export const bar = (data, settings, extra, isBar = true) => {
     series
   }
 
-  // console.log(options)
+  console.log(options)
 
   return options
-}
-
-export const strip = (data, settings, extra) => {
-  return bar(data, settings, extra, false)
 }
