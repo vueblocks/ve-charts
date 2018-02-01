@@ -5,7 +5,7 @@
 <iframe width="100%" height="470" src="//jsfiddle.net/vecharts/4qzx2Lkb/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
-### 基础漏斗图
+## 基础漏斗图
 
 <vuep template="#basicFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -34,7 +34,7 @@
   }
 </script>
 
-### 漏斗图 - 金字塔
+## 漏斗图 - 金字塔
 
 <vuep template="#funnelSortFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -66,7 +66,7 @@
   }
 </script>
 
-### 漏斗图 - 左对齐
+## 漏斗图 - 左对齐
 
 <vuep template="#funnelAlignRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -98,7 +98,7 @@
   }
 </script>
 
-### 漏斗图 - 标签在内部
+## 漏斗图 - 标签在内部
 
 <vuep template="#labelPositionRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -130,7 +130,7 @@
   }
 </script>
 
-### 对比漏斗图
+## 对比漏斗图
 
 <vuep template="#contrastFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -165,7 +165,7 @@
   }
 </script>
 
-### 对称漏斗图
+## 对称漏斗图
 
 <vuep template="#symmetricFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -200,7 +200,7 @@
   }
 </script>
 
-### 对称漏斗图 - 标签在内部
+## 对称漏斗图 - 标签在内部
 
 <vuep template="#symmetricLabelFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -236,7 +236,7 @@
   }
 </script>
 
-### settings 配置项
+## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
