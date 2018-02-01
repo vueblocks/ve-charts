@@ -12,13 +12,10 @@
   <!-- inject css file -->
   <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css"/>
   <link rel="stylesheet" href="//unpkg.com/ve-charts@latest/lib/ve-charts.min.css"/>
+  <link rel="stylesheet" href="vue.css">
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<!--<nav>-->
-<!--<a href="#">Home</a>-->
-<!--<a href="#">Documentation</a>-->
-<!--</nav>-->
 <div id="app"></div>
 <script>
   window.$docsify = {
@@ -50,23 +47,39 @@
       let parent = document.getElementsByTagName("aside")[0];
       parent.removeChild(parent.getElementsByTagName("h1")[0]);
 //    <div style="width: 80px;margin: auto;text-align: center;">
-//      <img src="./_media/icon.svg">
+//      <a href="https://gammafe.github.io/ve-charts"><img src="./_media/icon.svg"></a>
 //      <p style="color: #0f49b3;font-size: 18px;margin: 0 0 10px 0;font-family:'PangMenZhengDao';">
 //      ve<span style="color:#fed24a">-</span>charts
 //      </p>
 //    </div>
       let div = document.createElement("div");
       div.setAttribute("class", "logo");
+      let a = document.createElement("a");
+      a.setAttribute("href", "https://gammafe.github.io/ve-charts");
       let img = document.createElement("img");
       img.setAttribute("src", "./_media/icon.svg");
       let p = document.createElement("p");
       p.innerHTML = "ve<span style='color:#fed24a'>-</span>charts";
-      div.appendChild(img);
+      a.appendChild(img);
+      div.appendChild(a);
       div.appendChild(p);
       parent.prepend(div);
       clearInterval(interval);
     }
   }, 0);
+
+  window.addEventListener('scroll', winScroll, false);
+  function winScroll(e) {
+    let coverNav = document.getElementById("cover-nav")
+    let scrollTop = document.documentElement.scrollTop;
+    if (coverNav) {
+      if (scrollTop > 96) {
+        coverNav.style.display = "none";
+      } else {
+        coverNav.style.display = "block";
+      }
+    }
+  }
 </script>
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 <!-- inject js file -->

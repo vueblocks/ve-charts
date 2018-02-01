@@ -46,7 +46,7 @@
 
 按照[柱状图示例](https://gammafe.github.io/ve-charts/#/chart-bar)，柱状图的 X 轴为维度，Y轴为度量。
 
-#### 维度
+### 维度
 
 **ECharts 配置 xAxis**
 
@@ -71,7 +71,7 @@ data: {
 }
 ```
 
-#### 度量
+### 度量
 
 **ECharts 配置 series**
 

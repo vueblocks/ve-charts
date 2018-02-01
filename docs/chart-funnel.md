@@ -7,7 +7,7 @@
 
 ### 基础漏斗图
 
-<vuep template="#basicFunnel"></vuep>
+<vuep template="#basicFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="basicFunnel">
 <template>
@@ -36,7 +36,7 @@
 
 ### 漏斗图 - 金字塔
 
-<vuep template="#funnelSortFunnel"></vuep>
+<vuep template="#funnelSortFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="funnelSortFunnel">
 <template>
@@ -68,7 +68,7 @@
 
 ### 漏斗图 - 左对齐
 
-<vuep template="#funnelAlignRose"></vuep>
+<vuep template="#funnelAlignRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="funnelAlignRose">
 <template>
@@ -100,7 +100,7 @@
 
 ### 漏斗图 - 标签在内部
 
-<vuep template="#labelPositionRose"></vuep>
+<vuep template="#labelPositionRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="labelPositionRose">
 <template>
@@ -132,7 +132,7 @@
 
 ### 对比漏斗图
 
-<vuep template="#contrastFunnel"></vuep>
+<vuep template="#contrastFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="contrastFunnel">
 <template>
@@ -167,7 +167,7 @@
 
 ### 对称漏斗图
 
-<vuep template="#symmetricFunnel"></vuep>
+<vuep template="#symmetricFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="symmetricFunnel">
 <template>
@@ -202,7 +202,7 @@
 
 ### 对称漏斗图 - 标签在内部
 
-<vuep template="#symmetricLabelFunnel"></vuep>
+<vuep template="#symmetricLabelFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="symmetricLabelFunnel">
 <template>

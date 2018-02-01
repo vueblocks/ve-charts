@@ -4,9 +4,9 @@
 
 <iframe width="100%" height="470" src="//jsfiddle.net/vecharts/ydkyhjv6/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-### 基础柱状图
+## 基础柱状图
 
-<vuep template="#basicBar"></vuep>
+<vuep template="#basicBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="basicBar">
 <template>
@@ -33,9 +33,9 @@
   }
 </script>
 
-### 分组柱状图
+## 分组柱状图
 
-<vuep template="#groupBar"></vuep>
+<vuep template="#groupBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="groupBar">
 <template>
@@ -65,9 +65,9 @@
   }
 </script>
 
-### 堆叠柱状图
+## 堆叠柱状图
 
-<vuep template="#stackBar"></vuep>
+<vuep template="#stackBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="stackBar">
 <template>
@@ -105,9 +105,9 @@
   }
 </script>
 
-### 条形图
+## 条形图
 
-<vuep template="#rowBar"></vuep>
+<vuep template="#rowBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="rowBar" />
 <template>
@@ -140,9 +140,9 @@
   }
 </script>
 
-### 分组条形图
+## 分组条形图
 
-<vuep template="#rowGroupBar"></vuep>
+<vuep template="#rowGroupBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="rowGroupBar" />
 <template>
@@ -177,7 +177,7 @@
 
 ### 堆叠条形图
 
-<vuep template="#rowStackBar"></vuep>
+<vuep template="#rowStackBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="rowStackBar" />
 <template>
@@ -213,9 +213,9 @@
   }
 </script>
 
-### 双向柱状图
+## 双向柱状图
 
-<vuep template="#biDirBar"></vuep>
+<vuep template="#biDirBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="biDirBar" />
 <template>
@@ -257,9 +257,9 @@
   }
 </script>
 
-### 折柱混合图
+## 折柱混合图
 
-<vuep template="#mixinBar"></vuep>
+<vuep template="#mixinBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="mixinBar" />
 <template>
@@ -296,9 +296,9 @@
   }
 </script>
 
-### 显示文本标签
+## 显示文本标签
 
-<vuep template="#labelBar"></vuep>
+<vuep template="#labelBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="labelBar" />
 <template>
@@ -335,7 +335,7 @@
   }
 </script>
 
-### settings 配置项
+## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |

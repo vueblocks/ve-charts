@@ -7,7 +7,7 @@
 
 ### 基础环形图
 
-<vuep template="#basicDonut"></vuep>
+<vuep template="#basicDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="basicDonut">
 <template>
@@ -36,7 +36,7 @@
 
 ### 环形图 - 选中扇区
 
-<vuep template="#selectedModeDonut"></vuep>
+<vuep template="#selectedModeDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="selectedModeDonut">
 <template>
@@ -68,7 +68,7 @@
 
 ### 环形图 - 半径设置
 
-<vuep template="#radiusDonut"></vuep>
+<vuep template="#radiusDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="radiusDonut">
 <template>
@@ -100,7 +100,7 @@
 
 ### 环形图 - 中心显示标签
 
-<vuep template="#labelCenterDonut"></vuep>
+<vuep template="#labelCenterDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="labelCenterDonut">
 <template>

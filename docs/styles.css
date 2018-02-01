@@ -3,9 +3,16 @@
   src: url('./_media/PangMenZhengDao.TTF');
 }
 
-.search {
-  margin: 0 2.2em 1em !important;
-  padding: 0 !important;
+body.close section.content .markdown-section {
+  padding: 0 60px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button.sidebar-toggle {
+  width: 239px;
 }
 
 section.cover.show {
@@ -91,7 +98,7 @@ aside.sidebar > h1 {
 
 aside.sidebar .logo {
   width: 80px;
-  margin: 10px auto;
+  margin: 40px auto 10px auto;
   text-align: center;
 }
 
@@ -102,15 +109,33 @@ aside.sidebar .logo > p {
   font-family: "PangMenZhengDao";
 }
 
+aside.sidebar .search {
+  margin: 0 2.2em 1em !important;
+  padding: 0 !important;
+}
+
+aside.sidebar .search input {
+  font-size: 12px;
+}
+
+aside.sidebar .sidebar-nav {
+  margin-top: 38px;
+}
+
 aside.sidebar ul li {
   margin: 0;
   position: relative;
+}
+
+aside.sidebar ul li ul {
+  margin: 8px 0;
 }
 
 aside.sidebar ul li p {
   padding-left: 87px;
   font-size: 18px;
   font-weight: normal;
+  color: #35495e;
 }
 
 aside.sidebar ul li a {
@@ -135,8 +160,6 @@ aside.sidebar ul:first-child > li:nth-child(3) > p {
 
 aside.sidebar ul li.active > a {
   border: 0;
-  color: #3d78e8;
-  border-left: 4px solid;
   background-color: rgba(61, 120, 232, 0.05);
 }
 
@@ -153,6 +176,31 @@ aside.sidebar ul li.active > a:before {
   box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4);
 }
 
+aside.sidebar ul li.active > a:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 4px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #3d78e8;
+}
+
+section.content {
+  padding-top: 40px;
+}
+
+section.content .vuep {
+  height: auto;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+}
+
+section.content .vuep:hover {
+  box-shadow: 0 0 10px 0 rgba(232, 237, 250, .6),
+  0 2px 4px 0 rgba(232, 237, 250, .6);
+}
+
 section.content .vuep-editor,
 section.content .vuep-preview {
   position: relative;
@@ -160,7 +208,13 @@ section.content .vuep-preview {
   height: 432px;
 }
 
+section.content .vuep-editor {
+  margin-right: 0;
+  border-right: 1px dashed #ebebeb;
+}
+
 section.content .vuep-preview {
+  border: 0;
   padding: 15px 25px;
 }
 
@@ -170,6 +224,44 @@ section.content .markdown-section {
   padding: 0 60px 0 0;
 }
 
-.vuep {
-  height: auto;
+.markdown-section h1 {
+  font-size: 1.5rem;
 }
+
+.markdown-section h2 {
+  font-size: 1.25rem;
+  margin: 2rem 0 1.5rem;
+}
+
+.markdown-section h3,
+.markdown-section h4 {
+  font-size: 1rem;
+  margin: 1.5rem 0 .75rem;
+}
+
+.markdown-section table {
+  border-radius: 4px;
+}
+
+.markdown-section p.tip,
+.markdown-section tr:nth-child(2n) {
+  background-color: #fafcff;
+}
+
+.CodeMirror {
+  font-family: Menlo, Monaco, Consolas, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-section iframe {
+  margin: 0;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+}
+
+.markdown-section iframe:hover {
+  border: 1px solid #ebebeb;
+  box-shadow: 0 0 10px 0 rgba(232, 237, 250, .6),
+  0 2px 4px 0 rgba(232, 237, 250, .6);
+}
+
