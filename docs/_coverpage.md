@@ -15,7 +15,7 @@
   <li>提供高可配置化、简捷、高效地构建图表组件化方案</li>
 </ul>
 
-<p>
+<p id="cover-nav">
   <a href="#/base-quickstart">
     <span class="arrow"></span>
   </a>

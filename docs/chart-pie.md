@@ -7,7 +7,7 @@
 
 ### 基础饼图
 
-<vuep template="#basicPie"></vuep>
+<vuep template="#basicPie" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="basicPie">
 <template>
@@ -36,7 +36,7 @@
 
 ### 选中饼图扇区
 
-<vuep template="#selectedModePie"></vuep>
+<vuep template="#selectedModePie" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="selectedModePie">
 <template>
@@ -68,7 +68,7 @@
 
 ### 南丁格尔玫瑰图（半径模式）
 
-<vuep template="#radiusRose"></vuep>
+<vuep template="#radiusRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="radiusRose">
 <template>
@@ -101,7 +101,7 @@
 
 ### 南丁格尔玫瑰图（面积模式）
 
-<vuep template="#areaRose"></vuep>
+<vuep template="#areaRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="areaRose">
 <template>

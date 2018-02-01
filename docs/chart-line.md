@@ -5,9 +5,9 @@
 <iframe width="100%" height="470" src="//jsfiddle.net/vecharts/udnhk7wm/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
-### 基础折线图
+## 基础折线图
 
-<vuep template="#basicLine"></vuep>
+<vuep template="#basicLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="basicLine">
 <template>
@@ -34,9 +34,9 @@
   }
 </script>
 
-### 区域折线图
+## 区域折线图
 
-<vuep template="#areaLine"></vuep>
+<vuep template="#areaLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="areaLine">
 <template>
@@ -74,9 +74,9 @@
   }
 </script>
 
-### 堆叠折线图
+## 堆叠折线图
 
-<vuep template="#stackLine"></vuep>
+<vuep template="#stackLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="stackLine">
 <template>
@@ -116,9 +116,9 @@
   }
 </script>
 
-### 阶梯折线图
+## 阶梯折线图
 
-<vuep template="#stepLine"></vuep>
+<vuep template="#stepLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="stepLine">
 <template>
@@ -156,9 +156,9 @@
   }
 </script>
 
-### 折线图设置 - 平滑曲线
+## 折线图设置 - 平滑曲线
 
-<vuep template="#smoothLine"></vuep>
+<vuep template="#smoothLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="smoothLine">
 <template>
@@ -188,9 +188,9 @@
   }
 </script>
 
-### 折线图设置 - 数据标签
+## 折线图设置 - 数据标签
 
-<vuep template="#labelLine"></vuep>
+<vuep template="#labelLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="labelLine">
 <template>
@@ -233,7 +233,7 @@
   }
 </script>
 
-### settings 配置项
+## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
