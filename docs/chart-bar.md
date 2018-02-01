@@ -175,7 +175,7 @@
   }
 </script>
 
-### 堆叠条形图
+## 堆叠条形图
 
 <vuep template="#rowStackBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 

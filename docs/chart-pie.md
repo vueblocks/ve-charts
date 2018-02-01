@@ -5,7 +5,7 @@
 <iframe width="100%" height="470" src="//jsfiddle.net/vecharts/u9p0kvkq/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
-### 基础饼图
+## 基础饼图
 
 <vuep template="#basicPie" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -34,7 +34,7 @@
   }
 </script>
 
-### 选中饼图扇区
+## 选中饼图扇区
 
 <vuep template="#selectedModePie" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -66,7 +66,7 @@
   }
 </script>
 
-### 南丁格尔玫瑰图（半径模式）
+## 南丁格尔玫瑰图（半径模式）
 
 <vuep template="#radiusRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -99,7 +99,7 @@
   }
 </script>
 
-### 南丁格尔玫瑰图（面积模式）
+## 南丁格尔玫瑰图（面积模式）
 
 <vuep template="#areaRose" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 

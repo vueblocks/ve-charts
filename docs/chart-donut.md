@@ -5,7 +5,7 @@
 <iframe width="100%" height="470" src="//jsfiddle.net/vecharts/ntnmap48/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
-### 基础环形图
+## 基础环形图
 
 <vuep template="#basicDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -34,7 +34,7 @@
   }
 </script>
 
-### 环形图 - 选中扇区
+## 环形图 - 选中扇区
 
 <vuep template="#selectedModeDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -66,7 +66,7 @@
   }
 </script>
 
-### 环形图 - 半径设置
+## 环形图 - 半径设置
 
 <vuep template="#radiusDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -98,7 +98,7 @@
   }
 </script>
 
-### 环形图 - 中心显示标签
+## 环形图 - 中心显示标签
 
 <vuep template="#labelCenterDonut" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -147,7 +147,7 @@
   }
 </script>
 
-### settings 配置项
+## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
