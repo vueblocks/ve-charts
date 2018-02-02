@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home'
 import Chart from '@/views/Chart'
 
 Vue.use(Router)
@@ -10,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: '首页',
-      component: Home
+      component: Chart
     },
     {
       path: '/chart/:type',
