@@ -6,7 +6,7 @@ import router from './router'
 
 import VeCharts from '../src/index' // 调试开发
 // import VeCharts from '../lib/ve-charts.min' // 调试生产
-import '../lib/ve-charts.min.css'
+// import '../lib/ve-charts.min.css'
 import 'normalize.css'
 
 Vue.use(VeCharts)

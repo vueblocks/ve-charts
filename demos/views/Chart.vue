@@ -74,6 +74,7 @@ export default {
       height: 400px;
       margin-bottom: 40px;
       .left-section {
+        position: relative;
         flex: 1;
         width: 60%;
         margin: 0 auto;

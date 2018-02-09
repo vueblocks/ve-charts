@@ -1,14 +1,13 @@
 <template>
   <div>
+    <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
+      v-else
     />
-    <slot>
-      <empty-data v-if="data===null" />
-    </slot>
   </div>
 </template>
 
@@ -16,8 +15,6 @@
   import Core from '../..//mixins/Core'
   import { options } from '../../base-options'
   import { donut } from '../pie/chartHandler'
-
-  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
     name: 'VeDonutChart',
@@ -27,16 +24,13 @@
         options
       }
     },
-    created () {
-      this.chartHandler = donut
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = donut
     }
   }
 </script>

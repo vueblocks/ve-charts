@@ -1,14 +1,13 @@
 <template>
   <div>
+    <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
+      v-else
     />
-    <slot>
-      <empty-data v-if="data===null" />
-    </slot>
   </div>
 </template>
 
@@ -18,8 +17,6 @@
   import { funnel } from './chartHandler'
   import 'echarts/lib/chart/funnel'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
   export default {
     name: 'VeFunnelChart',
     mixins: [Core],
@@ -28,16 +25,13 @@
         options
       }
     },
-    created () {
-      this.chartHandler = funnel
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = funnel
     }
   }
 </script>

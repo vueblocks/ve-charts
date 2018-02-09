@@ -1,14 +1,13 @@
 <template>
   <div>
+    <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     <base-echarts
       :options="options"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
+      v-else
     />
-    <slot>
-      <empty-data v-if="data == null" />
-    </slot>
   </div>
 </template>
 
@@ -18,8 +17,6 @@
   import { pie } from './chartHandler'
   import 'echarts/lib/chart/pie'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
   export default {
     name: 'VePieChart',
     mixins: [Core],
@@ -28,16 +25,13 @@
         options
       }
     },
-    created () {
-      this.chartHandler = pie
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = pie
     }
   }
 </script>
