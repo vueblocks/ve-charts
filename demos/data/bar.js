@@ -141,7 +141,15 @@ export default {
       title: '折柱混合图',
       data: mixinData,
       settings: {
+        secondMeaAxis: 'Vue',
         showLine: ['Vue']
+      }
+    },
+    {
+      title: '双Y轴柱状图',
+      data: mixinData,
+      settings: {
+        secondMeaAxis: 'Vue'
       }
     },
     {

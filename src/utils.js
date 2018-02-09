@@ -101,7 +101,7 @@ export const getType = (v) => {
 export const toKebab = (v) => v.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 
 // format measure
-export const formatMeasure = (value, isFixed) => {
+export const formatMeasure = (type, value, isFixed) => {
   function isFixedX(num) {
     if (isFixed || (isFixed === 0) || (isFixed === '0')) {
       try {
