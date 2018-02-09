@@ -1,1 +1,2 @@
-.echarts-empty-data{position:absolute;left:0;right:0;top:0;bottom:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:hsla(0,0%,100%,.7);color:#888;font-size:14px}.echarts{width:auto;height:400px}
+.echarts{width:auto;height:400px}.echarts-empty-data{position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}
+/*# sourceMappingURL=ve-charts.min.css.map */
