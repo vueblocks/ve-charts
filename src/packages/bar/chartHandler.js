@@ -1,5 +1,5 @@
 import { options } from '../../base-options'
-import { getDataset, getStackMap } from '../../utils'
+import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
 // build tooltip
 function getBarTooltip (args) {
@@ -54,8 +54,12 @@ function getBarDimAxis (args) {
 
 // build measure axis
 function getBarMeaAxis (args) {
-  const { settings } = args
-  const { meaAxisType, yAxisScale } = settings
+  const { data, settings } = args
+  const {
+    meaAxisType,
+    yAxisScale = false,
+    secondMeaAxis
+  } = settings
 
   const meaAxisBase = {
     type: 'value',
@@ -64,17 +68,22 @@ function getBarMeaAxis (args) {
       show: false
     }
   }
+  const meaAxisNames = data.measures.map(v => v.name)
+  const secondMeaAxisIndex = meaAxisNames.findIndex(v => v === secondMeaAxis)
+  
   const meaAxis = []
-  meaAxisType.forEach((v, i) => {
-    // custom formatter
-    const formatter = {
-      axisLabel: {
-        margin: 10,
-        fontWeight: 400
-        // formatter: (value) => formatMeasure(value)
-      }
+  meaAxisType.forEach((type, i) => {
+    const axisLabel = {
+      margin: 10,
+      fontWeight: 400
     }
-    const axisItem = Object.assign({}, meaAxisBase, formatter)
+    if (type !== 'normal') {
+      axisLabel.formatter = (value) => formatMeasure(type, value)
+    }
+    const axisItem = {
+      ...meaAxisBase,
+      axisLabel
+    }
     meaAxis.push(axisItem)
   })
   return meaAxis
@@ -110,13 +119,13 @@ function getBarSeries(args) {
   const { dimensions, measures } = data
   const {
     label = {},
-    seriesLayoutBy = 'column',
     showLine = [],
     stack = null,
+    secondMeaAxis = null,
     ...others
   } = settings
 
-  const secondDimAxisIndex = isColumn ? 'yAxisIndex' : 'xAxisIndex'
+  const axisIndexName = isColumn ? 'yAxisIndex' : 'xAxisIndex'
   const series = []
   const stackMap = stack && getStackMap(stack)
 
@@ -136,9 +145,8 @@ function getBarSeries(args) {
       name,
       encode: getEncode(name),
       label: getBarLabel({label, settings: { isColumn }}),
-      seriesLayoutBy,
       stack: (stack && stackMap[name]) && stackMap[name],
-      [secondDimAxisIndex]: showLine.includes(name) ? '1' : '0',
+      [axisIndexName]: secondMeaAxis === name ? '1' : '0',
       ...others
     }
 
@@ -151,7 +159,7 @@ export const bar = (data, settings, extra) => {
   const { tooltipVisible, legendVisible } = extra
   const {
     direction = 'column',
-    showLine,
+    secondMeaAxis = null,
     yAxisType,
     yAxisName,
     xAxisType,
@@ -161,7 +169,7 @@ export const bar = (data, settings, extra) => {
   // 默认柱状图
   const isColumn = direction === 'column'
 
-  const defaultMeaAxisType = showLine ? ['normal', 'normal'] : ['normal']
+  const defaultMeaAxisType = secondMeaAxis !== null ? ['normal', 'normal'] : ['normal']
 
   settings.meaAxisType = (isColumn ? yAxisType : xAxisType) || defaultMeaAxisType
   settings.meaAxisName = (isColumn ? yAxisName : xAxisName) || []
@@ -176,9 +184,9 @@ export const bar = (data, settings, extra) => {
 
   const grid = getBarGrid({ isColumn })
 
-  const xAxis = isColumn ? getBarDimAxis({ settings }) : getBarMeaAxis({ settings })
+  const xAxis = isColumn ? getBarDimAxis({ settings }) : getBarMeaAxis({ data, settings })
 
-  const yAxis = isColumn ? getBarMeaAxis({ settings }) : getBarDimAxis({ settings })
+  const yAxis = isColumn ? getBarMeaAxis({ data, settings }) : getBarDimAxis({ settings })
 
   const series = getBarSeries({ data, settings, isColumn })
 
