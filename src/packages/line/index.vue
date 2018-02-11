@@ -1,14 +1,14 @@
 <template>
   <div>
-    <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     <base-echarts
       :options="options"
-      :init-options="initOptions"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
-      v-else
     />
+    <slot>
+      <empty-data :empty-text="emptyText" v-if="isEmptyData" />
+    </slot>
   </div>
 </template>
 

@@ -9,6 +9,26 @@ const baseData = {
   }]
 }
 
+const pieDonut = [{
+  dimensions: {
+    name: '渠道',
+    data: ['移动设备', 'PC']
+  },
+  measures: [{
+    name: 'PV',
+    data: [150000, 90000]
+  }]
+}, {
+  dimensions: {
+    name: '渠道',
+    data: ['APP', 'M端', '微信', '手Q', '小程序', 'PC']
+  },
+  measures: [{
+    name: 'PV',
+    data: [40000, 30000, 20000, 50000, 10000, 90000]
+  }]
+}]
+
 export default {
   name: '饼图',
   type: 'pie',
@@ -24,6 +44,27 @@ export default {
       settings: {
         selectedMode: 'single'
       }
+    },
+    {
+      title: '环饼图',
+      data: pieDonut,
+      settings: [{
+        selectedMode: 'single',
+        radius: [0, '30%'],
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        label: {
+          normal: {
+            position: 'inner'
+          }
+        }
+      }, {
+        selectedMode: 'single',
+        radius: ['40%', '55%']
+      }]
     },
     {
       title: '南丁格尔玫瑰图（半径模式）',

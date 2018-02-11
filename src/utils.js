@@ -149,6 +149,7 @@ export const formatMeasure = (type, value, isFixed) => {
 }
 
 export const getDataset = ({ data }) => {
+  console.log(JSON.stringify(data))
   const { name: dimName, data: dimData } = data.dimensions
   const dimensions = {
     [dimName]: dimData
@@ -168,6 +169,19 @@ export const getDataset = ({ data }) => {
     source
   }
 
+  return dataset
+}
+
+export const getDatasetArray = (data, settings) => {
+  const dataset = []
+
+  if (!data.length || data.length === 1) {
+    dataset.push(getDataset({data}))
+  } else if (data.length > 1) {
+    for (let element of data) {
+      dataset.push(getDataset({ data: element }))
+    }
+  }
   return dataset
 }
 
