@@ -38,7 +38,7 @@ Vue.directive('hljs', {
 export default {
   name: 'CodeBlock',
   props: {
-    sourcecode: Object
+    sourcecode: [Array, Object]
   },
   data () {
     return {}

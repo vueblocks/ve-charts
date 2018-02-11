@@ -7,7 +7,7 @@ import EmptyData from '../components/EmptyData'
 export default {
   props: {
     data: { type: [Object, Array], default() { return {} } },
-    settings: { type: Object, default() { return {} } },
+    settings: { type: [Object, Array], default() { return {} } },
     // echarts default options
     title: Object,
     legend: Object,
