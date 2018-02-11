@@ -7,7 +7,7 @@
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data == null" />
+      <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     </slot>
   </div>
 </template>
@@ -18,8 +18,6 @@
   import { radar } from './chartHandler'
   import 'echarts/lib/chart/radar'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
   export default {
     name: 'VeRadarChart',
     mixins: [Core],
@@ -28,16 +26,13 @@
         options
       }
     },
-    created () {
-      this.chartHandler = radar
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = radar
     }
   }
 </script>

@@ -1,10 +1,15 @@
-import { cloneDeep } from 'lodash'
+import { cloneDeep, isNull, isEmpty, isUndefined } from 'lodash'
 
 import { getType } from '../utils'
 import { color } from '../base-options'
+import BaseEcharts from '../components/BaseEcharts'
 import EmptyData from '../components/EmptyData'
 
 export default {
+  components: {
+    BaseEcharts,
+    EmptyData
+  },
   props: {
     data: { type: [Object, Array], default() { return {} } },
     settings: { type: [Object, Array], default() { return {} } },
@@ -39,13 +44,16 @@ export default {
     theme: Object,
     themeName: { type: String, default() { return 'default' } },
     loading: Boolean,
-    dataEmpty: Boolean,
+    emptyText: String,
     renderer: { type: String, default: 'canvas' }
   },
 
   computed: {
     chartColor() {
       return this.color || (this.theme && this.theme.color) || color
+    },
+    isEmptyData() {
+      return isNull(this.data) || isEmpty(this.data) || isUndefined(this.data)
     }
   },
 
@@ -67,14 +75,14 @@ export default {
 
   methods: {
     dataHandler (data) {
-      if (!this.chartHandler) return
+      if (!this.chartHandler || this.isEmptyData) return
       const extra = {
         tooltipVisible: this.tooltipVisible,
         legendVisible: this.legendVisible
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
 
-      const options = this.chartHandler(data, cloneDeep(this.settings), extra)
+      const options =  this.chartHandler(data, cloneDeep(this.settings), extra)
 
       if (options) {
         if (typeof options.then === 'function') {
@@ -172,8 +180,5 @@ export default {
 
   mounted () {
     this.init()
-  },
-  components: {
-    EmptyData
   }
 }

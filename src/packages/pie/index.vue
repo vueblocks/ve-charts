@@ -7,7 +7,7 @@
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data == null" />
+      <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     </slot>
   </div>
 </template>
@@ -18,8 +18,6 @@
   import { pie } from './chartHandler'
   import 'echarts/lib/chart/pie'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
   export default {
     name: 'VePieChart',
     mixins: [Core],
@@ -28,16 +26,13 @@
         options
       }
     },
-    created () {
-      this.chartHandler = pie
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = pie
     }
   }
 </script>

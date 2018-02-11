@@ -7,7 +7,7 @@
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data == null" />
+      <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     </slot>
   </div>
 </template>

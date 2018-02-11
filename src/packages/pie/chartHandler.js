@@ -47,7 +47,6 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
     selectedMode = false,
     ...others
   } = settings
-
   // 默认度量第一个属性为饼图值
   // const { name: dimName } = dimensions
   // const [meaName = ''] = measures.map(v => v.name)
@@ -68,6 +67,8 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
       ...others
     })
   })
+  console.log(series)
+  
   return series
 }
 

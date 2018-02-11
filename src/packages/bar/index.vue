@@ -7,7 +7,7 @@
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data===null" />
+      <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     </slot>
   </div>
 </template>
@@ -18,8 +18,6 @@
   import { bar } from './chartHandler'
   import 'echarts/lib/chart/bar'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
   export default {
     name: 'VeBarChart',
     mixins: [Core],
@@ -28,16 +26,13 @@
         options
       }
     },
-    created () {
-      this.chartHandler = bar
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = bar
     }
   }
 </script>

@@ -7,7 +7,7 @@
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data===null" />
+      <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     </slot>
   </div>
 </template>
@@ -17,8 +17,6 @@
   import { options } from '../../base-options'
   import { donut } from '../pie/chartHandler'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
   export default {
     name: 'VeDonutChart',
     mixins: [Core],
@@ -27,16 +25,13 @@
         options
       }
     },
-    created () {
-      this.chartHandler = donut
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = donut
     }
   }
 </script>

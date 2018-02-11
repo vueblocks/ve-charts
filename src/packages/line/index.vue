@@ -2,13 +2,12 @@
   <div>
     <base-echarts
       :options="options"
-      :init-options="initOptions"
       :autoResize="true"
       :theme="theme"
       @chartclick="onClick"
     />
     <slot>
-      <empty-data v-if="data == null" />
+      <empty-data :empty-text="emptyText" v-if="isEmptyData" />
     </slot>
   </div>
 </template>
@@ -18,8 +17,6 @@
   import { options } from '../../base-options'
   import { line } from './chartHandler'
   import 'echarts/lib/chart/line'
-
-  import BaseEcharts from '../../components/BaseEcharts'
 
   export default {
     name: 'VeLineChart',
@@ -32,16 +29,13 @@
         }
       }
     },
-    created () {
-      this.chartHandler = line
-    },
     methods: {
       onClick (e) {
         this.$emit('chartclick', e)
       }
     },
-    components: {
-      BaseEcharts
+    created () {
+      this.chartHandler = line
     }
   }
 </script>

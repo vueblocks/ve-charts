@@ -9,9 +9,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const env = process.env.NODE_ENV === 'testing' ?
-  require('../config/test.env') :
-  config.bundle.env
+const env = require('../config/prod.env')
 
 baseWebpackConfig.entry = {
   'VeCharts': './src/index.js'
@@ -24,7 +22,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       extract: true
     })
   },
-  devtool: config.bundle.productionSourceMap ? '#source-map' : false,
+  devtool: config.bundle.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.bundle.assetsRoot,
     publicPath: config.bundle.assetsPublicRoot,
@@ -54,9 +52,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
-      cssProcessorOptions: {
-        safe: true
-      }
+      cssProcessorOptions: config.build.productionSourceMap
+        ? { safe: true, map: { inline: false } }
+        : { safe: true }
     })
   ]
 })

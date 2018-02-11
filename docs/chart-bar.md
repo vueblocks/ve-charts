@@ -257,6 +257,45 @@
   }
 </script>
 
+## 双Y轴柱状图
+
+<vuep template="#doubleYBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="doubleYBar" />
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    components: {
+    	VeBarChart: window['ve-charts'].default.VeBarChart
+  	},
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Month',
+          data: [
+            'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
+            'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
+          ]
+        },
+        measures: [{
+          name: 'Vue',
+          data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        }]
+      }
+      this.chartSettings = {
+        secondMeaAxis: 'Vue'
+      }
+    }
+  }
+</script>
+
 ## 折柱混合图
 
 <vuep template="#mixinBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
@@ -290,7 +329,8 @@
         }]
       }
       this.chartSettings = {
-        showLine: ['Vue']
+        secondMeaAxis: 'Vue',
+        showLine: ['Vue'],
       }
     }
   }
