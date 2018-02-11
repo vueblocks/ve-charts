@@ -31,9 +31,6 @@ function getPieSeries(args) {
   } = settings
 
   const series = []
-  // 默认度量第一个属性为饼图值
-  const { name: dimName } = dimensions
-  const [meaName = ''] = measures.map(v => v.name)
   measures.forEach(({ name, data }, idx) => {
     series.push({
       id: 'pie',
@@ -43,13 +40,11 @@ function getPieSeries(args) {
       center: offsetY ? ['50%', offsetY] : ['50%', '50%'],
       radius,
       avoidLabelOverlap: !isDonut,
-      encode: {
-        itemName: dimName,
-        value: meaName
-      },
       ...others
     })
   })
+  console.log(series)
+  
   return series
 }
 
