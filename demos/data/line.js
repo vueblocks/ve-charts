@@ -30,10 +30,18 @@ const baseData = {
   }]
 }
 
+const emptyData = {
+}
+
 export default {
   name: '折线图',
   type: 'line',
   chartData: [
+    {
+      title: '无数据',
+      data: emptyData,
+      settings: {}
+    },
     {
       title: '基础折线图',
       data: simpleData,
