@@ -132,6 +132,61 @@
   }
 </script>
 
+## 环饼图
+
+<vuep template="#donutPie" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="donutPie">
+<template>
+  <ve-pie-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    components: {
+    	VePieChart: window['ve-charts'].default.VePieChart
+  	},
+    created () {
+      this.chartData = [{
+        dimensions: {
+          name: '渠道',
+          data: ['移动设备', 'PC']
+        },
+        measures: [{
+          name: 'PV',
+          data: [150000, 90000]
+        }]
+      }, {
+        dimensions: {
+          name: '渠道',
+          data: ['APP', 'M端', '微信', '手Q', '小程序', 'PC']
+        },
+        measures: [{
+          name: 'PV',
+          data: [40000, 30000, 20000, 50000, 10000, 90000]
+        }]
+      }]
+      this.chartSettings = [{
+        selectedMode: 'single',
+        radius: [0, '30%'],
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        label: {
+          normal: {
+            position: 'inner'
+          }
+        }
+      }, {
+        selectedMode: 'single',
+        radius: ['40%', '55%']
+      }]
+    }
+  }
+</script>
+
 ## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |

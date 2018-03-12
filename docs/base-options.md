@@ -109,8 +109,8 @@ data: {
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| data | 图表数据，dimensions: 维度，measures: 度量 | Object | {} |
-| settings | 图表配置项，内容参考图表具体配置 | Object | {} |
+| data | 图表数据，dimensions: 维度，measures: 度量 | [Array, Object] | [] or {} |
+| settings | 图表配置项，内容参考图表具体配置 | [Array, Object] | [] or {} |
 | title | 标题组件 | Object | [参考配置](http://echarts.baidu.com/option.html#title) |
 | legend | 图例组件 | Object | [参考配置](http://echarts.baidu.com/option.html#legend) |
 | xAxis | 直角坐标系 grid 中的 x 轴 | Object | [参考配置](http://echarts.baidu.com/option.html#xAxis) |
@@ -133,8 +133,15 @@ data: {
 
 ## 图表配置
 
+[折线图配置](https://gammafe.github.io/ve-charts/#/chart-line)
+
 [柱状图配置](https://gammafe.github.io/ve-charts/#/chart-bar)
 
-[条形图配置]()
+[饼图配置](https://gammafe.github.io/ve-charts/#/chart-pie)
 
-[折线图配置]()
+[环形图配置](https://gammafe.github.io/ve-charts/#/chart-donut)
+
+[雷达图配置](https://gammafe.github.io/ve-charts/#/chart-radar)
+
+[漏斗图配置](https://gammafe.github.io/ve-charts/#/chart-funnel)
+
