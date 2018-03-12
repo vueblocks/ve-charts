@@ -15,3 +15,4 @@
 
 - 其他
  - [更新日志](change-log.md)
+ - [属性配置示例](setting-demo.md)

@@ -69,8 +69,10 @@
 }
 
 .cm-s-vue .cm-attribute,
-.cm-s-vue .cm-tag {
+.cm-s-vue .cm-tag,
+.cm-s-vue .cm-word.cm-error {
   color: #2973b7;
+  background: transparent;
 }
 
 .cm-s-vue .cm-qualifier,
