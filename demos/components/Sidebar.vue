@@ -22,6 +22,18 @@
           </ul>
         </div>
       </section>
+      <section>
+        <div class="sidebar-title">
+          <span>Demo</span>
+        </div>
+        <div class="sidebar-content">
+          <ul>
+            <li>
+              <router-link to="/test-page">测试页面</router-link>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   </div>
 </template>
