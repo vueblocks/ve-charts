@@ -7,7 +7,7 @@
       :theme="theme"
       @chartclick="onClick"
     />
-    <slot>
+    <slot v-else>
       <empty-data :empty-text="emptyText"/>
     </slot>
   </div>
