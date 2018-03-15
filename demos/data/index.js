@@ -4,6 +4,7 @@ import pie from './pie'
 import donut from './donut'
 import radar from './radar'
 import funnel from './funnel'
+import scatter from './scatter'
 
 export default {
   bar,
@@ -11,5 +12,6 @@ export default {
   pie,
   donut,
   radar,
-  funnel
+  funnel,
+  scatter
 }
