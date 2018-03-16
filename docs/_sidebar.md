@@ -12,6 +12,7 @@
   - [环形图](chart-donut.md)
   - [雷达图](chart-radar.md)
   - [漏斗图](chart-funnel.md)
+  - [散点图](chart-scatter.md)
 
 - 其他
  - [更新日志](change-log.md)
