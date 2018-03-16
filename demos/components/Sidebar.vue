@@ -87,6 +87,7 @@ export default {
   .sidebar-section {
     .sidebar-title {
       height: 25px;
+      padding: 10px;
       font-family: PingFangSC;
       font-size: 18px;
       text-align: center;

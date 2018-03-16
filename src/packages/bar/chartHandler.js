@@ -176,7 +176,7 @@ export const bar = (data, settings, extra) => {
   settings.dimAxisType = (isColumn ? xAxisType : yAxisType) || 'category'
   settings.dimAxisName = (isColumn ? xAxisName : yAxisName) || ''
 
-  const dataset = getDataset({ data, settings })
+  const dataset = getDataset(data)
 
   const tooltip = tooltipVisible && getBarTooltip()
 

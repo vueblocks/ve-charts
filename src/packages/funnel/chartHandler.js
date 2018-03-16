@@ -121,7 +121,7 @@ function getFunnelSeries(args) {
 export const funnel = (data, settings, extra, isDonut) => {
   const { tooltipVisible, legendVisible } = extra
 
-  const dataset = getDataset({ data, settings })
+  const dataset = getDataset(data)
 
   const tooltip = tooltipVisible && getFunnelTooltip()
 
@@ -137,7 +137,7 @@ export const funnel = (data, settings, extra, isDonut) => {
     series
   }
 
-  console.log(options)
+  // console.log(options)
 
   return options
 }

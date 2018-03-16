@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export const numberFormat = (val, digits = 2) => {
   if (isNaN(+val)) return val
 
@@ -148,8 +150,15 @@ export const formatMeasure = (type, value, isFixed) => {
   } else return formatNumToY(value, isFixed)
 }
 
-export const getDataset = ({ data }) => {
-  const { name: dimName, data: dimData } = data.dimensions
+export const getDataset = (data) => {
+  const dimName = data && data.dimensions && data.dimensions.name || 'dimensions'
+  const dimData = data && data.dimensions && data.dimensions.data
+
+  if (dimData === undefined) {
+    Vue.util.warn(`data.dimensions.data is required. Please check on you data`, this)
+    return
+  }
+
   const dimensions = {
     [dimName]: dimData
   }
@@ -168,19 +177,6 @@ export const getDataset = ({ data }) => {
     source
   }
 
-  return dataset
-}
-
-export const getDatasetArray = (data, settings) => {
-  const dataset = []
-
-  if (!data.length || data.length === 1) {
-    dataset.push(getDataset({data}))
-  } else if (data.length > 1) {
-    for (let element of data) {
-      dataset.push(getDataset({ data: element }))
-    }
-  }
   return dataset
 }
 

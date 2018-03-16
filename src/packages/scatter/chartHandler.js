@@ -1,91 +1,62 @@
-function getScatterData(args) {
-  const { data, settings } = args
-  const { connect } = settings
-  const dataIndex = connect ? connect.dataIndex : -1
-  const legendData = []
-  const seriesData = []
+import { isArray } from 'lodash'
 
-  data.measure.forEach(({ name, data }, i) => {
-    legendData.push(name)
-    seriesData[i] = {
-      type: 'scatter',
-      data: dataIndex === -1 ? data : getSeriesData(data, {
-        index: i,
-        connect
-      }),
-      symbolSize: (data) => {
-        return data[2] == null ? 12 : Math.sqrt(data[2] / 5e2)
-      },
-      name
-    }
-  })
+function getScatterDataset (data) {
+  const dataset = []
+  const { measures } = data
 
-  return {
-    legendData,
-    seriesData
+  if (isArray(measures)) {
+    measures.forEach(v => {
+      dataset.push({
+        ['source']: v.data
+      })
+    })
+  } else {
+    return
   }
+
+  return dataset
 }
 
-function getSeriesData(data, options) {
-  const {
-    index,
-    connect: {
-      dataIndex,
-      seriesIndex,
-      symbolSize,
-      normalShadowBlur
-    }
-  } = options
-
-  if (index !== seriesIndex) {
-    return data
-  }
-  return data.map((v, i) => {
-    if (i === dataIndex) {
-      return {
-        value: v,
-        symbolSize,
-        itemStyle: {
-          normal: {
-            shadowBlur: normalShadowBlur
-          }
-        }
-      }
-    }
-    return {
-      value: v
-    }
-  })
-}
-
-function getScatterTooltip() {
-  return {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'cross'
-    }
-  }
+function getScatterTooltip(args) {
+  return {}
 }
 
 function getScatterLegend(args) {
-  const { legendData, settings } = args
-  const { legendType, legendPadding } = settings
+  const { settings } = args
+  const {
+    legendType = 'plain',
+    legendPadding = 5
+  } = settings
 
   return {
-    type: legendType || 'plain',
-    padding: legendPadding || 5,
-    data: legendData
+    type: legendType,
+    padding: legendPadding,
   }
 }
 
 function getScatterSeries(args) {
-  const { seriesData } = args
+  const { data, settings } = args
+  const { connect, ...others } = settings
+  // const dataIndex = connect ? connect.dataIndex : -1
+  const series = []
 
-  return seriesData
+  data.measures.forEach(({ name }, i) => {
+    series[i] = {
+      type: 'scatter',
+      name,
+      datasetIndex: i,
+      ...others
+    }
+  })
+
+  return series
 }
 
-function getScatterXAxis() {
+function getScatterXAxis(args) {
+  const { settings } = args
+  const { xAxisScale = false } = settings
   return {
+    scale: xAxisScale,
     splitLine: {
       lineStyle: {
         type: 'dashed'
@@ -96,10 +67,10 @@ function getScatterXAxis() {
 
 function getScatterYAxis(args) {
   const { settings } = args
-  const { yAxisScale } = settings
+  const { yAxisScale = false } = settings
 
   return {
-    scale: yAxisScale || false,
+    scale: yAxisScale,
     splitLine: {
       lineStyle: {
         type: 'dashed'
@@ -111,26 +82,29 @@ function getScatterYAxis(args) {
 export const scatter = (data, settings, extra) => {
   const { tooltipVisible, legendVisible } = extra
 
-  const tooltip = tooltipVisible && getScatterTooltip()
+  const dataset = getScatterDataset(data, settings)
 
-  const { legendData, seriesData } = getScatterData({ data, settings })
+  const tooltip = tooltipVisible && getScatterTooltip({ data })
 
-  const legend = legendVisible && getScatterLegend({ legendData, settings })
+  const legend = legendVisible && getScatterLegend({ settings })
 
-  const series = getScatterSeries({ seriesData })
+  const series = getScatterSeries({ data, settings })
 
-  const xAxis = getScatterXAxis()
+  const xAxis = getScatterXAxis({ settings })
 
-  const yAxis = getScatterYAxis({ data, settings })
+  const yAxis = getScatterYAxis({ settings })
 
   // build echarts options
   const options = {
+    dataset,
     tooltip,
     legend,
     series,
     xAxis,
     yAxis
   }
+
+  console.log(options)
 
   return options
 }

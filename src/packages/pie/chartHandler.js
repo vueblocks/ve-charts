@@ -1,4 +1,17 @@
-import { getDatasetArray } from '../../utils'
+import { getDataset } from '../../utils'
+
+function getPieDataset (data, settings) {
+  const dataset = []
+
+  if (!data.length || data.length === 1) {
+    dataset.push(getDataset(data))
+  } else if (data.length > 1) {
+    for (let element of data) {
+      dataset.push(getDataset(element))
+    }
+  }
+  return dataset
+}
 
 function getPieTooltip (args) {
   return {
@@ -47,12 +60,9 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
     selectedMode = false,
     ...others
   } = settings
-  // 默认度量第一个属性为饼图值
-  // const { name: dimName } = dimensions
-  // const [meaName = ''] = measures.map(v => v.name)
+
   measures.forEach(({ name, data }, idx) => {
     series.push({
-      // id: 'pie',
       type: 'pie',
       name,
       selectedMode,
@@ -60,14 +70,10 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
       radius,
       avoidLabelOverlap: !isDonut,
       datasetIndex: datasetIndex,
-      // encode: {
-      //   itemName: dimName,
-      //   value: meaName
-      // },
       ...others
     })
   })
-  console.log(series)
+  // console.log(series)
   
   return series
 }
@@ -75,7 +81,7 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
 export const pie = (data, settings, extra, isDonut) => {
   const { tooltipVisible, legendVisible } = extra
 
-  const dataset = getDatasetArray(data, settings)
+  const dataset = getPieDataset(data, settings)
 
   const tooltip = tooltipVisible && getPieTooltip()
 
@@ -91,8 +97,8 @@ export const pie = (data, settings, extra, isDonut) => {
     series
   }
 
-  // console.log(options)
-  console.log(JSON.stringify(options))
+  console.log(options)
+  // console.log(JSON.stringify(options))
   return options
 }
 

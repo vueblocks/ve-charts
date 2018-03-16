@@ -116,7 +116,7 @@ function getLineSeries(args) {
 export const line = (data, settings, extra) => {
   const { tooltipVisible, legendVisible } = extra
 
-  const dataset = getDataset({ data, settings })
+  const dataset = getDataset(data)
 
   const tooltip = tooltipVisible && getLineTooltip()
 
