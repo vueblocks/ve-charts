@@ -8,7 +8,7 @@ for (let i = 0; i < 50; i++) {
 
 const simpleData = {
   dimensions: {
-    data: []
+    data: ['随机值']
   },
   measures: [{
     name: '随机分布数据',
@@ -148,6 +148,28 @@ export default {
       settings: {
         xAxisScale: true,
         yAxisScale: true
+      },
+      xprops: {
+        tooltip: {
+          axisPointer: {
+            type: 'cross'
+          }
+        }
+      }
+    },
+    {
+      title: '气泡图',
+      data: simpleData,
+      settings: {
+        itemStyle: {
+          normal: {
+            opacity: 0.8
+          }
+        },
+        symbolSize: function(val) {
+          const [a, b] = val
+          return Math.abs(a - b) / 2
+        }
       }
     }
   ]

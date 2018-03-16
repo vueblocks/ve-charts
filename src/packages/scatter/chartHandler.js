@@ -17,18 +17,13 @@ function getScatterDataset (data) {
   return dataset
 }
 
-function getScatterTooltip() {
-  return {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'cross'
-    }
-  }
+function getScatterTooltip(args) {
+  return {}
 }
 
 function getScatterLegend(args) {
   const { settings } = args
-  const { 
+  const {
     legendType = 'plain',
     legendPadding = 5
   } = settings
@@ -89,7 +84,7 @@ export const scatter = (data, settings, extra) => {
 
   const dataset = getScatterDataset(data, settings)
 
-  const tooltip = tooltipVisible && getScatterTooltip()
+  const tooltip = tooltipVisible && getScatterTooltip({ data })
 
   const legend = legendVisible && getScatterLegend({ settings })
 
