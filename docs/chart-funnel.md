@@ -236,11 +236,68 @@
   }
 </script>
 
+## 多个漏斗图
+
+> 覆盖 `series` 属性，构建多个漏斗图。
+
+<vuep template="#multipleFunnel" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="multipleFunnel">
+<template>
+  <ve-funnel-chart :data="chartData" :series="series" />
+</template>
+
+<script>
+ module.exports = {
+    components: {
+    	VeFunnelChart: window['ve-charts'].default.VeFunnelChart
+  	},
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: '渠道',
+          data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
+        },
+        measures: [{
+          name: 'PV',
+          data: [36000, 30000, 24000, 18000, 12000, 6000]
+        }, {
+          name: 'UV',
+          data: [36000, 30000, 24000, 18000, 12000, 6000]
+        }]
+      }
+      this.series = [
+        {
+          type: 'funnel',
+          width: '40%',
+          left: '10%',
+          top: '15%',
+          label: {
+            normal: {
+              position: 'left'
+            }
+          }
+        },
+        {
+          type: 'funnel',
+          width: '40%',
+          left: '50%',
+          top: '15%',
+          sort: 'ascending'
+        }
+      ]
+    }
+  }
+</script>
+
 ## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
-| smooth | 设置图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等 | Object | 参见[文档](http://echarts.baidu.com/option.html#series-line.smooth) |
-| stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | 指定哪些度量堆叠展示，例如: 指定`React`与`Angular`以`lang`堆叠 |
+| funnelSort | 漏斗图排序方式，默认倒序 | String | 'asc' 正序；'desc' 倒序 | 
+| funnelAlign | 水平方向对齐布局类型，默认居中对齐 | String | 参见[文档](http://echarts.baidu.com/option.html#series-funnel.funnelAlign) |
+| labelPosition | 标签的位置，默认显示在外侧 | String | 参见[文档](http://echarts.baidu.com/option.html#series-funnel.label.position) |
+| symmetric | 对称漏斗图开关 | Boolean | 默认为 false；true: 开启对称漏斗图 |
+| contrast | 对比漏斗图开关 | Boolean | 默认为 false；true: 开启对比漏斗图 |
 
 > Tip:
