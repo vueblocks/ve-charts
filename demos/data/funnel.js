@@ -74,6 +74,34 @@ export default {
         symmetric: true,
         labelPosition: 'inside'
       }
+    },
+    {
+      title: '多个漏斗图',
+      data: compareData,
+      settings: {
+      },
+      xprops: {
+        series: [
+          {
+            type: 'funnel',
+            width: '40%',
+            left: '10%',
+            top: '15%',
+            label: {
+              normal: {
+                position: 'left'
+              }
+            }
+          },
+          {
+            type: 'funnel',
+            width: '40%',
+            left: '50%',
+            top: '15%',
+            sort: 'ascending'
+          }
+        ]
+      }
     }
   ]
 }
