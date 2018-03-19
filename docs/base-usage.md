@@ -11,11 +11,22 @@ npm i ve-charts -S
 
 安装完成后，即可使用 `import` 或 `require` 使用。
 
+完整引入 `ve-charts`
+
 ```js
 import Vue from 'vue'
 import VeCharts from 've-charts'
 
 Vue.use(VeCharts)
+```
+
+部分引入 `ve-charts`
+
+```js
+import Vue from 'vue'
+import { VeBarChart } from 've-charts'
+
+Vue.component('VeBarChart', VeBarChart)
 ```
 
 ## 创建图表

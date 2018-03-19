@@ -27,31 +27,33 @@ export const color = [
   '#f35352', '#ce62d6', '#8954d4', '#5257b8', '#d42d6b'
 ]
 
-export const treemapLevels = [{
-  itemStyle: {
-    normal: {
-      borderColor: '#fff'
+export const treemapLevels = [
+  {
+    itemStyle: {
+      normal: {
+        borderColor: '#fff'
+      }
     }
-  }
-}, {
-  colorSaturation: [0.3, 0.6],
-  itemStyle: {
-    normal: {
-      borderColorSaturation: 0.7,
-      gapWidth: 5,
-      borderWidth: 2
+  }, {
+    colorSaturation: [0.3, 0.6],
+    itemStyle: {
+      normal: {
+        borderColorSaturation: 0.7,
+        gapWidth: 5,
+        borderWidth: 2
+      }
     }
-  }
-}, {
-  colorSaturation: [0.3, 0.5],
-  itemStyle: {
-    normal: {
-      borderColorSaturation: 0.6
+  }, {
+    colorSaturation: [0.3, 0.5],
+    itemStyle: {
+      normal: {
+        borderColorSaturation: 0.6
+      }
     }
+  }, {
+    colorSaturation: [0.3, 0.5]
   }
-}, {
-  colorSaturation: [0.3, 0.5]
-}]
+]
 
 export default {
   options,

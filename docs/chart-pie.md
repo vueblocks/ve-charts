@@ -15,10 +15,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VePieChart: window['ve-charts'].default.VePieChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -44,10 +41,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VePieChart: window['ve-charts'].default.VePieChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -76,10 +70,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VePieChart: window['ve-charts'].default.VePieChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -109,10 +100,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VePieChart: window['ve-charts'].default.VePieChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -142,10 +130,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VePieChart: window['ve-charts'].default.VePieChart
-  	},
+  module.exports = {
     created () {
       this.chartData = [{
         dimensions: {

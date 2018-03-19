@@ -15,9 +15,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -44,9 +41,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -76,9 +70,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -116,9 +107,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -151,9 +139,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -186,9 +171,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -224,9 +206,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -268,9 +247,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -307,9 +283,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -347,9 +320,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeBarChart: window['ve-charts'].default.VeBarChart
-  	},
     created () {
       this.chartData = {
         dimensions: {

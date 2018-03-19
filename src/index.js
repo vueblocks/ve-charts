@@ -28,7 +28,9 @@ function install(Vue, _) {
   })
 }
 
-export default {
+export default install
+
+export {
   VeBarChart,
   VeDonutChart,
   VeFunnelChart,
@@ -38,6 +40,12 @@ export default {
   VePieChart,
   VeRadarChart,
   VeScatterChart,
-  VeTreemapChart,
-  install
+  VeTreemapChart
+}
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(install)
+  if (install.installed) {
+    install.installed = false
+  }
 }
