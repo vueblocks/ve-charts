@@ -17,7 +17,6 @@
 <script>
   module.exports = {
     created () {
-      console.log(window.VeCharts)
       this.chartData = {
         dimensions: {
           name: 'Week',
