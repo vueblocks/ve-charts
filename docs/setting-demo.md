@@ -11,12 +11,8 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
     created () {
-      this.chartData = {
-      }
+      this.chartData = {}
       this.emptyText = '空数据'
     }
   }
@@ -37,12 +33,8 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
     created () {
-      this.chartData = {
-      }
+      this.chartData = {}
     }
   }
 </script>
@@ -58,9 +50,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VePieChart: window['ve-charts'].default.VePieChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
