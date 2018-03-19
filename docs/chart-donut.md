@@ -15,10 +15,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeDonutChart: window['ve-charts'].default.VeDonutChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -44,10 +41,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeDonutChart: window['ve-charts'].default.VeDonutChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -76,10 +70,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeDonutChart: window['ve-charts'].default.VeDonutChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -108,10 +99,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeDonutChart: window['ve-charts'].default.VeDonutChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {

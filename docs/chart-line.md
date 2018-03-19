@@ -15,10 +15,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -44,10 +41,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -84,10 +78,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -127,9 +118,6 @@
 
 <script>
  module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
     created () {
       this.chartData = {
         dimensions: {
@@ -166,10 +154,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
@@ -198,10 +183,7 @@
 </template>
 
 <script>
- module.exports = {
-    components: {
-    	VeLineChart: window['ve-charts'].default.VeLineChart
-  	},
+  module.exports = {
     created () {
       this.chartData = {
         dimensions: {
