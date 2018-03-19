@@ -27,6 +27,9 @@ function getRadarRadar(args) {
     },
     center: offsetY ? ['50%', offsetY] : ['50%', '50%'],
     radius: radius || '75%',
+    splitNumber: splitNumber || 5,
+    shape: shape || 'polygon',
+    splitArea: splitArea || {},
     indicator: data.dimensions
   }
 }

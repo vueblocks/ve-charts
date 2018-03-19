@@ -26,8 +26,8 @@
     themeColor: '#3c78eb',
     homepage: 'base-quickstart.md',
     search: {
-      maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-      paths: [], // or 'auto'
+      maxAge: 86400000,
+      paths: 'auto',
       placeholder: {
         '/': '搜索',
         '/en': 'Type to search'
@@ -38,8 +38,8 @@
       },
       depth: 2
     },
-    mergeNavbar: true   // 小屏设备下合并导航栏到侧边栏
-  };
+    mergeNavbar: true
+  }
 
   // remove sidebar's title and add my logo
   let interval = setInterval(function () {
