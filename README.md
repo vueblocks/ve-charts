@@ -8,7 +8,7 @@
     <p align="center">
         <a href="https://travis-ci.org/GammaFE/ve-charts"><img src="https://travis-ci.org/GammaFE/ve-charts.svg?branch=master"></a>
         <a href="https://www.npmjs.com/package/ve-charts"><img src="https://img.shields.io/npm/v/ve-charts.svg?maxAge=2592000"></a>
-        <a href=""><img src="https://img.shields.io/npm/dt/ve-charts.svg"></a>
+        <a href="https://www.npmjs.com/package/ve-charts"><img src="https://img.shields.io/npm/dt/ve-charts.svg"></a>
         <a href="https://github.com/GammaFE/ve-charts/stargazers"><img src="https://img.shields.io/github/stars/GammaFE/ve-charts.svg"></a>
         <a href="https://raw.githubusercontent.com/GammaFE/ve-charts/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
     </p>
