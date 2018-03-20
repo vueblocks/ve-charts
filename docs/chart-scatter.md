@@ -17,8 +17,8 @@
   module.exports = {
     methods: {
       // 根据指定范围生成随机数
-      rangeRandom(min, max, floor) {
-        return (Math.random() * (max - min) + min).toFixed(floor)
+      rangeRandom(min, max, precision) {
+        return (Math.random() * (max - min) + min).toFixed(precision)
       }
     },
     created () {
