@@ -97,7 +97,7 @@
 
 <script v-pre type="text/x-template" id="mixRadar">
 <template>
- <ve-radar-chart :radar="radar" :series="series" :data="data" :title="title" :backgroundcolor="'#333'"  />
+ <ve-radar-chart :radar="radar" :series="series" :data="data" :title="title" :background-color="backgroundcolor"/>
 </template>
 
 <script>
