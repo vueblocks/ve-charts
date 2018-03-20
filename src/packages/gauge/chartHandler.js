@@ -6,21 +6,24 @@ function getGaugeTooltip() {
 
 function getGaugeSeries(args) {
   const { data, settings } = args
-  const { measure } = data
-  const { name, value } = measure[0]
-  const { max, offsetY, radius } = settings
+  const { name, data: gaugeData } = data && data.measures && data.measures[0]
+  const {
+    min = 0,
+    max = 100,
+    offsetY,
+    radius = '75%',
+    ...others
+  } = settings
 
   return [{
     name,
     type: 'gauge',
-    min: 0,
-    max: max || value * 2,
+    min,
+    max,
     center: offsetY ? ['50%', offsetY] : ['50%', '50%'],
-    radius: radius || '75%',
-    data: [{
-      name,
-      value
-    }]
+    radius,
+    data: gaugeData,
+    ...others
   }]
 }
 
@@ -36,6 +39,6 @@ export const gauge = (data, settings, extra) => {
     tooltip,
     series
   }
-  console.log(options)
+  console.log(JSON.stringify(options))
   return options
 }
