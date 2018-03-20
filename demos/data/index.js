@@ -5,6 +5,7 @@ import donut from './donut'
 import radar from './radar'
 import funnel from './funnel'
 import scatter from './scatter'
+import gauge from './gauge'
 
 export default {
   bar,
@@ -13,5 +14,6 @@ export default {
   donut,
   radar,
   funnel,
-  scatter
+  scatter,
+  gauge
 }

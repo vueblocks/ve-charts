@@ -7,7 +7,7 @@
 ```bash
 npm i ve-charts -S
 ```
-## 完整引入 VeCharts
+## 引入 VeCharts
 
 安装完成后，即可使用 `import` 或 `require` 使用。
 

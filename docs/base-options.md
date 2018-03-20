@@ -145,3 +145,5 @@ data: {
 
 [漏斗图配置](https://gammafe.github.io/ve-charts/#/chart-funnel)
 
+[散点图配置](https://gammafe.github.io/ve-charts/#/chart-scatter)
+
