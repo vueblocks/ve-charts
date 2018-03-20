@@ -17,7 +17,7 @@ function getRadarLegend(args) {
 
 function getRadarRadar(args) {
   const { data, settings } = args
-  const { offsetY, radius } = settings
+  const { offsetY, radius, splitNumber, shape, splitArea } = settings
 
   return {
     name: {

@@ -51,7 +51,7 @@ export default {
           }
         }
       }
-    },
+    }
     // {
     //   title: '堆叠柱状图',
     //   data: baseData,
