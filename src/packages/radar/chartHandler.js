@@ -6,18 +6,18 @@ function getRadarTooltip() {
 
 function getRadarLegend(args) {
   const { data, settings } = args
-  const { legendType, legendPadding } = settings
+  const { legendType = 'plain', legendPadding = 5 } = settings
   const { measures } = data
   return {
-    type: legendType || 'plain',
-    padding: legendPadding || 5,
+    type: legendType,
+    padding: legendPadding,
     data: measures.map(v => v.name)
   }
 }
 
 function getRadarRadar(args) {
   const { data, settings } = args
-  const { offsetY, radius, splitNumber, shape, splitArea } = settings
+  const { offsetY = '50%', radius = '75%', splitNumber = 5, shape = 'polygon', splitArea = {} } = settings
 
   return {
     name: {
@@ -25,11 +25,11 @@ function getRadarRadar(args) {
         padding: [3, 5]
       }
     },
-    center: offsetY ? ['50%', offsetY] : ['50%', '50%'],
-    radius: radius || '75%',
-    splitNumber: splitNumber || 5,
-    shape: shape || 'polygon',
-    splitArea: splitArea || {},
+    center: ['50%', offsetY],
+    radius,
+    splitNumber,
+    shape,
+    splitArea,
     indicator: data.dimensions
   }
 }
