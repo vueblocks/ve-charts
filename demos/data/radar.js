@@ -52,17 +52,5 @@ export default {
         }
       }
     }
-    // {
-    //   title: '堆叠柱状图',
-    //   data: baseData,
-    //   settings: {
-    //     stack: {
-    //       量级: [
-    //         '蒸发量',
-    //         '降水量'
-    //       ]
-    //     }
-    //   }
-    // }
   ]
 }

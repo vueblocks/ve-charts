@@ -275,7 +275,6 @@
           { text: '调和', max: 13 }],
         startAngle: 60,
         splitNumber: 1,
-        center: ['50%', '55%'],
         name: {
           formatter: '{value}',
           textStyle: { fontSize: 16, color: 'rgba(255, 255, 255, 0.6)' }

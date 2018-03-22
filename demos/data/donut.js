@@ -54,7 +54,7 @@ export default {
             show: false
           }
         },
-        avoidLabelOverlap: false,
+        avoidLabelOverlap: false
       }
     }
   ]
