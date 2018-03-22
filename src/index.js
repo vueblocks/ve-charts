@@ -2,7 +2,7 @@ import VeBarChart from './packages/bar'
 import VeDonutChart from './packages/donut'
 import VeFunnelChart from './packages/funnel'
 import VeGaugeChart from './packages/gauge'
-import VeGeoChart from './packages/geo'
+// import VeGeoChart from './packages/geo'
 import VeLineChart from './packages/line'
 import VePieChart from './packages/pie'
 import VeRadarChart from './packages/radar'
@@ -14,7 +14,7 @@ const components = [
   VeDonutChart,
   VeFunnelChart,
   VeGaugeChart,
-  VeGeoChart,
+  // VeGeoChart,
   VeLineChart,
   VePieChart,
   VeRadarChart,
@@ -35,7 +35,7 @@ export {
   VeDonutChart,
   VeFunnelChart,
   VeGaugeChart,
-  VeGeoChart,
+  // VeGeoChart,
   VeLineChart,
   VePieChart,
   VeRadarChart,
