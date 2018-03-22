@@ -129,7 +129,8 @@
           normal: {
             show: false
           }
-        }
+        },
+        avoidLabelOverlap: false
       }
     }
   }

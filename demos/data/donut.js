@@ -53,7 +53,8 @@ export default {
           normal: {
             show: false
           }
-        }
+        },
+        avoidLabelOverlap: false,
       }
     }
   ]

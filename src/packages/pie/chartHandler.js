@@ -50,7 +50,6 @@ function getPieSeries(args) {
 
 function handleData(data, settings, isDonut, datasetIndex = 0) {
   const series = []
-  // const { dimensions, measures } = data
   const { measures } = data
   const {
     offsetY,
@@ -68,8 +67,7 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
       selectedMode,
       center: offsetY ? ['50%', offsetY] : ['50%', '50%'],
       radius,
-      avoidLabelOverlap: !isDonut,
-      datasetIndex: datasetIndex,
+      datasetIndex,
       ...others
     })
   })
@@ -97,8 +95,8 @@ export const pie = (data, settings, extra, isDonut) => {
     series
   }
 
-  console.log(options)
-  // console.log(JSON.stringify(options))
+  // console.log(options)
+  console.log(JSON.stringify(options))
   return options
 }
 

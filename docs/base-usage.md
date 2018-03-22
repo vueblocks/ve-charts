@@ -16,6 +16,7 @@ npm i ve-charts -S
 ```js
 import Vue from 'vue'
 import VeCharts from 've-charts'
+import 've-charts/lib/ve-charts.min.css'
 
 Vue.use(VeCharts)
 ```
@@ -25,6 +26,7 @@ Vue.use(VeCharts)
 ```js
 import Vue from 'vue'
 import { VeBarChart } from 've-charts'
+import 've-charts/lib/ve-charts.min.css'
 
 Vue.component('VeBarChart', VeBarChart)
 ```
