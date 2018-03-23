@@ -230,13 +230,12 @@
 
 <script v-pre type="text/x-template" id="mixRadar">
 <template>
- <ve-radar-chart :radar="radar" :series="series" :data="data" :title="title" :background-color="backgroundColor"/>
+ <ve-radar-chart :radar="radar" :series="series" :title="title" :background-color="backgroundColor"/>
 </template>
 
 <script>
  module.exports = {
     created () {
-      this.data = { dimensions: [], measures: [] },
       this.title = { text: 'NST人格属性', textStyle: { color: '#fff' } };
       this.backgroundColor = {
         colorStops: [

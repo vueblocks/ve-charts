@@ -13,6 +13,11 @@
     "lint": "eslint --ext .js,.vue src",
     "docs": "docsify serve docs"
   },
+  "keywords": [
+    "Vue",
+    "ECharts"
+  ],
+  "license": "MIT",
   "dependencies": {
     "echarts": "^4.0.4",
     "resize-detector": "0.0.5",

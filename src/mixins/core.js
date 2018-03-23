@@ -55,6 +55,9 @@ export default {
     },
     isEmptyData() {
       return isNull(this.data) || isEmpty(this.data) || isUndefined(this.data)
+    },
+    isEmptySeries() {
+      return isNull(this.series) || isEmpty(this.series) || isUndefined(this.series)
     }
   },
 
@@ -76,10 +79,11 @@ export default {
 
   methods: {
     dataHandler (data) {
-      if (!this.chartHandler || this.isEmptyData) return
+      if (!this.chartHandler || (this.isEmptyData && this.isEmptySeries)) return
       const extra = {
         tooltipVisible: this.tooltipVisible,
-        legendVisible: this.legendVisible
+        legendVisible: this.legendVisible,
+        isEmptyData: this.isEmptyData
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
 

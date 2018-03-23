@@ -36,11 +36,7 @@ export default {
       lineData: {},
       lineSettings: {},
       lineOptions,
-      multiRadarOptions,
-      radarData: {
-        dimensions: [],
-        measures: []
-      }
+      multiRadarOptions
     }
   },
   methods: {

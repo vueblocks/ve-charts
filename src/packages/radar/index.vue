@@ -1,7 +1,7 @@
 <template>
   <div>
     <base-echarts
-      v-if="!isEmptyData"
+      v-if="!isEmptyData || !isEmptySeries"
       :options="options"
       :autoResize="true"
       :theme="theme"
