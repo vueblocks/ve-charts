@@ -52,21 +52,19 @@ function getLineMeaAxis(args) {
 // build label
 function getLineLabel(args) {
   const {
-    show,
     fontFamily = 'sans-serif',
     fontSize = '12',
     fontWeight = 'normal',
-    color,
-    position = 'top'
+    position = 'top',
+    ...others
   } = args
   return {
     normal: {
-      show,
-      position,
       fontFamily,
       fontSize,
       fontWeight,
-      color
+      position,
+      ...others
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.min.js",
   "unpkg": "lib/ve-charts.min.js",
@@ -13,6 +13,11 @@
     "lint": "eslint --ext .js,.vue src",
     "docs": "docsify serve docs"
   },
+  "keywords": [
+    "Vue",
+    "ECharts"
+  ],
+  "license": "MIT",
   "dependencies": {
     "echarts": "^4.0.4",
     "resize-detector": "0.0.5",

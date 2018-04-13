@@ -53,10 +53,12 @@ function getRadarSeries(args) {
 }
 
 export const radar = (data, settings, extra) => {
-  const { tooltipVisible, legendVisible } = extra
+  const { tooltipVisible, legendVisible, isEmptyData } = extra
   const {
     itemStyle
   } = settings
+
+  if (isEmptyData) return {}
 
   const tooltip = tooltipVisible && getRadarTooltip()
 

@@ -94,22 +94,18 @@ function getBarLabel(args) {
   const { label, settings } = args
   const { isColumn } = settings
   const {
-    show,
     fontFamily = 'sans-serif',
     fontSize = '12',
     fontWeight = 'normal',
-    color,
-    position = isColumn ? 'top' : 'right'
+    position = isColumn ? 'top' : 'right',
+    ...others
   } = label
   return {
-    normal: {
-      show,
-      position,
-      fontFamily,
-      fontSize,
-      fontWeight,
-      color
-    }
+    position,
+    fontFamily,
+    fontSize,
+    fontWeight,
+    ...others
   }
 }
 
