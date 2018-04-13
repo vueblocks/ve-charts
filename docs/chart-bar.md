@@ -227,7 +227,7 @@
         },
         label: {
           show: true,
-          fontSize: '12px',
+          fontSize: '12',
           fontWeight: 'bold',
           position: 'inside'
         }
@@ -337,7 +337,7 @@
       this.chartSettings = {
         label: {
           show: true,
-          fontSize: '12px',
+          fontSize: '12',
           fontWeight: 'bold'
         }
       }

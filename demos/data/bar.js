@@ -96,7 +96,7 @@ export default {
       settings: {
         label: {
           show: true,
-          fontSize: '12px',
+          fontSize: '12',
           fontWeight: 'bold'
         }
       }
@@ -161,7 +161,7 @@ export default {
         },
         label: {
           show: true,
-          fontSize: '12px',
+          fontSize: '12',
           fontWeight: 'bold',
           position: 'inside'
         }
