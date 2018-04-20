@@ -7,6 +7,7 @@
         <ve-line-chart
           :data="lineData"
           :settings="lineSettings"
+          :title="title"
           v-bind="lineOptions"
           @click="onClick"
         />
@@ -20,12 +21,13 @@ import lineOptions from '@/constant/lineOptions'
 
 export default {
   name: 'TestEvent',
-  data() {
+  data () {
     return {
       isLoadingLine: false,
       lineData: {},
       lineSettings: {},
-      lineOptions
+      lineOptions,
+      title: {}
     }
   },
   methods: {
@@ -58,8 +60,10 @@ export default {
         this.isLoadingLine = false
       }, 2000)
     },
-    onClick (e) {
-      console.log(e)
+    onClick (params) {
+      this.title = {
+        text: `选中维度：${params.name}`
+      }
     }
   },
   created() {
