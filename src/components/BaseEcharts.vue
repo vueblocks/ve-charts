@@ -248,6 +248,11 @@ export default {
 </script>
 
 <style>
+.ve-charts-parent {
+  position: relative;
+  height: 400px;
+}
+
 .echarts {
   width: auto;
   height: 400px;

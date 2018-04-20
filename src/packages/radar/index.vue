@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'ve-charts-parent': loading||(isEmptyData&&isEmptySeries)}">
     <base-echarts
       v-if="!isEmptyData || !isEmptySeries"
       :options="options"
@@ -10,6 +10,7 @@
     <slot v-else>
       <empty-data :empty-text="emptyText"/>
     </slot>
+    <loading-chart v-if="loading" />
   </div>
 </template>
 

@@ -4,13 +4,13 @@
       <div solt='header' class='clearfix'>
         <el-button @click="handleChangeData">改变数据</el-button>
       </div>
-      <div style='position: relative; height: 400px;' v-loading="isLoadingLine">
-        <ve-line-chart
-          :data="lineData"
-          :settings="lineSettings"
-          v-bind="lineOptions"
-        />
-      </div>
+      <ve-line-chart
+        :data="lineData"
+        :settings="lineSettings"
+        :loading="isLoadingLine"
+        ref="lineChart"
+        v-bind="lineOptions"
+      />
     </el-card>
     <br>
     <el-card>

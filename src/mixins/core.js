@@ -4,11 +4,13 @@ import { getType } from '../utils'
 import { color } from '../base-options'
 import BaseEcharts from '../components/BaseEcharts'
 import EmptyData from '../components/EmptyData'
+import LoadingChart from '../components/LoadingChart'
 
 export default {
   components: {
     BaseEcharts,
-    EmptyData
+    EmptyData,
+    LoadingChart
   },
   props: {
     data: { type: [Object, Array], default() { return {} } },
@@ -44,7 +46,7 @@ export default {
     legendPosition: String,
     theme: Object,
     themeName: { type: String, default() { return 'default' } },
-    loading: Boolean,
+    loading: { type: Boolean, default: false },
     emptyText: String,
     renderer: { type: String, default: 'canvas' }
   },
@@ -153,15 +155,15 @@ export default {
       // Merge options
       this.options = Object.assign(cloneDeep(this.options), options)
     },
-    addMark (seriesItem, marks) {
+    init () {
+      if (this.data) this.dataHandler(this.data)
+    },
+    addMark(seriesItem, marks) {
       Object.keys(marks).forEach(key => {
         if (marks[key]) {
           seriesItem[key] = marks[key]
         }
       })
-    },
-    init () {
-      if (this.data) this.dataHandler(this.data)
     },
     addWatchToProps () {
       const watchedVariable = this._watchers.map(watcher => watcher.expression)
