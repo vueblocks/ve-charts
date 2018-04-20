@@ -5,7 +5,7 @@
       :options="options"
       :autoResize="true"
       :theme="theme"
-      v-on="delegateEventsw"
+      v-on="delegateEvents"
     />
     <slot v-else>
       <empty-data :empty-text="emptyText"/>

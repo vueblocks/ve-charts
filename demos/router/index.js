@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Chart from '@/views/Chart'
 import TestPage from '@/views/TestPage'
+import TestEvent from '@/views/TestEvent'
 
 Vue.use(Router)
 
@@ -22,6 +23,12 @@ export default new Router({
       path: '/test-page',
       name: '测试页面',
       component: TestPage,
+      props: true
+    },
+    {
+      path: '/test-event',
+      name: '测试事件',
+      component: TestEvent,
       props: true
     }
   ]

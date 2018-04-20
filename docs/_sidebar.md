@@ -18,3 +18,4 @@
 - 其他
  - [更新日志](change-log.md)
  - [属性配置](setting-demo.md)
+ - [事件处理](event-demo.md)
