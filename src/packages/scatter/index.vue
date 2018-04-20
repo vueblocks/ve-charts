@@ -5,7 +5,7 @@
       :options="options"
       :autoResize="true"
       :theme="theme"
-      @chartclick="onClick"
+      v-on="delegateEvents"
     />
     <slot v-else>
       <empty-data :empty-text="emptyText"/>
@@ -31,11 +31,6 @@
     },
     created () {
       this.chartHandler = scatter
-    },
-    methods: {
-      onClick (e) {
-        this.$emit('chartclick', e)
-      }
     },
     components: {
       BaseEcharts

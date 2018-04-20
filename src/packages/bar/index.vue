@@ -5,7 +5,7 @@
       :options="options"
       :autoResize="true"
       :theme="theme"
-      @chartclick="onClick"
+      v-on="delegateEvents"
     />
     <slot v-else>
       <empty-data :empty-text="emptyText"/>
@@ -25,11 +25,6 @@
     data () {
       return {
         options
-      }
-    },
-    methods: {
-      onClick (e) {
-        this.$emit('chartclick', e)
       }
     },
     created () {

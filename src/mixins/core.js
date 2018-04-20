@@ -48,19 +48,26 @@ export default {
     emptyText: String,
     renderer: { type: String, default: 'canvas' }
   },
-
   computed: {
-    chartColor() {
+    chartColor () {
       return this.color || (this.theme && this.theme.color) || color
     },
-    isEmptyData() {
+    isEmptyData () {
       return isNull(this.data) || isEmpty(this.data) || isUndefined(this.data)
     },
-    isEmptySeries() {
+    isEmptySeries () {
       return isNull(this.series) || isEmpty(this.series) || isUndefined(this.series)
+    },
+    delegateEvents () {
+      const events = {}
+      this.registeredEvents.forEach(event => {
+        Object.assign(events, {
+          [event]: this[event]
+        })
+      })
+      return events
     }
   },
-
   watch: {
     data: {
       deep: true,
@@ -68,7 +75,6 @@ export default {
         if (v) { this.dataHandler(v) }
       }
     },
-
     settings: {
       deep: true,
       handler (v) {
@@ -76,7 +82,6 @@ export default {
       }
     }
   },
-
   methods: {
     dataHandler (data) {
       if (!this.chartHandler || (this.isEmptyData && this.isEmptySeries)) return
@@ -97,7 +102,6 @@ export default {
         }
       }
     },
-
     optionsHandler (options) {
       // init options
       this.initOptions = {
@@ -149,7 +153,6 @@ export default {
       // Merge options
       this.options = Object.assign(cloneDeep(this.options), options)
     },
-
     addMark (seriesItem, marks) {
       Object.keys(marks).forEach(key => {
         if (marks[key]) {
@@ -157,11 +160,9 @@ export default {
         }
       })
     },
-
     init () {
       if (this.data) this.dataHandler(this.data)
     },
-
     addWatchToProps () {
       const watchedVariable = this._watchers.map(watcher => watcher.expression)
       Object.keys(this.$props).forEach(prop => {
@@ -175,14 +176,28 @@ export default {
           }, opts)
         }
       })
+    },
+    /**
+     * 添加用户自定义事件代理
+     */
+    addEventDelegate () {
+      const keys = Object.keys(this._events || {})
+      keys.length && keys.forEach(ev => {
+        if (this.registeredEvents.indexOf(ev) === -1) {
+          this.registeredEvents.push(ev)
+          if (ev in this._events) {
+            this[ev] = this._events[ev]
+          }
+        }
+      })
     }
   },
-
   created () {
     this._once = {}
+    this.registeredEvents = []
     this.addWatchToProps()
+    this.addEventDelegate()
   },
-
   mounted () {
     this.init()
   }
