@@ -19,6 +19,7 @@ const EVENTS = [
   'legendselectchanged',
   'legendselected',
   'legendunselected',
+  'legendscroll',
   'datazoom',
   'datarangeselected',
   'timelinechanged',

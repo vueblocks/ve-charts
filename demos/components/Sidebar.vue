@@ -31,6 +31,9 @@
             <li>
               <router-link to="/test-page">测试页面</router-link>
             </li>
+            <li>
+              <router-link to="/test-event">测试事件</router-link>
+            </li>
           </ul>
         </div>
       </section>

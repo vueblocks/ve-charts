@@ -1,11 +1,11 @@
 <template>
   <div>
     <base-echarts
-      v-if="isEmptyData"
+      v-if="!isEmptyData"
       :options="options"
       :autoResize="true"
       :theme="theme"
-      @chartclick="onClick"
+      v-on="delegateEvents"
     />
     <slot v-else>
       <empty-data :empty-text="emptyText"/>
@@ -23,23 +23,18 @@
 
   export default {
     name: 'VeGeoChart',
+    components: {
+      BaseEcharts
+    },
     mixins: [Core],
     data () {
       return {
         options
       }
     },
-    methods: {
-      onClick (e) {
-        this.$emit('chartclick', e)
-      }
-    },
     created () {
       BaseEcharts.registerMap('china', chinaMap)
       this.chartHandler = geo
-    },
-    components: {
-      BaseEcharts
     }
   }
 </script>

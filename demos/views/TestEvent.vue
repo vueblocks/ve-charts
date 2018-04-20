@@ -2,41 +2,32 @@
   <div class='main-test'>
     <el-card>
       <div solt='header' class='clearfix'>
-        <el-button @click="handleChangeData">改变数据</el-button>
       </div>
       <div style='position: relative; height: 400px;' v-loading="isLoadingLine">
         <ve-line-chart
           :data="lineData"
           :settings="lineSettings"
+          :title="title"
           v-bind="lineOptions"
+          @click="onClick"
         />
-      </div>
-    </el-card>
-    <br>
-    <el-card>
-      <div style='position: relative; height: 400px;'>
-        <ve-radar-chart v-bind="multiRadarOptions" />
       </div>
     </el-card>
   </div>
 </template>
 
 <script>
-import _ from 'lodash'
 import lineOptions from '@/constant/lineOptions'
-import multiRadarOptions from '@/constant/multiRadarOptions'
-import VeRadarChart from '../../src/packages/radar/index'
 
 export default {
-  components: { VeRadarChart },
-  name: 'TestPage',
-  data() {
+  name: 'TestEvent',
+  data () {
     return {
       isLoadingLine: false,
       lineData: {},
       lineSettings: {},
       lineOptions,
-      multiRadarOptions
+      title: {}
     }
   },
   methods: {
@@ -69,8 +60,10 @@ export default {
         this.isLoadingLine = false
       }, 2000)
     },
-    handleChangeData() {
-      _.isEmpty(this.lineData) ? this.loadLineData() : (this.lineData = {})
+    onClick (params) {
+      this.title = {
+        text: `选中维度：${params.name}`
+      }
     }
   },
   created() {
