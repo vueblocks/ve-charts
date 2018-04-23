@@ -48,7 +48,13 @@ export default {
     themeName: { type: String, default() { return 'default' } },
     loading: { type: Boolean, default: false },
     emptyText: String,
-    renderer: { type: String, default: 'canvas' }
+    renderer: { type: String, default: 'canvas' },
+    height: { type: Number, default: 400 }
+  },
+  data () {
+    return {
+      baseEcharts: null
+    }
   },
   computed: {
     chartColor () {
@@ -60,6 +66,17 @@ export default {
     isEmptySeries () {
       return isNull(this.series) || isEmpty(this.series) || isUndefined(this.series)
     },
+    isHasParentStyle () {
+      return this.loading || (this.isEmptyData && this.isEmptySeries)
+      // return this.loading || this.isEmptyData
+    },
+    parentStyle () {
+      const parentStyle = this.isHasParentStyle
+        ? { position: 'relative', height: `${this.height}px` }
+        : {}
+      return parentStyle
+    },
+    // 使用v-on指令动态绑定Echarts事件对象到组件上
     delegateEvents () {
       const events = {}
       this.registeredEvents.forEach(event => {

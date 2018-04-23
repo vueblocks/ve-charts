@@ -34,7 +34,11 @@ export default {
     return {
       isLoadingLine: false,
       lineData: {},
-      lineSettings: {},
+      lineSettings: {
+        smooth: true,
+        showSymbol: false,
+        symbol: 'circle'
+      },
       lineOptions,
       multiRadarOptions
     }
@@ -60,11 +64,6 @@ export default {
               ].reverse()
             }
           ]
-        }
-        this.lineSettings = {
-          smooth: true,
-          showSymbol: false,
-          symbol: 'circle'
         }
         this.isLoadingLine = false
       }, 2000)
