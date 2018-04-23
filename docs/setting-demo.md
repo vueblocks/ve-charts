@@ -73,7 +73,7 @@
   }
 </script>
 
-## 异步加载图表动效
+## 异步加载图表动效
 
 <vuep template="#loadingData" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -122,7 +122,7 @@
   }
 </script>
 
-## 自定义加载图表动效
+## 自定义加载图表动效
 
 > 为了保持图表组件传入参数尽量简洁，`loading` 的背景色以及 `spinner` 暂时使用覆盖 class 方式来实现
 
@@ -155,7 +155,7 @@
   }
 </script>
 
-## 自定义图表高度
+## 自定义图表高度
 
 <vuep template="#customHeight" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
