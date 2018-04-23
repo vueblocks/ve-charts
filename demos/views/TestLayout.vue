@@ -7,6 +7,7 @@
             <el-button @click="handleChangeData">改变数据</el-button>
           </div>
           <ve-line-chart
+            class="custom-loading"
             :data="lineData"
             :settings="lineSettings"
             :loading="isLoadingLine"
@@ -108,4 +109,12 @@ export default {
 //   width: 300px !important;
 //   height: 200px !important;
 // }
+.custom-loading {
+  .ve-charts-loading-mask {
+    background: rgba(0, 0, 0, .8);
+    .path {
+      stroke: #f35352;
+    }
+  }
+}
 </style>

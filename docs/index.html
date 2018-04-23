@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"/>
   <!-- inject css file -->
   <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css"/>
-  <link rel="stylesheet" href="//unpkg.com/ve-charts@latest/lib/ve-charts.min.css"/>
+  <link rel="stylesheet" type="text/css" href="//unpkg.com/ve-charts@latest/lib/ve-charts.min.css"/>
   <link rel="stylesheet" href="vue.css">
   <link rel="stylesheet" href="styles.css"/>
 </head>
@@ -46,12 +46,6 @@
     if (document.getElementsByTagName("aside")[0]) {
       let parent = document.getElementsByTagName("aside")[0];
       parent.removeChild(parent.getElementsByTagName("h1")[0]);
-//    <div style="width: 80px;margin: auto;text-align: center;">
-//      <a href="https://gammafe.github.io/ve-charts"><img src="./_media/icon.svg"></a>
-//      <p style="color: #0f49b3;font-size: 18px;margin: 0 0 10px 0;font-family:'PangMenZhengDao';">
-//      ve<span style="color:#fed24a">-</span>charts
-//      </p>
-//    </div>
       let div = document.createElement("div");
       div.setAttribute("class", "logo");
       let a = document.createElement("a");
