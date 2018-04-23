@@ -1,5 +1,5 @@
 <template>
-  <div class="echarts-empty-data">
+  <div class="ve-charts-empty-data">
     <span v-text="emptyText"></span>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-.echarts-empty-data {
+.ve-charts-empty-data {
   position: absolute;
   left: 50%;
   top: 50%;

@@ -129,6 +129,12 @@ data: {
 | backgroundColor | 背景色，默认无背景 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#backgroundColor) |
 | textStyle | 全局的字体样式 | Object | [参考配置](http://echarts.baidu.com/option.html#textStyle) |
 | animation | 是否开启动画 | Object | [参考配置](http://echarts.baidu.com/option.html#animation) |
+| tooltipVisible | 组件 `tooltip` 提示框显示开关 | Boolean | 默认：`true`，`false`为关闭 |
+| legendVisible | 组件 `legend` 图例显示开关 | Boolean | 默认：`true`，`false`为关闭 |
+| legendPosition | 组件 `legend` 图例显示位置 | Boolean | 默认：`top-center` 顶部居中 ，可选: `top-left`、`top-center`、`top-right`、`bottom-left`、`bottom-center`、`bottom-right` |
+| emptyText | 自定义空数据文案 | String | 默认：暂无数据 |
+| loading | 加载数据动效开关 | Boolean | 默认：`false`，`true`为开启 |
+| height | 图表高度 | Number | 默认：`400`，单位`px` |
 | --- | --- | --- | --- |
 
 ## 图表配置
@@ -146,4 +152,6 @@ data: {
 [漏斗图配置](https://gammafe.github.io/ve-charts/#/chart-funnel)
 
 [散点图配置](https://gammafe.github.io/ve-charts/#/chart-scatter)
+
+[仪表盘配置](https://gammafe.github.io/ve-charts/#/chart-gauge)
 

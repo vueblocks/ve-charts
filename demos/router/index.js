@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Chart from '@/views/Chart'
 import TestPage from '@/views/TestPage'
 import TestEvent from '@/views/TestEvent'
+import TestLayout from '@/views/TestLayout'
 
 Vue.use(Router)
 
@@ -29,6 +30,12 @@ export default new Router({
       path: '/test-event',
       name: '测试事件',
       component: TestEvent,
+      props: true
+    },
+    {
+      path: '/test-layout',
+      name: '测试布局',
+      component: TestLayout,
       props: true
     }
   ]

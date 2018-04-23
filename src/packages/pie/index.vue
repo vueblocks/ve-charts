@@ -1,15 +1,17 @@
 <template>
-  <div>
+  <div class="ve-charts-parent" :style="parentStyle">
     <base-echarts
       v-if="!isEmptyData"
       :options="options"
       :autoResize="true"
       :theme="theme"
+      :chart-height='height'
       v-on="delegateEvents"
     />
-    <slot v-else>
+    <slot v-if="isEmptyData&&!loading">
       <empty-data :empty-text="emptyText"/>
     </slot>
+    <loading-chart v-if="loading" />
   </div>
 </template>
 

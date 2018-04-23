@@ -1,5 +1,5 @@
 <template>
-  <div class="echarts"></div>
+  <div class="echarts" :style="echartsStyle"></div>
 </template>
 
 <script>
@@ -57,7 +57,8 @@ export default {
     initOptions: Object,
     group: String,
     autoResize: Boolean,
-    watchShallow: Boolean
+    watchShallow: Boolean,
+    chartHeight: { type: Number, default: 400 }
   },
   data () {
     return {
@@ -90,6 +91,12 @@ export default {
       cache: false,
       get () {
         return this.delegateGet('computedOptions', 'getOption')
+      }
+    },
+    echartsStyle () {
+      return {
+        width: 'auto',
+        height: `${this.chartHeight}px`
       }
     }
   },
@@ -248,8 +255,15 @@ export default {
 </script>
 
 <style>
+/* default ve-charts style
+.ve-charts-parent {
+  position: relative;
+  height: 400px;
+}
+
 .echarts {
   width: auto;
   height: 400px;
 }
+*/
 </style>

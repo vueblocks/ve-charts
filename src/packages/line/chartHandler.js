@@ -8,10 +8,10 @@ function getLineTooltip(args) {
 
 function getLineLegend(args) {
   const { settings } = args
-  const { legendType, legendPadding } = settings
+  const { legendType = 'plain', legendPadding = 5 } = settings
   return {
-    type: legendType || 'plain',
-    padding: legendPadding || 5
+    type: legendType,
+    padding: legendPadding
   }
 }
 
