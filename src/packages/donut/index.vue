@@ -19,6 +19,7 @@
   import Core from '../..//mixins/Core'
   import { options } from '../../base-options'
   import { donut } from '../pie/chartHandler'
+  import 'echarts/lib/chart/pie'
 
   export default {
     name: 'VeDonutChart',

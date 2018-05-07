@@ -2,10 +2,10 @@
 
 ## 通过 npm 安装
 
-我们提供了 `ve-charts` npm 包，通过下面命令即可完成安装。
+我们提供了 `ve-charts` npm 包，通过下面命令即可完成安装，`ve-charts` 依赖于 `echarts` 与 `vue`，所以不要忘记安装依赖包。
 
 ```bash
-npm i ve-charts -S
+npm i ve-charts echarts -S
 ```
 ## 引入 VeCharts
 
