@@ -8,11 +8,20 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 const env = require('../config/prod.env')
 
 baseWebpackConfig.entry = {
-  'VeCharts': './src/index.js'
+  VeCharts: './src/index.js',
+  VeBarChart: './src/packages/bar/index.js',
+  VeDonutChart: './src/packages/donut/index.js',
+  VeFunnelChart: './src/packages/funnel/index.js',
+  VeGaugeChart: './src/packages/gauge/index.js',
+  VeLineChart: './src/packages/line/index.js',
+  VePieChart: './src/packages/pie/index.js',
+  VeRadarChart: './src/packages/radar/index.js',
+  VeScatterChart: './src/packages/scatter/index.js'
 }
 
 const webpackConfig = merge(baseWebpackConfig, {
@@ -26,11 +35,18 @@ const webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.bundle.assetsRoot,
     publicPath: config.bundle.assetsPublicRoot,
-    filename: 've-charts.min.js',
+    filename: '[name].min.js',
     library: 've-charts',
     libraryTarget: 'umd',
   },
+  externals: [
+    {
+      vue: 'vue',
+    },
+    /^echarts/
+  ],
   plugins: [
+    new LodashModuleReplacementPlugin(),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -55,6 +71,11 @@ const webpackConfig = merge(baseWebpackConfig, {
       cssProcessorOptions: config.build.productionSourceMap
         ? { safe: true, map: { inline: false } }
         : { safe: true }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      filename: "common.js",
+      minChunks: 3
     })
   ]
 })
