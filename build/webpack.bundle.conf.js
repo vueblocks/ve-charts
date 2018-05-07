@@ -8,6 +8,8 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const env = require('../config/prod.env')
 
@@ -30,7 +32,16 @@ const webpackConfig = merge(baseWebpackConfig, {
     library: 've-charts',
     libraryTarget: 'umd',
   },
+  externals: [
+    {
+      vue: 'vue',
+      'echarts/lib/echarts': 'echarts',
+    },
+    /^echarts/
+  ],
   plugins: [
+    new BundleAnalyzerPlugin(),
+    new LodashModuleReplacementPlugin(),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
