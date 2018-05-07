@@ -1,5 +1,9 @@
 # 更新日志
 
+## v0.6.0
+
+* **新增** - 提供按需引入组件解决方案，详见文档[按需引入](https://gammafe.github.io/ve-charts/#/base-usage)
+
 ## v0.5.0
 
 * **新增** - 自定义加载图表动效，传入 `loading` 参数

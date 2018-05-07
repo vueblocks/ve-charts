@@ -21,12 +21,13 @@ import 've-charts/lib/ve-charts.min.css'
 Vue.use(VeCharts)
 ```
 
-部分引入 `ve-charts`
+按需引入 `ve-charts`
 
 ```js
 import Vue from 'vue'
-import { VeBarChart } from 've-charts'
-import 've-charts/lib/ve-charts.min.css'
+import from 've-charts/lib/common'                    // 公共chuck，引入单个图表前需引入公共包
+import VeBarChart from 've-charts/lib/VeBarChart'     // 单个图表chuck
+import 've-charts/lib/ve-charts.min.css'              // **按需引入** 同样需要引入样式     
 
 Vue.component('VeBarChart', VeBarChart)
 ```

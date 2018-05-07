@@ -9,19 +9,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const components = require('../src/components')
 
 const env = require('../config/prod.env')
 
 baseWebpackConfig.entry = {
-  VeCharts: './src/index.js',
-  VeBarChart: './src/packages/bar/index.js',
-  VeDonutChart: './src/packages/donut/index.js',
-  VeFunnelChart: './src/packages/funnel/index.js',
-  VeGaugeChart: './src/packages/gauge/index.js',
-  VeLineChart: './src/packages/line/index.js',
-  VePieChart: './src/packages/pie/index.js',
-  VeRadarChart: './src/packages/radar/index.js',
-  VeScatterChart: './src/packages/scatter/index.js'
+  've-charts.min': './src/index.js',    // 全量引入
+  ...components                         // 按需引入
 }
 
 const webpackConfig = merge(baseWebpackConfig, {
@@ -35,7 +29,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.bundle.assetsRoot,
     publicPath: config.bundle.assetsPublicRoot,
-    filename: '[name].min.js',
+    filename: '[name].js',
     library: 've-charts',
     libraryTarget: 'umd',
   },
@@ -75,7 +69,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       filename: "common.js",
-      minChunks: 3
+      minChunks: Object.keys(components).length,
+      chunks: Object.keys(components)
     })
   ]
 })

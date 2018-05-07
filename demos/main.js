@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import router from './router'
 
-import VeCharts from '../src/index' // 调试开发
+import '../lib/common' // 按需引入
+import VeCharts from '../lib/ve-charts.min' // 调试开发
+// import VeBarChart from '../lib/VeBarChart' // 按需引入
 // import VeCharts from '../lib/ve-charts.min' // 调试生产
 // import '../lib/ve-charts.min.css'
 import 'normalize.css'
@@ -13,6 +15,7 @@ import App from './App'
 
 Vue.use(ElementUI, { size: 'small' })
 Vue.use(VeCharts)
+// Vue.component('VeBarChart', VeBarChart)
 
 Vue.config.productionTip = false
 
