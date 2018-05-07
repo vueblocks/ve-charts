@@ -8,11 +8,14 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const components = require('../src/components')
 
 const env = require('../config/prod.env')
 
 baseWebpackConfig.entry = {
-  'VeCharts': './src/index.js'
+  've-charts.min': './src/index.js',    // 全量引入
+  ...components                         // 按需引入
 }
 
 const webpackConfig = merge(baseWebpackConfig, {
@@ -26,11 +29,18 @@ const webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.bundle.assetsRoot,
     publicPath: config.bundle.assetsPublicRoot,
-    filename: 've-charts.min.js',
+    filename: '[name].js',
     library: 've-charts',
     libraryTarget: 'umd',
   },
+  externals: [
+    {
+      vue: 'vue',
+    },
+    /^echarts/
+  ],
   plugins: [
+    new LodashModuleReplacementPlugin(),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -55,6 +65,12 @@ const webpackConfig = merge(baseWebpackConfig, {
       cssProcessorOptions: config.build.productionSourceMap
         ? { safe: true, map: { inline: false } }
         : { safe: true }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      filename: "common.js",
+      minChunks: Object.keys(components).length,
+      chunks: Object.keys(components)
     })
   ]
 })
