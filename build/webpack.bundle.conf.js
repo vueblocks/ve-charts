@@ -13,10 +13,13 @@ const components = require('../src/components')
 
 const env = require('../config/prod.env')
 
-baseWebpackConfig.entry = {
-  've-charts.min': './src/index.js',    // 全量引入
-  ...components                         // 按需引入
-}
+const isFully = process.env.PACK_MODE === 'fully'
+
+const webpackEntry = isFully
+  ? { 've-charts.min': './src/index.js' } // 权量引入
+  : { ...components } // 按需引入
+
+baseWebpackConfig.entry = webpackEntry
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -37,7 +40,17 @@ const webpackConfig = merge(baseWebpackConfig, {
     {
       vue: 'vue',
     },
-    /^echarts/
+    function (context, request, callback) {
+      if (/^echarts/.test(request)) {
+        if (isFully) {
+          // console.log(request)
+          return callback(null, 'echarts')
+        } else {
+          return callback(null, request)
+        }
+      }
+      callback()
+    }
   ],
   plugins: [
     new LodashModuleReplacementPlugin(),
