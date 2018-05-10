@@ -1,15 +1,18 @@
 {
   "name": "ve-charts",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.min.js",
   "unpkg": "lib/ve-charts.min.js",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
   "scripts": {
+    "clean": "rimraf lib/*",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
-    "bundle": "node build/bundle.js",
+    "build:fully": "PACK_MODE=fully node build/bundle.js",
+    "build:demand": "PACK_MODE=demand node build/bundle.js",
+    "bundle": "npm run clean && npm run build:fully && npm run build:demand",
     "lint": "eslint --ext .js,.vue src",
     "docs": "docsify serve docs"
   },
@@ -39,6 +42,7 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
+    "echarts": "^4.1.0",
     "element-ui": "^2.2.1",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",

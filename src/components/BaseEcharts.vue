@@ -4,7 +4,6 @@
 
 <script>
 import echarts from 'echarts/lib/echarts'
-// import echarts from 'echarts'
 import { debounce } from 'lodash'
 import { addListener, removeListener } from 'resize-detector'
 import Vue from 'vue'

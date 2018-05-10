@@ -25,12 +25,26 @@ Vue.use(VeCharts)
 
 ```js
 import Vue from 'vue'
-import from 've-charts/lib/common'                    // 公共chuck，引入单个图表前需引入公共包
+import 've-charts/lib/common'                         // 公共chuck，引入单个图表前需引入公共包
 import VeBarChart from 've-charts/lib/VeBarChart'     // 单个图表chuck
 import 've-charts/lib/ve-charts.min.css'              // **按需引入** 同样需要引入样式     
 
 Vue.component('VeBarChart', VeBarChart)
 ```
+
+目前支持的单个引入图表列表如下：
+
+| 图表 | 组件 |
+| --- | --- |
+| 折线图 | VeLineChart |
+| 柱状图 | VeBarChart |
+| 饼图 | VePieChart |
+| 环形图 | VeDonutChart |
+| 雷达图 | VeRadarChart |
+| 漏斗图 | VeFunnelChart |
+| 散点图 | VeScatterChart |
+| 仪表盘 | VeGaugeChart |
+
 
 ## 创建图表
 
