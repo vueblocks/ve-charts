@@ -81,6 +81,40 @@ const biDirectionalData = {
   }]
 }
 
+const waterfallData = {
+  dimensions: {
+    name: '费用',
+    data: ['总费用', '房租', '水电费', '交通费', '伙食费', '日用品数']
+  },
+  measures: [{
+    name: '辅助',
+    data: [0, 1700, 1400, 1200, 300, 0]
+  },
+  {
+    name: '生活费',
+    data: [2900, 1200, 300, 200, 900, 300]
+  }]
+}
+
+const waterfallLadderData = {
+  dimensions: {
+    name: '日期',
+    data: ['11月1日', '11月2日', '11月3日', '11月4日', '11月5日', '11月6日', '11月7日', '11月8日', '11月9日', '11月10日', '11月11日']
+  },
+  measures: [{
+    name: '辅助',
+    data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]
+  },
+  {
+    name: '收入',
+    data: [900, 345, 393, '-', '-', 135, 178, 286, '-', '-', '-']
+  },
+  {
+    name: '支出',
+    data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203]
+  }]
+}
+
 export default {
   name: '柱状图',
   type: 'bar',
@@ -164,6 +198,52 @@ export default {
           fontSize: '12',
           fontWeight: 'bold',
           position: 'inside'
+        }
+      }
+    },
+    {
+      title: '瀑布图',
+      data: waterfallData,
+      settings: {
+        stack: {
+          总量: ['生活费', '辅助']
+        },
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold',
+          position: 'inside'
+        },
+        waterfall: true,
+        tooltipFormatter: function (params) {
+          let tar = params[1]
+          return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
+        }
+      }
+    },
+    {
+      title: '阶梯瀑布图',
+      data: waterfallLadderData,
+      settings: {
+        stack: {
+          总量: ['辅助', '收入', '支出']
+        },
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold',
+          position: 'top'
+        },
+        waterfall: true,
+        tooltipFormatter: function (params) {
+          let tar
+          if (params[1].value[2] !== '-') {
+            tar = params[1]
+            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
+          } else {
+            tar = params[2]
+            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[3]
+          }
         }
       }
     }

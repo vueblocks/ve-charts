@@ -1,24 +1,48 @@
 import { options } from '../../base-options'
 import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
+let waterfallConfig = {
+  '辅助': {
+    normal: {
+      barBorderColor: 'rgba(0,0,0,0)',
+      color: 'rgba(0,0,0,0)'
+    },
+    emphasis: {
+      barBorderColor: 'rgba(0,0,0,0)',
+      color: 'rgba(0,0,0,0)'
+    }
+  }
+}
+
 // build tooltip
 function getBarTooltip (args) {
+  const { settings } = args
+  const { tooltipFormatter } = settings
   return {
     trigger: 'axis',
     axisPointer: {            // 坐标轴指示器，坐标轴触发有效
       type: 'shadow'          // 默认为直线，可选为：'line' | 'shadow'
-    }
+    },
+    formatter: tooltipFormatter
   }
 }
 
 // build legend
 function getBarLegend (args) {
-  const { settings } = args
-  const { legendType, legendPadding } = settings
-  return {
+  const { data, settings } = args
+  const { dimensions, measures } = data
+  const { legendType, legendPadding, waterfall } = settings
+  let result = {
     type: legendType || 'plain',
     padding: legendPadding || 5
   }
+  // 当配置项填入waterfall,瀑布图默认将图例去除辅助--by:jeff
+  if (waterfall && waterfall === true) {
+    result['data'] = measures.filter(({name}) => {
+      if (name !== '辅助') return name
+    })
+  }
+  return result
 }
 
 // build grid
@@ -70,7 +94,7 @@ function getBarMeaAxis (args) {
   }
   const meaAxisNames = data.measures.map(v => v.name)
   const secondMeaAxisIndex = meaAxisNames.findIndex(v => v === secondMeaAxis)
-  
+
   const meaAxis = []
   meaAxisType.forEach((type, i) => {
     const axisLabel = {
@@ -118,6 +142,8 @@ function getBarSeries(args) {
     showLine = [],
     stack = null,
     secondMeaAxis = null,
+    itemStyle = {},
+    waterfall,
     ...others
   } = settings
 
@@ -143,9 +169,15 @@ function getBarSeries(args) {
       label: getBarLabel({label, settings: { isColumn }}),
       stack: (stack && stackMap[name]) && stackMap[name],
       [axisIndexName]: secondMeaAxis === name ? '1' : '0',
+      itemStyle: itemStyle[name] ? itemStyle[name] : {},
       ...others
     }
-
+    // 当配置项填入waterfall,瀑布图默认将辅助图设置透明--by:jeff
+    if (waterfall && waterfall === true) {
+      if (name === '辅助') {
+        seriesItem['itemStyle'] = waterfallConfig[name]
+      }
+    }
     series.push(seriesItem)
   })
   return series
@@ -174,9 +206,9 @@ export const bar = (data, settings, extra) => {
 
   const dataset = getDataset(data)
 
-  const tooltip = tooltipVisible && getBarTooltip()
+  const tooltip = tooltipVisible && getBarTooltip({ settings })
 
-  const legend = legendVisible && getBarLegend({ settings })
+  const legend = legendVisible && getBarLegend({ data, settings })
 
   const grid = getBarGrid({ isColumn })
 
