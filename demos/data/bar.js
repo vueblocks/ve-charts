@@ -214,19 +214,7 @@ export default {
           fontWeight: 'bold',
           position: 'inside'
         },
-        itemStyle: {
-          '辅助': {
-            normal: {
-              barBorderColor: 'rgba(0,0,0,0)',
-              color: 'rgba(0,0,0,0)'
-            },
-            emphasis: {
-              barBorderColor: 'rgba(0,0,0,0)',
-              color: 'rgba(0,0,0,0)'
-            }
-          }
-        },
-        legendData: ['生活费'],
+        waterfall: true,
         tooltipFormatter: function (params) {
           let tar = params[1]
           return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
@@ -246,19 +234,7 @@ export default {
           fontWeight: 'bold',
           position: 'top'
         },
-        itemStyle: {
-          '辅助': {
-            normal: {
-              barBorderColor: 'rgba(0,0,0,0)',
-              color: 'rgba(0,0,0,0)'
-            },
-            emphasis: {
-              barBorderColor: 'rgba(0,0,0,0)',
-              color: 'rgba(0,0,0,0)'
-            }
-          }
-        },
-        legendData: ['收入', '支出'],
+        waterfall: true,
         tooltipFormatter: function (params) {
           let tar
           if (params[1].value[2] !== '-') {
