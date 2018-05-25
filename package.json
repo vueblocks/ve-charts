@@ -25,7 +25,7 @@
     "echarts": ">4.0.4"
   },
   "dependencies": {
-    "resize-detector": "0.0.5"
+    "resize-detector": "^0.1.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
