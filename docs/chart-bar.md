@@ -454,6 +454,7 @@
 | stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | 指定哪些度量堆叠展示，例如: 指定`PV`与`UV`以`sum`堆叠，双向柱状图必填 |
 | direction | 柱状图（条形图）柱子朝向，默认 `column` 为垂直柱子（柱状图） | String | `row` 为水平柱子（条形图） |
 | showLine | 指定哪些度量（至少一个）用于折线展示 | Array | - |
+| secondMeaAxis | 用于展示双Y轴，指定另一个度量作为第二个Y轴 | String | - |
 | waterfall | 配置柱图为瀑布图类型 | Boolean | true开启瀑布图模式，使用瀑布图数据维度，必须包含一组辅助数据，并且数据name必须为'辅助' |
 | tooltipFormatter | 配置tooltip提示框组件 | Function | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |
 

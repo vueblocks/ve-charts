@@ -135,6 +135,7 @@ data: {
 | emptyText | 自定义空数据文案 | String | 默认：暂无数据 |
 | loading | 加载数据动效开关 | Boolean | 默认：`false`，`true`为开启 |
 | height | 图表高度 | Number | 默认：`400`，单位`px` |
+| renderer | 渲染方式 | String | 默认：`canvas`，可选：`canvas`、`svg` |
 | --- | --- | --- | --- |
 
 ## 图表配置
