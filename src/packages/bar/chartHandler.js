@@ -3,21 +3,25 @@ import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
 // build tooltip
 function getBarTooltip (args) {
+  const { settings } = args
+  const { tooltipFormatter } = settings
   return {
     trigger: 'axis',
     axisPointer: {            // 坐标轴指示器，坐标轴触发有效
       type: 'shadow'          // 默认为直线，可选为：'line' | 'shadow'
-    }
+    },
+    formatter: tooltipFormatter
   }
 }
 
 // build legend
 function getBarLegend (args) {
   const { settings } = args
-  const { legendType, legendPadding } = settings
+  const { legendType, legendPadding, legendData } = settings
   return {
     type: legendType || 'plain',
-    padding: legendPadding || 5
+    padding: legendPadding || 5,
+    data: legendData
   }
 }
 
@@ -70,7 +74,7 @@ function getBarMeaAxis (args) {
   }
   const meaAxisNames = data.measures.map(v => v.name)
   const secondMeaAxisIndex = meaAxisNames.findIndex(v => v === secondMeaAxis)
-  
+
   const meaAxis = []
   meaAxisType.forEach((type, i) => {
     const axisLabel = {
@@ -118,6 +122,7 @@ function getBarSeries(args) {
     showLine = [],
     stack = null,
     secondMeaAxis = null,
+    itemStyle = {},
     ...others
   } = settings
 
@@ -143,6 +148,7 @@ function getBarSeries(args) {
       label: getBarLabel({label, settings: { isColumn }}),
       stack: (stack && stackMap[name]) && stackMap[name],
       [axisIndexName]: secondMeaAxis === name ? '1' : '0',
+      itemStyle: itemStyle[name] ? itemStyle[name] : {},
       ...others
     }
 
@@ -174,7 +180,7 @@ export const bar = (data, settings, extra) => {
 
   const dataset = getDataset(data)
 
-  const tooltip = tooltipVisible && getBarTooltip()
+  const tooltip = tooltipVisible && getBarTooltip({ settings })
 
   const legend = legendVisible && getBarLegend({ settings })
 
