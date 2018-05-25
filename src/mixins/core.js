@@ -53,7 +53,8 @@ export default {
   },
   data () {
     return {
-      baseEcharts: null
+      baseEcharts: null,
+      initOptions: null
     }
   },
   computed: {

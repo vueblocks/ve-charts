@@ -345,6 +345,107 @@
   }
 </script>
 
+## 瀑布图
+
+<vuep template="#waterfallBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="waterfallBar">
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: '费用',
+          data: ['总费用', '房租', '水电费', '交通费', '伙食费', '日用品数']
+        },
+        measures: [{
+          name: '辅助',
+          data: [0, 1700, 1400, 1200, 300, 0]
+        }, {
+          name: '生活费',
+          data: [2900, 1200, 300, 200, 900, 300]
+        }]
+      }，
+      this.chartSettings = {
+        stack: {
+          总量: ['生活费', '辅助']
+        },
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold',
+          position: 'inside'
+        },
+        waterfall: true,
+        tooltipFormatter: function(params) {
+          let tar = params[1]
+          return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
+        }
+      }
+    }
+  }
+</script>
+
+## 阶梯瀑布图
+
+<vuep template="#waterfallLadderBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="waterfallLadderBar">
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: '日期',
+          data: ['11月1日', '11月2日', '11月3日', '11月4日', '11月5日', '11月6日', '11月7日', '11月8日', '11月9日', '11月10日', '11月11日']
+        },
+        measures: [{
+          name: '辅助',
+          data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]
+        },
+        {
+          name: '收入',
+          data: [900, 345, 393, '-', '-', 135, 178, 286, '-', '-', '-']
+        },
+        {
+          name: '支出',
+          data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203]
+        }]
+      }，
+      this.chartSettings = {
+        stack: {
+          总量: ['生活费', '辅助']
+        },
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold',
+          position: 'inside'
+        },
+        waterfall: true,
+        tooltipFormatter: function (params) {
+          let tar
+          if (params[1].value[2] !== '-') {
+            tar = params[1]
+            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
+          } else {
+            tar = params[2]
+            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[3]
+          }
+        }
+      }
+    }
+  }
+</script>
+
 ## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |
@@ -353,5 +454,8 @@
 | stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | 指定哪些度量堆叠展示，例如: 指定`PV`与`UV`以`sum`堆叠，双向柱状图必填 |
 | direction | 柱状图（条形图）柱子朝向，默认 `column` 为垂直柱子（柱状图） | String | `row` 为水平柱子（条形图） |
 | showLine | 指定哪些度量（至少一个）用于折线展示 | Array | - |
+| secondMeaAxis | 用于展示双Y轴，指定另一个度量作为第二个Y轴 | String | - |
+| waterfall | 配置柱图为瀑布图类型 | Boolean | true开启瀑布图模式，使用瀑布图数据维度，必须包含一组辅助数据，并且数据name必须为'辅助' |
+| tooltipFormatter | 配置tooltip提示框组件 | Function | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |
 
 > Tip:
