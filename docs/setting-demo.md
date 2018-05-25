@@ -193,3 +193,42 @@
     }
   }
 </script>
+
+## svg渲染图表
+
+<vuep template="#svgChart" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="svgChart">
+<template>
+  <ve-line-chart :data="chartData" renderer="svg" />
+</template>
+
+<script>
+ module.exports = {
+    data () {
+      return {
+        loading: false
+      }
+    },
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Repo',
+          data: [
+            'Vue.js', 'React', 'Create RA', 'Puppteer', 'Axios',
+            'VS Code', 'Prettier', 'RN', 'Element', 'Electron'
+          ].reverse()
+        },
+        measures: [
+          {
+            name: 'Rising Star',
+            data: [
+              40000, 27800, 22500, 22000, 21900,
+              20200, 17700, 15600, 14900, 14800
+            ].reverse()
+          }
+        ]
+      }
+    }
+  }
+</script>
