@@ -2,6 +2,7 @@
   <div class="ve-charts-parent" :style="parentStyle">
     <base-echarts
       v-if="!isEmptyData"
+      :init-options="initOptions"
       :options="options"
       :autoResize="true"
       :theme="theme"

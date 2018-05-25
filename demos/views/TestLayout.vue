@@ -25,6 +25,7 @@
             :settings="lineSettings"
             :loading="isLoadingLine"
             :height="200"
+            renderer="svg"
             v-bind="lineOptions"
           />
         </el-card>

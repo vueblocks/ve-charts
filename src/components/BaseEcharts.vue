@@ -8,6 +8,7 @@ import { debounce } from 'lodash'
 import { addListener, removeListener } from 'resize-detector'
 import Vue from 'vue'
 // default echarts's component in VeCharts
+import 'zrender/lib/svg/svg'
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'
