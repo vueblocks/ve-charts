@@ -208,12 +208,13 @@ export default {
         stack: {
           总量: ['生活费', '辅助']
         },
-        label: {
+        label: [{
           show: true,
-          fontSize: '12',
+          name: '生活费',
+          fontSize: '14',
           fontWeight: 'bold',
-          position: 'inside'
-        },
+          position: 'top'
+        }],
         waterfall: true,
         tooltipFormatter: function (params) {
           let tar = params[1]
@@ -228,12 +229,15 @@ export default {
         stack: {
           总量: ['辅助', '收入', '支出']
         },
-        label: {
+        label: [{
+          name: '收入',
           show: true,
-          fontSize: '12',
-          fontWeight: 'bold',
           position: 'top'
-        },
+        }, {
+          name: '支出',
+          show: true,
+          position: 'bottom'
+        }],
         waterfall: true,
         tooltipFormatter: function (params) {
           let tar
