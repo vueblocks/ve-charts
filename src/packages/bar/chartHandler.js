@@ -1,18 +1,9 @@
-import { options } from '../../base-options'
-import { getDataset, getStackMap, formatMeasure } from '../../utils'
+import {
+  options,
+  waterfallConfig
+} from '../../base-options'
 
-let waterfallConfig = {
-  '辅助': {
-    normal: {
-      barBorderColor: 'rgba(0,0,0,0)',
-      color: 'rgba(0,0,0,0)'
-    },
-    emphasis: {
-      barBorderColor: 'rgba(0,0,0,0)',
-      color: 'rgba(0,0,0,0)'
-    }
-  }
-}
+import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
 // build tooltip
 function getBarTooltip (args) {
@@ -115,7 +106,7 @@ function getBarMeaAxis (args) {
 
 // build label
 function getBarLabel(args) {
-  const { label, settings } = args
+  const { setLabel, settings } = args
   const { isColumn } = settings
   const {
     fontFamily = 'sans-serif',
@@ -123,7 +114,7 @@ function getBarLabel(args) {
     fontWeight = 'normal',
     position = isColumn ? 'top' : 'right',
     ...others
-  } = label
+  } = setLabel
   return {
     position,
     fontFamily,
@@ -161,12 +152,21 @@ function getBarSeries(args) {
   }
 
   measures.forEach(({name, data}, i) => {
+    // label数据类型调整为对象或者数组，Object类型为全部数据维度添加配置，Array类型根据每项name名字去修改配置----by:Jeff
+    let setLabel = {}
+    if (label instanceof Array) {
+      setLabel = label.filter(item => item.name === name)[0]
+      if (setLabel === undefined) setLabel = {}
+    } else {
+      setLabel = label
+    }
+    // ------------end-----------
     const type = showLine.includes(name) ? 'line' : 'bar'
     const seriesItem = {
       type,
       name,
       encode: getEncode(name),
-      label: getBarLabel({label, settings: { isColumn }}),
+      label: getBarLabel({setLabel, settings: { isColumn }}),
       stack: (stack && stackMap[name]) && stackMap[name],
       [axisIndexName]: secondMeaAxis === name ? '1' : '0',
       itemStyle: itemStyle[name] ? itemStyle[name] : {},
