@@ -55,9 +55,23 @@ export const treemapLevels = [
   }
 ]
 
+export const waterfallConfig = {
+  '辅助': {
+    normal: {
+      barBorderColor: 'rgba(0,0,0,0)',
+      color: 'rgba(0,0,0,0)'
+    },
+    emphasis: {
+      barBorderColor: 'rgba(0,0,0,0)',
+      color: 'rgba(0,0,0,0)'
+    }
+  }
+}
+
 export default {
   options,
   itemPoint,
   color,
-  treemapLevels
+  treemapLevels,
+  waterfallConfig
 }

@@ -1,18 +1,9 @@
-import { options } from '../../base-options'
-import { getDataset, getStackMap, formatMeasure } from '../../utils'
+import {
+  options,
+  waterfallConfig
+} from '../../base-options'
 
-let waterfallConfig = {
-  '辅助': {
-    normal: {
-      barBorderColor: 'rgba(0,0,0,0)',
-      color: 'rgba(0,0,0,0)'
-    },
-    emphasis: {
-      barBorderColor: 'rgba(0,0,0,0)',
-      color: 'rgba(0,0,0,0)'
-    }
-  }
-}
+import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
 // build tooltip
 function getBarTooltip (args) {

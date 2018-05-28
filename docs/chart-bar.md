@@ -377,9 +377,8 @@
         label: [{
           name: '生活费',
           show: true,
-          fontSize: '14',
           fontWeight: 'bold',
-          position: 'top'
+          position: 'inside'
         }],
         waterfall: true,
         tooltipFormatter: function(params) {
@@ -454,12 +453,12 @@
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
-| label | 设置图形上的文本标签。Object类型为全部数据维度设置label。Array类型中每项值需要增加name属性，修改对应数据维度。（差异对比参照双向柱状图和瀑布图label配置）| Object/Array | 参见[文档](http://echarts.baidu.com/option.html#series-bar.label) |
+| label | 设置图形上的文本标签。| Object/Array | 参见[文档](http://echarts.baidu.com/option.html#series-bar.label)，别于官方文档，传值`Object` 适用于同时设置多个度量为统一的label；传值`Array`适用于多个度量设置不同的label。示例区别参见 **显示文本标签** 与 **阶梯瀑布图** |
 | stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | 指定哪些度量堆叠展示，例如: 指定`PV`与`UV`以`sum`堆叠，双向柱状图必填 |
 | direction | 柱状图（条形图）柱子朝向，默认 `column` 为垂直柱子（柱状图） | String | `row` 为水平柱子（条形图） |
 | showLine | 指定哪些度量（至少一个）用于折线展示 | Array | - |
 | secondMeaAxis | 用于展示双Y轴，指定另一个度量作为第二个Y轴 | String | - |
-| waterfall | 配置柱图为瀑布图类型 | Boolean | true开启瀑布图模式，使用瀑布图数据维度，必须包含一组辅助数据，并且数据name必须为'辅助' |
+| waterfall | 配置柱图为瀑布图类型 | Boolean | true开启瀑布图模式，使用瀑布图数据维度，必须包含一组辅助数据，key值必须为 `辅助` |
 | tooltipFormatter | 配置tooltip提示框组件 | Function | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |
 
 > Tip:

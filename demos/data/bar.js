@@ -209,11 +209,10 @@ export default {
           总量: ['生活费', '辅助']
         },
         label: [{
-          show: true,
           name: '生活费',
-          fontSize: '14',
+          show: true,
           fontWeight: 'bold',
-          position: 'top'
+          position: 'inside'
         }],
         waterfall: true,
         tooltipFormatter: function (params) {
