@@ -6,6 +6,7 @@ import radar from './radar'
 import funnel from './funnel'
 import scatter from './scatter'
 import gauge from './gauge'
+import sunburst from './sunburst'
 
 export default {
   bar,
@@ -15,5 +16,6 @@ export default {
   radar,
   funnel,
   scatter,
-  gauge
+  gauge,
+  sunburst
 }
