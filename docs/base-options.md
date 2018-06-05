@@ -156,3 +156,5 @@ data: {
 
 [仪表盘配置](https://gammafe.github.io/ve-charts/#/chart-gauge)
 
+[旭日图配置](https://gammafe.github.io/ve-charts/#/chart-sunburst)
+
