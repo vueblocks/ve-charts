@@ -6,5 +6,6 @@ module.exports = {
   VeLineChart: './src/packages/line/index.js',
   VePieChart: './src/packages/pie/index.js',
   VeRadarChart: './src/packages/radar/index.js',
-  VeScatterChart: './src/packages/scatter/index.js'
+  VeScatterChart: './src/packages/scatter/index.js',
+  VeSunburstChart: './src/packages/sunburst/index.js'
 }
