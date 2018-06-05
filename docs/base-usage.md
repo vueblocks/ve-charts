@@ -44,6 +44,7 @@ Vue.component('VeBarChart', VeBarChart)
 | 漏斗图 | VeFunnelChart |
 | 散点图 | VeScatterChart |
 | 仪表盘 | VeGaugeChart |
+| 旭日图 | VeSunburstChart |
 
 
 ## 创建图表
