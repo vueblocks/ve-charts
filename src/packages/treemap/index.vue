@@ -15,12 +15,12 @@
     <loading-chart v-if="loading" />
   </div>
 </template>
+
 <script>
-  import Core from '../..//mixins/Core'
+  import Core from '../../mixins/Core'
   import { options } from '../../base-options'
   import { treemap } from './chartHandler'
-
-  import BaseEcharts from '../../components/BaseEcharts'
+  import 'echarts/lib/chart/treemap'
 
   export default {
     name: 'VeTreemapChart',
@@ -32,9 +32,6 @@
     },
     created () {
       this.chartHandler = treemap
-    },
-    components: {
-      BaseEcharts
     }
   }
 </script>
