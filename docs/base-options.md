@@ -158,3 +158,5 @@ data: {
 
 [旭日图配置](https://gammafe.github.io/ve-charts/#/chart-sunburst)
 
+[矩形树图配置](https://gammafe.github.io/ve-charts/#/chart-treemap)
+
