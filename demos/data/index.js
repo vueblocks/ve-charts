@@ -7,6 +7,7 @@ import funnel from './funnel'
 import scatter from './scatter'
 import gauge from './gauge'
 import sunburst from './sunburst'
+import treemap from './treemap'
 
 export default {
   bar,
@@ -17,5 +18,6 @@ export default {
   funnel,
   scatter,
   gauge,
-  sunburst
+  sunburst,
+  treemap
 }
