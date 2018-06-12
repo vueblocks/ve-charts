@@ -8,25 +8,20 @@ function getTreemapTooltip (args) {
 
 function getTreemapSeries(args) {
   const { data, settings } = args
-  const { measure } = data
+  const { measures } = data
   const {
-    width,
-    height,
-    rootName,
-    isRoma,
-    levels
+    name = '根级',
+    levels = treemapLevels,
+    ...others
   } = settings
   const series = []
 
   series.push({
     type: 'treemap',
-    name: rootName || '根级',
-    leafDepth: 1,
-    roam: isRoma || true,
-    width: width || '80%',
-    height: height || '80%',
-    data: measure,
-    levels: levels || treemapLevels
+    name,
+    levels,
+    data: measures,
+    ...others
   })
 
   return series
