@@ -1,10 +1,7 @@
 <!--  封面  -->
 ![logo](_media/icon.svg)
 
-
-<h1 style="color:#fff;font-family:'PangMenZhengDao'">
-  ve<span style="color:#fed24a">-</span>charts
-</h1>
+![title](_media/logo_white.svg)
 
 <blockquote>
   <p style="color:#fff;">ECharts 4.x for Vue.js 2.x.</p>
