@@ -52,12 +52,12 @@
       a.setAttribute("href", "https://gammafe.github.io/ve-charts");
       let img = document.createElement("img");
       img.setAttribute("src", "./_media/icon.svg");
-      let p = document.createElement("p");
-      p.innerHTML = "ve<span style='color:#fed24a'>-</span>charts";
+      let titleImg = document.createElement("img");
+      titleImg.setAttribute("src", "./_media/logo_blue.svg");
       a.appendChild(img);
       div.appendChild(a);
-      div.appendChild(p);
       parent.prepend(div);
+      div.appendChild(titleImg);
       clearInterval(interval);
     }
   }, 0);
