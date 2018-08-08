@@ -123,10 +123,6 @@ export default {
       }
     },
     optionsHandler (options) {
-      // init options
-      this.initOptions = {
-        renderer: this.renderer
-      }
       // const themeName = this.themeName || (this.theme ? 'custom-theme' : 've-charts')
       options.color = this.chartColor
       // handle legend
@@ -213,7 +209,11 @@ export default {
     }
   },
   created () {
-    this._once = {}
+    // init options
+    this.initOptions = {
+      renderer: this.renderer
+    }
+    // this._once = {}
     this.registeredEvents = []
     this.addWatchToProps()
     this.addEventDelegate()

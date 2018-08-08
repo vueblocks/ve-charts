@@ -44,7 +44,7 @@
 
 ### 映射 ECharts
 
-按照[柱状图示例](https://gammafe.github.io/ve-charts/#/chart-bar)，柱状图的 X 轴为维度，Y轴为度量。
+按照[柱状图示例](https://xiaoluoboding.github.io/ve-charts/#/chart-bar)，柱状图的 X 轴为维度，Y轴为度量。
 
 ### 维度
 
@@ -140,23 +140,23 @@ data: {
 
 ## 图表配置
 
-[折线图配置](https://gammafe.github.io/ve-charts/#/chart-line)
+[折线图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-line)
 
-[柱状图配置](https://gammafe.github.io/ve-charts/#/chart-bar)
+[柱状图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-bar)
 
-[饼图配置](https://gammafe.github.io/ve-charts/#/chart-pie)
+[饼图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-pie)
 
-[环形图配置](https://gammafe.github.io/ve-charts/#/chart-donut)
+[环形图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-donut)
 
-[雷达图配置](https://gammafe.github.io/ve-charts/#/chart-radar)
+[雷达图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-radar)
 
-[漏斗图配置](https://gammafe.github.io/ve-charts/#/chart-funnel)
+[漏斗图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-funnel)
 
-[散点图配置](https://gammafe.github.io/ve-charts/#/chart-scatter)
+[散点图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-scatter)
 
-[仪表盘配置](https://gammafe.github.io/ve-charts/#/chart-gauge)
+[仪表盘配置](https://xiaoluoboding.github.io/ve-charts/#/chart-gauge)
 
-[旭日图配置](https://gammafe.github.io/ve-charts/#/chart-sunburst)
+[旭日图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-sunburst)
 
-[矩形树图配置](https://gammafe.github.io/ve-charts/#/chart-treemap)
+[矩形树图配置](https://xiaoluoboding.github.io/ve-charts/#/chart-treemap)
 
