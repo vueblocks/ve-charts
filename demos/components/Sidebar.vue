@@ -81,7 +81,6 @@ export default {
   }
   .site-descrpition  {
     height: 18px;
-    font-family: PangMenZhengDao;
     font-size: 18px;
     text-align: center;
     color: #0f49b3;

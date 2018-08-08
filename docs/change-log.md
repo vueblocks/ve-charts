@@ -1,5 +1,9 @@
 # 更新日志
 
+## v0.6.8
+
+* **修复** - 改变初始化参数导致的图表频繁更新bug
+
 ## v0.6.7
 
 * **新增** - 矩形树图
@@ -15,7 +19,7 @@
 
 ## v0.6.0
 
-* **新增** - 提供按需引入组件解决方案，详见文档[按需引入](https://gammafe.github.io/ve-charts/#/base-usage)
+* **新增** - 提供按需引入组件解决方案，详见文档[按需引入](https://xiaoluoboding.github.io/ve-charts/#/base-usage)
 
 ## v0.5.0
 

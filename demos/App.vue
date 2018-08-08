@@ -28,13 +28,6 @@ html, body {
   overflow: hidden;
 }
 
-@font-face {
-  font-family: 'PangMenZhengDao';
-  src: url('../static/fonts/PangMenZhengDao.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
