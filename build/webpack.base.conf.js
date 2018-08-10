@@ -12,7 +12,7 @@ const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [resolve('demos')],
+  include: [resolve('app')],
   options: {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: !config.dev.showEslintErrorsInOverlay
@@ -22,7 +22,7 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './demos/main.js'
+    app: './app/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -35,7 +35,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('demos')
+      '@': resolve('app')
     }
   },
   module: {
@@ -51,7 +51,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           resolve('src'),
-          resolve('demos'),
+          resolve('app'),
           resolve('node_modules/webpack-dev-server/client'),
           resolve('node_modules/resize-detector')
         ]
