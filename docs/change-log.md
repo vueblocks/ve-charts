@@ -19,7 +19,7 @@
 
 ## v0.6.0
 
-* **新增** - 提供按需引入组件解决方案，详见文档[按需引入](https://xiaoluoboding.github.io/ve-charts/#/base-usage)
+* **新增** - 提供按需引入组件解决方案，详见文档[按需引入](https://vueblocks.github.io/ve-charts/#/base-usage)
 
 ## v0.5.0
 

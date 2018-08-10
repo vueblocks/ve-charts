@@ -1,16 +1,16 @@
 
 <p align="center">
-    <a href="https://github.com/xiaoluoboding/ve-charts">
+    <a href="https://github.com/vueblocks/ve-charts">
         <img src="./docs/_media/icon.svg" width="152">
     </a>
     <h3 align="center">Ve-Charts</h3>
     <br>
     <p align="center">
-        <a href="https://travis-ci.org/xiaoluoboding/ve-charts"><img src="https://travis-ci.org/xiaoluoboding/ve-charts.svg?branch=master"></a>
+        <a href="https://travis-ci.org/vueblocks/ve-charts"><img src="https://travis-ci.org/vueblocks/ve-charts.svg?branch=master"></a>
         <a href="https://www.npmjs.com/package/ve-charts"><img src="https://img.shields.io/npm/v/ve-charts.svg?maxAge=2592000"></a>
         <a href="https://www.npmjs.com/package/ve-charts"><img src="https://img.shields.io/npm/dt/ve-charts.svg"></a>
-        <a href="https://github.com/xiaoluoboding/ve-charts/stargazers"><img src="https://img.shields.io/github/stars/xiaoluoboding/ve-charts.svg"></a>
-        <a href="https://raw.githubusercontent.com/xiaoluoboding/ve-charts/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+        <a href="https://github.com/vueblocks/ve-charts/stargazers"><img src="https://img.shields.io/github/stars/vueblocks/ve-charts.svg"></a>
+        <a href="https://raw.githubusercontent.com/vueblocks/ve-charts/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
     </p>
     <p align="center">
        ECharts 4.x for Vue.js 2.x.<br>
@@ -38,7 +38,7 @@ Vue.use(VeCharts)
 
 ## 文档
 
-[ve-charts](https://xiaoluoboding.github.io/ve-charts)
+[ve-charts](https://vueblocks.github.io/ve-charts)
 
 ## License
 
