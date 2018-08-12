@@ -35,13 +35,14 @@ function getBarLegend(data, settings) {
 }
 
 // build grid
-function getBarGrid(isColumn) {
-  return isColumn ? options.grid : {
+function getBarGrid(isBar) {
+  const BarGrid = {
     right: 30,
     bottom: 10,
     left: 30,
     containLabel: true
   }
+  return isBar ? BarGrid : options.grid
 }
 
 // build dimension Axis
@@ -89,7 +90,7 @@ function getBarMeaAxis(data, settings) {
       fontWeight: 400
     }
     if (type !== 'normal') {
-      axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits)
+      axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits[i])
     }
     const axisItem = {
       ...meaAxisBase,
@@ -101,11 +102,9 @@ function getBarMeaAxis(data, settings) {
 }
 
 // build label
-function getBarLabel(args) {
-  const { setLabel, settings } = args
-  const { isColumn } = settings
+function getBarLabel(setLabel, isBar) {
   const {
-    position = isColumn ? 'top' : 'right',
+    position = isBar ? 'right' : 'top',
     ...others
   } = setLabel
   return {
@@ -115,7 +114,7 @@ function getBarLabel(args) {
 }
 
 // build series
-function getBarSeries(data, settings, isColumn) {
+function getBarSeries(data, settings, isBar) {
   const { dimensions, measures } = data
   const {
     label = {},
@@ -127,13 +126,13 @@ function getBarSeries(data, settings, isColumn) {
     ...others
   } = settings
 
-  const axisIndexName = isColumn ? 'yAxisIndex' : 'xAxisIndex'
+  const axisIndexName = isBar ? 'xAxisIndex' : 'yAxisIndex'
   const series = []
   const stackMap = stack && getStackMap(stack)
 
   const getEncode = name => {
-    const xEncode = isColumn ? dimensions.name : name
-    const yEncode = isColumn ? name : dimensions.name
+    const xEncode = isBar ? name : dimensions.name
+    const yEncode = isBar ? dimensions.name : name
     return {
       x: xEncode,
       y: yEncode
@@ -155,8 +154,8 @@ function getBarSeries(data, settings, isColumn) {
       type,
       name,
       encode: getEncode(name),
-      label: getBarLabel({ setLabel, settings: { isColumn } }),
-      stack: stack && stackMap[name] && stackMap[name],
+      label: getBarLabel(setLabel, isBar),
+      stack: stack && stackMap[name],
       [axisIndexName]: secondMeaAxis === name ? '1' : '0',
       itemStyle: itemStyle[name] ? itemStyle[name] : {},
       ...others
@@ -181,21 +180,26 @@ export const bar = (data, settings, extra) => {
     yAxisLabelDigits = 0,
     yAxisName,
     xAxisLabelType,
-    xAxisLabelDigits,
+    xAxisLabelDigits = 0,
     xAxisName
   } = settings
 
   // 默认柱状图
-  const isColumn = direction === 'column'
+  const isBar = direction !== 'column' && direction === 'row'
 
   const defaultMeaAxisType = secondMeaAxis !== null ? ['normal', 'normal'] : ['normal']
-
-  settings.meaAxisType = (isColumn ? yAxisLabelType : xAxisLabelType) || defaultMeaAxisType
-  settings.meaAxisDigits = isColumn ? yAxisLabelDigits : xAxisLabelDigits
-  settings.meaAxisName = (isColumn ? yAxisName : xAxisName) || []
-  settings.dimAxisType = (isColumn ? xAxisLabelType : yAxisLabelType) || 'category'
-  settings.dimAxisDigits = isColumn ? xAxisLabelDigits : yAxisLabelDigits
-  settings.dimAxisName = (isColumn ? xAxisName : yAxisName) || ''
+  
+  settings.meaAxisType = (isBar ? xAxisLabelType : yAxisLabelType) || defaultMeaAxisType
+  settings.meaAxisDigits = isBar ? xAxisLabelDigits : yAxisLabelDigits
+  settings.meaAxisName = (isBar ? xAxisName : yAxisName) || []
+  settings.dimAxisType = (isBar ? yAxisLabelType : xAxisLabelType) || 'category'
+  settings.dimAxisDigits = isBar ? yAxisLabelDigits : xAxisLabelDigits
+  settings.dimAxisName = (isBar ? yAxisName : xAxisName) || ''
+  
+  // 如果设置了双Y轴，将双Y轴统一设置 meaAxisType
+  if (defaultMeaAxisType.length > settings.meaAxisType.length) {
+    settings.meaAxisType = defaultMeaAxisType.fill(settings.meaAxisType[0])
+  }
 
   const dataset = getDataset(data, settings)
 
@@ -203,13 +207,13 @@ export const bar = (data, settings, extra) => {
 
   const legend = legendVisible && getBarLegend(data, settings)
 
-  const grid = getBarGrid(isColumn)
+  const grid = getBarGrid(isBar)
 
-  const xAxis = isColumn ? getBarDimAxis(settings) : getBarMeaAxis(data, settings)
+  const xAxis = isBar ? getBarMeaAxis(data, settings) : getBarDimAxis(settings)
+  
+  const yAxis = isBar ? getBarDimAxis(settings) : getBarMeaAxis(data, settings)
 
-  const yAxis = isColumn ? getBarMeaAxis(data, settings) : getBarDimAxis(settings)
-
-  const series = getBarSeries(data, settings, isColumn)
+  const series = getBarSeries(data, settings, isBar)
 
   // build echarts options
   const options = {

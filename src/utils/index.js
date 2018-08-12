@@ -66,7 +66,8 @@ export const getDataset = (data, settings) => {
   const dimName = data && data.dimensions && data.dimensions.name || 'dimensions'
   const dimData = data && data.dimensions && data.dimensions.data
 
-  const { stack = null, percentage } = settings
+  const stack = (settings && settings.stack) || null
+  const percentage = (settings && settings.percentage) || false
 
   if (dimData === undefined) {
     Vue.util.warn(`data.dimensions.data is required. Please check on you data`, this)
@@ -99,16 +100,6 @@ export const getDataset = (data, settings) => {
   const dataset = { source }
 
   return dataset
-}
-
-export const strMapToObj = (strMap) => {
-  let obj = Object.create(null)
-
-  for (let [k, v] of strMap) {
-    obj[k] = v
-  }
-
-  return obj
 }
 
 // format measure

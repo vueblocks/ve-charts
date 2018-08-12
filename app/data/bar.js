@@ -151,10 +151,10 @@ export default {
       title: '百分比堆叠柱状图',
       data: baseData,
       settings: {
-        yAxisLabelType: ['percentage'],
         stack: {
           repo: ['React', 'Vue', 'Angular']
         },
+        yAxisLabelType: ['percentage'],
         percentage: true,
         tooltipFormatter: function(params) {
           let [tar] = params
@@ -173,7 +173,7 @@ export default {
       title: '条形图',
       data: simpleData,
       settings: {
-        direction: 'd'
+        direction: 'row'
       }
     },
     {
@@ -189,23 +189,23 @@ export default {
       settings: {
         direction: 'row',
         stack: {
-          sum: ['PV', 'UV']
+          repo: ['PV', 'UV']
         }
-      }
-    },
-    {
-      title: '折柱混合图',
-      data: mixinData,
-      settings: {
-        secondMeaAxis: 'Vue',
-        showLine: ['Vue']
       }
     },
     {
       title: '双Y轴柱状图',
       data: mixinData,
       settings: {
-        secondMeaAxis: 'Vue'
+        secondMeaAxis: 'Vue',
+        yAxisLabelType: ['en', 'zh']
+      }
+    },
+    {
+      title: '折柱混合图',
+      data: mixinData,
+      settings: {
+        showLine: ['Vue']
       }
     },
     {
