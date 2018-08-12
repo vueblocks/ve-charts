@@ -6,8 +6,7 @@ import {
 import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
 // build tooltip
-function getBarTooltip (args) {
-  const { settings } = args
+function getBarTooltip(settings) {
   const { tooltipFormatter } = settings
   return {
     trigger: 'axis',
@@ -19,9 +18,8 @@ function getBarTooltip (args) {
 }
 
 // build legend
-function getBarLegend (args) {
-  const { data, settings } = args
-  const { dimensions, measures } = data
+function getBarLegend(data, settings) {
+  const { measures } = data
   const { legendType, legendPadding, waterfall } = settings
   let result = {
     type: legendType || 'plain',
@@ -37,8 +35,7 @@ function getBarLegend (args) {
 }
 
 // build grid
-function getBarGrid (args) {
-  const { isColumn } = args
+function getBarGrid(isColumn) {
   return isColumn ? options.grid : {
     right: 30,
     bottom: 10,
@@ -48,8 +45,7 @@ function getBarGrid (args) {
 }
 
 // build dimension Axis
-function getBarDimAxis (args) {
-  const { settings } = args
+function getBarDimAxis(settings) {
   const { dimAxisType } = settings
 
   const axisItem = {
@@ -68,23 +64,23 @@ function getBarDimAxis (args) {
 }
 
 // build measure axis
-function getBarMeaAxis (args) {
-  const { data, settings } = args
+function getBarMeaAxis(data, settings) {
   const {
     meaAxisType,
+    meaAxisDigits,
     yAxisScale = false,
-    secondMeaAxis
+    percentage = false,
   } = settings
 
   const meaAxisBase = {
     type: 'value',
-    scale: yAxisScale || false,
+    scale: yAxisScale,
     axisTick: {
       show: false
-    }
+    },
+    min: percentage ? 0 : null,
+    max: percentage ? 1 : null
   }
-  const meaAxisNames = data.measures.map(v => v.name)
-  const secondMeaAxisIndex = meaAxisNames.findIndex(v => v === secondMeaAxis)
 
   const meaAxis = []
   meaAxisType.forEach((type, i) => {
@@ -93,7 +89,7 @@ function getBarMeaAxis (args) {
       fontWeight: 400
     }
     if (type !== 'normal') {
-      axisLabel.formatter = (value) => formatMeasure(type, value)
+      axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits)
     }
     const axisItem = {
       ...meaAxisBase,
@@ -109,24 +105,17 @@ function getBarLabel(args) {
   const { setLabel, settings } = args
   const { isColumn } = settings
   const {
-    fontFamily = 'sans-serif',
-    fontSize = '12',
-    fontWeight = 'normal',
     position = isColumn ? 'top' : 'right',
     ...others
   } = setLabel
   return {
     position,
-    fontFamily,
-    fontSize,
-    fontWeight,
     ...others
   }
 }
 
 // build series
-function getBarSeries(args) {
-  const { data, settings, isColumn } = args
+function getBarSeries(data, settings, isColumn) {
   const { dimensions, measures } = data
   const {
     label = {},
@@ -142,7 +131,7 @@ function getBarSeries(args) {
   const series = []
   const stackMap = stack && getStackMap(stack)
 
-  const getEncode = (name) => {
+  const getEncode = name => {
     const xEncode = isColumn ? dimensions.name : name
     const yEncode = isColumn ? name : dimensions.name
     return {
@@ -151,7 +140,7 @@ function getBarSeries(args) {
     }
   }
 
-  measures.forEach(({name, data}, i) => {
+  measures.forEach(({ name }) => {
     // label数据类型调整为对象或者数组，Object类型为全部数据维度添加配置，Array类型根据每项name名字去修改配置----by:Jeff
     let setLabel = {}
     if (label instanceof Array) {
@@ -166,8 +155,8 @@ function getBarSeries(args) {
       type,
       name,
       encode: getEncode(name),
-      label: getBarLabel({setLabel, settings: { isColumn }}),
-      stack: (stack && stackMap[name]) && stackMap[name],
+      label: getBarLabel({ setLabel, settings: { isColumn } }),
+      stack: stack && stackMap[name] && stackMap[name],
       [axisIndexName]: secondMeaAxis === name ? '1' : '0',
       itemStyle: itemStyle[name] ? itemStyle[name] : {},
       ...others
@@ -188,9 +177,11 @@ export const bar = (data, settings, extra) => {
   const {
     direction = 'column',
     secondMeaAxis = null,
-    yAxisType,
+    yAxisLabelType,
+    yAxisLabelDigits = 0,
     yAxisName,
-    xAxisType,
+    xAxisLabelType,
+    xAxisLabelDigits,
     xAxisName
   } = settings
 
@@ -199,24 +190,26 @@ export const bar = (data, settings, extra) => {
 
   const defaultMeaAxisType = secondMeaAxis !== null ? ['normal', 'normal'] : ['normal']
 
-  settings.meaAxisType = (isColumn ? yAxisType : xAxisType) || defaultMeaAxisType
+  settings.meaAxisType = (isColumn ? yAxisLabelType : xAxisLabelType) || defaultMeaAxisType
+  settings.meaAxisDigits = isColumn ? yAxisLabelDigits : xAxisLabelDigits
   settings.meaAxisName = (isColumn ? yAxisName : xAxisName) || []
-  settings.dimAxisType = (isColumn ? xAxisType : yAxisType) || 'category'
+  settings.dimAxisType = (isColumn ? xAxisLabelType : yAxisLabelType) || 'category'
+  settings.dimAxisDigits = isColumn ? xAxisLabelDigits : yAxisLabelDigits
   settings.dimAxisName = (isColumn ? xAxisName : yAxisName) || ''
 
-  const dataset = getDataset(data)
+  const dataset = getDataset(data, settings)
 
-  const tooltip = tooltipVisible && getBarTooltip({ settings })
+  const tooltip = tooltipVisible && getBarTooltip(settings)
 
-  const legend = legendVisible && getBarLegend({ data, settings })
+  const legend = legendVisible && getBarLegend(data, settings)
 
-  const grid = getBarGrid({ isColumn })
+  const grid = getBarGrid(isColumn)
 
-  const xAxis = isColumn ? getBarDimAxis({ settings }) : getBarMeaAxis({ data, settings })
+  const xAxis = isColumn ? getBarDimAxis(settings) : getBarMeaAxis(data, settings)
 
-  const yAxis = isColumn ? getBarMeaAxis({ data, settings }) : getBarDimAxis({ settings })
+  const yAxis = isColumn ? getBarMeaAxis(data, settings) : getBarDimAxis(settings)
 
-  const series = getBarSeries({ data, settings, isColumn })
+  const series = getBarSeries(data, settings, isColumn)
 
   // build echarts options
   const options = {
@@ -229,7 +222,7 @@ export const bar = (data, settings, extra) => {
     series
   }
 
-  console.log(options)
+  // console.log(options)
 
   return options
 }

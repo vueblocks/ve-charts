@@ -30,7 +30,8 @@ const simpleData = {
   },
   measures: [{
     name: 'Rising Star',
-    data: [40000, 27800, 22500, 22000, 21900, 20200, 17700, 15600, 14900, 14800].reverse()
+    // data: [40000, 27800, 22500, 22000, 21900, 20200, 17700, 15600, 14900, 14800].reverse()
+    data: [0.4, 0.8, 0.8, 0.2, 0.1, 0.2, 0.2, 0.23, 0.66, 0.77].reverse()
   }]
 }
 
@@ -137,13 +138,34 @@ export default {
     },
     {
       title: '堆叠柱状图',
-      data: baseData,
+      data: groupData,
       settings: {
         stack: {
-          repo: [
-            'React',
-            'Angular'
-          ]
+          repo: ['PV', 'UV']
+        },
+        yAxisLabelType: ['zh'],
+        yAxisLabelDigits: 2
+      }
+    },
+    {
+      title: '百分比堆叠柱状图',
+      data: baseData,
+      settings: {
+        yAxisLabelType: ['percentage'],
+        stack: {
+          repo: ['React', 'Vue', 'Angular']
+        },
+        percentage: true,
+        tooltipFormatter: function(params) {
+          let [tar] = params
+          const tooltipContent = params
+            .map(v => {
+              return `${v.seriesName}：${(
+                v.value[v.seriesIndex + 1] * 100
+              ).toFixed(2)} %`
+            })
+            .join('<br/>')
+          return tar.name + '<br/>' + tooltipContent
         }
       }
     },
@@ -151,7 +173,7 @@ export default {
       title: '条形图',
       data: simpleData,
       settings: {
-        direction: 'row'
+        direction: 'd'
       }
     },
     {
@@ -208,14 +230,16 @@ export default {
         stack: {
           总量: ['生活费', '辅助']
         },
-        label: [{
-          name: '生活费',
-          show: true,
-          fontWeight: 'bold',
-          position: 'inside'
-        }],
+        label: [
+          {
+            name: '生活费',
+            show: true,
+            fontWeight: 'bold',
+            position: 'inside'
+          }
+        ],
         waterfall: true,
-        tooltipFormatter: function (params) {
+        tooltipFormatter: function(params) {
           let tar = params[1]
           return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
         }
@@ -228,17 +252,20 @@ export default {
         stack: {
           总量: ['辅助', '收入', '支出']
         },
-        label: [{
-          name: '收入',
-          show: true,
-          position: 'top'
-        }, {
-          name: '支出',
-          show: true,
-          position: 'bottom'
-        }],
+        label: [
+          {
+            name: '收入',
+            show: true,
+            position: 'top'
+          },
+          {
+            name: '支出',
+            show: true,
+            position: 'bottom'
+          }
+        ],
         waterfall: true,
-        tooltipFormatter: function (params) {
+        tooltipFormatter: function(params) {
           let tar
           if (params[1].value[2] !== '-') {
             tar = params[1]
