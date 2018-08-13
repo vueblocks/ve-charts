@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "0.6.8",
+  "version": "0.6.9",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.min.js",
   "unpkg": "lib/ve-charts.min.js",
@@ -64,6 +64,7 @@
     "lodash-webpack-plugin": "^0.11.5",
     "node-notifier": "^5.1.2",
     "normalize.css": "^7.0.0",
+    "numeral": "^2.0.6",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",

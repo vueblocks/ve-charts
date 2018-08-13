@@ -32,6 +32,8 @@
 
 ## 分组柱状图
 
+> 多个度量构成分组柱状图，用于展示各个分类下的不同分组
+
 <vuep template="#groupBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="groupBar">
@@ -61,6 +63,8 @@
 
 ## 堆叠柱状图
 
+> 配置需要堆叠的度量，下例为将不同分组下的 `PV`、`UV` 堆叠
+
 <vuep template="#stackBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="stackBar">
@@ -86,10 +90,58 @@
       }
       this.chartSettings = {
         stack: {
-          sum: [
-            'PV',
-            'UV'
-          ]
+          sum: [ 'PV', 'UV' ]
+        }
+      }
+    }
+  }
+</script>
+
+## 百分比堆叠柱状图
+
+> 堆叠柱状图基础上配置 `percentage` 为 `true` 开启百分比模式，指定 `Y` 轴标签格式化为百分比
+
+<vuep template="#stackPercentBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="stackPercentBar">
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'PV',
+          data: [256, 767, 1356, 2087, 803, 582, 432]
+        }, {
+          name: 'UV',
+          data: [287, 707, 1756, 1822, 987, 432, 322]
+        }]
+      }
+      this.chartSettings = {
+        stack: {
+          sum: [ 'PV', 'UV' ]
+        },
+        // 开启百分比模式
+        percentage: true,
+        // 设置Y轴数字标签格式 
+        yAxisLabelType: ['percentage'],
+        tooltipFormatter: function(params) {
+          let [tar] = params
+          const tooltipContent = params
+            .map(v => {
+              return `${v.seriesName}：${(
+                v.value[v.seriesIndex + 1] * 100
+              ).toFixed(2)} %`
+            })
+            .join('<br/>')
+          return tar.name + '<br/>' + tooltipContent
         }
       }
     }
@@ -97,6 +149,8 @@
 </script>
 
 ## 条形图
+
+> 配置 `direction` 为 `row`，表示将柱状图的柱子横置，得到条形图，又可理解为将坐标系 x 轴和 y 轴转置
 
 <vuep template="#rowBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -195,7 +249,59 @@
   }
 </script>
 
+## 百分比堆叠条形图
+
+<vuep template="#rowStackPercentBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="rowStackPercentBar">
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'PV',
+          data: [256, 767, 1356, 2087, 803, 582, 432]
+        }, {
+          name: 'UV',
+          data: [287, 707, 1756, 1822, 987, 432, 322]
+        }]
+      }
+      this.chartSettings = {
+        direction: 'row',
+        stack: {
+          sum: [ 'PV', 'UV' ]
+        },
+        // 开启百分比堆叠图模式
+        percentage: true,
+        // 设置X轴数字标签格式 
+        xAxisLabelType: ['percentage'],
+        tooltipFormatter: function(params) {
+          let [tar] = params
+          const tooltipContent = params
+            .map(v => {
+              return `${v.seriesName}：${(
+                v.value[v.seriesIndex + 1] * 100
+              ).toFixed(2)} %`
+            })
+            .join('<br/>')
+          return tar.name + '<br/>' + tooltipContent
+        }
+      }
+    }
+  }
+</script>
+
 ## 双向柱状图
+
+> 堆叠图基础上，基于数据，正数在0刻度之上，负数在0刻度之下。
 
 <vuep template="#biDirBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
@@ -238,6 +344,8 @@
 
 ## 双Y轴柱状图
 
+> 配置 `secondMeaAxis` 参数，指定一个度量为第二个Y轴（即右侧Y轴），余下度量为左侧Y轴
+
 <vuep template="#doubleYBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="doubleYBar" />
@@ -274,6 +382,8 @@
 
 ## 折柱混合图
 
+> 配置 `showLine` 参数，指定需要显示为折线的一个或多个度量
+
 <vuep template="#mixinBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="mixinBar" />
@@ -302,8 +412,8 @@
         }]
       }
       this.chartSettings = {
-        secondMeaAxis: 'Vue',
         showLine: ['Vue'],
+        yAxisLabelType: [ 'en', 'zh' ]
       }
     }
   }
@@ -347,6 +457,8 @@
 
 ## 瀑布图
 
+> 堆叠柱状图基础之上，配置 `waterfall` 为 `true`，开启瀑布图模式，将 `secondaryMeasure` 作为辅助度量
+
 <vuep template="#waterfallBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="waterfallBar">
@@ -363,7 +475,7 @@
           data: ['总费用', '房租', '水电费', '交通费', '伙食费', '日用品数']
         },
         measures: [{
-          name: '辅助',
+          name: 'secondaryMeasure',
           data: [0, 1700, 1400, 1200, 300, 0]
         }, {
           name: '生活费',
@@ -372,7 +484,7 @@
       },
       this.chartSettings = {
         stack: {
-          总量: ['生活费', '辅助']
+          总量: ['生活费', 'secondaryMeasure']
         },
         label: [{
           name: '生活费',
@@ -392,6 +504,8 @@
 
 ## 阶梯瀑布图
 
+> 堆叠柱状图基础之上，配置 `waterfall` 为 `true`，开启瀑布图模式，将 `secondaryMeasure` 作为辅助度量
+
 <vuep template="#waterfallLadderBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 
 <script v-pre type="text/x-template" id="waterfallLadderBar">
@@ -408,7 +522,7 @@
           data: ['11月1日', '11月2日', '11月3日', '11月4日', '11月5日', '11月6日', '11月7日', '11月8日', '11月9日', '11月10日', '11月11日']
         },
         measures: [{
-          name: '辅助',
+          name: 'secondaryMeasure',
           data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]
         },
         {
@@ -422,7 +536,7 @@
       },
       this.chartSettings = {
         stack: {
-          总量: ['辅助', '收入', '支出']
+          总量: ['secondaryMeasure', '收入', '支出']
         },
         label: [{
           name: '收入',
@@ -451,14 +565,14 @@
 
 ## settings 配置项
 
-| 配置项 | 简介 | 类型 | 用法 |
-| --- | --- | --- | --- |
-| label | 设置图形上的文本标签。| Object/Array | 参见[文档](http://echarts.baidu.com/option.html#series-bar.label)，别于官方文档，传值`Object` 适用于同时设置多个度量为统一的label；传值`Array`适用于多个度量设置不同的label。示例区别参见 **显示文本标签** 与 **阶梯瀑布图** |
-| stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | 指定哪些度量堆叠展示，例如: 指定`PV`与`UV`以`sum`堆叠，双向柱状图必填 |
-| direction | 柱状图（条形图）柱子朝向，默认 `column` 为垂直柱子（柱状图） | String | `row` 为水平柱子（条形图） |
-| showLine | 指定哪些度量（至少一个）用于折线展示 | Array | - |
-| secondMeaAxis | 用于展示双Y轴，指定另一个度量作为第二个Y轴 | String | - |
-| waterfall | 配置柱图为瀑布图类型 | Boolean | true开启瀑布图模式，使用瀑布图数据维度，必须包含一组辅助数据，key值必须为 `辅助` |
-| tooltipFormatter | 配置tooltip提示框组件 | Function | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |
-
-> Tip:
+| 配置项 | 说明 | 类型 | 可选值 | 用法 |
+| --- | --- | --- | --- | --- |
+| direction | 柱状图 / 条形图柱子朝向 | String | `column`、`row` | 默认 `column` 为垂直柱子（柱状图)；`row` 为水平柱子（条形图）|
+| label | 设置图形上的文本标签。| Object/Array | - | 传值`Object` 适用于同时设置多个度量为统一的label；传值`Array`适用于多个度量设置不同的label。示例区别参见 **显示文本标签** 与 **阶梯瀑布图** |
+| stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | - | 指定哪些度量堆叠展示，例如: 指定`PV`与`UV`以`sum`堆叠，双向柱状图必填 |
+| showLine | 指定哪些度量（至少一个）用于折线展示 | Array | - | - |
+| secondMeaAxis | 用于展示双Y轴，指定另一个度量作为第二个Y轴 | String | - | - |
+| yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | Array | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
+| yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number | 0 ~ 20 | 默认值为 0 |
+| waterfall | 配置柱图为瀑布图类型 | Boolean | - | true开启瀑布图模式，使用瀑布图数据维度，须包含一组名为 `secondaryMeasure` 的辅助度量|
+| tooltipFormatter | 配置tooltip提示框组件 | Function | - | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |

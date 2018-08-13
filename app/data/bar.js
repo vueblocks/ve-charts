@@ -30,7 +30,8 @@ const simpleData = {
   },
   measures: [{
     name: 'Rising Star',
-    data: [40000, 27800, 22500, 22000, 21900, 20200, 17700, 15600, 14900, 14800].reverse()
+    // data: [40000, 27800, 22500, 22000, 21900, 20200, 17700, 15600, 14900, 14800].reverse()
+    data: [0.4, 0.8, 0.8, 0.2, 0.1, 0.2, 0.2, 0.23, 0.66, 0.77].reverse()
   }]
 }
 
@@ -87,7 +88,7 @@ const waterfallData = {
     data: ['总费用', '房租', '水电费', '交通费', '伙食费', '日用品数']
   },
   measures: [{
-    name: '辅助',
+    name: 'secondaryMeasure',
     data: [0, 1700, 1400, 1200, 300, 0]
   },
   {
@@ -102,7 +103,7 @@ const waterfallLadderData = {
     data: ['11月1日', '11月2日', '11月3日', '11月4日', '11月5日', '11月6日', '11月7日', '11月8日', '11月9日', '11月10日', '11月11日']
   },
   measures: [{
-    name: '辅助',
+    name: 'secondaryMeasure',
     data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]
   },
   {
@@ -137,13 +138,34 @@ export default {
     },
     {
       title: '堆叠柱状图',
+      data: groupData,
+      settings: {
+        stack: {
+          repo: ['PV', 'UV']
+        },
+        yAxisLabelType: ['zh'],
+        yAxisLabelDigits: 2
+      }
+    },
+    {
+      title: '百分比堆叠柱状图',
       data: baseData,
       settings: {
         stack: {
-          repo: [
-            'React',
-            'Angular'
-          ]
+          repo: ['React', 'Vue', 'Angular']
+        },
+        yAxisLabelType: ['percentage'],
+        percentage: true,
+        tooltipFormatter: function(params) {
+          let [tar] = params
+          const tooltipContent = params
+            .map(v => {
+              return `${v.seriesName}：${(
+                v.value[v.seriesIndex + 1] * 100
+              ).toFixed(2)} %`
+            })
+            .join('<br/>')
+          return tar.name + '<br/>' + tooltipContent
         }
       }
     },
@@ -167,23 +189,23 @@ export default {
       settings: {
         direction: 'row',
         stack: {
-          sum: ['PV', 'UV']
+          repo: ['PV', 'UV']
         }
-      }
-    },
-    {
-      title: '折柱混合图',
-      data: mixinData,
-      settings: {
-        secondMeaAxis: 'Vue',
-        showLine: ['Vue']
       }
     },
     {
       title: '双Y轴柱状图',
       data: mixinData,
       settings: {
-        secondMeaAxis: 'Vue'
+        secondMeaAxis: 'Vue',
+        yAxisLabelType: ['en', 'zh']
+      }
+    },
+    {
+      title: '折柱混合图',
+      data: mixinData,
+      settings: {
+        showLine: ['Vue']
       }
     },
     {
@@ -206,16 +228,18 @@ export default {
       data: waterfallData,
       settings: {
         stack: {
-          总量: ['生活费', '辅助']
+          总量: ['生活费', 'secondaryMeasure']
         },
-        label: [{
-          name: '生活费',
-          show: true,
-          fontWeight: 'bold',
-          position: 'inside'
-        }],
+        label: [
+          {
+            name: '生活费',
+            show: true,
+            fontWeight: 'bold',
+            position: 'inside'
+          }
+        ],
         waterfall: true,
-        tooltipFormatter: function (params) {
+        tooltipFormatter: function(params) {
           let tar = params[1]
           return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
         }
@@ -226,19 +250,22 @@ export default {
       data: waterfallLadderData,
       settings: {
         stack: {
-          总量: ['辅助', '收入', '支出']
+          总量: ['secondaryMeasure', '收入', '支出']
         },
-        label: [{
-          name: '收入',
-          show: true,
-          position: 'top'
-        }, {
-          name: '支出',
-          show: true,
-          position: 'bottom'
-        }],
+        label: [
+          {
+            name: '收入',
+            show: true,
+            position: 'top'
+          },
+          {
+            name: '支出',
+            show: true,
+            position: 'bottom'
+          }
+        ],
         waterfall: true,
-        tooltipFormatter: function (params) {
+        tooltipFormatter: function(params) {
           let tar
           if (params[1].value[2] !== '-') {
             tar = params[1]
