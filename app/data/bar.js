@@ -88,7 +88,7 @@ const waterfallData = {
     data: ['总费用', '房租', '水电费', '交通费', '伙食费', '日用品数']
   },
   measures: [{
-    name: '辅助',
+    name: 'secondaryMeasure',
     data: [0, 1700, 1400, 1200, 300, 0]
   },
   {
@@ -103,7 +103,7 @@ const waterfallLadderData = {
     data: ['11月1日', '11月2日', '11月3日', '11月4日', '11月5日', '11月6日', '11月7日', '11月8日', '11月9日', '11月10日', '11月11日']
   },
   measures: [{
-    name: '辅助',
+    name: 'secondaryMeasure',
     data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]
   },
   {
@@ -228,7 +228,7 @@ export default {
       data: waterfallData,
       settings: {
         stack: {
-          总量: ['生活费', '辅助']
+          总量: ['生活费', 'secondaryMeasure']
         },
         label: [
           {
@@ -250,7 +250,7 @@ export default {
       data: waterfallLadderData,
       settings: {
         stack: {
-          总量: ['辅助', '收入', '支出']
+          总量: ['secondaryMeasure', '收入', '支出']
         },
         label: [
           {

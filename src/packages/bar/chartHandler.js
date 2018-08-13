@@ -25,10 +25,10 @@ function getBarLegend(data, settings) {
     type: legendType || 'plain',
     padding: legendPadding || 5
   }
-  // 当配置项填入waterfall,瀑布图默认将图例去除辅助--by:jeff
+  // 当配置项填入waterfall,瀑布图默认将图例去除secondaryMeasure--by:jeff
   if (waterfall && waterfall === true) {
     result['data'] = measures.filter(({name}) => {
-      if (name !== '辅助') return name
+      if (name !== 'secondaryMeasure') return name
     })
   }
   return result
@@ -160,9 +160,9 @@ function getBarSeries(data, settings, isBar) {
       itemStyle: itemStyle[name] ? itemStyle[name] : {},
       ...others
     }
-    // 当配置项填入waterfall,瀑布图默认将辅助图设置透明--by:jeff
+    // 当配置项填入waterfall,瀑布图默认将secondaryMeasure图设置透明--by:jeff
     if (waterfall && waterfall === true) {
-      if (name === '辅助') {
+      if (name === 'secondaryMeasure') {
         seriesItem['itemStyle'] = waterfallConfig[name]
       }
     }

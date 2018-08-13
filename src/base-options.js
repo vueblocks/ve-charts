@@ -56,7 +56,7 @@ export const treemapLevels = [
 ]
 
 export const waterfallConfig = {
-  '辅助': {
+  secondaryMeasure: {
     normal: {
       barBorderColor: 'rgba(0,0,0,0)',
       color: 'rgba(0,0,0,0)'
