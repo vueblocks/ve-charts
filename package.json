@@ -1,6 +1,7 @@
 {
   "name": "ve-charts",
-  "version": "0.6.9",
+  "version": "0.7.0",
+  "license": "MIT",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.min.js",
   "unpkg": "lib/ve-charts.min.js",
@@ -16,13 +17,18 @@
     "lint": "eslint --ext .js,.vue src",
     "docs": "docsify serve docs"
   },
+  "homepage": "https://vueblocks.github.io/ve-charts/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vueblocks/ve-charts.git"
+  },
   "keywords": [
     "Vue",
     "ECharts"
   ],
-  "license": "MIT",
   "peerDependencies": {
-    "echarts": ">4.0.4"
+    "echarts": ">4.1.0",
+    "vue": ">2.5.0"
   },
   "dependencies": {
     "resize-detector": "^0.1.6"
