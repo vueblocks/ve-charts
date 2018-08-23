@@ -45,7 +45,6 @@ export default {
     legendVisible: { type: Boolean, default: true },
     legendPosition: String,
     theme: Object,
-    themeName: { type: String, default() { return 'default' } },
     loading: { type: Boolean, default: false },
     emptyText: String,
     renderer: { type: String, default: 'canvas' },
@@ -59,7 +58,7 @@ export default {
   },
   computed: {
     chartColor () {
-      return this.color || (this.theme && this.theme.color) || color
+      return this.theme ? this.color : (this.color || color)
     },
     isEmptyData () {
       return isNull(this.data) || isEmpty(this.data) || isUndefined(this.data)
@@ -69,7 +68,6 @@ export default {
     },
     isHasParentStyle () {
       return this.loading || (this.isEmptyData && this.isEmptySeries)
-      // return this.loading || this.isEmptyData
     },
     parentStyle () {
       const parentStyle = this.isHasParentStyle
@@ -123,7 +121,6 @@ export default {
       }
     },
     optionsHandler (options) {
-      // const themeName = this.themeName || (this.theme ? 'custom-theme' : 've-charts')
       options.color = this.chartColor
       // handle legend
       if (this.legendPosition && options.legend) {

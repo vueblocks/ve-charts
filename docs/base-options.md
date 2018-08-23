@@ -107,36 +107,40 @@ data: {
 
 ## 通用配置
 
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| data | 图表数据，dimensions: 维度，measures: 度量 | [Array, Object] | [] or {} |
-| settings | 图表配置项，内容参考图表具体配置 | [Array, Object] | [] or {} |
-| title | 标题组件 | Object | [参考配置](http://echarts.baidu.com/option.html#title) |
-| legend | 图例组件 | Object | [参考配置](http://echarts.baidu.com/option.html#legend) |
-| xAxis | 直角坐标系 grid 中的 x 轴 | Object | [参考配置](http://echarts.baidu.com/option.html#xAxis) |
-| yAxis | 直角坐标系 grid 中的 y 轴 | Object | [参考配置](http://echarts.baidu.com/option.html#yAxis) |
-| dataZoom | 区域缩放 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#dataZoom) |
-| visualMap | 视觉映射 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#visualMap) |
-| tooltip | 提示框组件 | Object | [参考配置](http://echarts.baidu.com/option.html#tooltip) |
-| axisPointer | 坐标轴指示器 | Object | [参考配置](http://echarts.baidu.com/option.html#axisPointer) |
-| toolbox | 工具栏 | Object | [参考配置](http://echarts.baidu.com/option.html#toolbox) |
-| brush | 区域选择组件 | Object | [参考配置](http://echarts.baidu.com/option.html#brush) |
-| geo | 地理坐标系组件 | Object | [参考配置](http://echarts.baidu.com/option.html#geo) |
-| timeline | 时间线组件 | Object | [参考配置](http://echarts.baidu.com/option.html#timeline) |
-| graphic | 原生图形元素组件 | Object | [参考配置](http://echarts.baidu.com/option.html#graphic) |
-| series | 系列列表 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#series) |
-| color | 调色盘组件 | Object | [参考配置](http://echarts.baidu.com/option.html#color) |
-| backgroundColor | 背景色，默认无背景 | [Object, Array] | [参考配置](http://echarts.baidu.com/option.html#backgroundColor) |
-| textStyle | 全局的字体样式 | Object | [参考配置](http://echarts.baidu.com/option.html#textStyle) |
-| animation | 是否开启动画 | Object | [参考配置](http://echarts.baidu.com/option.html#animation) |
-| tooltipVisible | 组件 `tooltip` 提示框显示开关 | Boolean | 默认：`true`，`false`为关闭 |
-| legendVisible | 组件 `legend` 图例显示开关 | Boolean | 默认：`true`，`false`为关闭 |
-| legendPosition | 组件 `legend` 图例显示位置 | Boolean | 默认：`top-center` 顶部居中 ，可选: `top-left`、`top-center`、`top-right`、`bottom-left`、`bottom-center`、`bottom-right` |
-| emptyText | 自定义空数据文案 | String | 默认：暂无数据 |
-| loading | 加载数据动效开关 | Boolean | 默认：`false`，`true`为开启 |
-| height | 图表高度 | Number | 默认：`400`，单位`px` |
-| renderer | 渲染方式 | String | 默认：`canvas`，可选：`canvas`、`svg` |
-| --- | --- | --- | --- |
+| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| --- | :---: | :---: | --- | --- |
+| data | 图表数据，dimensions: 维度，measures: 度量 | [Array, Object] | [] or {} | [] |
+| settings | 图表配置项，内容参考图表具体配置 | [Array, Object] | [] or {} | {} |
+| title | 标题组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#title) |
+| legend | 图例组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#legend) |
+| xAxis | 直角坐标系 grid 中的 x 轴 | Object | - | [参考配置](http://echarts.baidu.com/option.html#xAxis) |
+| yAxis | 直角坐标系 grid 中的 y 轴 | Object | - | [参考配置](http://echarts.baidu.com/option.html#yAxis) |
+| dataZoom | 区域缩放 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#dataZoom) |
+| visualMap | 视觉映射 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#visualMap) |
+| tooltip | 提示框组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#tooltip) |
+| axisPointer | 坐标轴指示器 | Object | - | [参考配置](http://echarts.baidu.com/option.html#axisPointer) |
+| toolbox | 工具栏 | Object | - | [参考配置](http://echarts.baidu.com/option.html#toolbox) |
+| brush | 区域选择组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#brush) |
+| geo | 地理坐标系组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#geo) |
+| timeline | 时间线组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#timeline) |
+| graphic | 原生图形元素组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#graphic) |
+| series | 系列列表 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#series) |
+| color | 调色盘组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#color) |
+| backgroundColor | 背景色，默认无背景 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#backgroundColor) |
+| textStyle | 全局的字体样式 | Object | - | [参考配置](http://echarts.baidu.com/option.html#textStyle) |
+| animation | 是否开启动画 | Object | - | [参考配置](http://echarts.baidu.com/option.html#animation) |
+| tooltipVisible | 组件 `tooltip` 提示框显示开关 | Boolean | `true` or `false` | `true` |
+| legendVisible | 组件 `legend` 图例显示开关 | Boolean | `true` or `false` | `true` |
+| legendPosition | 组件 `legend` 图例显示位置 | Boolean | `top-left`/`top-center`/`top-right`/`bottom-left`/`bottom-center`/`bottom-right` | `top-center` |
+| theme | 自定义主题 | Object | - | [参考主题](http://echarts.baidu.com/theme-builder/) |
+| emptyText | 自定义空数据文案 | String | 暂无数据 | - |
+| loading | 加载数据动效开关 | Boolean | `true` or `false` | `false` |
+| height | 图表高度 | Number | - | `400`，单位`px` |
+| renderer | 渲染方式 | String | `canvas` or `svg` | `canvas` |
+| --- | --- | --- | --- | --- |
+
+> Tips:
+> * 当同时传入 `color`、`theme` 时，`color` 的优先级更高，会覆盖传入的主题配色
 
 ## 图表配置
 

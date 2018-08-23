@@ -412,8 +412,7 @@
         }]
       }
       this.chartSettings = {
-        showLine: ['Vue'],
-        yAxisLabelType: [ 'en', 'zh' ]
+        showLine: ['Vue']
       }
     }
   }
