@@ -8,6 +8,7 @@
         :data="lineData"
         :settings="lineSettings"
         :loading="isLoadingLine"
+        :theme="walden"
         ref="lineChart"
         v-bind="lineOptions"
       />
@@ -23,6 +24,7 @@
 
 <script>
 import _ from 'lodash'
+import walden from '@/constant/walden'
 import lineOptions from '@/constant/lineOptions'
 import multiRadarOptions from '@/constant/multiRadarOptions'
 import VeRadarChart from '../../src/packages/radar/index'
@@ -40,7 +42,8 @@ export default {
         symbol: 'circle'
       },
       lineOptions,
-      multiRadarOptions
+      multiRadarOptions,
+      walden
     }
   },
   methods: {
