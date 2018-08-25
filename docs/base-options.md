@@ -132,7 +132,7 @@ data: {
 | tooltipVisible | 组件 `tooltip` 提示框显示开关 | Boolean | `true` or `false` | `true` |
 | legendVisible | 组件 `legend` 图例显示开关 | Boolean | `true` or `false` | `true` |
 | legendPosition | 组件 `legend` 图例显示位置 | Boolean | `top-left`/`top-center`/`top-right`/`bottom-left`/`bottom-center`/`bottom-right` | `top-center` |
-| theme | 自定义主题 | Object | - | [参考主题](http://echarts.baidu.com/theme-builder/) |
+| theme | 自定义主题，如果传入主题名称，需要全局注册 `echarts` 以及主题文件 | [String, Object] | 主题名称，主题对象 | [参考主题](http://echarts.baidu.com/theme-builder/) |
 | emptyText | 自定义空数据文案 | String | 暂无数据 | - |
 | loading | 加载数据动效开关 | Boolean | `true` or `false` | `false` |
 | height | 图表高度 | Number | - | `400`，单位`px` |
