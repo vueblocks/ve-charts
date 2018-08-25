@@ -573,5 +573,5 @@
 | secondMeaAxis | 用于展示双Y轴，指定另一个度量作为第二个Y轴 | String | - | - |
 | yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | Array | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
 | yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number | 0 ~ 20 | 默认值为 0 |
-| waterfall | 配置柱图为瀑布图类型 | Boolean | - | true开启瀑布图模式，使用瀑布图数据维度，须包含一组名为 `secondaryMeasure` 的辅助度量|
+| waterfall | 配置柱图为瀑布图类型 | Boolean | `true` or `false` | 瀑布图的数据维度中，须包含一组名为 `secondaryMeasure` 的辅助度量|
 | tooltipFormatter | 配置tooltip提示框组件 | Function | - | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |
