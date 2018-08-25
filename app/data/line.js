@@ -72,7 +72,8 @@ export default {
       title: '阶梯折线图',
       data: baseData,
       settings: {
-        step: 'start'
+        step: 'start',
+        yAxisLabelType: 'zh'
       }
     },
     {
