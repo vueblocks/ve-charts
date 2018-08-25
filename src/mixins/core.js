@@ -44,7 +44,7 @@ export default {
     tooltipVisible: { type: Boolean, default: true },
     legendVisible: { type: Boolean, default: true },
     legendPosition: String,
-    theme: Object,
+    theme: [String, Object],
     loading: { type: Boolean, default: false },
     emptyText: String,
     renderer: { type: String, default: 'canvas' },
