@@ -1,8 +1,4 @@
-import {
-  options,
-  waterfallConfig
-} from '../../base-options'
-
+import { options, waterfallConfig } from '../../base-options'
 import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
 // build tooltip
@@ -90,7 +86,7 @@ function getBarMeaAxis(data, settings) {
       fontWeight: 400
     }
     if (type !== 'normal') {
-      axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits[i])
+      axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits)
     }
     const axisItem = {
       ...meaAxisBase,

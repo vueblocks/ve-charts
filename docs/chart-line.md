@@ -215,11 +215,50 @@
   }
 </script>
 
+## 折线图设置 - 格式化Y轴
+
+<vuep template="#formatYLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="formatYLine">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+  module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'Vue',
+          data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        },
+        {
+          name: 'Angular',
+          data: [827, 949, 1400, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
+        }]
+      }
+      this.chartSettings = {
+        yAxisLabelType: 'zh'
+      }
+    }
+  }
+</script>
+
 ## settings 配置项
 
-| 配置项 | 简介 | 类型 | 用法 |
-| --- | --- | --- | --- |
-| smooth | 设置图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等 | Object | 参见[文档](http://echarts.baidu.com/option.html#series-line.smooth) |
-| stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | 指定哪些度量堆叠展示，例如: 指定`React`与`Angular`以`lang`堆叠 |
-
-> Tip:
+| 配置项 | 说明 | 类型 | 可选值 | 用法 |
+| --- | --- | --- | --- | --- |
+| smooth | 设置图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等 | Object | - | 参见[文档](http://echarts.baidu.com/option.html#series-line.smooth) |
+| stack | 设置数据堆叠，区别于并排显示分类的分组折线图 | Object | - | 指定哪些度量堆叠展示，例如: 指定`React`与`Angular`以`lang`堆叠 |
+| step | 阶梯线图配置 | String | `start`, `middle`, `end` | 参见[文档](http://echarts.baidu.com/option.html#series-line.step) |
+| label | 设置图形上的文本标签。| Object | - | 参见[文档](http://echarts.baidu.com/option.html#series-line.label) |
+| yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | String | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
+| yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number | 0 ~ 20 | 默认值为 0 |

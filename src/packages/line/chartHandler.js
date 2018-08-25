@@ -1,4 +1,4 @@
-import { getDataset } from '../../utils'
+import { getDataset, formatMeasure } from '../../utils'
 
 function getLineTooltip(args) {
   return {
@@ -33,7 +33,11 @@ function getLineDimAxis(args) {
 
 function getLineMeaAxis(args) {
   const { settings } = args
-  const { yAxisScale } = settings
+  const {
+    yAxisScale,
+    yAxisLabelType,
+    yAxisLabelDigits,
+  } = settings
 
   return {
     type: 'value',
@@ -43,8 +47,8 @@ function getLineMeaAxis(args) {
     },
     axisLabel: {
       margin: 10,
-      fontWeight: 400
-      // formatter: (v) => formatMeasure(v)
+      fontWeight: 400,
+      formatter: value => formatMeasure(yAxisLabelType, value, yAxisLabelDigits)
     }
   }
 }

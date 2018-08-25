@@ -31,7 +31,7 @@ const simpleData = {
   measures: [{
     name: 'Rising Star',
     // data: [40000, 27800, 22500, 22000, 21900, 20200, 17700, 15600, 14900, 14800].reverse()
-    data: [0.4, 0.8, 0.8, 0.2, 0.1, 0.2, 0.2, 0.23, 0.66, 0.77].reverse()
+    data: [4000.433, 3330.822, 2220.833, 2320.211, 4330.133, 5660.222, 5560.233, 560.232, 550.662, 230.773].reverse()
   }]
 }
 
@@ -143,8 +143,7 @@ export default {
         stack: {
           repo: ['PV', 'UV']
         },
-        yAxisLabelType: ['zh'],
-        yAxisLabelDigits: 2
+        yAxisLabelType: ['zh']
       }
     },
     {
@@ -173,7 +172,9 @@ export default {
       title: '条形图',
       data: simpleData,
       settings: {
-        direction: 'row'
+        direction: 'row',
+        xAxisLabelType: ['zh'],
+        xAxisLabelDigits: 0
       }
     },
     {
