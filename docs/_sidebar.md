@@ -15,6 +15,7 @@
   - [散点图](chart-scatter.md)
   - [仪表盘](chart-gauge.md)
   - [旭日图](chart-sunburst.md)
+  - [树图](chart-tree.md)
   - [矩形树图](chart-treemap.md)
 
 - 其他
