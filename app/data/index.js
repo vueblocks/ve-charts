@@ -8,6 +8,7 @@ import scatter from './scatter'
 import gauge from './gauge'
 import sunburst from './sunburst'
 import treemap from './treemap'
+import tree from './tree'
 
 export default {
   bar,
@@ -19,5 +20,6 @@ export default {
   scatter,
   gauge,
   sunburst,
-  treemap
+  treemap,
+  tree
 }
