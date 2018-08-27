@@ -8,5 +8,6 @@ module.exports = {
   VeRadarChart: './src/packages/radar/index.js',
   VeScatterChart: './src/packages/scatter/index.js',
   VeTreemapChart: './src/packages/treemap/index.js',
-  VeSunburstChart: './src/packages/sunburst/index.js'
+  VeSunburstChart: './src/packages/sunburst/index.js',
+  VeTreeChart: './src/packages/tree/index.js'
 }
