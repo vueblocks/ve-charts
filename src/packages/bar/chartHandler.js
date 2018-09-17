@@ -101,10 +101,19 @@ function getBarMeaAxis(data, settings) {
 function getBarLabel(setLabel, isBar) {
   const {
     position = isBar ? 'right' : 'top',
+    formatType = 'default',
+    formatDigits = 0,
     ...others
   } = setLabel
+  const formatter = params => {
+    const { value, seriesIndex } = params
+    // dataset formatter need shift the value
+    value.shift()
+    return formatMeasure(formatType, value[seriesIndex], formatDigits)
+  }
   return {
     position,
+    formatter,
     ...others
   }
 }
