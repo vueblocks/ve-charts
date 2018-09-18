@@ -101,7 +101,7 @@ function getBarMeaAxis(data, settings) {
 function getBarLabel(setLabel, isBar) {
   const {
     position = isBar ? 'right' : 'top',
-    formatType = 'default',
+    formatType = 'currency',
     formatDigits = 0,
     ...others
   } = setLabel
