@@ -12,7 +12,8 @@ export default new Router({
     {
       path: '/',
       name: '首页',
-      component: Chart
+      component: Chart,
+      redirect: '/chart/bar'
     },
     {
       path: '/chart/:type',

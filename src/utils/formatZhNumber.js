@@ -29,7 +29,7 @@ numeral.register('format', 'zh-number', {
 
       for (let i = 0; i < symbolMap.length; i++) {
         if (Math.abs(val) >= symbolMap[i].value) {
-          return (val / symbolMap[i].value).toFixed(digits) + space + symbolMap[i].symbol
+          return (val / symbolMap[i].value) + space + symbolMap[i].symbol
         }
       }
 

@@ -7,7 +7,7 @@
       :autoResize="true"
       :theme="theme"
       :chart-height='height'
-      v-on="delegateEvents"
+      v-on="$listeners"
     />
     <slot v-if="isEmptyData&&!loading">
       <empty-data :empty-text="emptyText"/>

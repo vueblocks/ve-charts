@@ -61,6 +61,7 @@ export default {
       }, 2000)
     },
     onClick (params) {
+      console.log(params)
       this.title = {
         text: `选中维度：${params.name}`
       }

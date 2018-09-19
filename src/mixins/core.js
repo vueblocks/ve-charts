@@ -37,10 +37,6 @@ export default {
     textStyle: Object,
     animation: Object,
     // ve-charts custom props
-    beforeConfig: Function,
-    afterConfig: Function,
-    afterSetOption: Function,
-    afterSetOptionOnce: Function,
     tooltipVisible: { type: Boolean, default: true },
     legendVisible: { type: Boolean, default: true },
     legendPosition: String,
@@ -74,16 +70,6 @@ export default {
         ? { position: 'relative', height: `${this.height}px` }
         : {}
       return parentStyle
-    },
-    // 使用v-on指令动态绑定Echarts事件对象到组件上
-    delegateEvents () {
-      const events = {}
-      this.registeredEvents.forEach(event => {
-        Object.assign(events, {
-          [event]: this[event]
-        })
-      })
-      return events
     }
   },
   watch: {
@@ -158,11 +144,6 @@ export default {
           this.addMark(series, marks)
         }
       }
-      if (this.afterConfig) options = this.afterConfig(options)
-      // if (this.afterSetOption) this.afterSetOption(this.echarts)
-      // if (this.afterSetOptionOnce && !this._once['afterSetOptionOnce']) {
-      //   this._once['afterSetOptionOnce'] = this.afterSetOptionOnce(this.echarts)
-      // }
       // Merge options
       this.options = Object.assign(cloneDeep(this.options), options)
     },
@@ -189,20 +170,6 @@ export default {
           }, opts)
         }
       })
-    },
-    /**
-     * 添加用户自定义事件代理
-     */
-    addEventDelegate () {
-      const keys = Object.keys(this._events || {})
-      keys.length && keys.forEach(ev => {
-        if (this.registeredEvents.indexOf(ev) === -1) {
-          this.registeredEvents.push(ev)
-          if (ev in this._events) {
-            this[ev] = this._events[ev]
-          }
-        }
-      })
     }
   },
   created () {
@@ -210,10 +177,7 @@ export default {
     this.initOptions = {
       renderer: this.renderer
     }
-    // this._once = {}
-    this.registeredEvents = []
     this.addWatchToProps()
-    this.addEventDelegate()
   },
   mounted () {
     this.init()

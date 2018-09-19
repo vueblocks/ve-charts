@@ -56,18 +56,21 @@ function getLineMeaAxis(args) {
 // build label
 function getLineLabel(args) {
   const {
-    fontFamily = 'sans-serif',
-    fontSize = '12',
-    fontWeight = 'normal',
     position = 'top',
+    formatType = 'currency',
+    formatDigits = 0,
     ...others
   } = args
+  const formatter = params => {
+    const { value, seriesIndex } = params
+    // dataset formatter need shift the value
+    value.shift()
+    return formatMeasure(formatType, value[seriesIndex], formatDigits)
+  }
   return {
     normal: {
-      fontFamily,
-      fontSize,
-      fontWeight,
       position,
+      formatter,
       ...others
     }
   }
