@@ -104,7 +104,6 @@ data: {
 }
 ```
 
-
 ## 通用配置
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 |
@@ -113,8 +112,8 @@ data: {
 | settings | 图表配置项，内容参考图表具体配置 | [Array, Object] | [] or {} | {} |
 | title | 标题组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#title) |
 | legend | 图例组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#legend) |
-| xAxis | 直角坐标系 grid 中的 x 轴 | Object | - | [参考配置](http://echarts.baidu.com/option.html#xAxis) |
-| yAxis | 直角坐标系 grid 中的 y 轴 | Object | - | [参考配置](http://echarts.baidu.com/option.html#yAxis) |
+| xAxis | 直角坐标系 grid 中的 x 轴 | [Array, Object] | - | [参考配置](http://echarts.baidu.com/option.html#xAxis) |
+| yAxis | 直角坐标系 grid 中的 y 轴 | [Array, Object] | - | [参考配置](http://echarts.baidu.com/option.html#yAxis) |
 | dataZoom | 区域缩放 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#dataZoom) |
 | visualMap | 视觉映射 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#visualMap) |
 | tooltip | 提示框组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#tooltip) |
@@ -124,7 +123,7 @@ data: {
 | geo | 地理坐标系组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#geo) |
 | timeline | 时间线组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#timeline) |
 | graphic | 原生图形元素组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#graphic) |
-| series | 系列列表 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#series) |
+| series | 系列列表， | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#series) |
 | color | 调色盘组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#color) |
 | backgroundColor | 背景色，默认无背景 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#backgroundColor) |
 | textStyle | 全局的字体样式 | Object | - | [参考配置](http://echarts.baidu.com/option.html#textStyle) |
@@ -141,6 +140,7 @@ data: {
 
 > Tips:
 > * 当同时传入 `color`、`theme` 时，`color` 的优先级更高，会覆盖传入的主题配色
+> * 当同时传入 `series`、`data` 时，`series` 的优先级更高，会忽略传入的 `data`，建议使用 `series` 时可以不传入 `data`
 
 ## 图表配置
 

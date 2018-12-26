@@ -1,3 +1,3 @@
-import VeLineChart from './index.vue'
+import VeGaugeChart from './index.vue'
 
-export default VeLineChart
+export default VeGaugeChart

@@ -1,7 +1,7 @@
 <template>
   <div class='main-test'>
     <el-card>
-      <div solt='header' class='clearfix'>
+      <div slot='header' class='clearfix'>
         <el-button @click="handleChangeData">改变数据</el-button>
       </div>
       <ve-line-chart

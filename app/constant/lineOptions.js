@@ -48,7 +48,7 @@ const xAxis = {
   }
 }
 
-const yAxis = {
+const yAxis = [{
   axisTick: {
     show: false
   },
@@ -61,7 +61,7 @@ const yAxis = {
       color: '#f1f1f1'
     }
   }
-}
+}]
 
 export default {
   tooltip,

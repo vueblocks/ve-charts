@@ -19,8 +19,8 @@ export default {
     title: Object,
     legend: Object,
     grid: Object,
-    xAxis: Object,
-    yAxis: Object,
+    xAxis: [Object, Array],
+    yAxis: [Object, Array],
     radar: [Object, Array],
     dataZoom: [Object, Array],
     visualMap:[Object, Array],
@@ -62,6 +62,9 @@ export default {
     isEmptySeries () {
       return isNull(this.series) || isEmpty(this.series) || isUndefined(this.series)
     },
+    isHasData () {
+      return !this.isEmptyData || !this.isEmptySeries
+    },
     isHasParentStyle () {
       return this.loading || (this.isEmptyData && this.isEmptySeries)
     },
@@ -92,7 +95,8 @@ export default {
       const extra = {
         tooltipVisible: this.tooltipVisible,
         legendVisible: this.legendVisible,
-        isEmptyData: this.isEmptyData
+        isEmptyData: this.isEmptyData,
+        isEmptySeries: this.isEmptySeries
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
 
@@ -129,33 +133,11 @@ export default {
           options[key] = this.animation[key]
         })
       }
-      if (this.markArea || this.markLine || this.markPoint) {
-        const marks = {
-          markArea: this.markArea,
-          markLine: this.markLine,
-          markPoint: this.markPoint
-        }
-        const series = options.series
-        if (getType(series) === '[object Array]') {
-          series.forEach(item => {
-            this.addMark(item, marks)
-          })
-        } else if (getType(series) === '[object Object]') {
-          this.addMark(series, marks)
-        }
-      }
       // Merge options
       this.options = Object.assign(cloneDeep(this.options), options)
     },
     init () {
       if (this.data) this.dataHandler(this.data)
-    },
-    addMark(seriesItem, marks) {
-      Object.keys(marks).forEach(key => {
-        if (marks[key]) {
-          seriesItem[key] = marks[key]
-        }
-      })
     },
     addWatchToProps () {
       const watchedVariable = this._watchers.map(watcher => watcher.expression)

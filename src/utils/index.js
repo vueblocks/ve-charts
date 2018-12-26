@@ -62,14 +62,16 @@ export const getType = (v) => {
 export const toKebab = (v) => v.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 
 // dataset format
-export const getDataset = (data, settings) => {
+export const getDataset = (data, settings, extra) => {
   const dimName = data && data.dimensions && data.dimensions.name || 'dimensions'
   const dimData = data && data.dimensions && data.dimensions.data
+  const { isEmptyData } = extra
 
   const stack = (settings && settings.stack) || null
   const percentage = (settings && settings.percentage) || false
 
-  if (dimData === undefined) {
+  // when data is not empty and data.dimensions.data is undefiend
+  if (!isEmptyData && dimData === undefined) {
     Vue.util.warn(`data.dimensions.data is required. Please check on you data`, this)
     return
   }
