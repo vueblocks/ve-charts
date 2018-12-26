@@ -7,6 +7,7 @@
 ```bash
 npm i ve-charts echarts -S
 ```
+
 ## 引入 VeCharts
 
 安装完成后，即可使用 `import` 或 `require` 使用。
@@ -27,7 +28,7 @@ Vue.use(VeCharts)
 import Vue from 'vue'
 import 've-charts/lib/common'                         // 公共chuck，引入单个图表前需引入公共包
 import VeBarChart from 've-charts/lib/VeBarChart'     // 单个图表chuck
-import 've-charts/lib/ve-charts.min.css'              // **按需引入** 同样需要引入样式     
+import 've-charts/lib/ve-charts.min.css'              // **按需引入** 同样需要引入样式
 
 Vue.component('VeBarChart', VeBarChart)
 ```
@@ -47,6 +48,9 @@ Vue.component('VeBarChart', VeBarChart)
 | 旭日图 | VeSunburstChart |
 | 矩形树图 | VeTreemapChart |
 
+> Tips:
+> * 当按需引入组件时，部分 `ECharts` 模块在用到时也许按需引入
+> * 比如 `markArea`、`markLine`，详见：[可以按需引入的模块列表](https://github.com/ecomfe/echarts/blob/master/index.js)
 
 ## 创建图表
 
