@@ -1,13 +1,13 @@
 import { getDataset } from '../../utils'
 
-function getPieDataset (data, settings) {
+function getPieDataset (data, settings, extra) {
   const dataset = []
 
   if (!data.length || data.length === 1) {
-    dataset.push(getDataset(data))
+    dataset.push(getDataset(data, settings, extra))
   } else if (data.length > 1) {
     for (let element of data) {
-      dataset.push(getDataset(element))
+      dataset.push(getDataset(element, settings, extra))
     }
   }
   return dataset
@@ -79,7 +79,7 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
 export const pie = (data, settings, extra, isDonut) => {
   const { tooltipVisible, legendVisible } = extra
 
-  const dataset = getPieDataset(data, settings)
+  const dataset = getPieDataset(data, settings, extra)
 
   const tooltip = tooltipVisible && getPieTooltip()
 

@@ -54,9 +54,7 @@ function getRadarSeries(args) {
 
 export const radar = (data, settings, extra) => {
   const { tooltipVisible, legendVisible, isEmptyData } = extra
-  const {
-    itemStyle
-  } = settings
+  const { itemStyle } = settings
 
   if (isEmptyData) return {}
 

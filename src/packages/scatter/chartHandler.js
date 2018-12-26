@@ -1,6 +1,6 @@
 import { isArray } from 'lodash'
 
-function getScatterDataset (data) {
+function getScatterDataset (data, settings, extra) {
   const dataset = []
   const { measures } = data
 
@@ -82,7 +82,7 @@ function getScatterYAxis(args) {
 export const scatter = (data, settings, extra) => {
   const { tooltipVisible, legendVisible } = extra
 
-  const dataset = getScatterDataset(data, settings)
+  const dataset = getScatterDataset(data, settings, extra)
 
   const tooltip = tooltipVisible && getScatterTooltip({ data })
 

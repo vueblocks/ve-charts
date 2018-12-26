@@ -1,7 +1,7 @@
 <template>
   <div class="ve-charts-parent" :style="parentStyle">
     <base-echarts
-      v-if="!isEmptyData"
+      v-if="isHasData"
       :init-options="initOptions"
       :options="options"
       :autoResize="true"
@@ -9,7 +9,7 @@
       :chart-height='height'
       v-on="$listeners"
     />
-    <slot v-if="isEmptyData&&!loading">
+    <slot v-if="!isHasData && !loading">
       <empty-data :empty-text="emptyText"/>
     </slot>
     <loading-chart v-if="loading" />

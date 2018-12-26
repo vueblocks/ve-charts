@@ -31,6 +31,7 @@
 <script>
 // import { cloneDeep } from 'lodash'
 import CodeBlock from '@/components/CodeBlock'
+import 'echarts/lib/component/markArea'
 
 import DATA from '@/data'
 import color from '@/data/color'
@@ -53,15 +54,15 @@ export default {
       this.initData()
     }
   },
+  created () {
+    this.initData()
+  },
   methods: {
     initData () {
       this.chartData = DATA[this.type].chartData
       this.chartType = DATA[this.type].type
       this.color = color
     }
-  },
-  created () {
-    this.initData()
   }
 }
 </script>

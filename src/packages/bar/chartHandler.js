@@ -177,7 +177,7 @@ function getBarSeries(data, settings, isBar) {
 }
 
 export const bar = (data, settings, extra) => {
-  const { tooltipVisible, legendVisible } = extra
+  const { tooltipVisible, legendVisible, isEmptyData } = extra
   const {
     direction = 'column',
     secondMeaAxis = null,
@@ -206,7 +206,7 @@ export const bar = (data, settings, extra) => {
     settings.meaAxisType = defaultMeaAxisType.fill(settings.meaAxisType[0])
   }
 
-  const dataset = getDataset(data, settings)
+  const dataset = !isEmptyData && getDataset(data, settings, extra)
 
   const tooltip = tooltipVisible && getBarTooltip(settings)
 

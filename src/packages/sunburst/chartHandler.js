@@ -1,9 +1,3 @@
-import {
-  options
-} from '../../base-options'
-
-import {getDataset, getStackMap, formatMeasure} from '../../utils'
-
 // build tooltip
 function getBarTooltip(args) {
   const {settings} = args

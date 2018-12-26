@@ -1,8 +1,6 @@
 <template>
   <div class='main-test'>
     <el-card>
-      <div solt='header' class='clearfix'>
-      </div>
       <div style='position: relative; height: 400px;' v-loading="isLoadingLine">
         <ve-line-chart
           :data="lineData"

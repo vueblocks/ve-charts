@@ -119,9 +119,9 @@ function getLineSeries(args) {
 }
 
 export const line = (data, settings, extra) => {
-  const { tooltipVisible, legendVisible } = extra
+  const { tooltipVisible, legendVisible, isEmptyData } = extra
 
-  const dataset = getDataset(data)
+  const dataset = !isEmptyData && getDataset(data, settings, extra)
 
   const tooltip = tooltipVisible && getLineTooltip()
 
@@ -131,7 +131,7 @@ export const line = (data, settings, extra) => {
 
   const yAxis = getLineMeaAxis({ settings })
 
-  const series = getLineSeries({ data, settings })
+  const series = !isEmptyData && getLineSeries({ data, settings })
 
   // build echarts options
   const options = {
@@ -143,7 +143,7 @@ export const line = (data, settings, extra) => {
     series
   }
 
-  // console.log(options)
+  // console.log(JSON.stringify(options))
 
   return options
 }

@@ -1,3 +1,5 @@
+import lineWithMarkArea from '@/constant/lineWithMarkArea'
+
 const simpleData = {
   dimensions: {
     name: 'Week',
@@ -8,6 +10,7 @@ const simpleData = {
     data: [30, 40, 35, 50, 49, 70, 90]
   }]
 }
+
 const baseData = {
   dimensions: {
     name: 'Month',
@@ -30,16 +33,13 @@ const baseData = {
   }]
 }
 
-const emptyData = {
-}
-
 export default {
   name: '折线图',
   type: 'line',
   chartData: [
     {
       title: '无数据',
-      data: emptyData,
+      data: {},
       settings: {}
     },
     {
@@ -101,6 +101,10 @@ export default {
         },
         smooth: true
       }
+    },
+    {
+      title: '折线图使用 markArea',
+      xprops: lineWithMarkArea
     }
   ]
 }
