@@ -9,6 +9,7 @@ import gauge from './gauge'
 import sunburst from './sunburst'
 import treemap from './treemap'
 import tree from './tree'
+import geo from './geo'
 
 export default {
   bar,
@@ -21,5 +22,6 @@ export default {
   gauge,
   sunburst,
   treemap,
-  tree
+  tree,
+  geo
 }

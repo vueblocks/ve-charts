@@ -1,5 +1,3 @@
-import { isUndefined } from 'lodash'
-
 import cityGeo from './cityGeo.json'
 import cityGeo2 from './cityGeo2.json'
 import mapProvinceId from './mapProvinceId.json'
@@ -73,26 +71,22 @@ function convertProvinceData(data, options) {
 
 function getGeoData(args) {
   const { data, settings } = args
-  const { measure } = data
-  const { position, seriesSymbolSize, connect } = settings
+  const { measures } = data
+  const {
+    mode = 'map',
+    symbolSize = 10,
+    zoom = 1,
+    connect
+  } = settings
   const legendData = []
   const seriesData = []
-  let getMaxArr = []
+  let allDataValue = []
 
-  measure && measure.forEach(({ name, data }, i) => {
-    legendData.push(name)
-    if (i === 0) {
-      getMaxArr.push(...data)
-    } else {
-      getMaxArr = getMaxArr.map(v => {
-        return {
-          ...v,
-          value: v.value + data[data.findIndex(vv => vv.name === v.name)].value
-        }
-      })
-    }
+  measures && measures.forEach(({ name, data }, i) => {
+    const dataValue = data.map(v => parseInt(v.value))
+    allDataValue = [...allDataValue, ...dataValue]
 
-    if (position === 'province') {
+    if (mode === 'map') {
       seriesData[i] = {
         name,
         type: 'map',
@@ -109,36 +103,38 @@ function getGeoData(args) {
         },
         data: convertProvinceData(data, {
           connect
-        })
+        }),
+        zoom
       }
-    } else if (position === 'city') {
+    } else {
       seriesData[i] = {
         name,
-        type: 'scatter',
-        symbolSize: seriesSymbolSize,
+        type: mode,
+        symbolSize,
         coordinateSystem: 'geo',
         label: {
           normal: {
-            formatter: '{b}',
-            position: 'right',
             show: false
           },
           emphasis: {
-            show: true
+            show: false
           }
         },
         data: convertCityData(data, {
           index: i,
           connect
-        })
+        }),
+        zoom
       }
     }
+
+    legendData.push(name)
   })
 
   return {
     legendData,
     seriesData,
-    max: Math.max(...getMaxArr.map(v => v.value))
+    max: Math.max(...allDataValue)
   }
 }
 
@@ -150,43 +146,49 @@ function getGeoTooltip() {
 
 function getGeoLegend(args) {
   const { legendData, settings } = args
-  const { legendType, legendPadding } = settings
+  const { legendType = 'plain', legendPadding = 5 } = settings
 
   return {
-    type: legendType || 'plain',
-    padding: legendPadding || 5,
+    type: legendType,
+    padding: legendPadding,
     data: legendData
   }
 }
 
 function getGeo(args) {
   const {
-    settings: {
-      geoLabelShow,
-      geoSilent
-    }
-  } = args
+    label,
+    silent = false,
+    zoom = 1,
+    itemStyle,
+  } = args.settings
   return {
     map: 'china',
-    silent: !isUndefined(geoSilent) ? geoSilent : false,
+    silent,
     roam: true,
-    label: {
-      normal: {
-        show: !isUndefined(geoLabelShow) ? geoLabelShow : false
-      }
-    }
+    label,
+    itemStyle,
+    zoom
   }
 }
 
 function getVisualMap(args) {
-  const { max, settings } = args
-  const { showVisualMap } = settings
+  const { max = 200, settings } = args
+  const {
+    showVisualMap = false,
+    visualMapColor,
+  } = settings
 
   return {
-    splitNumber: 4,
-    max: parseInt(max) || 200,
     min: 0,
-    show: showVisualMap !== undefined ? showVisualMap : true
+    max,
+    left: 'left',
+    top: 'bottom',
+    show: showVisualMap,
+    calculable: true,
+    inRange: visualMapColor && {
+      color: visualMapColor
+    }
   }
 }
 
@@ -201,17 +203,23 @@ export const geo = (data, settings, extra) => {
 
   const { legendData, seriesData, max } = getGeoData({ data, settings })
 
-  const { position } = settings
+  const {
+    mode = 'map',
+    showVisualMap = false
+  } = settings
+
+  const isProvinceMode = mode === 'map'
+  settings.isProvinceMode = isProvinceMode
 
   const tooltip = tooltipVisible && getGeoTooltip()
 
   const legend = legendVisible && getGeoLegend({ legendData, settings })
 
-  const geo = position === 'city' && getGeo({ data, settings })
+  const geo = !isProvinceMode && getGeo({ data, settings })
 
   const series = getGeoSeries({ seriesData, settings })
 
-  const visualMap = position === 'province' && series.length && getVisualMap({ max, settings })
+  const visualMap = showVisualMap && getVisualMap({ max, settings })
 
   // build echarts options
   const options = {
@@ -221,6 +229,8 @@ export const geo = (data, settings, extra) => {
     geo,
     series
   }
+
+  console.log(JSON.stringify(options))
 
   return options
 }
