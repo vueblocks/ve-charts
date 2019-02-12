@@ -17,26 +17,21 @@
 </template>
 
 <script>
-  import Core from '../..//mixins/Core'
-  import { options } from '../../base-options'
-  import { gauge } from './chartHandler'
-  import 'echarts/lib/chart/gauge'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { gauge } from './chartHandler'
+import 'echarts/lib/chart/gauge'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
-  export default {
-    name: 'VeGaugeChart',
-    mixins: [Core],
-    data () {
-      return {
-        options
-      }
-    },
-    created () {
-      this.chartHandler = gauge
-    },
-    components: {
-      BaseEcharts
+export default {
+  name: 'VeGaugeChart',
+  mixins: [Core],
+  data () {
+    return {
+      options
     }
+  },
+  created () {
+    this.chartHandler = gauge
   }
+}
 </script>

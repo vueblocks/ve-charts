@@ -17,21 +17,21 @@
 </template>
 
 <script>
-  import Core from '../../mixins/Core'
-  import { options } from '../../base-options'
-  import { bar } from './chartHandler'
-  import 'echarts/lib/chart/bar'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { bar } from './chartHandler'
+import 'echarts/lib/chart/bar'
 
-  export default {
-    name: 'VeBarChart',
-    mixins: [Core],
-    data () {
-      return {
-        options
-      }
-    },
-    created () {
-      this.chartHandler = bar
+export default {
+  name: 'VeBarChart',
+  mixins: [Core],
+  data () {
+    return {
+      options
     }
+  },
+  created () {
+    this.chartHandler = bar
   }
+}
 </script>

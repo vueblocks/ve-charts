@@ -17,22 +17,22 @@
 </template>
 
 <script>
-  import Core from '../..//mixins/Core'
-  import { options } from '../../base-options'
-  import { donut } from '../pie/chartHandler'
-  import 'echarts/lib/chart/pie'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { donut } from '../pie/chartHandler'
+import 'echarts/lib/chart/pie'
 
-  export default {
-    name: 'VeDonutChart',
-    mixins: [Core],
-    data () {
-      return {
-        options
-      }
-    },
-    created () {
-      this.chartHandler = donut
+export default {
+  name: 'VeDonutChart',
+  mixins: [Core],
+  data () {
+    return {
+      options
     }
+  },
+  created () {
+    this.chartHandler = donut
   }
+}
 </script>
 

@@ -17,21 +17,21 @@
 </template>
 
 <script>
-  import Core from '../../mixins/Core'
-  import { options } from '../../base-options'
-  import { treemap } from './chartHandler'
-  import 'echarts/lib/chart/treemap'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { treemap } from './chartHandler'
+import 'echarts/lib/chart/treemap'
 
-  export default {
-    name: 'VeTreemapChart',
-    mixins: [Core],
-    data () {
-      return {
-        options
-      }
-    },
-    created () {
-      this.chartHandler = treemap
+export default {
+  name: 'VeTreemapChart',
+  mixins: [Core],
+  data () {
+    return {
+      options
     }
+  },
+  created () {
+    this.chartHandler = treemap
   }
+}
 </script>
