@@ -78,39 +78,50 @@ export default {
       title: 'iPhone XS 销量情况',
       data: baseData,
       settings: {
-        showVisualMap: true,
-        visualMapColor: ['#22c1c3', '#fdbb2d']
+        visualMapVisible: true,
+        visualMap: {
+          inRange: {
+            color: ['#22c1c3', '#fdbb2d']
+          }
+        }
       }
     },
     {
       title: 'iPhone XR 销量情况',
       data: baseData,
       settings: {
-        mode: 'scatter',
-        showVisualMap: true,
-        visualMapColor: ['#A1FFCE', '#FAFFD1'],
-        // showLabel: true,
-        itemStyle: {
-          normal: {
-            areaColor: 'rgba(24, 27, 45, 1)',
-            borderColor: 'rgba(9, 77, 119, 1)'
-          },
-          emphasis: {
-            areaColor: '#ff6060'
+        mode: 'effectScatter',
+        visualMapVisible: true,
+        visualMap: {
+          inRange: {
+            color: ['#22c1c3', '#fdbb2d']
           }
         },
+        labelVisible: true,
         label: {
           normal: {
             show: false,
             color: '#fff'
           },
           emphasis: {
-            show: true,
+            show: false,
             color: '#fff'
           }
         },
+        itemStyle: {
+          normal: {
+            areaColor: '#020933',
+            borderColor: '#3fdaff',
+            borderWidth: 1,
+            shadowColor: 'rgba(63, 218, 255, 0.5)',
+            shadowBlur: 30
+          },
+          emphasis: {
+            areaColor: '#2B91B7'
+          }
+        },
         symbolSize: 15,
-        zoom: 1.5
+        zoom: 1.2
       }
     }
   ]

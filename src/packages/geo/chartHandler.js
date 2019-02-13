@@ -111,6 +111,12 @@ function getGeoData(args) {
         name,
         type: mode,
         symbolSize,
+        roam: true,
+        selectedMode: 'single',
+        // showEffectOn: 'render',
+        // rippleEffect: {
+        //   brushType: 'stroke'
+        // },
         coordinateSystem: 'geo',
         label: {
           normal: {
@@ -157,16 +163,27 @@ function getGeoLegend(args) {
 
 function getGeo(args) {
   const {
+    labelVisible = false,
     label,
     silent = false,
     zoom = 1,
     itemStyle,
+    position = 'china'
   } = args.settings
+  const defaultLabel = {
+    normal: {
+      show: false
+    },
+    emphasis: {
+      show: false
+    }
+  }
   return {
-    map: 'china',
+    map: position,
     silent,
     roam: true,
-    label,
+    selectedMode: 'single',
+    label: labelVisible ? label : defaultLabel,
     itemStyle,
     zoom
   }
@@ -174,21 +191,16 @@ function getGeo(args) {
 
 function getVisualMap(args) {
   const { max = 200, settings } = args
-  const {
-    showVisualMap = false,
-    visualMapColor,
-  } = settings
+  const { visualMap } = settings
 
   return {
     min: 0,
     max,
     left: 'left',
     top: 'bottom',
-    show: showVisualMap,
+    show: true,
     calculable: true,
-    inRange: visualMapColor && {
-      color: visualMapColor
-    }
+    ...visualMap
   }
 }
 
@@ -205,7 +217,7 @@ export const geo = (data, settings, extra) => {
 
   const {
     mode = 'map',
-    showVisualMap = false
+    visualMapVisible = false
   } = settings
 
   const isProvinceMode = mode === 'map'
@@ -219,13 +231,13 @@ export const geo = (data, settings, extra) => {
 
   const series = getGeoSeries({ seriesData, settings })
 
-  const visualMap = showVisualMap && getVisualMap({ max, settings })
+  const geoVisualMap = visualMapVisible && getVisualMap({ max, settings })
 
   // build echarts options
   const options = {
     tooltip,
     legend,
-    visualMap,
+    visualMap: geoVisualMap,
     geo,
     series
   }

@@ -20,15 +20,13 @@
 import Core from '../../mixins/Core'
 import { options } from '../../base-options'
 import { geo } from './chartHandler'
-
 import BaseEcharts from '../../components/BaseEcharts'
-import chinaMap from 'echarts/map/json/china.json'
-// import jilinMap from 'echarts/map/json/province/jilin.json'
+
 import 'echarts/lib/chart/map'
 import 'echarts/lib/chart/scatter'
 import 'echarts/lib/chart/effectScatter'
 import 'echarts/lib/chart/heatmap'
-import 'echarts/lib/component/visualmap'
+import 'echarts/lib/component/visualMap'
 import 'echarts/lib/component/geo'
 
 export default {
@@ -39,8 +37,24 @@ export default {
       options
     }
   },
+  watch: {
+    'settings.position': {
+      handler: function (val) {
+        const chinaMap = require('echarts/map/json/china.json')
+        if (val) {
+          const mapData = val === 'china'
+            ? chinaMap
+            : require(`echarts/map/json/province/${val}.json`)
+          BaseEcharts.registerMap(val, mapData)
+        } else {
+          BaseEcharts.registerMap('china', chinaMap)
+        }
+      },
+      immediate: true,
+      deep: true
+    }
+  },
   created () {
-    BaseEcharts.registerMap('china', chinaMap)
     this.chartHandler = geo
   }
 }
