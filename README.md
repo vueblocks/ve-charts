@@ -31,7 +31,9 @@ npm i ve-charts -S
 安装完成后，即可使用 `import` 或 `require` 使用。
 
 ```js
+import Vue from 'vue'
 import VeCharts from 've-charts'
+import 've-charts/lib/ve-charts.min.css'
 
 Vue.use(VeCharts)
 ```

@@ -29,7 +29,6 @@
 </template>
 
 <script>
-// import { cloneDeep } from 'lodash'
 import CodeBlock from '@/components/CodeBlock'
 import 'echarts/lib/component/markArea'
 
@@ -72,7 +71,7 @@ export default {
     .chart-item {
       display: flex;
       flex-direction: row;
-      height: 400px;
+      height: 418px;
       margin-bottom: 40px;
       .left-section {
         position: relative;

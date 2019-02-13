@@ -56,7 +56,7 @@ export default {
   }
   .hljs {
     overflow-y: auto;
-    height: 140px;
-    max-height: 140px;
+    height: 144px;
+    max-height: 144px;
   }
 </style>

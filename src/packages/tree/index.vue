@@ -17,26 +17,21 @@
 </template>
 
 <script>
-  import Core from '../..//mixins/Core'
-  import { options } from '../../base-options'
-  import { tree } from './chartHandler'
-  import 'echarts/lib/chart/tree'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { tree } from './chartHandler'
+import 'echarts/lib/chart/tree'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
-  export default {
-    name: 'VeTreeChart',
-    mixins: [Core],
-    data () {
-      return {
-        options
-      }
-    },
-    created () {
-      this.chartHandler = tree
-    },
-    components: {
-      BaseEcharts
+export default {
+  name: 'VeTreeChart',
+  mixins: [Core],
+  data () {
+    return {
+      options
     }
+  },
+  created () {
+    this.chartHandler = tree
   }
+}
 </script>

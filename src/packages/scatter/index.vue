@@ -15,27 +15,23 @@
     <loading-chart v-if="loading" />
   </div>
 </template>
+
 <script>
-  import Core from '../..//mixins/Core'
-  import { options } from '../../base-options'
-  import { scatter } from './chartHandler'
-  import 'echarts/lib/chart/scatter'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { scatter } from './chartHandler'
+import 'echarts/lib/chart/scatter'
 
-  import BaseEcharts from '../../components/BaseEcharts'
-
-  export default {
-    name: 'VeScatterChart',
-    mixins: [Core],
-    data () {
-      return {
-        options
-      }
-    },
-    created () {
-      this.chartHandler = scatter
-    },
-    components: {
-      BaseEcharts
+export default {
+  name: 'VeScatterChart',
+  mixins: [Core],
+  data () {
+    return {
+      options
     }
+  },
+  created () {
+    this.chartHandler = scatter
   }
+}
 </script>
