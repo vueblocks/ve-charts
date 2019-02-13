@@ -974,34 +974,43 @@ const DataThird = [
 export default {
   name: '词云图',
   type: 'wordcloud',
-  chartData: [{
-    title: '基础词云',
-    data: DataMore
-  }, {
-    title: '随机色词云',
-    data: baseData,
-    settings: {
-      textStyle: {
-        normal: {
-          color: function () {
-            return 'rgb(' + [
-              Math.round(Math.random() * 160),
-              Math.round(Math.random() * 160),
-              Math.round(Math.random() * 160)
-            ].join(',') + ')'
+  chartData: [
+    {
+      title: '基础词云',
+      data: {
+        measures: DataMore
+      }
+    }, {
+      title: '随机色词云',
+      data: {
+        measures: baseData
+      },
+      settings: {
+        textStyle: {
+          normal: {
+            color: function () {
+              return 'rgb(' + [
+                Math.round(Math.random() * 160),
+                Math.round(Math.random() * 160),
+                Math.round(Math.random() * 160)
+              ].join(',') + ')'
+            }
+          },
+          emphasis: {
+            shadowBlur: 10,
+            shadowColor: '#333'
           }
-        },
-        emphasis: {
-          shadowBlur: 10,
-          shadowColor: '#333'
         }
       }
+    }, {
+      title: '词云',
+      data: {
+        measures: DataThird
+      },
+      settings: {
+        shape: 'triangle',
+        tooltip: {}
+      }
     }
-  }, {
-    title: '词云',
-    data: DataThird,
-    settings: {
-      shape: 'triangle'
-    }
-  }]
+  ]
 }

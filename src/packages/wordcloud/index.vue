@@ -20,7 +20,8 @@
 import Core from '../../mixins/Core'
 import {options} from '../../base-options'
 import {wordcloud} from './chartHandler'
-require('echarts-wordcloud')
+// require('echarts-wordcloud')
+import 'echarts-wordcloud/dist/echarts-wordcloud'
 
 export default {
   name: 'VeWordcloudChart',

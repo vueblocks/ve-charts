@@ -18,6 +18,7 @@
   - [旭日图](chart-sunburst.md)
   - [树图](chart-tree.md)
   - [矩形树图](chart-treemap.md)
+  - [词云图](chart-wordcloud.md)
 
 - 其他
  - [属性配置](setting-demo.md)
