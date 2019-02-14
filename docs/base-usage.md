@@ -49,7 +49,7 @@ Vue.component('VeBarChart', VeBarChart)
 | 矩形树图 | VeTreemapChart |
 
 > Tips:
-> * 当按需引入组件时，部分 `ECharts` 模块在用到时也许按需引入
+> * 当按需引入组件时，部分 `ECharts` 模块在用到时也要按需引入
 > * 比如 `markArea`、`markLine`，详见：[可以按需引入的模块列表](https://github.com/ecomfe/echarts/blob/master/index.js)
 
 ## 创建图表
