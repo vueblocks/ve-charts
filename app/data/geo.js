@@ -81,7 +81,7 @@ export default {
         visualMapVisible: true,
         visualMap: {
           inRange: {
-            color: ['#22c1c3', '#fdbb2d']
+            color: ['#C6FFDD', '#FBD786', '#f7797d']
           }
         }
       }
@@ -94,7 +94,7 @@ export default {
         visualMapVisible: true,
         visualMap: {
           inRange: {
-            color: ['#22c1c3', '#fdbb2d']
+            color: ['#C6FFDD', '#FBD786', '#f7797d']
           }
         },
         labelVisible: true,
