@@ -104,13 +104,16 @@ function getGeoData(args) {
       name,
       type: mode,
       roam: true,
-      itemStyle,
       visualMap,
       label: labelVisible ? label : unShowLabel,
       selectedMode: 'single',
       mapType: 'china',
       data: mapData,
       zoom
+    }
+
+    if (itemStyle) {
+      seriesData[index].itemStyle = itemStyle
     }
 
     if (!isMapMode) {
