@@ -165,21 +165,24 @@ function getGeo(args) {
   const {
     labelVisible = false,
     label,
+    itemStyle,
     silent = false,
     zoom = 1,
-    itemStyle,
     position = 'china'
   } = args.settings
   const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
-  return {
+  const geo = {
     map: position,
     silent,
     roam: true,
     selectedMode: 'single',
     label: labelVisible ? label : unShowLabel,
-    itemStyle,
     zoom
   }
+  if (itemStyle) {
+    geo.itemStyle = itemStyle
+  }
+  return geo
 }
 
 function getVisualMap(args) {

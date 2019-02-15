@@ -39,15 +39,14 @@ export default {
   },
   watch: {
     'settings.position': {
-      handler: function (val) {
-        const chinaMap = require('echarts/map/json/china.json')
-        if (val) {
-          const mapData = val === 'china'
-            ? chinaMap
-            : require(`echarts/map/json/province/${val}.json`)
-          BaseEcharts.registerMap(val, mapData)
+      handler: function (newMap) {
+        const defaultMap = 'china'
+        if (newMap) {
+          const mapData = require(`echarts/map/json/${newMap}.json`)
+          BaseEcharts.registerMap(newMap, mapData)
         } else {
-          BaseEcharts.registerMap('china', chinaMap)
+          const mapData = require(`echarts/map/json/${defaultMap}.json`)
+          BaseEcharts.registerMap(defaultMap, mapData)
         }
       },
       immediate: true,
