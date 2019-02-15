@@ -20,7 +20,6 @@
 import Core from '../../mixins/Core'
 import { options } from '../../base-options'
 import { geo } from './chartHandler'
-import BaseEcharts from '../../components/BaseEcharts'
 
 import 'echarts/lib/chart/map'
 import 'echarts/lib/chart/scatter'
@@ -35,22 +34,6 @@ export default {
   data () {
     return {
       options
-    }
-  },
-  watch: {
-    'settings.position': {
-      handler: function (newMap) {
-        const defaultMap = 'china'
-        if (newMap) {
-          const mapData = require(`echarts/map/json/${newMap}.json`)
-          BaseEcharts.registerMap(newMap, mapData)
-        } else {
-          const mapData = require(`echarts/map/json/${defaultMap}.json`)
-          BaseEcharts.registerMap(defaultMap, mapData)
-        }
-      },
-      immediate: true,
-      deep: true
     }
   },
   created () {

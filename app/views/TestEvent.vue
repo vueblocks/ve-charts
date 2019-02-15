@@ -185,8 +185,7 @@ export default {
               fontSize: 13
             },
             emphasis: {
-              show: false,
-              color: '#fff'
+              show: false
             }
           },
           symbolSize: 15,

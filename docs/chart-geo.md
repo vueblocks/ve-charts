@@ -588,8 +588,14 @@ module.exports = {
         }
       },
       label: {
+        normal: {
+          show: true,
+          color: '#00ff00',
+          fontSize: 13
+        },
         emphasis: {
-          show: false
+          show: true,
+          color: '#fff'
         }
       },
       symbolSize: 15
@@ -608,6 +614,8 @@ module.exports = {
       if (idx !== -1) {
         const province =  this.provinceInfo[idx].pinyin
         this.chartSettings.position = `province/${province}`
+      } else {
+        this.chartSettings.position = 'china'
       }
     },
     onClickBlank(e) {

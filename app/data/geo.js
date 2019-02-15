@@ -71,7 +71,7 @@ const baseData = {
 }
 
 export default {
-  name: '中国地图',
+  name: '地图',
   type: 'geo',
   chartData: [
     {
@@ -97,7 +97,7 @@ export default {
             color: ['#C6FFDD', '#FBD786', '#f7797d']
           }
         },
-        labelVisible: true,
+        labelVisible: false,
         label: {
           normal: {
             show: false,

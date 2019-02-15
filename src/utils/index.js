@@ -27,10 +27,12 @@ export const $get = (url) => {
   })
 }
 
-const MAP_URL_PREFIX = 'https://unpkg.com/echarts@4.1.0/map/json/'
-
-export const getMapJSON = (position) => {
-  return $get(`${MAP_URL_PREFIX}${position}.json`)
+export const getMapJSON = ({
+  position,
+  mapUrlPrefix
+}) => {
+  const url = `${mapUrlPrefix}${position}.json`
+  return $get(url)
 }
 
 let mapPromise = null

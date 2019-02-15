@@ -1,5 +1,7 @@
 import { ceil } from 'lodash'
+import echarts from 'echarts/lib/echarts'
 
+import { getMapJSON } from '../../utils'
 import cityGeo from './cityGeo.json'
 import cityGeo2 from './cityGeo2.json'
 import mapProvinceId from './mapProvinceId.json'
@@ -206,13 +208,23 @@ function getGeoSeries(args) {
   return seriesData
 }
 
-export const geo = (data, settings, extra) => {
-  const { tooltipVisible, legendVisible } = extra
+async function registerMap (args) {
+  const {
+    position = 'china',
+    specialAreas,
+    mapUrlPrefix = 'https://unpkg.com/echarts@4.1.0/map/json/'
+  } = args
+  const mapJson = await getMapJSON({position, mapUrlPrefix})
+  echarts.registerMap(position, mapJson, specialAreas)
+  return mapJson
+}
 
+export const geo = async (data, settings, extra) => {
+  const { tooltipVisible, legendVisible } = extra
   
   const {
     mode = 'map',
-    visualMapVisible = false
+    visualMapVisible = false,
   } = settings
   
   const isMapMode = mode === 'map'
@@ -240,6 +252,7 @@ export const geo = (data, settings, extra) => {
   }
 
   // console.log(JSON.stringify(options))
+  await registerMap(settings)
 
   return options
 }
