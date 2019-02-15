@@ -71,7 +71,7 @@ const baseData = {
 }
 
 export default {
-  name: '中国地图',
+  name: '地图',
   type: 'geo',
   chartData: [
     {
@@ -81,7 +81,7 @@ export default {
         visualMapVisible: true,
         visualMap: {
           inRange: {
-            color: ['#22c1c3', '#fdbb2d']
+            color: ['#C6FFDD', '#FBD786', '#f7797d']
           }
         }
       }
@@ -94,10 +94,10 @@ export default {
         visualMapVisible: true,
         visualMap: {
           inRange: {
-            color: ['#22c1c3', '#fdbb2d']
+            color: ['#C6FFDD', '#FBD786', '#f7797d']
           }
         },
-        labelVisible: true,
+        labelVisible: false,
         label: {
           normal: {
             show: false,

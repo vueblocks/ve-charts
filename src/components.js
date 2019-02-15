@@ -10,5 +10,6 @@ module.exports = {
   VeTreemapChart: './src/packages/treemap/index.js',
   VeSunburstChart: './src/packages/sunburst/index.js',
   VeTreeChart: './src/packages/tree/index.js',
-  VeWordcloudChart: './src/packages/wordcloud/index.js'
+  VeWordcloudChart: './src/packages/wordcloud/index.js',
+  VeGeoChart: './src/packages/geo/index.js'
 }

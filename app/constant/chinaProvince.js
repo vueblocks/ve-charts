@@ -22,7 +22,7 @@ export const chinaProvince = [
   {'id': '21', 'name': '江西', 'pinyin': 'jiangxi'},
   {'id': '22', 'name': '四川', 'pinyin': 'sichuan'},
   {'id': '23', 'name': '海南', 'pinyin': 'hainan'},
-  {'id': '24', 'name': '贵州', 'pinyin': 'guizou'},
+  {'id': '24', 'name': '贵州', 'pinyin': 'guizhou'},
   {'id': '25', 'name': '云南', 'pinyin': 'yunnan'},
   {'id': '26', 'name': '西藏', 'pinyin': 'xizang'},
   {'id': '27', 'name': '陕西', 'pinyin': 'shanxi'},
