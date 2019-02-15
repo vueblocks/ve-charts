@@ -185,6 +185,100 @@
   }
 </script>
 
+## 象限散点图
+
+<vuep template="#basicScatterQuery" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="basicScatterQuery">
+<template>
+  <ve-scatter-chart :data="chartData" :xAxis="xAxis" :yAxis="yAxis" :series="series" />
+</template>
+
+<script>
+  module.exports = {
+    created() {
+      this.chartData = {
+        dimensions: {
+          data: []
+        },
+        measures: [{
+          name: '',
+          data: []
+        }]
+      }
+      this.xAxis = {
+        splitLine: {
+          show: false
+        },
+        axisLabel: {
+          formatter: function(value, index) {
+            return value * 100 + '%';
+          }
+        }
+      }
+      this.yAxis = {
+        axisLabel: {
+          formatter: function(value, index) {
+            return value * 100 + '%';
+          }
+        }
+      }
+      this.series = [{
+        symbolSize: 10,
+        data: [{
+            value: [1, 1],
+            symbol: 'none',
+          }, {
+            value: [0, -1],
+            symbol: 'none',
+          },
+          [0.35, 0.18],
+          [0.55, 0.77],
+          [0.88, 0.23],
+          [0.23, -0.25],
+          [0.65, -0.66]
+        ],
+        type: 'scatter',
+        markArea: {
+          itemStyle: {
+            color: '#FFFAFA',
+            opacity: '0.7'
+          },
+          emphasis: {
+            itemStyle: {
+              color: '#FFFAFA',
+              opacity: '0.7'
+            },
+          },
+          data: [
+            [{
+              coord: [0.5, 0]
+            }, {
+              coord: [1, 1]
+            }],
+            [{
+              coord: [0.5, 0]
+            }, {
+              coord: [0, -1]
+            }]
+          ]
+        },
+        markLine: {
+          symbol: 'none',
+          data: [
+            [{
+              value: 0.5,
+              coord: [0.5, -1]
+            }, {
+              coord: [0.5, 1]
+            }]
+          ]
+        }
+      }]
+    }
+  }
+</script>
+
 ## 气泡图
 
 > 气泡图是散点图的变体，`itemStyle` 配合 `symbolSize` 配置项，可以配置出气泡图风格。
