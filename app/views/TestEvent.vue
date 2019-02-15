@@ -1,16 +1,16 @@
 <template>
-  <div class='main-test'>
+  <div class="main-test">
     <el-card>
-      <div style='position: relative' v-loading='isLoadingLine'>
+      <div style="position: relative" v-loading="isLoadingLine">
         <ve-geo-chart
-          :data='lineData'
-          :settings='lineSettings'
-          :title='title'
-          :height='832'
-          backgroundColor='#020933'
-          :legendVisible='false'
-          @click='onClick'
-          @blankClick='onClickBlank'
+          :data="lineData"
+          :settings="lineSettings"
+          :title="title"
+          :height="832"
+          backgroundColor="#020933"
+          :legendVisible="false"
+          @click="onClick"
+          @blankClick="onClickBlank"
         />
       </div>
     </el-card>
@@ -156,7 +156,7 @@ export default {
         this.isLoadingLine = false
         this.lineData = cityData
         this.lineSettings = {
-          mode: 'scatter',
+          mode: 'effectScatter',
           position: 'china',
           visualMapVisible: true,
           visualMap: {
@@ -189,7 +189,7 @@ export default {
               color: '#fff'
             }
           },
-          symbolSize: 20,
+          symbolSize: 15,
           zoom: 1.2
         }
       }, 300)
@@ -202,8 +202,10 @@ export default {
         }
       }
       const idx = findProvince(e.name)
-      const province = idx !== -1 ? chinaProvince[idx].pinyin : 'china'
-      this.lineSettings.position = province
+      if (idx !== -1) {
+        const province = chinaProvince[idx].pinyin
+        this.lineSettings.position = `province/${province}`
+      }
     },
     onClickBlank(e) {
       this.lineSettings.position = 'china'

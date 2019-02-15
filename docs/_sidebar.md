@@ -19,7 +19,7 @@
   - [树图](chart-tree.md)
   - [矩形树图](chart-treemap.md)
   - [词云图](chart-wordcloud.md)
-  - [中国地图](chart-geo.md)
+  - [地图](chart-geo.md)
 
 - 其他
   - [属性配置](setting-demo.md)
