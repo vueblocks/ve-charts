@@ -130,7 +130,7 @@
         },
         // 开启百分比模式
         percentage: true,
-        // 设置Y轴数字标签格式 
+        // 设置Y轴数字标签格式
         yAxisLabelType: ['percentage'],
         tooltipFormatter: function(params) {
           let [tar] = params
@@ -214,6 +214,41 @@
   }
 </script>
 
+## 对比条形图
+
+<vuep template="#rowGroupBarCop" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="rowGroupBarCop" />
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: '渠道',
+          data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序'].reverse()
+        },
+        measures: [{
+          name: 'PV',
+          data: [36000, 28000, 24000, 20000, 12000, 6000].reverse()
+        }, {
+          name: 'UV',
+          data: [-28000, -22000, -18000, -14000, -8000, -2000].reverse()
+        }]
+      }
+      this.chartSettings = {
+        direction: 'row',
+        stack: {
+          sum: ['PV', 'UV']
+        }
+      }
+    }
+  }
+</script>
+
 ## 堆叠条形图
 
 <vuep template="#rowStackBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
@@ -281,7 +316,7 @@
         },
         // 开启百分比堆叠图模式
         percentage: true,
-        // 设置X轴数字标签格式 
+        // 设置X轴数字标签格式
         xAxisLabelType: ['percentage'],
         tooltipFormatter: function(params) {
           let [tar] = params
@@ -375,6 +410,48 @@
       }
       this.chartSettings = {
         secondMeaAxis: 'Vue'
+      }
+    }
+  }
+</script>
+
+## 双Y轴折柱混合图，线图百分比显示
+
+> 配置 `secondMeaAxis` 参数，指定一个度量为第二个Y轴（即右侧Y轴），余下度量为左侧Y轴。
+  配置 `showLine` 参数，指定一个度量显示为线图。
+  配置 `yAxisLabelType` 参数，指定一个度量显示为百分比
+
+<vuep template="#doubleYBarPercent" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="doubleYBarPercent" />
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Month',
+          data: [
+            'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.',
+            'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
+          ]
+        },
+        measures: [{
+          name: 'Vue',
+          data: [2000, 2500, 2100, 2000, 2200, 2100, 2600, 2300, 2600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [0.91, 0.83, 0.71, 0.84, 0.93, 0.75, 0.87, 0.83, 0.95, 0.82, 0.86, 0.88]
+        }]
+      }
+      this.chartSettings = {
+        secondMeaAxis: 'React',
+        showLine: ['React'],
+        yAxisLabelType: ['','percentage'],
       }
     }
   }
