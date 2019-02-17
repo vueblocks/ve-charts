@@ -79,7 +79,7 @@ module.exports = {
     assetsSubDirectory: '/',
     assetsPublicPath: '/',
     devtool: '#source-map',
-    productionSourceMap: true,
+    productionSourceMap: false,
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report

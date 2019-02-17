@@ -47,7 +47,8 @@ const EVENTS = [
   'mouseout',
   'mousedown',
   'mouseup',
-  'globalout'
+  'globalout',
+  'contextmenu'
 ]
 
 export default {
@@ -173,6 +174,9 @@ export default {
       }
 
       chart.setOption(this.options, true)
+
+      // expose ECharts instance zrender when click blank on chart as custom event
+      chart.getZr().on('click', e => !e.target && this.$emit('blankClick', e))
 
       // expose ECharts events as custom events
       EVENTS.forEach(event => {

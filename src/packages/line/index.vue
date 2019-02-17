@@ -17,24 +17,24 @@
 </template>
 
 <script>
-  import Core from '../..//mixins/Core'
-  import { options } from '../../base-options'
-  import { line } from './chartHandler'
-  import 'echarts/lib/chart/line'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { line } from './chartHandler'
+import 'echarts/lib/chart/line'
 
-  export default {
-    name: 'VeLineChart',
-    mixins: [Core],
-    data () {
-      return {
-        options,
-        initOptions: {
-          renderer: 'canvas'
-        }
+export default {
+  name: 'VeLineChart',
+  mixins: [Core],
+  data () {
+    return {
+      options,
+      initOptions: {
+        renderer: 'canvas'
       }
-    },
-    created () {
-      this.chartHandler = line
     }
+  },
+  created () {
+    this.chartHandler = line
   }
+}
 </script>

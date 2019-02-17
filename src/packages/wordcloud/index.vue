@@ -12,26 +12,27 @@
     <slot v-if="!isHasData && !loading">
       <empty-data :empty-text="emptyText"/>
     </slot>
-    <loading-chart v-if="loading" />
+    <loading-chart v-if="loading"/>
   </div>
 </template>
 
 <script>
 import Core from '../../mixins/Core'
-import { options } from '../../base-options'
-import { pie } from './chartHandler'
-import 'echarts/lib/chart/pie'
+import {options} from '../../base-options'
+import {wordcloud} from './chartHandler'
+// require('echarts-wordcloud')
+import 'echarts-wordcloud/dist/echarts-wordcloud'
 
 export default {
-  name: 'VePieChart',
+  name: 'VeWordcloudChart',
   mixins: [Core],
-  data () {
+  data() {
     return {
       options
     }
   },
-  created () {
-    this.chartHandler = pie
+  created() {
+    this.chartHandler = wordcloud
   }
 }
 </script>

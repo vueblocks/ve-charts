@@ -1,5 +1,7 @@
-import { isUndefined } from 'lodash'
+import { ceil } from 'lodash'
+import echarts from 'echarts/lib/echarts'
 
+import { getMapJSON } from '../../utils'
 import cityGeo from './cityGeo.json'
 import cityGeo2 from './cityGeo2.json'
 import mapProvinceId from './mapProvinceId.json'
@@ -73,120 +75,130 @@ function convertProvinceData(data, options) {
 
 function getGeoData(args) {
   const { data, settings } = args
-  const { measure } = data
-  const { position, seriesSymbolSize, connect } = settings
-  const legendData = []
-  const seriesData = []
-  let getMaxArr = []
+  const { measures } = data
+  const {
+    mode = 'map',
+    labelVisible,
+    isMapMode,
+    itemStyle,
+    visualMap,
+    label,
+    symbolSize = 10,
+    zoom = 1,
+    connect
+  } = settings
+  const [legendData, seriesData] = [[], []]
 
-  measure && measure.forEach(({ name, data }, i) => {
-    legendData.push(name)
-    if (i === 0) {
-      getMaxArr.push(...data)
-    } else {
-      getMaxArr = getMaxArr.map(v => {
-        return {
-          ...v,
-          value: v.value + data[data.findIndex(vv => vv.name === v.name)].value
-        }
-      })
+  // computed max value
+  const max = measures.map(({data}) => {
+    const dataValues = data.map(v => parseInt(v.value))
+    return Math.max(...dataValues)
+  }).reduce((a, b) => a + b)
+
+  measures && measures.forEach(({ name, data }, index) => {
+    const mapData = isMapMode
+      ? convertProvinceData(data, { connect })
+      : convertCityData(data, { index, connect })
+
+    const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
+
+    seriesData[index] = {
+      name,
+      type: mode,
+      roam: true,
+      visualMap,
+      label: labelVisible ? label : unShowLabel,
+      selectedMode: 'single',
+      mapType: 'china',
+      data: mapData,
+      zoom
     }
 
-    if (position === 'province') {
-      seriesData[i] = {
-        name,
-        type: 'map',
-        roam: true,
-        selectedMode: 'single',
-        mapType: 'china',
-        label: {
-          normal: {
-            show: true
-          },
-          emphasis: {
-            show: true
-          }
-        },
-        data: convertProvinceData(data, {
-          connect
-        })
-      }
-    } else if (position === 'city') {
-      seriesData[i] = {
-        name,
-        type: 'scatter',
-        symbolSize: seriesSymbolSize,
+    if (itemStyle) {
+      seriesData[index].itemStyle = itemStyle
+    }
+
+    if (!isMapMode) {
+      seriesData[index] = {...seriesData[index], ...{
         coordinateSystem: 'geo',
-        label: {
-          normal: {
-            formatter: '{b}',
-            position: 'right',
-            show: false
-          },
-          emphasis: {
-            show: true
-          }
+        label: unShowLabel,
+        symbolSize,
+        showEffectOn: 'render',
+        rippleEffect: {
+          brushType: 'stroke'
         },
-        data: convertCityData(data, {
-          index: i,
-          connect
-        })
-      }
+        itemStyle: {}
+      }}
     }
+
+    legendData.push(name)
   })
 
   return {
     legendData,
     seriesData,
-    max: Math.max(...getMaxArr.map(v => v.value))
+    max: ceil(max, -2)
   }
 }
 
-function getGeoTooltip() {
-  return {
-    trigger: 'item'
+function getGeoTooltip(isMapMode) {
+  const formatter = function (params) {
+    const { seriesName, name, value, marker } = params
+    const seriesValue = Array.isArray(value) ? value[2] : value
+    return `${seriesName}<br>${marker}${name}: ${seriesValue}`
   }
+  return isMapMode
+    ? { trigger: 'item' }
+    : { trigger: 'item', formatter }
 }
 
 function getGeoLegend(args) {
   const { legendData, settings } = args
-  const { legendType, legendPadding } = settings
+  const { legendType = 'plain', legendPadding = 5 } = settings
 
   return {
-    type: legendType || 'plain',
-    padding: legendPadding || 5,
+    type: legendType,
+    padding: legendPadding,
     data: legendData
   }
 }
 
 function getGeo(args) {
   const {
-    settings: {
-      geoLabelShow,
-      geoSilent
-    }
-  } = args
-  return {
-    map: 'china',
-    silent: !isUndefined(geoSilent) ? geoSilent : false,
+    labelVisible = false,
+    label,
+    itemStyle,
+    silent = false,
+    zoom = 1,
+    mapName = 'china'
+  } = args.settings
+  const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
+  const geo = {
+    map: mapName,
+    silent,
     roam: true,
-    label: {
-      normal: {
-        show: !isUndefined(geoLabelShow) ? geoLabelShow : false
-      }
-    }
+    selectedMode: 'single',
+    label: labelVisible ? label : unShowLabel,
+    zoom
   }
+  if (itemStyle) {
+    geo.itemStyle = itemStyle
+  }
+  return geo
 }
 
 function getVisualMap(args) {
-  const { max, settings } = args
-  const { showVisualMap } = settings
+  const { max = 200, settings } = args
+  const { visualMap } = settings
 
   return {
-    splitNumber: 4,
-    max: parseInt(max) || 200,
     min: 0,
-    show: showVisualMap !== undefined ? showVisualMap : true
+    max,
+    left: 'left',
+    top: 'bottom',
+    show: true,
+    calculable: true,
+    ...visualMap
   }
 }
 
@@ -196,31 +208,51 @@ function getGeoSeries(args) {
   return seriesData
 }
 
-export const geo = (data, settings, extra) => {
+async function registerMap (args) {
+  const {
+    mapName = 'china',
+    specialAreas,
+    mapUrlPrefix = 'https://unpkg.com/echarts@4.1.0/map/json/'
+  } = args
+  const mapJson = await getMapJSON({mapName, mapUrlPrefix})
+  echarts.registerMap(mapName, mapJson, specialAreas)
+  return mapJson
+}
+
+export const geo = async (data, settings, extra) => {
   const { tooltipVisible, legendVisible } = extra
+  
+  const {
+    mode = 'map',
+    visualMapVisible = false,
+  } = settings
+  
+  const isMapMode = mode === 'map'
+  settings.isMapMode = isMapMode
 
   const { legendData, seriesData, max } = getGeoData({ data, settings })
 
-  const { position } = settings
-
-  const tooltip = tooltipVisible && getGeoTooltip()
+  const tooltip = tooltipVisible && getGeoTooltip(isMapMode)
 
   const legend = legendVisible && getGeoLegend({ legendData, settings })
 
-  const geo = position === 'city' && getGeo({ data, settings })
+  const geo = !isMapMode && getGeo({ data, settings })
 
   const series = getGeoSeries({ seriesData, settings })
 
-  const visualMap = position === 'province' && series.length && getVisualMap({ max, settings })
+  const geoVisualMap = visualMapVisible && getVisualMap({ max, settings })
 
   // build echarts options
   const options = {
     tooltip,
     legend,
-    visualMap,
+    visualMap: geoVisualMap,
     geo,
     series
   }
+
+  // console.log(JSON.stringify(options))
+  await registerMap(settings)
 
   return options
 }

@@ -17,21 +17,21 @@
 </template>
 
 <script>
-  import Core from '../../mixins/Core'
-  import { options } from '../../base-options'
-  import { sunburst } from './chartHandler'
-  import 'echarts/lib/chart/sunburst'
+import Core from '../../mixins/Core'
+import { options } from '../../base-options'
+import { sunburst } from './chartHandler'
+import 'echarts/lib/chart/sunburst'
 
-  export default {
-    name: 'VeSunburstChart',
-    mixins: [Core],
-    data () {
-      return {
-        options
-      }
-    },
-    created () {
-      this.chartHandler = sunburst
+export default {
+  name: 'VeSunburstChart',
+  mixins: [Core],
+  data () {
+    return {
+      options
     }
+  },
+  created () {
+    this.chartHandler = sunburst
   }
+}
 </script>

@@ -27,10 +27,12 @@ export const $get = (url) => {
   })
 }
 
-const MAP_URL_PREFIX = 'https://unpkg.com/echarts@3.6.2/map/json/'
-
-export const getMapJSON = (position) => {
-  return $get(`${MAP_URL_PREFIX}${position}.json`)
+export const getMapJSON = ({
+  mapName,
+  mapUrlPrefix
+}) => {
+  const url = `${mapUrlPrefix}${mapName}.json`
+  return $get(url)
 }
 
 let mapPromise = null
@@ -53,7 +55,7 @@ export const getBmap = (key) => {
   return mapPromise
 }
 
-export const clone = (v) => JSON.parse(JSON.stringify(v))
+export const deepClone = (v) => JSON.parse(JSON.stringify(v))
 
 export const getType = (v) => {
   return Object.prototype.toString.call(v)

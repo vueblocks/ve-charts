@@ -9,5 +9,7 @@ module.exports = {
   VeScatterChart: './src/packages/scatter/index.js',
   VeTreemapChart: './src/packages/treemap/index.js',
   VeSunburstChart: './src/packages/sunburst/index.js',
-  VeTreeChart: './src/packages/tree/index.js'
+  VeTreeChart: './src/packages/tree/index.js',
+  VeWordcloudChart: './src/packages/wordcloud/index.js',
+  VeGeoChart: './src/packages/geo/index.js'
 }
