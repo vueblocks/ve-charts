@@ -1,5 +1,8 @@
 # 词云图
 
+> Tips: 词云图基于 ECharts 的 扩展 `echarts-wordcloud` 封装，在使用前需安装此扩展
+> `npm install echarts-wordcloud`
+
 ## 基础词云图
 
 <vuep template="#basicWordcloud" :options="{ theme: 'vue', lineNumbers: false }"></vuep>

@@ -566,7 +566,7 @@ module.exports = {
     }
     this.chartSettings = {
       mode: 'effectScatter',
-      position: 'china',
+      mapName: 'china',
       visualMapVisible: true,
       visualMap: {
         inRange: { color: ['#ee0979', '#ff6a00'] },
@@ -613,9 +613,9 @@ module.exports = {
       const idx = this.provinceInfo.findIndex(v => v.name === e.name)
       if (idx !== -1) {
         const province =  this.provinceInfo[idx].pinyin
-        this.chartSettings.position = `province/${province}`
+        this.chartSettings.mapName = `province/${province}`
       } else {
-        this.chartSettings.position = 'china'
+        this.chartSettings.mapName = 'china'
       }
     },
     onClickBlank(e) {
@@ -626,8 +626,28 @@ module.exports = {
           fontSize: 14
         }
       }
-      this.chartSettings.position = 'china'
+      this.chartSettings.mapName = 'china'
     }
   }
 }
 </script>
+
+## settings 配置项
+
+| 配置项 | 简介 | 类型 | 用法 |
+| --- | --- | --- | --- |
+| mode | geo地图支持不同的模式 | String | 默认为 `map`，可选 `scatter`、`effectScatter`、`heatmap` |
+| mapName | 地图名称 | String | 默认为 `china`，可选 `china-cities`、`china-contour`、`province/beijing` |
+| visualMapVisible | 视觉映射开关 | Boolean | 默认为 `false`，可选 `true` |
+| visualMap | 视觉映射配置 | Object | 参见[文档](https://echarts.baidu.com/option.html#visualMap) |
+| labelVisible | 图形文本标签开关 | Boolean | 默认为 `false`，可选 `true` |
+| label | 图形上的文本标签 | Object | 参见[文档](https://echarts.baidu.com/option.html#series-map.label) |
+| itemStyle | 地图区域的多边形 图形样式 | Object | 参见[文档](https://echarts.baidu.com/option.html#series-map.itemStyle) |
+| roam | 是否开启鼠标缩放和平移漫游 | [Boolean, String] | 默认为 `false` 可以设置成 `scale` 或者 `move`。设置成 `true` 为都开启 |
+| zoom | 当前视角的缩放比例 | Number | 默认为 `1` |
+| symbolSize | 散点图标记的大小 | number, Array, Function | 参见[文档](https://echarts.baidu.com/option.html#series-scatter.symbolSize) |
+
+> Tip: mode 为非 map 时，使用 `coordinateSystem` 配置地理坐标系为 `geo` 生成地图
+
+
+> Tip: mapName 为地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值
