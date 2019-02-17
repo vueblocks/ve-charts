@@ -170,11 +170,11 @@ function getGeo(args) {
     itemStyle,
     silent = false,
     zoom = 1,
-    position = 'china'
+    mapName = 'china'
   } = args.settings
   const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
   const geo = {
-    map: position,
+    map: mapName,
     silent,
     roam: true,
     selectedMode: 'single',
@@ -210,12 +210,12 @@ function getGeoSeries(args) {
 
 async function registerMap (args) {
   const {
-    position = 'china',
+    mapName = 'china',
     specialAreas,
     mapUrlPrefix = 'https://unpkg.com/echarts@4.1.0/map/json/'
   } = args
-  const mapJson = await getMapJSON({position, mapUrlPrefix})
-  echarts.registerMap(position, mapJson, specialAreas)
+  const mapJson = await getMapJSON({mapName, mapUrlPrefix})
+  echarts.registerMap(mapName, mapJson, specialAreas)
   return mapJson
 }
 

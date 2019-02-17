@@ -28,10 +28,10 @@ export const $get = (url) => {
 }
 
 export const getMapJSON = ({
-  position,
+  mapName,
   mapUrlPrefix
 }) => {
-  const url = `${mapUrlPrefix}${position}.json`
+  const url = `${mapUrlPrefix}${mapName}.json`
   return $get(url)
 }
 
