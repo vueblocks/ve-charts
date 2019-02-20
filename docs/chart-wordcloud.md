@@ -1345,12 +1345,316 @@
   }
 </script>
 
+## 最优效果
+
+<vuep template="#best" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="best">
+<template>
+  <ve-wordcloud-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+  const Data = [
+     {
+       'name': '曲美',
+       'value': 447
+     },
+     {
+       'name': '紫砂壶',
+       'value': 192
+     },
+     {
+       'name': '顾家家居',
+       'value': 147
+     },
+     {
+       'name': '紫砂',
+       'value': 140
+     },
+     {
+       'name': '欧派',
+       'value': 132
+     },
+     {
+       'name': '索菲亚',
+       'value': 79
+     },
+     {
+       'name': '尚品宅配',
+       'value': 77
+     },
+     {
+       'name': '炼焦',
+       'value': 61
+     },
+     {
+       'name': '净资本',
+       'value': 52
+     },
+     {
+       'name': '毕节',
+       'value': 51
+     },
+     {
+       'name': '新疆维吾尔自治区',
+       'value': 48
+     },
+     {
+       'name': '全风',
+       'value': 36
+     },
+     {
+       'name': '泡茶',
+       'value': 34
+     },
+     {
+       'name': '滑道',
+       'value': 32
+     },
+     {
+       'name': '盐碱',
+       'value': 29
+     },
+     {
+       'name': '程天',
+       'value': 28
+     },
+     {
+       'name': '悦舍',
+       'value': 28
+     },
+     {
+       'name': '星艺佳',
+       'value': 27
+     },
+     {
+       'name': '孝感',
+       'value': 26
+     },
+     {
+       'name': '万不得已',
+       'value': 26
+     },
+     {
+       'name': '余省市',
+       'value': 25
+     },
+     {
+       'name': '杨磊',
+       'value': 25
+     },
+     {
+       'name': '外骨骼',
+       'value': 24
+     },
+     {
+       'name': '李炳军',
+       'value': 24
+     },
+     {
+       'name': '麻药',
+       'value': 24
+     },
+     {
+       'name': '年新高',
+       'value': 24
+     },
+     {
+       'name': '做市商',
+       'value': 22
+     },
+     {
+       'name': '每斤',
+       'value': 22
+     },
+     {
+       'name': '茶壶',
+       'value': 22
+     },
+     {
+       'name': '西林',
+       'value': 22
+     },
+     {
+       'name': '盐碱地',
+       'value': 22
+     },
+     {
+       'name': '家博会',
+       'value': 20
+     },
+     {
+       'name': '试种',
+       'value': 19
+     },
+     {
+       'name': '亿丰',
+       'value': 19
+     },
+     {
+       'name': '平准',
+       'value': 18
+     },
+     {
+       'name': '王天',
+       'value': 18
+     },
+     {
+       'name': '韬略',
+       'value': 17
+     },
+     {
+       'name': '矿用',
+       'value': 17
+     },
+     {
+       'name': '建账',
+       'value': 17
+     },
+     {
+       'name': '张海霞',
+       'value': 17
+     },
+     {
+       'name': '大城县',
+       'value': 16
+     },
+     {
+       'name': '朔川',
+       'value': 16
+     },
+     {
+       'name': '孝感市',
+       'value': 16
+     },
+     {
+       'name': '博科',
+       'value': 16
+     },
+     {
+       'name': '颜志宇',
+       'value': 16
+     },
+     {
+       'name': '赝品',
+       'value': 16
+     },
+     {
+       'name': '倪虹',
+       'value': 16
+     },
+     {
+       'name': '陶企',
+       'value': 16
+     },
+     {
+       'name': '混淆视听',
+       'value': 15
+     },
+     {
+       'name': '立家',
+       'value': 15
+     },
+     {
+       'name': '五岳',
+       'value': 14
+     },
+     {
+       'name': '招须',
+       'value': 14
+     },
+     {
+       'name': '孙潇阳',
+       'value': 14
+     },
+     {
+       'name': '湟水',
+       'value': 14
+     },
+     {
+       'name': '美光',
+       'value': 14
+     },
+     {
+       'name': '罔顾',
+       'value': 14
+     },
+     {
+       'name': '奥斯陆',
+       'value': 14
+     },
+     {
+       'name': '言也',
+       'value': 14
+     },
+     {
+       'name': '关炜宁',
+       'value': 14
+     },
+     {
+       'name': '王思强',
+       'value': 14
+     },
+     {
+       'name': '殷智贤',
+       'value': 14
+     },
+     {
+       'name': '麻隆',
+       'value': 14
+     },
+     {
+       'name': '郑州瑞',
+       'value': 13
+     },
+     {
+       'name': ' 路',
+       'value': 13
+     },
+     {
+       'name': '周四净',
+       'value': 13
+     },
+     {
+       'name': '焦企',
+       'value': 13
+     }
+   ]
+  module.exports = {
+    created () {
+      this.chartData = {
+        measures: Data
+      }
+      this.chartSettings = {
+        textStyle: {
+          normal: {
+            fontWeight: '500',
+            color: function () {
+              var arr = ['#5182e4','rgb(155, 204, 102)','rgb(63, 178, 126)','rgb(247, 203, 74)','rgb(248, 141, 72)','rgb(243, 83, 82)','rgb(206, 98, 214)','rgb(137, 84, 212)','rgb(81, 86, 184)','rgb(81, 180, 241)','rgb(105, 212, 219)','rgb(212, 45, 107)']
+              var index = Math.floor((Math.random()*arr.length));
+              return arr[index]
+            }
+          }
+        },
+        rotationRange: [-90, 90],
+        rotationStep: 90,
+        gridSize: 5,
+        tooltip:{}
+      }
+    }
+  }
+</script>
+
 ## settings 配置项
 
 | 配置项 | 简介 | 类型 | 可选值 | 用法 |
 | --- | --- | --- | --- | --- |
 | textStyle | 文字样式| Object | - | |
 | tooltip | 提示框组件 | Object | - | |
+| rotationRange | 设置文字角度范围 | Array | - | |
+| rotationStep | 设置角度步长 | Number | - | |
+| gridSize | 文字间距 | Number | - | |
 | shape | 词云形状| String |  circle (default)，cardioid，diamond，triangle  | |
 
 > Tip: 其他配置项请参考[wordcloud](https://github.com/ecomfe/echarts-wordcloud)
