@@ -11,6 +11,7 @@ import VeTreemapChart from './packages/treemap'
 import VeSunburstChart from './packages/sunburst'
 import VeTreeChart from './packages/tree'
 import VeWordcloudChart from './packages/wordcloud'
+import VeLiquidfill from './packages/liquidfill'
 
 const components = [
   VeBarChart,
@@ -25,7 +26,8 @@ const components = [
   VeTreemapChart,
   VeSunburstChart,
   VeTreeChart,
-  VeWordcloudChart
+  VeWordcloudChart,
+  VeLiquidfill
 ]
 
 function install(Vue, _) {
@@ -49,7 +51,8 @@ export {
   VeTreemapChart,
   VeSunburstChart,
   VeTreeChart,
-  VeWordcloudChart
+  VeWordcloudChart,
+  VeLiquidfill
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

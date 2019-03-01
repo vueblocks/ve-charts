@@ -20,6 +20,7 @@
   - [矩形树图](chart-treemap.md)
   - [词云图](chart-wordcloud.md)
   - [地图](chart-geo.md)
+  - [水球图](chart-liquidfill.md)
 
 - 其他
   - [属性配置](setting-demo.md)
