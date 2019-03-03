@@ -389,7 +389,7 @@ module.exports = {
 <script v-pre type="text/x-template" id="effectScatterGeo">
 
 <template>
-  <ve-geo-chart :data="chartData" :settings="chartSettings" :legendVisible="false" />
+  <ve-geo-chart :data="chartData" :settings="chartSettings" :legend-visible="false" />
 </template>
 
 <script>
@@ -648,6 +648,5 @@ module.exports = {
 | symbolSize | 散点图标记的大小 | number, Array, Function | 参见[文档](https://echarts.baidu.com/option.html#series-scatter.symbolSize) |
 
 > Tip: mode 为非 map 时，使用 `coordinateSystem` 配置地理坐标系为 `geo` 生成地图
-
 
 > Tip: mapName 为地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值

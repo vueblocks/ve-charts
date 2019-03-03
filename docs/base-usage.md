@@ -47,6 +47,10 @@ Vue.component('VeBarChart', VeBarChart)
 | 仪表盘 | VeGaugeChart |
 | 旭日图 | VeSunburstChart |
 | 矩形树图 | VeTreemapChart |
+| 树图 | VeTreeChart |
+| 地图 | VeGeoChart |
+| 词云图 | VeWordcloudChart |
+| 水球图 | VeLiquidfillChart |
 
 > Tips:
 > * 当按需引入组件时，部分 `ECharts` 模块在用到时也要按需引入
