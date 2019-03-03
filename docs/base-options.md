@@ -164,7 +164,10 @@ data: {
 
 [矩形树图配置](https://vueblocks.github.io/ve-charts/#/chart-treemap)
 
+[树图配置](https://vueblocks.github.io/ve-charts/#/chart-tree)
+
+[地图](https://vueblocks.github.io/ve-charts/#/chart-geo)
+
 [词云图](https://vueblocks.github.io/ve-charts/#/chart-wordcloud)
 
-[中国地图](https://vueblocks.github.io/ve-charts/#/chart-geo)
-
+[水球图](https://vueblocks.github.io/ve-charts/#/chart-liquidfill)
