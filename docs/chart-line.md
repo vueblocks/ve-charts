@@ -252,6 +252,70 @@
   }
 </script>
 
+## 折线图 & markArea
+
+<vuep template="#markArea" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="markArea">
+<template>
+  <ve-line-chart :legend-visible="false" v-bind="options" />
+</template>
+
+<script>
+  module.exports = {
+    created () {
+      this.options = {
+        title: {
+          text: '一天用电量分布',
+          subtext: '纯属虚构'
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross'
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            formatter: '{value} W'
+          },
+          axisPointer: {
+            snap: true
+          }
+        },
+        series: [{
+          name: '用电量',
+          type: 'line',
+          smooth: true,
+          data: [300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400],
+          markArea: {
+            data: [
+              [{
+                name: '早高峰',
+                xAxis: '07:30'
+              }, {
+                xAxis: '10:00'
+              }],
+              [{
+                name: '晚高峰',
+                xAxis: '17:30'
+              }, {
+                xAxis: '21:15'
+              }]
+            ]
+          }
+        }]
+      }
+    }
+  }
+</script>
+
 ## settings 配置项
 
 | 配置项 | 说明 | 类型 | 可选值 | 用法 |
@@ -262,3 +326,8 @@
 | label | 设置图形上的文本标签。| Object | - | 参见[文档](http://echarts.baidu.com/option.html#series-line.label) |
 | yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | String | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
 | yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number | 0 ~ 20 | 默认值为 0 |
+| yAxisInterval | 强制设置坐标轴分割间隔 | Number | - |参见[文档](https://www.echartsjs.com/option.html#yAxis.inverse) |
+| yAxisMax | 坐标轴刻度最大值 | Number | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.max) |
+| yAxisMin | 坐标轴刻度最小值 | Number | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |
+| yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
+| yAxisName | 坐标轴名称 | String | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |

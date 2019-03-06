@@ -9,12 +9,10 @@ const baseData = {
   measures: [{
     name: 'Vue',
     data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
-  },
-  {
+  }, {
     name: 'React',
     data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
-  },
-  {
+  }, {
     name: 'Angular',
     data: [827, 949, 1400, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
   }]
@@ -60,8 +58,7 @@ const mixinData = {
   measures: [{
     name: 'Vue',
     data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
-  },
-  {
+  }, {
     name: 'React',
     data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
   }]
@@ -75,8 +72,7 @@ const biDirectionalData = {
   measures: [{
     name: '收入',
     data: [320, 100, 200, 270, 320, 250, 360]
-  },
-  {
+  }, {
     name: '支出',
     data: [-120, -132, -100, -130, -300, -230, -360]
   }]
@@ -90,8 +86,7 @@ const waterfallData = {
   measures: [{
     name: 'secondaryMeasure',
     data: [0, 1700, 1400, 1200, 300, 0]
-  },
-  {
+  }, {
     name: '生活费',
     data: [2900, 1200, 300, 200, 900, 300]
   }]
@@ -105,12 +100,10 @@ const waterfallLadderData = {
   measures: [{
     name: 'secondaryMeasure',
     data: [0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292]
-  },
-  {
+  }, {
     name: '收入',
     data: [900, 345, 393, '-', '-', 135, 178, 286, '-', '-', '-']
-  },
-  {
+  }, {
     name: '支出',
     data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203]
   }]
@@ -123,7 +116,14 @@ export default {
     {
       title: '简单柱状图',
       data: baseData,
-      settings: {}
+      settings: {
+        yAxisName: ['单位（件）', '分钟'],
+        yAxisMax: [5000, 3900],
+        yAxisMin: [200, 300],
+        yAxisInterval: [500],
+        secondMeaAxis: 'Vue'
+        // yAxisScale: true
+      }
     },
     {
       title: '显示文本标签',
@@ -155,7 +155,7 @@ export default {
         },
         yAxisLabelType: ['percentage'],
         percentage: true,
-        tooltipFormatter: function(params) {
+        tooltipFormatter: function (params) {
           let [tar] = params
           const tooltipContent = params
             .map(v => {
@@ -240,7 +240,7 @@ export default {
           }
         ],
         waterfall: true,
-        tooltipFormatter: function(params) {
+        tooltipFormatter: function (params) {
           let tar = params[1]
           return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
         }
@@ -266,7 +266,7 @@ export default {
           }
         ],
         waterfall: true,
-        tooltipFormatter: function(params) {
+        tooltipFormatter: function (params) {
           let tar
           if (params[1].value[2] !== '-') {
             tar = params[1]

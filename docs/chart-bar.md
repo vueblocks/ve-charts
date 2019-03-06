@@ -652,3 +652,8 @@
 | yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number | 0 ~ 20 | 默认值为 0 |
 | waterfall | 配置柱图为瀑布图类型 | Boolean | `true` or `false` | 瀑布图的数据维度中，须包含一组名为 `secondaryMeasure` 的辅助度量|
 | tooltipFormatter | 配置tooltip提示框组件 | Function | - | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |
+| yAxisInterval | 强制设置坐标轴分割间隔 | Array | - |参见[文档](https://www.echartsjs.com/option.html#yAxis.inverse) |
+| yAxisMax | 坐标轴刻度最大值 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.max) |
+| yAxisMin | 坐标轴刻度最小值 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |
+| yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
+| yAxisName | 坐标轴名称 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
