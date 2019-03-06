@@ -7,7 +7,7 @@ const simpleData = {
   },
   measures: [{
     name: 'Vue',
-    data: [30, 40, 35, 50, 49, 70, 90]
+    data: [0.21, 0.28, 0.35, 0.54, 0.26, 0.41, 0.33]
   }]
 }
 
@@ -46,8 +46,8 @@ export default {
       title: '基础折线图',
       data: simpleData,
       settings: {
-        yAxisName: '单位'
-        // yAxisInterval: '10',
+        yAxisName: '单位',
+        yAxisInterval: 0.05
         // yAxisMax: 120
         // yAxisMin: 20
         // yAxisScale: false

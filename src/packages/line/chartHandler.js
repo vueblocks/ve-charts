@@ -59,7 +59,7 @@ function getLineMeaAxis(args) {
     }
   }
   if (yAxisName) axisValue['name'] = yAxisName
-  if (yAxisInterval) axisValue['interval'] = parseInt(yAxisInterval)
+  if (yAxisInterval) axisValue['interval'] = Number(yAxisInterval)
   if (yAxisMax) axisValue['max'] = yAxisMax
   if (yAxisMin) axisValue['min'] = yAxisMin
 
