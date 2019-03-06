@@ -262,3 +262,8 @@
 | label | 设置图形上的文本标签。| Object | - | 参见[文档](http://echarts.baidu.com/option.html#series-line.label) |
 | yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | String | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
 | yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number | 0 ~ 20 | 默认值为 0 |
+| yAxisInterval | 强制设置坐标轴分割间隔 | Number | - |参见[文档](https://www.echartsjs.com/option.html#yAxis.inverse) |
+| yAxisMax | 坐标轴刻度最大值 | Number | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.max) |
+| yAxisMin | 坐标轴刻度最小值 | Number | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |
+| yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
+| yAxisName | 坐标轴名称 | String | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
