@@ -94,10 +94,7 @@ function getBarMeaAxis(data, settings) {
     }
     const axisItem = {
       ...meaAxisBase,
-      axisLabel,
-      nameTextStyle: {
-        color: '#909399'
-      }
+      axisLabel
     }
     if (yAxisName && yAxisName.length) {
       axisItem['name'] = yAxisName[i]

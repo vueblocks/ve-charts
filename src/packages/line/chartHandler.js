@@ -49,9 +49,6 @@ function getLineMeaAxis(args) {
     axisTick: {
       show: false
     },
-    nameTextStyle: {
-      color: '#909399'
-    },
     axisLabel: {
       margin: 10,
       fontWeight: 400,
