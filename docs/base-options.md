@@ -123,7 +123,7 @@ data: {
 | geo | 地理坐标系组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#geo) |
 | timeline | 时间线组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#timeline) |
 | graphic | 原生图形元素组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#graphic) |
-| series | 系列列表， | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#series) |
+| series | 系列列表 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#series) |
 | color | 调色盘组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#color) |
 | backgroundColor | 背景色，默认无背景 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#backgroundColor) |
 | textStyle | 全局的字体样式 | Object | - | [参考配置](http://echarts.baidu.com/option.html#textStyle) |
