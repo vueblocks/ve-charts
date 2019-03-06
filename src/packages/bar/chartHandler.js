@@ -103,7 +103,7 @@ function getBarMeaAxis(data, settings) {
       axisItem['name'] = yAxisName[i]
     }
     if (yAxisInterval && yAxisInterval.length) {
-      axisItem['interval'] = yAxisInterval[i]
+      axisItem['interval'] = parseInt(yAxisInterval[i])
     }
     // 当开启百分比模式时，轴最大和最小刻度设置无效
     if (percentage === false && yAxisMax && yAxisMax.length) {

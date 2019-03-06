@@ -37,13 +37,20 @@ function getLineMeaAxis(args) {
     yAxisScale,
     yAxisLabelType,
     yAxisLabelDigits,
+    yAxisName,
+    yAxisInterval,
+    yAxisMax,
+    yAxisMin
   } = settings
 
-  return {
+  let axisValue = {
     type: 'value',
     scale: yAxisScale,
     axisTick: {
       show: false
+    },
+    nameTextStyle: {
+      color: '#909399'
     },
     axisLabel: {
       margin: 10,
@@ -51,6 +58,12 @@ function getLineMeaAxis(args) {
       formatter: value => formatMeasure(yAxisLabelType, value, yAxisLabelDigits)
     }
   }
+  if (yAxisName) axisValue['name'] = yAxisName
+  if (yAxisInterval) axisValue['interval'] = parseInt(yAxisInterval)
+  if (yAxisMax) axisValue['max'] = yAxisMax
+  if (yAxisMin) axisValue['min'] = yAxisMin
+
+  return axisValue
 }
 
 // build label

@@ -45,7 +45,13 @@ export default {
     {
       title: '基础折线图',
       data: simpleData,
-      settings: {}
+      settings: {
+        yAxisName: '单位'
+        // yAxisInterval: '10',
+        // yAxisMax: 120
+        // yAxisMin: 20
+        // yAxisScale: false
+      }
     },
     {
       title: '区域折线图',
