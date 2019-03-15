@@ -1621,6 +1621,7 @@
        'value': 13
      }
    ]
+   let index = 0
   module.exports = {
     created () {
       this.chartData = {
@@ -1632,7 +1633,8 @@
             fontWeight: '500',
             color: function () {
               var arr = ['#5182e4','rgb(155, 204, 102)','rgb(63, 178, 126)','rgb(247, 203, 74)','rgb(248, 141, 72)','rgb(243, 83, 82)','rgb(206, 98, 214)','rgb(137, 84, 212)','rgb(81, 86, 184)','rgb(81, 180, 241)','rgb(105, 212, 219)','rgb(212, 45, 107)']
-              var index = Math.floor((Math.random()*arr.length));
+              index++;
+              if(index > arr.length) index= 0  // 从颜色数组轮询取色
               return arr[index]
             }
           }
