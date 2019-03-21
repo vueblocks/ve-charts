@@ -118,10 +118,13 @@ export default {
       data: baseData,
       settings: {
         yAxisName: ['单位（件）', '分钟'],
-        yAxisMax: [5000, 3900],
-        yAxisMin: [200, 300],
-        yAxisInterval: [500],
-        secondMeaAxis: 'Vue'
+        // yAxisMax: [5000, 3900],
+        // yAxisMin: [200, 300],
+        // yAxisInterval: [500],
+        secondMeaAxis: 'Vue',
+        showLine: ['Vue'],
+        yAxisLabelType: ['en', 'en'],
+        yAxisLabelDigits: [1, 2]
         // yAxisScale: true
       }
     },

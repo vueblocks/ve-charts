@@ -2,10 +2,12 @@ import { ceil } from 'lodash'
 import echarts from 'echarts/lib/echarts'
 
 import { getMapJSON } from '../../utils'
-import cityGeo from './cityGeo.json'
-import cityGeo2 from './cityGeo2.json'
-import mapProvinceId from './mapProvinceId.json'
-import mapCityId from './mapCityId.json'
+import { MAP_URL_PREFIX } from '../../base-options'
+
+import cityGeo from './map-data/cityGeo.json'
+import cityGeo2 from './map-data/cityGeo2.json'
+import mapProvinceId from './map-data/mapProvinceId.json'
+import mapCityId from './map-data/mapCityId.json'
 
 function convertCityData(data, options) {
   const { index, connect } = options
@@ -78,12 +80,14 @@ function getGeoData(args) {
   const { measures } = data
   const {
     mode = 'map',
+    mapName = 'china',
     labelVisible,
     isMapMode,
     itemStyle,
     visualMap,
     label,
     symbolSize = 10,
+    roam = false,
     zoom = 1,
     connect
   } = settings
@@ -105,11 +109,11 @@ function getGeoData(args) {
     seriesData[index] = {
       name,
       type: mode,
-      roam: true,
+      roam,
       visualMap,
       label: labelVisible ? label : unShowLabel,
       selectedMode: 'single',
-      mapType: 'china',
+      mapType: mapName,
       data: mapData,
       zoom
     }
@@ -170,13 +174,14 @@ function getGeo(args) {
     itemStyle,
     silent = false,
     zoom = 1,
+    roam = false,
     mapName = 'china'
   } = args.settings
   const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
   const geo = {
     map: mapName,
     silent,
-    roam: true,
+    roam,
     selectedMode: 'single',
     label: labelVisible ? label : unShowLabel,
     zoom
@@ -202,25 +207,27 @@ function getVisualMap(args) {
   }
 }
 
-function getGeoSeries(args) {
-  const { seriesData } = args
-
-  return seriesData
-}
-
 async function registerMap (args) {
   const {
     mapName = 'china',
     specialAreas,
-    mapUrlPrefix = 'https://unpkg.com/echarts@4.1.0/map/json/'
+    mapUrlPrefix = MAP_URL_PREFIX,
+    _once
   } = args
-  const mapJson = await getMapJSON({mapName, mapUrlPrefix})
-  echarts.registerMap(mapName, mapJson, specialAreas)
+  
+  let mapJson = {}
+  // load geojson once
+  if (!_once[mapName]) {
+    mapJson = await getMapJSON({mapName, mapUrlPrefix})
+    Object.assign(_once, { [mapName]: true })
+    echarts.registerMap(mapName, mapJson, specialAreas)
+  }
+
   return mapJson
 }
 
 export const geo = async (data, settings, extra) => {
-  const { tooltipVisible, legendVisible } = extra
+  const { tooltipVisible, legendVisible, _once } = extra
   
   const {
     mode = 'map',
@@ -238,8 +245,6 @@ export const geo = async (data, settings, extra) => {
 
   const geo = !isMapMode && getGeo({ data, settings })
 
-  const series = getGeoSeries({ seriesData, settings })
-
   const geoVisualMap = visualMapVisible && getVisualMap({ max, settings })
 
   // build echarts options
@@ -248,11 +253,18 @@ export const geo = async (data, settings, extra) => {
     legend,
     visualMap: geoVisualMap,
     geo,
-    series
+    series: seriesData
+  }
+
+  const mapOptions = {
+    mapName: settings.mapName,
+    specialAreas: settings.specialAreas,
+    mapUrlPrefix: settings.mapUrlPrefix,
+    _once
   }
 
   // console.log(JSON.stringify(options))
-  await registerMap(settings)
+  await registerMap(mapOptions)
 
   return options
 }

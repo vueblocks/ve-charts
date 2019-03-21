@@ -1,5 +1,6 @@
 import {options, waterfallConfig} from '../../base-options'
 import {getDataset, getStackMap, formatMeasure} from '../../utils'
+import {isArray, isUndefined} from 'lodash'
 
 // build tooltip
 function getBarTooltip(settings) {
@@ -90,7 +91,13 @@ function getBarMeaAxis(data, settings) {
       fontWeight: 400
     }
     if (type !== 'normal') {
-      axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits)
+      // Y轴标签格式化后保留几位小数兼容之前版本类型
+      if (isArray(meaAxisDigits)) {
+        let num = isUndefined(meaAxisDigits[i]) ? 0 : meaAxisDigits[i]
+        axisLabel.formatter = value => formatMeasure(type, value, num)
+      } else {
+        axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits)
+      }
     }
     const axisItem = {
       ...meaAxisBase,
