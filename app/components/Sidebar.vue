@@ -29,7 +29,7 @@
         <div class="sidebar-content">
           <ul>
             <li>
-              <router-link to="/test-page">测试页面</router-link>
+              <router-link exact to="/test-page">测试页面</router-link>
             </li>
             <li>
               <router-link to="/test-event">测试事件</router-link>
@@ -84,7 +84,7 @@ export default {
     font-size: 18px;
     text-align: center;
     color: #0f49b3;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     .text-style-1 {
       color: #fed24a;
     }
@@ -108,11 +108,11 @@ export default {
             display: block;
             position: relative;
             font-family: PingFangSC;
-            font-size: 14px;
+            font-size: 12px;
             text-align: center;
             color: @second-font-color;
-            height: 42px;
-            line-height: 42px;
+            height: 36px;
+            line-height: 36px;
             text-decoration: none;
             .rectangle-right {
               display: none;
@@ -127,8 +127,8 @@ export default {
           position: absolute;
           right: 0;
           width: 4px;
-          height: 36px;
-          margin: 3px 0;
+          height: 32px;
+          margin: 2px 0;
           border-radius: 4px;
           background-color: #3d78e8;
         }
