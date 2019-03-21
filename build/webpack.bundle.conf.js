@@ -41,7 +41,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       vue: 'vue',
     },
     function (context, request, callback) {
-      if (/^echarts/.test(request)) {
+      if (/^echarts|^zrender/.test(request)) {
         if (isFully) {
           // console.log(request)
           return callback(null, 'echarts')
