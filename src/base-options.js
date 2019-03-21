@@ -68,10 +68,13 @@ export const waterfallConfig = {
   }
 }
 
+export const MAP_URL_PREFIX = 'https://unpkg.com/echarts@4.1.0/map/json/'
+
 export default {
   options,
   itemPoint,
   color,
   treemapLevels,
-  waterfallConfig
+  waterfallConfig,
+  MAP_URL_PREFIX
 }

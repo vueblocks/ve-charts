@@ -96,7 +96,8 @@ export default {
         tooltipVisible: this.tooltipVisible,
         legendVisible: this.legendVisible,
         isEmptyData: this.isEmptyData,
-        isEmptySeries: this.isEmptySeries
+        isEmptySeries: this.isEmptySeries,
+        _once: this._once
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
 
@@ -159,6 +160,7 @@ export default {
     this.initOptions = {
       renderer: this.renderer
     }
+    this._once = {}
     this.addWatchToProps()
   },
   mounted () {
