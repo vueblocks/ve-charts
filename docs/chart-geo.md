@@ -637,7 +637,8 @@ module.exports = {
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
 | mode | geo地图支持不同的模式 | String | 默认为 `map`，可选 `scatter`、`effectScatter`、`heatmap` |
-| mapName | 地图名称 | String | 默认为 `china`，可选 `china-cities`、`china-contour`、`province/beijing` |
+| mapName | 地图名称 | String | 默认为 `china`，中国地图可选 `china-cities`、`china-contour`、`province/beijing`，可传入自定义地图名称 |
+| mapUrlPrefix | 地图链接前缀 | String | 默认为 `https://unpkg.com/echarts@4.1.0/map/json/`，可传入自定义地址 |
 | visualMapVisible | 视觉映射开关 | Boolean | 默认为 `false`，可选 `true` |
 | visualMap | 视觉映射配置 | Object | 参见[文档](https://echarts.baidu.com/option.html#visualMap) |
 | labelVisible | 图形文本标签开关 | Boolean | 默认为 `false`，可选 `true` |
@@ -647,6 +648,8 @@ module.exports = {
 | zoom | 当前视角的缩放比例 | Number | 默认为 `1` |
 | symbolSize | 散点图标记的大小 | number, Array, Function | 参见[文档](https://echarts.baidu.com/option.html#series-scatter.symbolSize) |
 
-> Tip: mode 为非 map 时，使用 `coordinateSystem` 配置地理坐标系为 `geo` 生成地图
+> Tip1: mode 为非 map 时，使用 `coordinateSystem` 配置地理坐标系为 `geo` 生成地图
 
-> Tip: mapName 为地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值
+> Tip2: mapName 为地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值
+
+> Tip3: mapUrlPrefix 搭配 mapName 即为 geoJson 地址，可以用来获得 registerMap 所需的 geoJson
