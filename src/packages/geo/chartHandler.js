@@ -6,7 +6,6 @@ import { MAP_URL_PREFIX } from '../../base-options'
 
 import cityGeo from './map-data/cityGeo.json'
 import cityGeo2 from './map-data/cityGeo2.json'
-import mapProvinceId from './map-data/mapProvinceId.json'
 import mapCityId from './map-data/mapCityId.json'
 
 function convertCityData(data, options) {
@@ -45,36 +44,6 @@ function convertCityData(data, options) {
   return res
 }
 
-function convertProvinceData(data, options) {
-  const { connect } = options
-  const dataIndex = connect ? connect.dataIndex : -1
-  const normalShadowBlur = connect ? connect.normalShadowBlur : 0
-
-  const convertData = isNaN(data[0].name * 1) ? data : data.map((v, i) => {
-    const provinceIndex = mapProvinceId.findIndex(province => province.id === v.name)
-
-    return {
-      ...v,
-      name: provinceIndex !== -1 ? mapProvinceId[provinceIndex].name : v.name,
-      pattern: data[i].name
-    }
-  })
-
-  if (dataIndex !== -1) {
-    convertData[dataIndex] = {
-      ...convertData[dataIndex],
-      selected: true,
-      itemStyle: {
-        normal: {
-          shadowBlur: normalShadowBlur
-        }
-      }
-    }
-  }
-
-  return convertData
-}
-
 function getGeoData(args) {
   const { data, settings } = args
   const { measures } = data
@@ -100,9 +69,7 @@ function getGeoData(args) {
   }).reduce((a, b) => a + b)
 
   measures && measures.forEach(({ name, data }, index) => {
-    const mapData = isMapMode
-      ? convertProvinceData(data, { connect })
-      : convertCityData(data, { index, connect })
+    const mapData = isMapMode ? data : convertCityData(data, { index, connect })
 
     const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
 
