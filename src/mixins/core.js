@@ -57,7 +57,15 @@ export default {
       return this.theme ? this.color : (this.color || color)
     },
     isEmptyData () {
-      return isNull(this.data) || isEmpty(this.data) || isUndefined(this.data)
+      if (isNull(this.data) || isEmpty(this.data) || isUndefined(this.data)) {
+        return true
+      } else {
+        if (this.data && this.data.measures && this.data.measures.length) {
+          return false
+        } else {
+          return true
+        }
+      }
     },
     isEmptySeries () {
       return isNull(this.series) || isEmpty(this.series) || isUndefined(this.series)
