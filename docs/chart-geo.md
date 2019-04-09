@@ -71,7 +71,7 @@ module.exports = {
 <script v-pre type="text/x-template" id="labelGeo">
 
 <template>
-  <ve-geo-chart :data="chartData" :settings="chartSettings" />
+  <ve-geo-chart :data="chartData" :settings="chartSettings" :legend-visible="false" />
 </template>
 
 <script>
@@ -145,7 +145,7 @@ module.exports = {
 <script v-pre type="text/x-template" id="visualMapGeo">
 
 <template>
-  <ve-geo-chart :data="chartData" :settings="chartSettings" />
+  <ve-geo-chart :data="chartData" :settings="chartSettings" :legend-visible="false" />
 </template>
 
 <script>
@@ -632,12 +632,108 @@ module.exports = {
 }
 </script>
 
+## 通过外部URL渲染地图
+
+> 地图组件默认渲染的地图为中国地图，可通过外部链接获取相应的 `GeoJson` 渲染其他国家地图
+
+<vuep template="#otherGeo" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="otherGeo">
+
+<template>
+  <ve-geo-chart :data="chartData" :settings="chartSettings" :legend-visible="false" />
+</template>
+
+<script>
+const randomData = () => {
+  return Math.round(Math.random() * 1000)
+}
+
+module.exports = {
+  created () {
+    this.chartData = {
+      measures: [
+        {
+          name: 'iPhone XR',
+          data: [
+            { name: 'Alaska', value: randomData() },
+            { name: 'Alabama', value: randomData() },
+            { name: 'Arizona', value: randomData() },
+            { name: 'Arkansas', value: randomData() },
+            { name: 'California', value: randomData() },
+            { name: 'Colorado', value: randomData() },
+            { name: 'Connecticut', value: randomData() },
+            { name: 'Delaware', value: randomData() },
+            { name: 'District of Columbia', value: randomData() },
+            { name: 'Florida', value: randomData() },
+            { name: 'Georgia', value: randomData() },
+            { name: 'Hawaii', value: randomData() },
+            { name: 'Idaho', value: randomData() },
+            { name: 'Illinois', value: randomData() },
+            { name: 'Indiana', value: randomData() },
+            { name: 'Iowa', value: randomData() },
+            { name: 'Kansas', value: randomData() },
+            { name: 'Kentucky', value: randomData() },
+            { name: 'Louisiana', value: randomData() },
+            { name: 'Maine', value: randomData() },
+            { name: 'Maryland', value: randomData() },
+            { name: 'Massachusetts', value: randomData() },
+            { name: 'Michigan', value: randomData() },
+            { name: 'Minnesota', value: randomData() },
+            { name: 'Mississippi', value: randomData() },
+            { name: 'Missouri', value: randomData() },
+            { name: 'Montana', value: randomData() },
+            { name: 'Nebraska', value: randomData() },
+            { name: 'Nevada', value: randomData() },
+            { name: 'New Hampshire', value: randomData() },
+            { name: 'New Jersey', value: randomData() },
+            { name: 'New Mexico', value: randomData() },
+            { name: 'New York', value: randomData() },
+            { name: 'North Carolina', value: randomData() },
+            { name: 'North Dakota', value: randomData() },
+            { name: 'Ohio', value: randomData() },
+            { name: 'Oklahoma', value: randomData() },
+            { name: 'Oregon', value: randomData() },
+            { name: 'Pennsylvania', value: randomData() },
+            { name: 'Rhode Island', value: randomData() },
+            { name: 'South Carolina', value: randomData() },
+            { name: 'South Dakota', value: randomData() },
+            { name: 'Tennessee', value: randomData() },
+            { name: 'Texas', value: randomData() },
+            { name: 'Utah', value: randomData() },
+            { name: 'Polygon', value: randomData() },
+            { name: 'Virginia', value: randomData() },
+            { name: 'Vermont', value: randomData() },
+            { name: 'Washington', value: randomData() },
+            { name: 'West Virginia', value: randomData() },
+            { name: 'Wisconsin', value: randomData() },
+            { name: 'Wyoming', value: randomData() },
+            { name: 'Puerto Rico', value: randomData() }
+          ]
+        }
+      ]
+    }
+    this.chartSettings = {
+      visualMapVisible: true,
+      visualMap: {
+        inRange: {
+          color: ['#C6FFDD', '#FBD786', '#f7797d']
+        }
+      },
+      mapUrlPrefix: 'https://raw.githubusercontent.com/pissang/starbucks/gh-pages/json/',
+      mapName: 'USA'
+    }
+  }
+}
+</script>
+
 ## settings 配置项
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
 | mode | geo地图支持不同的模式 | String | 默认为 `map`，可选 `scatter`、`effectScatter`、`heatmap` |
-| mapName | 地图名称 | String | 默认为 `china`，可选 `china-cities`、`china-contour`、`province/beijing` |
+| mapName | 地图名称 | String | 默认为 `china`，中国地图可选 `china-cities`、`china-contour`、`province/beijing`，可传入自定义地图名称 |
+| mapUrlPrefix | 地图链接前缀 | String | 默认为 `https://unpkg.com/echarts@4.1.0/map/json/`，可传入自定义地址 |
 | visualMapVisible | 视觉映射开关 | Boolean | 默认为 `false`，可选 `true` |
 | visualMap | 视觉映射配置 | Object | 参见[文档](https://echarts.baidu.com/option.html#visualMap) |
 | labelVisible | 图形文本标签开关 | Boolean | 默认为 `false`，可选 `true` |
@@ -647,6 +743,8 @@ module.exports = {
 | zoom | 当前视角的缩放比例 | Number | 默认为 `1` |
 | symbolSize | 散点图标记的大小 | number, Array, Function | 参见[文档](https://echarts.baidu.com/option.html#series-scatter.symbolSize) |
 
-> Tip: mode 为非 map 时，使用 `coordinateSystem` 配置地理坐标系为 `geo` 生成地图
+> Tip1: mode 为非 map 时，使用 `coordinateSystem` 配置地理坐标系为 `geo` 生成地图
 
-> Tip: mapName 为地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值
+> Tip2: mapName 为地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值
+
+> Tip3: mapUrlPrefix 搭配 mapName 即为 geoJson 地址，可以用来获得 registerMap 所需的 geoJson
