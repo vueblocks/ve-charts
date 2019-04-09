@@ -84,6 +84,9 @@ export default {
             color: ['#C6FFDD', '#FBD786', '#f7797d']
           }
         }
+      },
+      xprops: {
+        legendVisible: false
       }
     },
     {
@@ -121,7 +124,8 @@ export default {
           }
         },
         symbolSize: 15,
-        zoom: 1.2
+        mapUrlPrefix: 'https://raw.githubusercontent.com/pissang/starbucks/gh-pages/json/',
+        mapName: 'USA'
       }
     }
   ]
