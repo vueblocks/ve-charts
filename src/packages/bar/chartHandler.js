@@ -151,7 +151,7 @@ function getBarSeries(data, settings, isBar) {
     label = {},
     showLine = [],
     stack = null,
-    secondMeaAxis = null,
+    secondMeaAxis = [],
     itemStyle = {},
     waterfall,
     ...others
@@ -187,7 +187,7 @@ function getBarSeries(data, settings, isBar) {
       encode: getEncode(name),
       label: getBarLabel(setLabel, isBar),
       stack: stack && stackMap[name],
-      [axisIndexName]: secondMeaAxis === name ? '1' : '0',
+      [axisIndexName]: secondMeaAxis.includes(name) ? '1' : '0',
       itemStyle: itemStyle[name] ? itemStyle[name] : {},
       ...others
     }
