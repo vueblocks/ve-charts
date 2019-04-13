@@ -647,7 +647,7 @@
 | label | 设置图形上的文本标签。| Object/Array | - | 传值`Object` 适用于同时设置多个度量为统一的label；传值`Array`适用于多个度量设置不同的label。示例区别参见 **显示文本标签** 与 **阶梯瀑布图** |
 | stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | - | 指定哪些度量堆叠展示，例如: 指定`PV`与`UV`以`sum`堆叠，双向柱状图必填 |
 | showLine | 指定哪些度量（至少一个）用于折线展示 | Array | - | - |
-| secondMeaAxis | 用于展示双Y轴，指定另一个度量作为第二个Y轴 | String | - | - |
+| secondMeaAxis | 用于展示双Y轴，指定哪些度量（至少一个）作为第二个Y轴 | Array | - | - |
 | yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | Array | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
 | yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number/Array | 0 ~ 20 | 默认值为 0 |
 | waterfall | 配置柱图为瀑布图类型 | Boolean | `true` or `false` | 瀑布图的数据维度中，须包含一组名为 `secondaryMeasure` 的辅助度量|
