@@ -1,4 +1,4 @@
-import { cloneDeep, isNull, isEmpty, isUndefined } from 'lodash'
+import { cloneDeep, isNull, isEmpty, isUndefined, get } from 'lodash'
 
 import { getType } from '../utils'
 import { color } from '../base-options'
@@ -60,10 +60,11 @@ export default {
       if (isNull(this.data) || isEmpty(this.data) || isUndefined(this.data)) {
         return true
       } else {
-        if (this.data && this.data.measures && this.data.measures.length) {
+        if (Array.isArray(this.data)) {
           return false
         } else {
-          return true
+          const measures = get(this.data, 'measures')
+          return measures.length === 0
         }
       }
     },
