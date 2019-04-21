@@ -66,7 +66,7 @@ export const toKebab = (v) => v.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(
 // dataset format
 export const getDataset = (data, settings, extra) => {
   const dimName = get(data, 'dimensions.name', 'dimensions')
-  const dimData = get(data, 'dimensions.data', [])
+  const dimData = data && data.dimensions && data.dimensions.data
   const { isEmptyData } = extra
 
   const stack = (settings && settings.stack) || null
