@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { zip, sum, round } from 'lodash'
+import { zip, sum, round, get, isInteger } from 'lodash'
 import numeral from 'numeral'
 import './formatZhNumber'
 
@@ -65,8 +65,8 @@ export const toKebab = (v) => v.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(
 
 // dataset format
 export const getDataset = (data, settings, extra) => {
-  const dimName = data && data.dimensions && data.dimensions.name || 'dimensions'
-  const dimData = data && data.dimensions && data.dimensions.data
+  const dimName = get(data, 'dimensions.name', 'dimensions')
+  const dimData = get(data, 'dimensions.data', [])
   const { isEmptyData } = extra
 
   const stack = (settings && settings.stack) || null
@@ -92,8 +92,10 @@ export const getDataset = (data, settings, extra) => {
   }
 
   data.measures.map(row => {
+    const isIntValue = isInteger(parseInt(row.name.substr(0, 1)))
+    const rowName = isIntValue ? `${row.name} ` : row.name
     Object.assign(measures, {
-      [row.name]: (stack && percentage)
+      [rowName]: (stack && percentage)
         ? row.data.map((v, i) => round((v / zipSumed[i]), 4))
         : row.data
     })
