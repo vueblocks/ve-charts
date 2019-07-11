@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { zip, sum, round, get, isInteger } from 'lodash'
+import { zip, sum, round, get, cloneDeep, isNaN } from 'lodash'
 import numeral from 'numeral'
 import './formatZhNumber'
 
@@ -65,8 +65,9 @@ export const toKebab = (v) => v.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(
 
 // dataset format
 export const getDataset = (data, settings, extra) => {
-  const dimName = get(data, 'dimensions.name', 'dimensions')
-  const dimData = data && data.dimensions && data.dimensions.data
+  const cloneData = cloneDeep(data)
+  const dimName = get(cloneData, 'dimensions.name', 'dimensions')
+  const dimData = cloneData && cloneData.dimensions && cloneData.dimensions.data
   const { isEmptyData } = extra
 
   const stack = (settings && settings.stack) || null
@@ -78,22 +79,38 @@ export const getDataset = (data, settings, extra) => {
     return
   }
 
+  /**
+   * echarts render problem with dataset
+   * problem1: when dimension name a number-like string(e.g., `"1"`), start with number and <= measures.length
+   * https://github.com/apache/incubator-echarts/blob/4e4cf884fc8a96b18bd1de537b590042e49df684/src/data/List.js#L339
+   * solution: append a ' ' to the dimension name
+   * problem2: [piechart] when measure.data start with number
+   * solution: use special String instead
+   */
+  let dimKey = `${dimName} `
+  let headMeasure = dimData.length > 0 && dimData[0]
+  let isNum = val => !isNaN(Math.floor(val))
+
+  let dimValue = isNum(headMeasure)
+    ? dimData.map((v, i) => i === 0 ? `·${v}`: v)
+    : dimData
+
   const dimensions = {
-    [dimName]: dimData
+    [dimKey]: dimValue
   }
 
   let [measures, zipSumed] = [{}, []]
   
-  if (stack && percentage && data.measures.length > 0) {
-    const dyadicArray = data.measures.map(col => col.data)
+  if (stack && percentage && cloneData.measures.length > 0) {
+    const dyadicArray = cloneData.measures.map(col => col.data)
     // 横表转竖表 用于计算百分比堆叠图
     const zipped = zip(...dyadicArray)
     zipSumed = zipped.map(v => sum(v))
   }
 
-  data.measures.map(row => {
-    const isIntValue = isInteger(parseInt(row.name.substr(0, 1)))
-    const rowName = isIntValue ? `${row.name} ` : row.name
+  cloneData.measures.map(row => {
+    const isNumber = typeof row.name === 'number'
+    const rowName = isNumber ? `${row.name} ` : row.name
     Object.assign(measures, {
       [rowName]: (stack && percentage)
         ? row.data.map((v, i) => round((v / zipSumed[i]), 4))
@@ -104,6 +121,8 @@ export const getDataset = (data, settings, extra) => {
   const source = Object.assign({}, dimensions, measures)
 
   const dataset = { source }
+
+  // console.log(JSON.stringify(dataset))
 
   return dataset
 }

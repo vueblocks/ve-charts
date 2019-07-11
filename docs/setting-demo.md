@@ -716,3 +716,49 @@
     }
   }
 </script>
+
+## 获取图表实例
+
+<vuep template="#getInstance" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="getInstance">
+<template>
+  <ve-line-chart :data="chartData" :ec.sync="chart" :title="title" />
+</template>
+
+<script>
+module.exports = {
+  data () {
+    return {
+      chart: null,
+      title: {}
+    }
+  },
+  created () {
+    this.chartData = {
+      dimensions: {
+        name: 'Repo',
+        data: [
+          'Vue.js', 'React', 'Create RA', 'Puppteer', 'Axios',
+          'VS Code', 'Prettier', 'RN', 'Element', 'Electron'
+        ].reverse()
+      },
+      measures: [
+        {
+          name: 'Rising Star',
+          data: [
+            40000, 27800, 22500, 22000, 21900,
+            20200, 17700, 15600, 14900, 14800
+          ].reverse()
+        }
+      ]
+    }
+  },
+  mounted () {
+    this.title = {
+      text: '获取图表宽高',
+      subtext: `宽：${this.chart.getWidth()} / 高：${this.chart.getHeight()}`
+    }
+  }
+}
+</script>

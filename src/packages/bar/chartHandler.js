@@ -170,7 +170,7 @@ function getBarSeries(data, settings, isBar) {
     }
   }
 
-  measures.forEach(({name}) => {
+  measures.forEach(({ name }) => {
     // label数据类型调整为对象或者数组，Object类型为全部数据维度添加配置，Array类型根据每项name名字去修改配置----by:Jeff
     let setLabel = {}
     if (label instanceof Array) {
@@ -181,10 +181,12 @@ function getBarSeries(data, settings, isBar) {
     }
     // ------------end-----------
     const type = showLine.includes(name) ? 'line' : 'bar'
+    // const itemName = typeof name === 'number' ? name.toString() : name
+    // console.log(getEncode(name))
     const seriesItem = {
       type,
       name,
-      encode: getEncode(name),
+      // encode: getEncode(name),
       label: getBarLabel(setLabel, isBar),
       stack: stack && stackMap[name],
       [axisIndexName]: secondMeaAxis.includes(name) ? '1' : '0',
