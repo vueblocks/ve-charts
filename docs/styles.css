@@ -116,6 +116,9 @@ aside.sidebar .sidebar-nav {
   margin-top: 38px;
 }
 
+aside.sidebar ul {
+  margin: 0;
+}
 aside.sidebar ul li {
   margin: 0;
   position: relative;
@@ -173,7 +176,7 @@ aside.sidebar ul li.active > a:before {
 aside.sidebar ul li.active > a:after {
   content: '';
   position: absolute;
-  right: 0;
+  left: 0;
   width: 4px;
   height: 36px;
   border-radius: 4px;

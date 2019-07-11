@@ -23,7 +23,7 @@
 ## 安装
 
 ``` bash
-npm i ve-charts -S
+npm i ve-charts echarts -S
 ```
 
 ## 使用

@@ -1,5 +1,10 @@
 # 更新日志
 
+## v0.8.0
+
+* **新增** - [通用配置](https://vueblocks.github.io/ve-charts/#/base-options?id=%e9%80%9a%e7%94%a8%e9%85%8d%e7%bd%ae) `ec`，代表当前组件的 `echarts` 实例，例子参考[获取图表实例](https://vueblocks.github.io/ve-charts/#/setting-demo?id=%e8%8e%b7%e5%8f%96%e5%9b%be%e8%a1%a8%e5%ae%9e%e4%be%8b)
+* **修复** - 使用 dataset API 时，维度值为 [number/number-like](https://github.com/apache/incubator-echarts/blob/4e4cf884fc8a96b18bd1de537b590042e49df684/src/data/List.js#L339) 类型时，引起的渲染图表效果错误问题
+
 ## v0.7.14
 
 * **修复** - 判断数据是否为空影响到传入数组的问题
