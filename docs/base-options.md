@@ -136,6 +136,7 @@ data: {
 | loading | 加载数据动效开关 | Boolean | `true` or `false` | `false` |
 | height | 图表高度 | Number | - | `400`，单位`px` |
 | renderer | 渲染方式 | String | `canvas` or `svg` | `canvas` |
+| ec | 通过 echarts.init 创建的实例 | Object | - | 使用 `.sync` 进行绑定 [参考API](https://echarts.baidu.com/api.html#echartsInstance) |
 | --- | --- | --- | --- | --- |
 
 > Tips:

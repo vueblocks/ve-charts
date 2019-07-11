@@ -8,6 +8,7 @@
       :theme="theme"
       :chart-height='height'
       v-on="$listeners"
+      :ec.sync="ec"
     />
     <slot v-if="!isHasData && !loading">
       <empty-data :empty-text="emptyText"/>

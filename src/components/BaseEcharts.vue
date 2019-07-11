@@ -193,6 +193,7 @@ export default {
       }
 
       this.chart = chart
+      this.$emit('update:ec', chart)
     },
     destroy () {
       if (this.autoResize) {

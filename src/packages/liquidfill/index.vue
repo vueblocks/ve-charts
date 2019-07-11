@@ -6,6 +6,7 @@
       :options="options"
       :autoResize="true"
       :chart-height='height'
+      :ec.sync="ec"
       v-on="$listeners"
     />
     <slot v-if="!isHasData && !loading">

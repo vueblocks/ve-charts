@@ -48,7 +48,8 @@ export default {
   },
   data () {
     return {
-      baseEcharts: null,
+      // echarts instance
+      ec: null,
       initOptions: null
     }
   },
@@ -96,6 +97,9 @@ export default {
       handler (v) {
         this.dataHandler(this.data)
       }
+    },
+    ec (val) {
+      this.$emit('update:ec', val)
     }
   },
   methods: {

@@ -11,6 +11,7 @@
           :data="item.data"
           :settings="item.settings"
           :color="color"
+          :ec.sync="chart"
           v-bind="item.xprops"
         />
       </div>
@@ -45,7 +46,8 @@ export default {
   },
   data () {
     return {
-      chartData: {}
+      chartData: {},
+      chart: null
     }
   },
   watch: {
@@ -55,6 +57,9 @@ export default {
   },
   created () {
     this.initData()
+  },
+  mounted () {
+    console.log(this.chart.getHeight())
   },
   methods: {
     initData () {
