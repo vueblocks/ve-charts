@@ -131,6 +131,7 @@ function getLineSeries(args) {
 export const line = (data, settings, extra) => {
   const { tooltipVisible, legendVisible, isEmptyData } = extra
 
+  extra.chartType = 'line'
   const dataset = !isEmptyData && getDataset(data, settings, extra)
 
   const tooltip = tooltipVisible && getLineTooltip()

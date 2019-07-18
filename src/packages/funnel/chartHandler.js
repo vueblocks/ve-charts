@@ -121,6 +121,7 @@ function getFunnelSeries(args) {
 export const funnel = (data, settings, extra, isDonut) => {
   const { tooltipVisible, legendVisible } = extra
 
+  extra.chartType = 'funnel'
   const dataset = getDataset(data, settings, extra)
 
   const tooltip = tooltipVisible && getFunnelTooltip()

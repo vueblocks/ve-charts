@@ -3,6 +3,7 @@ import { getDataset } from '../../utils'
 function getPieDataset (data, settings, extra) {
   const dataset = []
 
+  extra.chartType = 'pie'
   if (!data.length || data.length === 1) {
     dataset.push(getDataset(data, settings, extra))
   } else if (data.length > 1) {
