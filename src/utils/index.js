@@ -68,7 +68,7 @@ export const getDataset = (data, settings, extra) => {
   const cloneData = cloneDeep(data)
   const dimName = get(cloneData, 'dimensions.name', 'dimensions')
   const dimData = cloneData && cloneData.dimensions && cloneData.dimensions.data
-  const { isEmptyData } = extra
+  const { isEmptyData, chartType } = extra
 
   const stack = (settings && settings.stack) || null
   const percentage = (settings && settings.percentage) || false
@@ -89,9 +89,8 @@ export const getDataset = (data, settings, extra) => {
    */
   let dimKey = `${dimName} `
   let headMeasure = dimData.length > 0 && dimData[0]
-  let isNum = val => !isNaN(Math.floor(val))
 
-  let dimValue = isNum(headMeasure)
+  let dimValue = validateNumber(headMeasure) && chartType === 'pie'
     ? dimData.map((v, i) => i === 0 ? `·${v}`: v)
     : dimData
 
@@ -109,7 +108,7 @@ export const getDataset = (data, settings, extra) => {
   }
 
   cloneData.measures.map(row => {
-    const isNumber = typeof row.name === 'number'
+    const isNumber = validateNumber(row.name)
     const rowName = isNumber ? `${row.name} ` : row.name
     Object.assign(measures, {
       [rowName]: (stack && percentage)
@@ -147,3 +146,6 @@ export const formatMeasure = (type, value, digits = 0) => {
   }
   return transformType(type, value, digits)
 }
+
+// Returns true if the given value is a number, false otherwise.
+export const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) == n
