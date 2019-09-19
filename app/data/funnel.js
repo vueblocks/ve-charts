@@ -1,3 +1,5 @@
+import { max } from 'lodash'
+
 const baseData = {
   dimensions: {
     name: '渠道',
@@ -16,10 +18,27 @@ const compareData = {
   },
   measures: [{
     name: 'PV',
-    data: [36000, 28000, 24000, 20000, 12000, 6000]
+    data: [100, 80, 60, 50, 40, 20]
   }, {
     name: 'UV',
-    data: [28000, 22000, 18000, 14000, 8000, 2000]
+    data: [80, 75, 50, 40, 32, 10]
+  }]
+}
+
+const sameData = {
+  dimensions: {
+    name: '渠道',
+    data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
+  },
+  measures: [{
+    name: 'PV',
+    data: [36000, 28000, 24000, 20000, 12000, 6000]
+  }, {
+    name: 'PV',
+    data: [36000, 28000, 24000, 20000, 12000, 6000]
+  }, {
+    name: 'PV',
+    data: [36000, 28000, 24000, 20000, 12000, 6000]
   }]
 }
 
@@ -58,6 +77,38 @@ export default {
       data: compareData,
       settings: {
         contrast: true
+      }
+    },
+    {
+      title: '漏斗图 - 转化率',
+      data: sameData,
+      settings: {
+        funnelLabel: [
+          {
+            normal: {
+              position: 'right'
+            }
+          },
+          {
+            normal: {
+              position: 'left',
+              formatter: function (params) {
+                const [, value] = params.value
+                return value
+              }
+            }
+          },
+          {
+            normal: {
+              position: 'inside',
+              formatter: function (params) {
+                const [, value] = params.value
+                const maxMea = max([36000, 28000, 24000, 20000, 12000, 6000])
+                return `转化率 ${Math.round(value / maxMea * 100)} %`
+              }
+            }
+          }
+        ]
       }
     },
     {

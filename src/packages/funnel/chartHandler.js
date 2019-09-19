@@ -22,13 +22,15 @@ function getFunnelLegend(args) {
 
 function getFunnelSeries(args) {
   const { data, settings } = args
-  const { measures } = data
+  const { dimensions, measures } = data
+  const dimName = dimensions && `${dimensions.name} `
   const {
     funnelSort = 'desc',
     funnelAlign = 'center',
     contrast = false,
     symmetric = false,
     labelPosition = 'outside',
+    funnelLabel,
     ...others
   } = settings
 
@@ -60,8 +62,17 @@ function getFunnelSeries(args) {
   const getLabel = (settings, idx) => {
     const {
       contrast,
-      symmetric
+      symmetric,
+      funnelLabel
     } = settings
+    if (funnelLabel) {
+      // label is array
+      if (Array.isArray(funnelLabel)) {
+        return funnelLabel[idx]
+      } else {
+        return funnelLabel
+      }
+    }
     let label = {
       normal: {
         position: labelPosition
@@ -72,11 +83,23 @@ function getFunnelSeries(args) {
       const contrastLabel = {
         normal: {
           position: 'inside',
-          formatter: '{d}%'
+          formatter: params => {
+            const maxValue = measures.reduce((prev, next) => {
+              return max([max(prev.data), max(next.data)])
+            })
+            const [, , mea2] = params.value
+            return `${Math.round((mea2 / maxValue * 100), 2)}%`
+          }
         },
         emphasis: {
           position: 'inside',
-          formatter: '{a}: {d}%'
+          formatter: params => {
+            const maxValue = measures.reduce((prev, next) => {
+              return max([max(prev.data), max(next.data)])
+            })
+            const [dimName, , mea2] = params.value
+            return `${dimName} ${Math.round((mea2 / maxValue * 100), 2)}%`
+          }
         }
       }
 
@@ -101,6 +124,13 @@ function getFunnelSeries(args) {
     return label
   }
 
+  const getEncode = (dimName, meaName) => {
+    return {
+      itemName: dimName,
+      value: meaName
+    }
+  }
+
   const series = []
   measures.forEach(({ name, data }, idx) => {
     series.push({
@@ -111,7 +141,8 @@ function getFunnelSeries(args) {
       width: symmetric ? '40%' : '80%',
       x: getX(symmetric, idx),
       maxSize: !contrast || idx === 0 ? '100%' : getMaxSize(measures),
-      label: getLabel({ contrast, symmetric }, idx),
+      label: getLabel({ contrast, symmetric, funnelLabel }, idx),
+      encode: getEncode(dimName, name),
       ...others
     })
   })
@@ -138,7 +169,7 @@ export const funnel = (data, settings, extra, isDonut) => {
     series
   }
 
-  // console.log(options)
+  // console.log(JSON.stringify(options))
 
   return options
 }
