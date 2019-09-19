@@ -1,5 +1,10 @@
 # 更新日志
 
+## v0.8.2
+
+* **新增** - 漏斗图支持传入自定义label
+* **修复** - 漏斗图多个指标映射关系
+
 ## v0.8.1
 
 * **修复** - 使用 dataset API 时，饼图维度值为 [number/number-like](https://github.com/apache/incubator-echarts/blob/4e4cf884fc8a96b18bd1de537b590042e49df684/src/data/List.js#L339) 类型时，引起的渲染图表效果错误问题
