@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { zip, sum, round, get, cloneDeep, isNaN } from 'lodash'
+import { zip, sum, round, cloneDeep, isNaN } from 'lodash'
 import numeral from 'numeral'
 import './formatZhNumber'
 
@@ -66,7 +66,7 @@ export const toKebab = (v) => v.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(
 // dataset format
 export const getDataset = (data, settings, extra) => {
   const cloneData = cloneDeep(data)
-  const dimName = get(cloneData, 'dimensions.name', 'dimensions')
+  const dimName = cloneData && cloneData.dimensions && cloneData.dimensions.name
   const dimData = cloneData && cloneData.dimensions && cloneData.dimensions.data
   const { isEmptyData, chartType } = extra
 
