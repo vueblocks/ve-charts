@@ -66,6 +66,23 @@ export default {
       data: baseData,
       settings: {
         smooth: true,
+        areaStyle: {},
+        stack: {
+          repo: [
+            'React',
+            'Angular'
+          ]
+        }
+      }
+    },
+    {
+      title: '百分比堆叠折线图',
+      data: baseData,
+      settings: {
+        smooth: true,
+        areaStyle: {},
+        yAxisLabelType: ['percentage'],
+        percentage: true,
         stack: {
           repo: [
             'React',

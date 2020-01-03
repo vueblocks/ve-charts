@@ -32,7 +32,7 @@ function getPieLegend (args) {
   }
 }
 
-function getPieSeries(args) {
+function getPieSeries (args) {
   const { data, settings, isDonut } = args
 
   let series = []
@@ -49,7 +49,7 @@ function getPieSeries(args) {
   return series
 }
 
-function handleData(data, settings, isDonut, datasetIndex = 0) {
+function handleData (data, settings, isDonut, datasetIndex = 0) {
   const series = []
   const { measures } = data
   const {
@@ -73,7 +73,7 @@ function handleData(data, settings, isDonut, datasetIndex = 0) {
     })
   })
   // console.log(series)
-  
+
   return series
 }
 

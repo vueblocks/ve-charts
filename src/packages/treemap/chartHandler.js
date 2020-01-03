@@ -6,7 +6,7 @@ function getTreemapTooltip (args) {
   }
 }
 
-function getTreemapSeries(args) {
+function getTreemapSeries (args) {
   const { data, settings } = args
   const { measures } = data
   const {

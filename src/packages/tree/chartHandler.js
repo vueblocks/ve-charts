@@ -1,11 +1,11 @@
-function getTreeTooltip() {
+function getTreeTooltip () {
   return {
     trigger: 'item',
     triggerOn: 'mousemove'
   }
 }
 
-function getTreeLegend(data, settings) {
+function getTreeLegend (data, settings) {
   const { legendType = 'plain', legendPadding = 5 } = settings
   const { measures } = data
   return {
@@ -66,11 +66,10 @@ function formatTreeLabels (orient = 'LR', rotate = 0) {
   }
 }
 
-function getTreeSeries(data, settings) {
+function getTreeSeries (data, settings) {
   const {
     seriesMap = [],
-    labelRotate,
-    ...others
+    labelRotate
   } = settings
 
   const series = data.measures.map((item, idx) => {

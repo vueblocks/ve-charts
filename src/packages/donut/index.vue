@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Core from '../../mixins/Core'
+import Core from '../../mixins/core'
 import { options } from '../../base-options'
 import { donut } from '../pie/chartHandler'
 import 'echarts/lib/chart/pie'
@@ -36,4 +36,3 @@ export default {
   }
 }
 </script>
-

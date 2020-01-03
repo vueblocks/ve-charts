@@ -16,7 +16,7 @@ numeral.register('format', 'zh-number', {
       digits = precision[0].split('.')[1].length
     }
     // check for space before zh
-    format = format.replace(/\s?\zh/, '');
+    format = format.replace(/\s?zh/, '')
 
     const cnNumberFormat = (val, digits = 0) => {
       if (isNaN(+val)) return val
@@ -36,9 +36,9 @@ numeral.register('format', 'zh-number', {
       return val.toString()
     }
 
-    return cnNumberFormat(value, digits);
+    return cnNumberFormat(value, digits)
   },
   unformat: function (string) {
-    return numeral._.stringToNumber(string) * 0.01;
+    return numeral._.stringToNumber(string) * 0.01
   }
-});
+})

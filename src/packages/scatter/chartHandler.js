@@ -7,7 +7,7 @@ function getScatterDataset (data, settings, extra) {
   if (isArray(measures)) {
     measures.forEach(v => {
       dataset.push({
-        ['source']: v.data
+        'source': v.data
       })
     })
   } else {
@@ -17,11 +17,11 @@ function getScatterDataset (data, settings, extra) {
   return dataset
 }
 
-function getScatterTooltip(args) {
+function getScatterTooltip (args) {
   return {}
 }
 
-function getScatterLegend(args) {
+function getScatterLegend (args) {
   const { settings } = args
   const {
     legendType = 'plain',
@@ -30,11 +30,11 @@ function getScatterLegend(args) {
 
   return {
     type: legendType,
-    padding: legendPadding,
+    padding: legendPadding
   }
 }
 
-function getScatterSeries(args) {
+function getScatterSeries (args) {
   const { data, settings } = args
   const { connect, ...others } = settings
   // const dataIndex = connect ? connect.dataIndex : -1
@@ -52,7 +52,7 @@ function getScatterSeries(args) {
   return series
 }
 
-function getScatterXAxis(args) {
+function getScatterXAxis (args) {
   const { settings } = args
   const { xAxisScale = false } = settings
   return {
@@ -65,7 +65,7 @@ function getScatterXAxis(args) {
   }
 }
 
-function getScatterYAxis(args) {
+function getScatterYAxis (args) {
   const { settings } = args
   const { yAxisScale = false } = settings
 

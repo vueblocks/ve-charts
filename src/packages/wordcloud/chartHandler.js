@@ -1,7 +1,7 @@
 // build series
-function getWordcloudSeries(args) {
-  const {data, settings} = args
-  const {measures} = data
+function getWordcloudSeries (args) {
+  const { data, settings } = args
+  const { measures } = data
   const type = 'wordCloud'
   const series = []
   const seriesItem = {
@@ -14,8 +14,8 @@ function getWordcloudSeries(args) {
 }
 
 export const wordcloud = (data, settings, extra) => {
-  const {tooltip} = settings
-  const series = getWordcloudSeries({data, settings})
+  const { tooltip } = settings
+  const series = getWordcloudSeries({ data, settings })
   const options = {
     tooltip,
     series

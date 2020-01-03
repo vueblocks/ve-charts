@@ -1,10 +1,10 @@
-function getGaugeTooltip() {
+function getGaugeTooltip () {
   return {
     trigger: 'item'
   }
 }
 
-function getGaugeSeries(args) {
+function getGaugeSeries (args) {
   const { data, settings } = args
   const { name, data: gaugeData } = data && data.measures && data.measures[0]
   const {

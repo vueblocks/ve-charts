@@ -13,8 +13,8 @@ export default {
     LoadingChart
   },
   props: {
-    data: { type: [Object, Array], default() { return {} } },
-    settings: { type: [Object, Array], default() { return {} } },
+    data: { type: [Object, Array], default () { return {} } },
+    settings: { type: [Object, Array], default () { return {} } },
     // echarts default options
     title: Object,
     legend: Object,
@@ -23,7 +23,7 @@ export default {
     yAxis: [Object, Array],
     radar: [Object, Array],
     dataZoom: [Object, Array],
-    visualMap:[Object, Array],
+    visualMap: [Object, Array],
     tooltip: Object,
     axisPointer: Object,
     toolbox: Object,
@@ -114,7 +114,7 @@ export default {
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
 
-      const options =  this.chartHandler(data, cloneDeep(this.settings), extra)
+      const options = this.chartHandler(data, cloneDeep(this.settings), extra)
 
       if (options) {
         if (typeof options.then === 'function') {

@@ -1,16 +1,16 @@
 // build tooltip
-function getBarTooltip(args) {
-  const {settings} = args
-  const {tooltip} = settings
+function getBarTooltip (args) {
+  const { settings } = args
+  const { tooltip } = settings
   return {
     ...tooltip
   }
 }
 
 // build series
-function getSunburstSeries(args) {
-  const {data, settings} = args
-  const {measures} = data
+function getSunburstSeries (args) {
+  const { data, settings } = args
+  const { measures } = data
   const {
     label = {},
     itemStyle = {},
@@ -19,7 +19,7 @@ function getSunburstSeries(args) {
 
   const series = []
 
-  measures.forEach(({name, data}, i) => {
+  measures.forEach(({ name, data }, i) => {
     const type = 'sunburst'
     const seriesItem = {
       type,
@@ -35,10 +35,9 @@ function getSunburstSeries(args) {
 }
 
 export const sunburst = (data, settings, extra) => {
+  const tooltip = getBarTooltip({ settings })
 
-  const tooltip = getBarTooltip({settings})
-
-  const series = getSunburstSeries({data, settings})
+  const series = getSunburstSeries({ data, settings })
 
   const options = {
     series

@@ -1,5 +1,5 @@
-function getSeries(args) {
-  const {measures} = args.data
+function getSeries (args) {
+  const { measures } = args.data
   const settings = args.settings
   const series = []
   series.push({
@@ -11,12 +11,12 @@ function getSeries(args) {
 }
 
 export const liquidFill = (data, settings, extra) => {
-  const {isEmptyData} = extra
-  const {tooltip} = settings
+  const { isEmptyData } = extra
+  const { tooltip } = settings
 
   if (isEmptyData) return {}
 
-  const series = getSeries({data, settings})
+  const series = getSeries({ data, settings })
 
   const options = {
     tooltip,

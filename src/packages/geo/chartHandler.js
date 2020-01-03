@@ -8,7 +8,7 @@ import cityGeo from './map-data/cityGeo.json'
 import cityGeo2 from './map-data/cityGeo2.json'
 import mapCityId from './map-data/mapCityId.json'
 
-function convertCityData(data, options) {
+function convertCityData (data, options) {
   const { index, connect } = options
   const dataIndex = connect ? connect.dataIndex : -1
   const seriesIndex = connect ? connect.seriesIndex : -1
@@ -44,7 +44,7 @@ function convertCityData(data, options) {
   return res
 }
 
-function getGeoData(args) {
+function getGeoData (args) {
   const { data, settings } = args
   const { measures } = data
   const {
@@ -63,7 +63,7 @@ function getGeoData(args) {
   const [legendData, seriesData] = [[], []]
 
   // computed max value
-  const max = measures.map(({data}) => {
+  const max = measures.map(({ data }) => {
     const dataValues = data.map(v => parseInt(v.value))
     return Math.max(...dataValues)
   }).reduce((a, b) => a + b)
@@ -90,16 +90,17 @@ function getGeoData(args) {
     }
 
     if (!isMapMode) {
-      seriesData[index] = {...seriesData[index], ...{
-        coordinateSystem: 'geo',
-        label: unShowLabel,
-        symbolSize,
-        showEffectOn: 'render',
-        rippleEffect: {
-          brushType: 'stroke'
-        },
-        itemStyle: {}
-      }}
+      seriesData[index] = { ...seriesData[index],
+        ...{
+          coordinateSystem: 'geo',
+          label: unShowLabel,
+          symbolSize,
+          showEffectOn: 'render',
+          rippleEffect: {
+            brushType: 'stroke'
+          },
+          itemStyle: {}
+        } }
     }
 
     legendData.push(name)
@@ -112,7 +113,7 @@ function getGeoData(args) {
   }
 }
 
-function getGeoTooltip(isMapMode) {
+function getGeoTooltip (isMapMode) {
   const formatter = function (params) {
     const { seriesName, name, value, marker } = params
     const seriesValue = Array.isArray(value) ? value[2] : value
@@ -123,7 +124,7 @@ function getGeoTooltip(isMapMode) {
     : { trigger: 'item', formatter }
 }
 
-function getGeoLegend(args) {
+function getGeoLegend (args) {
   const { legendData, settings } = args
   const { legendType = 'plain', legendPadding = 5 } = settings
 
@@ -134,7 +135,7 @@ function getGeoLegend(args) {
   }
 }
 
-function getGeo(args) {
+function getGeo (args) {
   const {
     labelVisible = false,
     label,
@@ -159,7 +160,7 @@ function getGeo(args) {
   return geo
 }
 
-function getVisualMap(args) {
+function getVisualMap (args) {
   const { max = 200, settings } = args
   const { visualMap } = settings
 
@@ -181,11 +182,11 @@ async function registerMap (args) {
     mapUrlPrefix = MAP_URL_PREFIX,
     _once
   } = args
-  
+
   let mapJson = {}
   // load geojson once
   if (!_once[mapName]) {
-    mapJson = await getMapJSON({mapName, mapUrlPrefix})
+    mapJson = await getMapJSON({ mapName, mapUrlPrefix })
     Object.assign(_once, { [mapName]: true })
     echarts.registerMap(mapName, mapJson, specialAreas)
   }
@@ -195,12 +196,12 @@ async function registerMap (args) {
 
 export const geo = async (data, settings, extra) => {
   const { tooltipVisible, legendVisible, _once } = extra
-  
+
   const {
     mode = 'map',
-    visualMapVisible = false,
+    visualMapVisible = false
   } = settings
-  
+
   const isMapMode = mode === 'map'
   settings.isMapMode = isMapMode
 

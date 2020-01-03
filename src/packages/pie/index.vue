@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Core from '../../mixins/Core'
+import Core from '../../mixins/core'
 import { options } from '../../base-options'
 import { pie } from './chartHandler'
 import 'echarts/lib/chart/pie'

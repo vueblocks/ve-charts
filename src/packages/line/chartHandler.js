@@ -1,12 +1,12 @@
-import { getDataset, formatMeasure } from '../../utils'
+import { getDataset, getStackMap, formatMeasure } from '../../utils'
 
-function getLineTooltip(args) {
+function getLineTooltip (args) {
   return {
     trigger: 'axis'
   }
 }
 
-function getLineLegend(args) {
+function getLineLegend (args) {
   const { settings } = args
   const { legendType = 'plain', legendPadding = 5 } = settings
   return {
@@ -15,7 +15,7 @@ function getLineLegend(args) {
   }
 }
 
-function getLineDimAxis(args) {
+function getLineDimAxis (args) {
   const { settings } = args
   const type = settings.yAxisType || 'category'
   return {
@@ -31,7 +31,8 @@ function getLineDimAxis(args) {
   }
 }
 
-function getLineMeaAxis(args) {
+// build measure axis
+function getLineMeaAxis (args) {
   const { settings } = args
   const {
     yAxisScale,
@@ -40,7 +41,8 @@ function getLineMeaAxis(args) {
     yAxisName,
     yAxisInterval,
     yAxisMax,
-    yAxisMin
+    yAxisMin,
+    percentage = false
   } = settings
 
   let axisValue = {
@@ -53,7 +55,9 @@ function getLineMeaAxis(args) {
       margin: 10,
       fontWeight: 400,
       formatter: value => formatMeasure(yAxisLabelType, value, yAxisLabelDigits)
-    }
+    },
+    min: percentage ? 0 : null,
+    max: percentage ? 1 : null
   }
   if (yAxisName) axisValue['name'] = yAxisName
   if (yAxisInterval) axisValue['interval'] = Number(yAxisInterval)
@@ -64,7 +68,7 @@ function getLineMeaAxis(args) {
 }
 
 // build label
-function getLineLabel(args) {
+function getLineLabel (args) {
   const {
     position = 'top',
     formatType = 'currency',
@@ -86,7 +90,7 @@ function getLineLabel(args) {
   }
 }
 
-function getLineSeries(args) {
+function getLineSeries (args) {
   const { data, settings } = args
   const { measures } = data
   const {
@@ -100,14 +104,17 @@ function getLineSeries(args) {
     ...others
   } = settings
   const series = []
+  const stackMap = stack && getStackMap(stack)
 
-  function getLineStyle(lineParams) {
+  function getLineStyle (lineParams) {
     return {
       normal: {
         width: 2
       }
     }
   }
+
+  console.log(stackMap)
 
   measures.forEach(({ name, data }, i) => {
     series.push({
@@ -117,7 +124,7 @@ function getLineSeries(args) {
       lineStyle: getLineStyle(),
       showSymbol,
       smooth,
-      stack,
+      stack: stack && stackMap[name],
       step,
       symbol,
       symbolSize,

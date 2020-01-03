@@ -1,30 +1,30 @@
-import {options, waterfallConfig} from '../../base-options'
-import {getDataset, getStackMap, formatMeasure} from '../../utils'
-import {isArray, isUndefined} from 'lodash'
+import { options, waterfallConfig } from '../../base-options'
+import { getDataset, getStackMap, formatMeasure } from '../../utils'
+import { isArray, isUndefined } from 'lodash'
 
 // build tooltip
-function getBarTooltip(settings) {
-  const {tooltipFormatter} = settings
+function getBarTooltip (settings) {
+  const { tooltipFormatter } = settings
   return {
     trigger: 'axis',
-    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-      type: 'shadow'          // 默认为直线，可选为：'line' | 'shadow'
+    axisPointer: { // 坐标轴指示器，坐标轴触发有效
+      type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
     },
     formatter: tooltipFormatter
   }
 }
 
 // build legend
-function getBarLegend(data, settings) {
-  const {measures} = data
-  const {legendType, legendPadding, waterfall} = settings
+function getBarLegend (data, settings) {
+  const { measures } = data
+  const { legendType, legendPadding, waterfall } = settings
   let result = {
     type: legendType || 'plain',
     padding: legendPadding || 5
   }
   // 当配置项填入waterfall,瀑布图默认将图例去除secondaryMeasure--by:jeff
   if (waterfall && waterfall === true) {
-    result['data'] = measures.filter(({name}) => {
+    result['data'] = measures.filter(({ name }) => {
       if (name !== 'secondaryMeasure') return name
     })
   }
@@ -32,7 +32,7 @@ function getBarLegend(data, settings) {
 }
 
 // build grid
-function getBarGrid(isBar) {
+function getBarGrid (isBar) {
   const BarGrid = {
     right: 30,
     bottom: 10,
@@ -43,8 +43,8 @@ function getBarGrid(isBar) {
 }
 
 // build dimension Axis
-function getBarDimAxis(settings) {
-  const {dimAxisType} = settings
+function getBarDimAxis (settings) {
+  const { dimAxisType } = settings
 
   const axisItem = {
     type: dimAxisType,
@@ -62,7 +62,7 @@ function getBarDimAxis(settings) {
 }
 
 // build measure axis
-function getBarMeaAxis(data, settings) {
+function getBarMeaAxis (data, settings) {
   const {
     meaAxisType,
     meaAxisDigits,
@@ -124,7 +124,7 @@ function getBarMeaAxis(data, settings) {
 }
 
 // build label
-function getBarLabel(setLabel, isBar) {
+function getBarLabel (setLabel, isBar) {
   const {
     position = isBar ? 'right' : 'top',
     formatType = 'currency',
@@ -132,7 +132,7 @@ function getBarLabel(setLabel, isBar) {
     ...others
   } = setLabel
   const formatter = params => {
-    const {value, seriesIndex} = params
+    const { value, seriesIndex } = params
     // dataset formatter need shift the value
     value.shift()
     return formatMeasure(formatType, value[seriesIndex], formatDigits)
@@ -145,8 +145,8 @@ function getBarLabel(setLabel, isBar) {
 }
 
 // build series
-function getBarSeries(data, settings, isBar) {
-  const {dimensions, measures} = data
+function getBarSeries (data, settings, isBar) {
+  const { measures } = data
   const {
     label = {},
     showLine = [],
@@ -193,7 +193,7 @@ function getBarSeries(data, settings, isBar) {
 }
 
 export const bar = (data, settings, extra) => {
-  const {tooltipVisible, legendVisible, isEmptyData} = extra
+  const { tooltipVisible, legendVisible, isEmptyData } = extra
   const {
     direction = 'column',
     secondMeaAxis = null,
@@ -248,7 +248,7 @@ export const bar = (data, settings, extra) => {
     series
   }
 
-  // console.log(options)
+  console.log(options)
 
   return options
 }

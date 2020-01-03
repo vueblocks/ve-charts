@@ -17,20 +17,20 @@
 </template>
 
 <script>
-import Core from '../../mixins/Core'
-import {options} from '../../base-options'
-import {liquidFill} from './chartHandler'
+import Core from '../../mixins/core'
+import { options } from '../../base-options'
+import { liquidFill } from './chartHandler'
 import 'echarts-liquidfill/dist/echarts-liquidfill.min'
 
 export default {
   name: 'VeLiquidfillChart',
   mixins: [Core],
-  data() {
+  data () {
     return {
       options
     }
   },
-  created() {
+  created () {
     this.chartHandler = liquidFill
   }
 }

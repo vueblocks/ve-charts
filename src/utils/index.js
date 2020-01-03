@@ -91,7 +91,7 @@ export const getDataset = (data, settings, extra) => {
   let headMeasure = dimData.length > 0 && dimData[0]
 
   let dimValue = validateNumber(headMeasure) && chartType === 'pie'
-    ? dimData.map((v, i) => i === 0 ? `·${v}`: v)
+    ? dimData.map((v, i) => i === 0 ? `·${v}` : v)
     : dimData
 
   const dimensions = {
@@ -99,7 +99,7 @@ export const getDataset = (data, settings, extra) => {
   }
 
   let [measures, zipSumed] = [{}, []]
-  
+
   if (stack && percentage && cloneData.measures.length > 0) {
     const dyadicArray = cloneData.measures.map(col => col.data)
     // 横表转竖表 用于计算百分比堆叠图
@@ -116,7 +116,7 @@ export const getDataset = (data, settings, extra) => {
         : row.data
     })
   })
-  
+
   const source = Object.assign({}, dimensions, measures)
 
   const dataset = { source }
@@ -148,4 +148,4 @@ export const formatMeasure = (type, value, digits = 0) => {
 }
 
 // Returns true if the given value is a number, false otherwise.
-export const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) == n
+export const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) === n

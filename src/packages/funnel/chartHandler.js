@@ -2,13 +2,13 @@ import Vue from 'vue'
 import { max, min, round } from 'lodash'
 import { getDataset } from '../../utils'
 
-function getFunnelTooltip(args) {
+function getFunnelTooltip (args) {
   return {
     trigger: 'item'
   }
 }
 
-function getFunnelLegend(args) {
+function getFunnelLegend (args) {
   const { settings } = args
   const {
     legendType = 'plain',
@@ -20,7 +20,7 @@ function getFunnelLegend(args) {
   }
 }
 
-function getFunnelSeries(args) {
+function getFunnelSeries (args) {
   const { data, settings } = args
   const { dimensions, measures } = data
   const dimName = dimensions && `${dimensions.name} `

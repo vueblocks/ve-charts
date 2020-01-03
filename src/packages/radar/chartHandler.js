@@ -1,10 +1,10 @@
-function getRadarTooltip() {
+function getRadarTooltip () {
   return {
     trigger: 'item'
   }
 }
 
-function getRadarLegend(args) {
+function getRadarLegend (args) {
   const { data, settings } = args
   const { legendType = 'plain', legendPadding = 5 } = settings
   const { measures } = data
@@ -15,7 +15,7 @@ function getRadarLegend(args) {
   }
 }
 
-function getRadarRadar(args) {
+function getRadarRadar (args) {
   const { data, settings } = args
   const { offsetY = '50%', radius = '75%', splitNumber = 5, shape = 'polygon', splitArea = {} } = settings
 
@@ -34,7 +34,7 @@ function getRadarRadar(args) {
   }
 }
 
-function getRadarSeries(args) {
+function getRadarSeries (args) {
   const { itemStyle } = args
   const { measures } = args.data
   const series = []

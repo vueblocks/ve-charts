@@ -166,7 +166,7 @@ export default {
             opacity: 0.8
           }
         },
-        symbolSize: function(val) {
+        symbolSize: function (val) {
           const [a, b] = val
           return Math.abs(a - b) / 2
         }

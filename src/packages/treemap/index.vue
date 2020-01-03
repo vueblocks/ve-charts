@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Core from '../../mixins/Core'
+import Core from '../../mixins/core'
 import { options } from '../../base-options'
 import { treemap } from './chartHandler'
 import 'echarts/lib/chart/treemap'

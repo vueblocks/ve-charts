@@ -58,7 +58,7 @@ import lineOptions from '@/constant/lineOptions'
 
 export default {
   name: 'TestLayout',
-  data() {
+  data () {
     return {
       isLoadingLine: false,
       lineData: {},
@@ -71,7 +71,7 @@ export default {
     }
   },
   methods: {
-    loadLineData() {
+    loadLineData () {
       this.isLoadingLine = true
       setTimeout(() => {
         this.lineData = {
@@ -95,7 +95,7 @@ export default {
         this.isLoadingLine = false
       }, 2000)
     },
-    handleChangeData() {
+    handleChangeData () {
       _.isEmpty(this.lineData) ? this.loadLineData() : (this.lineData = {})
     }
   },
