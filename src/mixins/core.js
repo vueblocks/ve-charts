@@ -1,10 +1,10 @@
-import { cloneDeep, isNull, isEmpty, isUndefined, get } from 'lodash'
+import { cloneDeep, isNull, isEmpty, isUndefined, get } from 'lodash-es'
 
 import { getType } from '../utils'
 import { color } from '../base-options'
-import BaseEcharts from '../components/BaseEcharts'
-import EmptyData from '../components/EmptyData'
-import LoadingChart from '../components/LoadingChart'
+import BaseEcharts from '../components/BaseEcharts.vue'
+import EmptyData from '../components/EmptyData.vue'
+import LoadingChart from '../components/LoadingChart.vue'
 
 export default {
   components: {

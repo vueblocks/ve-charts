@@ -18,13 +18,10 @@
 </template>
 
 <script>
-import Core from '../../mixins/core'
-import { options } from '../../base-options'
-import { line } from './chartHandler'
-import 'echarts/lib/chart/line'
+import Core from '../mixins/core'
+import { options } from '../base-options'
 
 export default {
-  name: 'VeLineChart',
   mixins: [Core],
   data () {
     return {
@@ -33,9 +30,6 @@ export default {
         renderer: 'canvas'
       }
     }
-  },
-  created () {
-    this.chartHandler = line
   }
 }
 </script>

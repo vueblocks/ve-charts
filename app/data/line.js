@@ -7,7 +7,7 @@ const simpleData = {
   },
   measures: [{
     name: 'Vue',
-    data: [0.21, 0.28, 0.35, 0.54, 0.26, 0.41, 0.33]
+    data: [2100, 2800, 3500, 5400, 2600, 4100, 3300]
   }]
 }
 
@@ -46,15 +46,15 @@ export default {
       title: '基础折线图',
       data: simpleData,
       settings: {
-        yAxisName: '单位',
-        yAxisInterval: 0.05
+        yAxisName: '单位'
+        // yAxisInterval: 0.05
         // yAxisMax: 120
         // yAxisMin: 20
         // yAxisScale: false
       }
     },
     {
-      title: '区域折线图',
+      title: '区域折线图（面积图）',
       data: simpleData,
       settings: {
         smooth: true,
@@ -62,13 +62,14 @@ export default {
       }
     },
     {
-      title: '堆叠折线图',
+      title: '堆叠面积图',
       data: baseData,
       settings: {
         smooth: true,
         areaStyle: {},
         stack: {
           repo: [
+            'Vue',
             'React',
             'Angular'
           ]
@@ -76,18 +77,28 @@ export default {
       }
     },
     {
-      title: '百分比堆叠折线图',
+      title: '百分比堆叠面积图',
       data: baseData,
       settings: {
         smooth: true,
         areaStyle: {},
-        yAxisLabelType: ['percentage'],
+        yAxisLabelType: 'percentage',
         percentage: true,
         stack: {
           repo: [
+            'Vue',
             'React',
             'Angular'
           ]
+        },
+        tooltipFormatter: function (params) {
+          let [tar] = params
+          const tooltipContent = params.map(v => {
+            return `${v.seriesName}：${(
+              v.value[v.seriesIndex + 1] * 100
+            ).toFixed(2)} %`
+          }).join('<br/>')
+          return tar.name + '<br/>' + tooltipContent
         }
       }
     },

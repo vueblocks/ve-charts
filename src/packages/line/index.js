@@ -1,3 +1,12 @@
-import VeLineChart from './index.vue'
+import 'echarts/lib/chart/line'
 
-export default VeLineChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
+
+export default {
+  name: 'VeLineChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().line
+  }
+}
