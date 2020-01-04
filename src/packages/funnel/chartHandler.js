@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { max, min, round } from 'lodash'
+import { max, min, round } from 'lodash-es'
 import { getDataset } from '../../utils'
 
 function getFunnelTooltip (args) {

@@ -1,4 +1,4 @@
-import { isArray } from 'lodash'
+import { isArray } from 'lodash-es'
 
 function getScatterDataset (data, settings, extra) {
   const dataset = []

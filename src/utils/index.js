@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { zip, sum, round, cloneDeep, isNaN } from 'lodash'
+import { zip, sum, round, cloneDeep, isNaN } from 'lodash-es'
 import numeral from 'numeral'
 import './formatZhNumber'
 
@@ -27,10 +27,7 @@ export const $get = (url) => {
   })
 }
 
-export const getMapJSON = ({
-  mapName,
-  mapUrlPrefix
-}) => {
+export const getMapJSON = ({ mapName, mapUrlPrefix }) => {
   const url = `${mapUrlPrefix}${mapName}.json`
   return $get(url)
 }

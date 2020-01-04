@@ -1,4 +1,4 @@
-import { ceil } from 'lodash'
+import { ceil } from 'lodash-es'
 import echarts from 'echarts/lib/echarts'
 
 import { getMapJSON } from '../../utils'
