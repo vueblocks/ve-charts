@@ -1,3 +1,14 @@
-import VeDonutChart from './index.vue'
+import 'echarts/lib/chart/pie'
 
-export default VeDonutChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from '../pie/chart'
+
+const chart = new Chart()
+
+export default {
+  name: 'VeDonutChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = chart.donut
+  }
+}

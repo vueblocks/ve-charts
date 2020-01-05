@@ -1,3 +1,12 @@
-import VePieChart from './index.vue'
+import 'echarts/lib/chart/pie'
 
-export default VePieChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
+
+export default {
+  name: 'VePieChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().pie
+  }
+}
