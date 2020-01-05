@@ -1,3 +1,12 @@
-import VeFunnelChart from './index.vue'
+import 'echarts/lib/chart/funnel'
 
-export default VeFunnelChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
+
+export default {
+  name: 'VeFunnelChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().funnel
+  }
+}
