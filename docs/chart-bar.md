@@ -643,7 +643,7 @@
 
 | 配置项 | 说明 | 类型 | 可选值 | 用法 |
 | --- | --- | --- | --- | --- |
-| direction | 柱状图 / 条形图柱子朝向 | String | `column`、`row` | 默认 `column` 为垂直柱子（柱状图)；`row` 为水平柱子（条形图）|
+| direction | 柱状图/条形图柱子朝向 | String | `column`、`row` | 默认 `column` 为垂直柱子（柱状图)；`row` 为水平柱子（条形图）|
 | label | 设置图形上的文本标签。| Object/Array | - | 传值`Object` 适用于同时设置多个度量为统一的label；传值`Array`适用于多个度量设置不同的label。示例区别参见 **显示文本标签** 与 **阶梯瀑布图** |
 | stack | 设置数据堆叠，区别于并排显示分类的分组柱状图，将每个柱子进行分割以显示相同类型下各个数据的大小情况 | Object | - | 指定哪些度量堆叠展示，例如: 指定`PV`与`UV`以`sum`堆叠，双向柱状图必填 |
 | showLine | 指定哪些度量（至少一个）用于折线展示 | Array | - | - |
@@ -657,3 +657,4 @@
 | yAxisMin | 坐标轴刻度最小值 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |
 | yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
 | yAxisName | 坐标轴名称 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
+| percentage | 是否是百分比堆叠柱状图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
