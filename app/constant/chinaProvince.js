@@ -72,7 +72,7 @@ export const chinaProvince = [
   {
     'id': '15',
     'name': '浙江',
-    'pinyin': 'zejiang'
+    'pinyin': 'zhejiang'
   },
   {
     'id': '16',
