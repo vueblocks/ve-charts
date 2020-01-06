@@ -41,6 +41,10 @@ const EVENTS = [
   'unfocusnodeadjacency',
   'brush',
   'brushselected',
+  'globalcursortaken',
+  'rendered',
+  'finished',
+  // mouse event
   'click',
   'dblclick',
   'mouseover',
