@@ -21,6 +21,9 @@ export default {
     grid: Object,
     xAxis: [Object, Array],
     yAxis: [Object, Array],
+    polar: Object,
+    radiusAxis: Object,
+    angleAxis: Object,
     radar: [Object, Array],
     dataZoom: [Object, Array],
     visualMap: [Object, Array],
@@ -29,13 +32,28 @@ export default {
     toolbox: Object,
     brush: Object,
     geo: Object,
+    parallel: Object,
+    parallelAxis: Array,
+    singleAxis: Array,
     timeline: Object,
     graphic: Object,
+    calendar: Object,
+    dataset: Object,
     series: [Object, Array],
     color: Array,
     backgroundColor: [Object, String],
     textStyle: Object,
     animation: Object,
+    animationThreshold: Number,
+    animationDuration: [Number, Function],
+    animationEasing: [String, Function],
+    animationDelay: [Number, Function],
+    animationDurationUpdate: [Number, Function],
+    animationEasingUpdate: [String, Function],
+    animationDelayUpdate: [String, Function],
+    blendMode: String,
+    hoverLayerThreshold: Number,
+    useUTC: { type: Boolean, default: false },
     // ve-charts custom props
     tooltipVisible: { type: Boolean, default: true },
     legendVisible: { type: Boolean, default: true },
@@ -134,10 +152,13 @@ export default {
         if (['bottom'].indexOf(position) !== -1) options.legend.bottom = 0
       }
       const echartsSettings = [
-        'grid', 'dataZoom', 'visualMap', 'toolbox', 'title', 'legend',
-        'xAxis', 'yAxis', 'radar', 'tooltip', 'axisPointer', 'brush',
-        'geo', 'timeline', 'graphic', 'series', 'backgroundColor',
-        'textStyle'
+        'title', 'legend', 'grid', 'xAxis', 'yAxis', 'polar', 'radiusAxis', 'angleAxis',
+        'radar', 'dataZoom', 'visualMap', 'tooltip', 'axisPointer', 'toolbox', 'brush',
+        'geo', 'parallel', 'parallelAxis', 'singleAxis', 'timeline', 'graphic', 'calendar',
+        'dataset', 'series', 'color', 'backgroundColor', 'textStyle', 'animation',
+        'animationThreshold', 'animationDuration', 'animationEasing', 'animationDelay',
+        'animationDurationUpdate', 'animationEasingUpdate', 'animationDelayUpdate', 'blendMode',
+        'hoverLayerThreshold', 'useUTC'
       ]
       echartsSettings.forEach(setting => {
         if (this[setting]) options[setting] = this[setting]
