@@ -84,7 +84,7 @@ export const getDataset = (data, settings, extra) => {
    * problem2: [piechart] when measure.data start with number
    * solution: use special String instead
    */
-  let dimKey = `${dimName} `
+  let dimKey = `${dimName}`
   let headMeasure = dimData.length > 0 && dimData[0]
 
   let dimValue = validateNumber(headMeasure) && chartType === 'pie'

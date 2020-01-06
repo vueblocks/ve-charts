@@ -12,6 +12,7 @@ import tree from './tree'
 import wordcloud from './wordcloud'
 import geo from './geo'
 import liquidfill from './liquidfill'
+import polar from './polar'
 
 export default {
   bar,
@@ -27,5 +28,6 @@ export default {
   tree,
   wordcloud,
   geo,
-  liquidfill
+  liquidfill,
+  polar
 }
