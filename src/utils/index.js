@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { zip, sum, round, cloneDeep, isNaN } from 'lodash-es'
+import { zip, sum, round, cloneDeep, isNaN, isUndefined } from 'lodash-es'
 import numeral from 'numeral'
 import './formatZhNumber'
 
@@ -91,9 +91,17 @@ const getDataset = (data, settings, extra) => {
     })
   })
 
+  let dims = []
+  const firstDim = isUndefined(dimName) ? 'dimensition' : dimName
+  dims.push(firstDim)
+  dims = [...dims, ...cloneData.measures.map(v => v.name)]
+
   const source = Object.assign({}, dimensions, measures)
 
-  const dataset = { source }
+  const dataset = {
+    dimensions: dims,
+    source
+  }
 
   // console.log(JSON.stringify(dataset))
 

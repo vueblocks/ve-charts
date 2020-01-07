@@ -1,22 +1,60 @@
-let data = []
+let [data1, data2] = [[], []]
 
 for (let i = 0; i <= 100; i++) {
   let theta = i / 100 * 360
   let r = 5 * (1 + Math.sin(theta / 180 * Math.PI))
-  data.push([r, theta])
+  data1.push([r, theta])
 }
 
-// console.log(data)
+for (let i = 0; i <= 360; i++) {
+  let t = i / 180 * Math.PI
+  let r = Math.sin(2 * t) * Math.cos(2 * t)
+  data2.push([r, i])
+}
 
-// const polarData = {
-//   dimensions: {
-//     data: []
-//   },
-//   measures: [{
-//     name: 'Polar Line',
-//     data: data
-//   }]
-// }
+const twoNumberAxis = data => {
+  return {
+    legend: {
+      data: ['line']
+    },
+    polar: {
+      center: ['50%', '54%']
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'cross'
+      }
+    },
+    angleAxis: {
+      type: 'value',
+      startAngle: 0
+    },
+    radiusAxis: {
+      min: 0
+    },
+    series: [{
+      coordinateSystem: 'polar',
+      name: 'line',
+      type: 'line',
+      showSymbol: false,
+      areaStyle: {},
+      data
+    }],
+    animationDuration: 2000
+  }
+}
+
+const polarData = {
+  dimensions: {
+    name: 'week',
+    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+  },
+  measures: [{
+    name: '健身记录',
+    data: [15, 30, 45, 60, 75, 90, 100]
+  }]
+}
 
 const baseData = {
   dimensions: {
@@ -43,13 +81,13 @@ export default {
   name: '极区图',
   type: 'polar',
   chartData: [
-    // {
-    //   title: '基础极区图（线）',
-    //   data: polarData,
-    //   settings: {
-    //     polarType: 'line'
-    //   }
-    // },
+    {
+      title: '简单极区柱形图',
+      data: polarData,
+      settings: {
+        polarType: 'bar'
+      }
+    },
     {
       title: '极区柱形图（环形）',
       data: baseData,
@@ -63,6 +101,15 @@ export default {
       settings: {
         polarType: 'bar',
         stack: {}
+      }
+    },
+    {
+      title: '极区面积图（径向）',
+      data: baseData,
+      settings: {
+        polarType: 'line',
+        radial: true,
+        areaStyle: {}
       }
     },
     {
@@ -81,6 +128,14 @@ export default {
         stack: {},
         radial: true
       }
+    },
+    {
+      title: '极坐标双数值轴',
+      xprops: twoNumberAxis(data1)
+    },
+    {
+      title: '极坐标双数值轴',
+      xprops: twoNumberAxis(data2)
     }
   ]
 }

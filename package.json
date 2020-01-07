@@ -27,8 +27,8 @@
     "front-end"
   ],
   "peerDependencies": {
-    "echarts": ">=4.1.0",
-    "vue": ">=2.5.0"
+    "echarts": ">=4.5.0",
+    "vue": ">=2.6.0"
   },
   "license": "MIT",
   "dependencies": {

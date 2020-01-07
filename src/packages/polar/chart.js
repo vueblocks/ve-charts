@@ -7,9 +7,10 @@ class PolarChart extends BaseChart {
   }
 
   static getLegend (data) {
+    const { measures } = data
     return {
       show: true,
-      data: data.dimensions.data
+      data: measures.map(v => v.name)
     }
   }
 
@@ -33,30 +34,24 @@ class PolarChart extends BaseChart {
     } = settings
 
     return {
-      type: radial ? 'value' : 'category'
+      type: radial ? 'value' : 'category',
+      z: 10
     }
   }
 
   // build series
   static getSeries ({ data, settings }) {
-    const { dimensions, measures } = data
-    const { name } = dimensions
+    const { measures } = data
     const {
       polarType = 'line',
       stack = null,
-      radial = false,
-      others
+      ...others
     } = settings
 
     const series = measures.map((item, idx) => {
       return {
         type: polarType,
         coordinateSystem: 'polar',
-        encode: {
-          tooltip: dimensions.data[idx],
-          angle: radial ? name : item.name,
-          radius: radial ? item.name : name
-        },
         stack,
         ...others
       }
@@ -80,7 +75,7 @@ class PolarChart extends BaseChart {
 
     const dataset = !isEmptyData && getDataset(data, settings, extra)
 
-    console.log(dataset)
+    // console.log(dataset)
 
     const series = PolarChart.getSeries({ data, settings })
 
