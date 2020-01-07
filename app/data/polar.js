@@ -6,7 +6,7 @@ for (let i = 0; i <= 100; i++) {
   data.push([r, theta])
 }
 
-console.log(data)
+// console.log(data)
 
 // const polarData = {
 //   dimensions: {

@@ -26,7 +26,7 @@ class FunnelChart extends BaseChart {
   static getFunnelSeries (args) {
     const { data, settings } = args
     const { dimensions, measures } = data
-    const dimName = dimensions && `${dimensions.name} `
+    const dimName = dimensions && `${dimensions.name}`
     const {
       funnelSort = 'desc',
       funnelAlign = 'center',
