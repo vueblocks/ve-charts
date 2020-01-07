@@ -11,6 +11,17 @@ const simpleData = {
   }]
 }
 
+const numberData = {
+  dimensions: {
+    name: 'Week',
+    data: ['1', '2', '3', '4', '5', '6', '7']
+  },
+  measures: [{
+    name: 'Vue',
+    data: [2100, 2800, 3500, 5400, 2600, 4100, 3300]
+  }]
+}
+
 const baseData = {
   dimensions: {
     name: 'Month',
@@ -40,6 +51,11 @@ export default {
     {
       title: '无数据',
       data: {},
+      settings: {}
+    },
+    {
+      title: '基础折线图（维度为类数字）',
+      data: numberData,
       settings: {}
     },
     {

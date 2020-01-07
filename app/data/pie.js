@@ -1,7 +1,18 @@
 const baseData = {
   dimensions: {
     name: '渠道',
-    data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
+    data: ['APP', 'M端', '微信', '手Q', '小程序', 'PC']
+  },
+  measures: [{
+    name: 'PV',
+    data: [40000, 27800, 22000, 20200, 15600, 13600]
+  }]
+}
+
+const numberData = {
+  dimensions: {
+    name: '渠道',
+    data: [1, 2, 3, 4, 5, 6]
   },
   measures: [{
     name: 'PV',
@@ -85,6 +96,11 @@ export default {
         roseType: 'area',
         radius: [30, 110]
       }
+    },
+    {
+      title: '维度为数字',
+      data: numberData,
+      settings: {}
     }
   ]
 }
