@@ -1,4 +1,12 @@
-import VeTreemapChart from './index.vue'
+import 'echarts/lib/chart/treemap'
 
-export default VeTreemapChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
 
+export default {
+  name: 'VeTreemapChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().treemap
+  }
+}

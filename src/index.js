@@ -11,7 +11,8 @@ import VeTreemapChart from './packages/treemap'
 import VeSunburstChart from './packages/sunburst'
 import VeTreeChart from './packages/tree'
 import VeWordcloudChart from './packages/wordcloud'
-import VeLiquidfill from './packages/liquidfill'
+import VeLiquidfillChart from './packages/liquidfill'
+import VePolarChart from './packages/polar'
 
 const components = [
   VeBarChart,
@@ -27,18 +28,26 @@ const components = [
   VeSunburstChart,
   VeTreeChart,
   VeWordcloudChart,
-  VeLiquidfill
+  VeLiquidfillChart,
+  VePolarChart
 ]
 
-function install(Vue, _) {
+const install = Vue => {
+  if (install.installed) return
   components.forEach(component => {
     Vue.component(component.name, component)
   })
 }
 
-export default install
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(install)
+  if (install.installed) {
+    install.installed = false
+  }
+}
 
-export {
+export default {
+  install,
   VeBarChart,
   VeDonutChart,
   VeFunnelChart,
@@ -52,12 +61,6 @@ export {
   VeSunburstChart,
   VeTreeChart,
   VeWordcloudChart,
-  VeLiquidfill
-}
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(install)
-  if (install.installed) {
-    install.installed = false
-  }
+  VeLiquidfillChart,
+  VePolarChart
 }

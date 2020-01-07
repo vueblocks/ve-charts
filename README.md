@@ -33,7 +33,6 @@ npm i ve-charts echarts -S
 ```js
 import Vue from 'vue'
 import VeCharts from 've-charts'
-import 've-charts/lib/ve-charts.min.css'
 
 Vue.use(VeCharts)
 ```

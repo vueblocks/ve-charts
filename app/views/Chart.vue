@@ -34,7 +34,7 @@ import CodeBlock from '@/components/CodeBlock'
 import 'echarts/lib/component/markArea'
 
 import DATA from '@/data'
-import color from '@/data/color'
+import COLOR from '@/data/color'
 
 export default {
   name: 'Chart',
@@ -65,7 +65,7 @@ export default {
     initData () {
       this.chartData = DATA[this.type].chartData
       this.chartType = DATA[this.type].type
-      this.color = color
+      this.color = COLOR
     }
   }
 }

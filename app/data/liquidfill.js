@@ -129,7 +129,7 @@ export default {
         },
         tooltip: {
           show: true,
-          formatter: function ({marker, name, value}) {
+          formatter: function ({ marker, name, value }) {
             return marker + name + ': ' + parseInt(value * 100) + '%'
           }
         }

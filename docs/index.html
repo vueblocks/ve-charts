@@ -11,80 +11,79 @@
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"/>
   <!-- inject css file -->
   <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css"/>
-  <link rel="stylesheet" type="text/css" href="//unpkg.com/ve-charts@latest/lib/ve-charts.min.css"/>
   <link rel="stylesheet" href="vue.css">
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<div id="app"></div>
-<script>
-  window.$docsify = {
-    name: 've-charts',
-    repo: 'vueblocks/ve-charts',  // connect to github
-    loadSidebar: true,
-    coverpage: true,
-    themeColor: '#3c78eb',
-    homepage: 'base-quickstart.md',
-    search: {
-      maxAge: 86400000,
-      paths: 'auto',
-      placeholder: {
-        '/': '搜索',
-        '/en': 'Type to search'
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 've-charts',
+      repo: 'vueblocks/ve-charts', // connect to github
+      loadSidebar: true,
+      coverpage: true,
+      themeColor: '#3c78eb',
+      homepage: 'base-quickstart.md',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: {
+          '/': '搜索',
+          '/en': 'Type to search'
+        },
+        noData: {
+          '/': '找不到结果',
+          '/en': 'No Results'
+        },
+        depth: 2
       },
-      noData: {
-        '/': '找不到结果',
-        '/en': 'No Results'
-      },
-      depth: 2
-    },
-    mergeNavbar: true
-  }
-
-  // remove sidebar's title and add my logo
-  let interval = setInterval(function () {
-    if (document.getElementsByTagName("aside")[0]) {
-      let parent = document.getElementsByTagName("aside")[0];
-      parent.removeChild(parent.getElementsByTagName("h1")[0]);
-      let div = document.createElement("div");
-      div.setAttribute("class", "logo");
-      let a = document.createElement("a");
-      a.setAttribute("href", "https://vueblocks.github.io/ve-charts");
-      let img = document.createElement("img");
-      img.setAttribute("src", "./_media/icon.svg");
-      let titleImg = document.createElement("img");
-      titleImg.setAttribute("src", "./_media/logo_blue.svg");
-      a.appendChild(img);
-      div.appendChild(a);
-      parent.prepend(div);
-      div.appendChild(titleImg);
-      clearInterval(interval);
+      mergeNavbar: true
     }
-  }, 0);
 
-  window.addEventListener('scroll', winScroll, false);
-  function winScroll(e) {
-    let coverNav = document.getElementById("cover-nav")
-    let scrollTop = document.documentElement.scrollTop;
-    if (coverNav) {
-      if (scrollTop > 96) {
-        coverNav.style.display = "none";
-      } else {
-        coverNav.style.display = "block";
+    // remove sidebar's title and add my logo
+    let interval = setInterval(function () {
+      if (document.getElementsByTagName('aside')[0]) {
+        let parent = document.getElementsByTagName('aside')[0]
+        parent.removeChild(parent.getElementsByTagName('h1')[0])
+        let div = document.createElement('div')
+        div.setAttribute('class', 'logo')
+        let a = document.createElement('a')
+        a.setAttribute('href', 'https://vueblocks.github.io/ve-charts')
+        let img = document.createElement('img')
+        img.setAttribute('src', './_media/icon.svg')
+        let titleImg = document.createElement('img')
+        titleImg.setAttribute('src', './_media/logo_blue.svg')
+        a.appendChild(img)
+        div.appendChild(a)
+        parent.prepend(div)
+        div.appendChild(titleImg)
+        clearInterval(interval)
+      }
+    }, 0)
+
+    window.addEventListener('scroll', winScroll, false)
+    function winScroll (e) {
+      let coverNav = document.getElementById('cover-nav')
+      let scrollTop = document.documentElement.scrollTop
+      if (coverNav) {
+        if (scrollTop > 96) {
+          coverNav.style.display = 'none'
+        } else {
+          coverNav.style.display = 'block'
+        }
       }
     }
-  }
-</script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-<!-- inject js file -->
-<script src="//unpkg.com/vue/dist/vue.min.js"></script>
-<script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
-<script src="//unpkg.com/echarts@latest/dist/echarts.min.js"></script>
-<script src="//unpkg.com/echarts-wordcloud@1.1.3/dist/echarts-wordcloud.js"></script>
-<script src="//unpkg.com/echarts-liquidfill@2.0.4/dist/echarts-liquidfill.js"></script>
-<script src="//unpkg.com/ve-charts@latest/lib/ve-charts.min.js"></script>
- <!--<script src="ve-charts.min.js"></script>-->
-<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <!-- inject js file -->
+  <script src="//unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
+  <script src="//unpkg.com/echarts@latest/dist/echarts.min.js"></script>
+  <script src="//unpkg.com/echarts-wordcloud@1.1.3/dist/echarts-wordcloud.js"></script>
+  <script src="//unpkg.com/echarts-liquidfill@2.0.4/dist/echarts-liquidfill.js"></script>
+  <script src="//unpkg.com/ve-charts@latest/lib/ve-charts.umd.min.js"></script>
+  <!-- <script src="ve-charts.umd.min.js"></script> -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 
-</body>
+  </body>
 </html>

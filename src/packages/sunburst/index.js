@@ -1,3 +1,12 @@
-import VeSunburstChart from './index.vue'
+import 'echarts/lib/chart/sunburst'
 
-export default VeSunburstChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
+
+export default {
+  name: 'VeSunburstChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().sunburst
+  }
+}

@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import { zip, sum, round, cloneDeep, isNaN } from 'lodash'
+import { zip, sum, round, cloneDeep, isNaN, isUndefined } from 'lodash-es'
 import numeral from 'numeral'
 import './formatZhNumber'
 
-export const getStackMap = (stack) => {
+const getStackMap = (stack) => {
   const stackMap = {}
   Object.keys(stack).forEach(item => {
     stack[item].forEach(name => {
@@ -13,7 +13,7 @@ export const getStackMap = (stack) => {
   return stackMap
 }
 
-export const $get = (url) => {
+const $get = (url) => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
     xhr.open('GET', url)
@@ -27,44 +27,17 @@ export const $get = (url) => {
   })
 }
 
-export const getMapJSON = ({
-  mapName,
-  mapUrlPrefix
-}) => {
+const getMapJSON = ({ mapName, mapUrlPrefix }) => {
   const url = `${mapUrlPrefix}${mapName}.json`
   return $get(url)
 }
 
-let mapPromise = null
-
-export const getBmap = (key) => {
-  if (!mapPromise) {
-    mapPromise = new Promise((resolve, reject) => {
-      const callbackName = `bmap${Date.now()}`
-      window[callbackName] = resolve
-      const script = document.createElement('script')
-      script.src = [
-        'https://api.map.baidu.com/api?v=2.0',
-        `ak=${key}`,
-        `callback=${callbackName}`
-      ].join('&')
-
-      document.body.appendChild(script)
-    })
-  }
-  return mapPromise
-}
-
-export const deepClone = (v) => JSON.parse(JSON.stringify(v))
-
-export const getType = (v) => {
+const getType = (v) => {
   return Object.prototype.toString.call(v)
 }
 
-export const toKebab = (v) => v.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
-
 // dataset format
-export const getDataset = (data, settings, extra) => {
+const getDataset = (data, settings, extra) => {
   const cloneData = cloneDeep(data)
   const dimName = cloneData && cloneData.dimensions && cloneData.dimensions.name
   const dimData = cloneData && cloneData.dimensions && cloneData.dimensions.data
@@ -86,12 +59,13 @@ export const getDataset = (data, settings, extra) => {
    * solution: append a ' ' to the dimension name
    * problem2: [piechart] when measure.data start with number
    * solution: use special String instead
+   * PS. in version v0.4.6 all seems fixed
    */
-  let dimKey = `${dimName} `
+  let dimKey = `${dimName}`
   let headMeasure = dimData.length > 0 && dimData[0]
 
   let dimValue = validateNumber(headMeasure) && chartType === 'pie'
-    ? dimData.map((v, i) => i === 0 ? `·${v}`: v)
+    ? dimData.map((v, i) => i === 0 ? `${v}` : v)
     : dimData
 
   const dimensions = {
@@ -99,7 +73,7 @@ export const getDataset = (data, settings, extra) => {
   }
 
   let [measures, zipSumed] = [{}, []]
-  
+
   if (stack && percentage && cloneData.measures.length > 0) {
     const dyadicArray = cloneData.measures.map(col => col.data)
     // 横表转竖表 用于计算百分比堆叠图
@@ -116,10 +90,18 @@ export const getDataset = (data, settings, extra) => {
         : row.data
     })
   })
-  
+
+  let dims = []
+  const firstDim = isUndefined(dimName) ? 'dimensition' : dimName
+  dims.push(firstDim)
+  dims = [...dims, ...cloneData.measures.map(v => v.name)]
+
   const source = Object.assign({}, dimensions, measures)
 
-  const dataset = { source }
+  const dataset = {
+    dimensions: dims,
+    source
+  }
 
   // console.log(JSON.stringify(dataset))
 
@@ -127,7 +109,7 @@ export const getDataset = (data, settings, extra) => {
 }
 
 // format measure
-export const formatMeasure = (type, value, digits = 0) => {
+const formatMeasure = (type, value, digits = 0) => {
   const transformType = (type, value, digits) => {
     const digitReg = digits > 0 ? `0.${'0'.repeat(digits)}` : '0'
     const digitCurReg = digits > 0 ? `0,0.${'0'.repeat(digits)}` : '0,0'
@@ -148,4 +130,14 @@ export const formatMeasure = (type, value, digits = 0) => {
 }
 
 // Returns true if the given value is a number, false otherwise.
-export const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) == n
+const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) === n
+
+export {
+  getStackMap,
+  $get,
+  getMapJSON,
+  getType,
+  getDataset,
+  formatMeasure,
+  validateNumber
+}

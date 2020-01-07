@@ -23,7 +23,7 @@ import { chinaProvince, findProvince } from '@/constant/chinaProvince'
 
 export default {
   name: 'TestEvent',
-  data() {
+  data () {
     return {
       isLoadingLine: false,
       chartData: {},
@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    loadLineData() {
+    loadLineData () {
       const randomData = () => {
         return Math.round(Math.random() * 1000)
       }
@@ -123,7 +123,7 @@ export default {
         zoom: 1.2
       }
     },
-    onClick(e) {
+    onClick (e) {
       this.title = {
         text: `选中省份：${e.name}`,
         textStyle: {
@@ -137,11 +137,11 @@ export default {
         this.chartSettings.mapName = `province/${province}`
       }
     },
-    onClickBlank(e) {
+    onClickBlank (e) {
       this.chartSettings.mapName = 'china'
     }
   },
-  created() {
+  created () {
     this.loadLineData()
   }
 }

@@ -1,3 +1,12 @@
-import VeBarChart from './index.vue'
+import 'echarts/lib/chart/bar'
 
-export default VeBarChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
+
+export default {
+  name: 'VeBarChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().bar
+  }
+}

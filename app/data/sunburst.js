@@ -62,64 +62,90 @@ const monochromeData = {
         value: 5,
         children: [{
           value: 1,
-          itemStyle: {color: '#F54F4A'}
+          itemStyle: {
+            color: '#F54F4A'
+          }
         }, {
           value: 2,
           children: [{
             value: 1,
-            itemStyle: {color: '#FF8C75'}
+            itemStyle: {
+              color: '#FF8C75'
+            }
           }]
         }, {
           children: [{
             value: 1
           }]
         }],
-        itemStyle: {color: '#F54F4A'}
+        itemStyle: {
+          color: '#F54F4A'
+        }
       }, {
         value: 10,
         children: [{
           value: 6,
           children: [{
             value: 1,
-            itemStyle: {color: '#F54F4A'}
+            itemStyle: {
+              color: '#F54F4A'
+            }
           }, {
             value: 1
           }, {
             value: 1,
-            itemStyle: {color: '#FF8C75'}
+            itemStyle: {
+              color: '#FF8C75'
+            }
           }, {
             value: 1
           }],
-          itemStyle: {color: '#FFB499'}
+          itemStyle: {
+            color: '#FFB499'
+          }
         }, {
           value: 2,
           children: [{
             value: 1
           }],
-          itemStyle: {color: '#FFB499'}
+          itemStyle: {
+            color: '#FFB499'
+          }
         }, {
           children: [{
             value: 1,
-            itemStyle: {color: '#FF8C75'}
+            itemStyle: {
+              color: '#FF8C75'
+            }
           }]
         }],
-        itemStyle: {color: '#F54F4A'}
+        itemStyle: {
+          color: '#F54F4A'
+        }
       }],
-      itemStyle: {color: '#F54F4A'}
+      itemStyle: {
+        color: '#F54F4A'
+      }
     }, {
       value: 9,
       children: [{
         value: 4,
         children: [{
           value: 2,
-          itemStyle: {color: '#FF8C75'}
+          itemStyle: {
+            color: '#FF8C75'
+          }
         }, {
           children: [{
             value: 1,
-            itemStyle: {color: '#F54F4A'}
+            itemStyle: {
+              color: '#F54F4A'
+            }
           }]
         }],
-        itemStyle: {color: '#F54F4A'}
+        itemStyle: {
+          color: '#F54F4A'
+        }
       }, {
         children: [{
           value: 3,
@@ -127,58 +153,88 @@ const monochromeData = {
             value: 1
           }, {
             value: 1,
-            itemStyle: {color: '#FF8C75'}
+            itemStyle: {
+              color: '#FF8C75'
+            }
           }]
         }],
-        itemStyle: {color: '#FFB499'}
+        itemStyle: {
+          color: '#FFB499'
+        }
       }],
-      itemStyle: {color: '#FF8C75'}
+      itemStyle: {
+        color: '#FF8C75'
+      }
     }, {
       value: 7,
       children: [{
         children: [{
           value: 1,
-          itemStyle: {color: '#FFB499'}
+          itemStyle: {
+            color: '#FFB499'
+          }
         }, {
           value: 3,
           children: [{
             value: 1,
-            itemStyle: {color: '#FF8C75'}
+            itemStyle: {
+              color: '#FF8C75'
+            }
           }, {
             value: 1
           }],
-          itemStyle: {color: '#FF8C75'}
+          itemStyle: {
+            color: '#FF8C75'
+          }
         }, {
           value: 2,
           children: [{
             value: 1
           }, {
             value: 1,
-            itemStyle: {color: '#F54F4A'}
+            itemStyle: {
+              color: '#F54F4A'
+            }
           }],
-          itemStyle: {color: '#F54F4A'}
+          itemStyle: {
+            color: '#F54F4A'
+          }
         }],
-        itemStyle: {color: '#FFB499'}
+        itemStyle: {
+          color: '#FFB499'
+        }
       }],
-      itemStyle: {color: '#F54F4A'}
+      itemStyle: {
+        color: '#F54F4A'
+      }
     }, {
       children: [{
         value: 6,
         children: [{
           value: 1,
-          itemStyle: {color: '#FF8C75'}
+          itemStyle: {
+            color: '#FF8C75'
+          }
         }, {
           value: 2,
           children: [{
             value: 2,
-            itemStyle: {color: '#FF8C75'}
+            itemStyle: {
+              color: '#FF8C75'
+            }
           }],
-          itemStyle: {color: '#F54F4A'}
+          itemStyle: {
+            color: '#F54F4A'
+          }
         }, {
           value: 1,
-          itemStyle: {color: '#FFB499'}
+          itemStyle: {
+            color: '#FFB499'
+          }
         }],
-        itemStyle: {color: '#FFB499'}
+        itemStyle: {
+          color: '#FFB499'
+        }
       }, {
         value: 3,
         children: [{
@@ -186,14 +242,20 @@ const monochromeData = {
         }, {
           children: [{
             value: 1,
-            itemStyle: {color: '#FF8C75'}
+            itemStyle: {
+              color: '#FF8C75'
+            }
           }]
         }, {
           value: 1
         }],
-        itemStyle: {color: '#FFB499'}
+        itemStyle: {
+          color: '#FFB499'
+        }
       }],
-      itemStyle: {color: '#F54F4A'}
+      itemStyle: {
+        color: '#F54F4A'
+      }
     }]
   }]
 }
@@ -920,114 +982,112 @@ const drinkData = {
 export default {
   name: '旭日图',
   type: 'sunburst',
-  chartData: [
-    {
-      title: 'Basic Sunburst',
-      data: baseData,
-      settings: {
-        radius: [0, '80%'],
-        label: {
-          rotate: 0
-        },
-        tooltip: {
-          show: true
-        }
-      }
-    }, {
-      title: 'Monochrome Sunburst',
-      data: monochromeData,
-      settings: {
-        radius: ['15%', '80%'],
-        sort: null,
-        highlightPolicy: 'ancestor',
-        itemStyle: {
-          color: '#ddd',
-          borderWidth: 2
-        }
-      }
-    }, {
-      title: 'Sunburst Label Rotate',
-      data: rotateData,
-      settings: {
-        silent: true,
-        radius: ['15%', '80%'],
-        sort: null,
-        highlightPolicy: 'ancestor',
-        label: {
-          color: '#fff',
-          textBorderColor: '#666',
-          textBorderWidth: 2,
-          borderColor: '#999',
-          borderWidth: 1,
-          formatter: function (param) {
-            let depth = param.treePathInfo.length
-            if (depth === 2) {
-              return 'radial'
-            } else if (depth === 3) {
-              return 'tangential'
-            } else if (depth === 4) {
-              return '0'
-            }
-          }
-        },
-        levels: [{}, {
-          itemStyle: {
-            color: 'red'
-          },
-          label: {
-            rotate: 'radial'
-          }
-        }, {
-          itemStyle: {
-            color: 'orange'
-          },
-          label: {
-            rotate: 'tangential'
-          }
-        }, {
-          itemStyle: {
-            color: 'yellow'
-          },
-          label: {
-            rotate: 0
-          }
-        }]
-      }
-    }, {
-      title: 'Drink Flavors',
-      data: drinkData,
-      settings: {
-        highlightPolicy: 'ancestor',
-        radius: [0, '100%'],
-        sort: null,
-        levels: [{}, {
-          r0: '15%',
-          r: '35%',
-          itemStyle: {
-            borderWidth: 2
-          },
-          label: {
-            rotate: 'tangential'
-          }
-        }, {
-          r0: '35%',
-          r: '70%',
-          label: {
-            align: 'right'
-          }
-        }, {
-          r0: '70%',
-          r: '72%',
-          label: {
-            position: 'outside',
-            padding: 3,
-            silent: false
-          },
-          itemStyle: {
-            borderWidth: 3
-          }
-        }]
+  chartData: [{
+    title: 'Basic Sunburst',
+    data: baseData,
+    settings: {
+      radius: [0, '80%'],
+      label: {
+        rotate: 0
+      },
+      tooltip: {
+        show: true
       }
     }
-  ]
+  }, {
+    title: 'Monochrome Sunburst',
+    data: monochromeData,
+    settings: {
+      radius: ['15%', '80%'],
+      sort: null,
+      highlightPolicy: 'ancestor',
+      itemStyle: {
+        color: '#ddd',
+        borderWidth: 2
+      }
+    }
+  }, {
+    title: 'Sunburst Label Rotate',
+    data: rotateData,
+    settings: {
+      silent: true,
+      radius: ['15%', '80%'],
+      sort: null,
+      highlightPolicy: 'ancestor',
+      label: {
+        color: '#fff',
+        textBorderColor: '#666',
+        textBorderWidth: 2,
+        borderColor: '#999',
+        borderWidth: 1,
+        formatter: function (param) {
+          let depth = param.treePathInfo.length
+          if (depth === 2) {
+            return 'radial'
+          } else if (depth === 3) {
+            return 'tangential'
+          } else if (depth === 4) {
+            return '0'
+          }
+        }
+      },
+      levels: [{}, {
+        itemStyle: {
+          color: 'red'
+        },
+        label: {
+          rotate: 'radial'
+        }
+      }, {
+        itemStyle: {
+          color: 'orange'
+        },
+        label: {
+          rotate: 'tangential'
+        }
+      }, {
+        itemStyle: {
+          color: 'yellow'
+        },
+        label: {
+          rotate: 0
+        }
+      }]
+    }
+  }, {
+    title: 'Drink Flavors',
+    data: drinkData,
+    settings: {
+      highlightPolicy: 'ancestor',
+      radius: [0, '100%'],
+      sort: null,
+      levels: [{}, {
+        r0: '15%',
+        r: '35%',
+        itemStyle: {
+          borderWidth: 2
+        },
+        label: {
+          rotate: 'tangential'
+        }
+      }, {
+        r0: '35%',
+        r: '70%',
+        label: {
+          align: 'right'
+        }
+      }, {
+        r0: '70%',
+        r: '72%',
+        label: {
+          position: 'outside',
+          padding: 3,
+          silent: false
+        },
+        itemStyle: {
+          borderWidth: 3
+        }
+      }]
+    }
+  }]
 }

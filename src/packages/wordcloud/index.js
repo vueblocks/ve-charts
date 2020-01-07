@@ -1,3 +1,12 @@
-import VeWordcloudChart from './index.vue'
+import 'echarts-wordcloud/dist/echarts-wordcloud'
 
-export default VeWordcloudChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
+
+export default {
+  name: 'VeWordcloudChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().wordcloud
+  }
+}

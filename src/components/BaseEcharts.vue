@@ -4,7 +4,7 @@
 
 <script>
 import echarts from 'echarts/lib/echarts'
-import { debounce } from 'lodash'
+import { debounce } from 'lodash-es'
 import { addListener, removeListener } from 'resize-detector'
 import Vue from 'vue'
 // default echarts's component in VeCharts
@@ -41,6 +41,10 @@ const EVENTS = [
   'unfocusnodeadjacency',
   'brush',
   'brushselected',
+  'globalcursortaken',
+  'rendered',
+  'finished',
+  // mouse event
   'click',
   'dblclick',
   'mouseover',

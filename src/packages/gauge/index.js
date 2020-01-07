@@ -1,3 +1,12 @@
-import VeGaugeChart from './index.vue'
+import 'echarts/lib/chart/gauge'
 
-export default VeGaugeChart
+import HocEcharts from '../../components/HocEcharts.vue'
+import Chart from './chart'
+
+export default {
+  name: 'VeGaugeChart',
+  mixins: [HocEcharts],
+  created () {
+    this.chartHandler = new Chart().gauge
+  }
+}
