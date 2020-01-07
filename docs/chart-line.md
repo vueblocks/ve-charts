@@ -31,6 +31,35 @@
   }
 </script>
 
+## 折线图设置 - 平滑曲线
+
+<vuep template="#smoothLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="smoothLine">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+  module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'Vue',
+          data: [30, 40, 35, 50, 49, 70, 90]
+        }]
+      }
+      this.chartSettings = {
+        smooth: true
+      }
+    }
+  }
+</script>
+
 ## 区域折线图
 
 <vuep template="#areaLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
@@ -198,35 +227,6 @@
       }
       this.chartSettings = {
         step: 'start'
-      }
-    }
-  }
-</script>
-
-## 折线图设置 - 平滑曲线
-
-<vuep template="#smoothLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
-
-<script v-pre type="text/x-template" id="smoothLine">
-<template>
-  <ve-line-chart :data="chartData" :settings="chartSettings" />
-</template>
-
-<script>
-  module.exports = {
-    created () {
-      this.chartData = {
-        dimensions: {
-          name: 'Week',
-          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
-        },
-        measures: [{
-          name: 'Vue',
-          data: [30, 40, 35, 50, 49, 70, 90]
-        }]
-      }
-      this.chartSettings = {
-        smooth: true
       }
     }
   }

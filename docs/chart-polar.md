@@ -234,3 +234,12 @@
     }
   }
 </script>
+
+## settings 配置项
+
+| 配置项 | 说明 | 类型 | 可选值 | 用法 |
+| --- | --- | --- | --- | --- |
+| polarType | 渲染 polar 的系列类型 | String | `bar`、`line` | - |
+| stack | 设置数据堆叠 | Object | - |  |
+| areaStyle | 设置面积图，当 polarType 为 `line` 时生效 | Object | - |  |
+| radial | 设置数据展示方式 | Boolean | `true`：径向、`false`：环形 | 默认：`false`，代表环形 |
