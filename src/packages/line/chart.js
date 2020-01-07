@@ -103,6 +103,7 @@ class LineChart extends BaseChart {
       step = null,
       symbol = 'emptyCircle',
       symbolSize = 4,
+      itemStyle = {},
       ...others
     } = settings
     const series = []
@@ -128,6 +129,7 @@ class LineChart extends BaseChart {
         step,
         symbol,
         symbolSize,
+        itemStyle: itemStyle[name] ? itemStyle[name] : {},
         ...others
       })
     })
