@@ -21,6 +21,7 @@
   - [地图](chart-geo.md)
   - [词云图](chart-wordcloud.md)
   - [水球图](chart-liquidfill.md)
+  - [极区图](chart-polar.md)
 
 - 其他
   - [属性配置](setting-demo.md)

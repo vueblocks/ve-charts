@@ -2,8 +2,8 @@
   "name": "ve-charts",
   "version": "0.8.4",
   "description": "ECharts 4.x for Vue.js 2.x.",
-  "main": "lib/ve-charts.min.js",
-  "unpkg": "lib/ve-charts.min.js",
+  "main": "lib/ve-charts.umd.min.js",
+  "unpkg": "lib/ve-charts.umd.min.js",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
