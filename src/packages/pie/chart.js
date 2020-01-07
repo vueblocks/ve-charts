@@ -23,14 +23,35 @@ class PieChart extends BaseChart {
   }
 
   static getPieLegend (args) {
-    const { settings } = args
+    const { data, settings } = args
+    let dimensions
+    if (Array.isArray(data) && data.length > 0) {
+      dimensions = data[0].dimensions
+    } else {
+      dimensions = data.dimensions
+    }
     const {
       legendType = 'plain',
-      legendPadding = 5
+      legendPadding = 5,
+      legendSelected = dimensions.data.length
     } = settings
+
+    const getSelected = n => {
+      let obj = {}
+      // console.log(dimensions.data)
+      const legendNames = dimensions.data.slice(n)
+
+      for (let legend of legendNames) {
+        obj[legend] = false
+      }
+
+      return obj
+    }
+
     return {
       type: legendType,
-      padding: legendPadding
+      padding: legendPadding,
+      selected: getSelected(legendSelected)
     }
   }
 
@@ -40,12 +61,12 @@ class PieChart extends BaseChart {
     let series = []
 
     if (data.length === undefined) {
-      series = PieChart.handleData(data, settings, isDonut)
+      series = this.handleData(data, settings, isDonut)
     } else if (data.length === 1) {
-      series = PieChart.handleData(data[0], settings, isDonut)
+      series = this.handleData(data[0], settings, isDonut)
     } else if (data.length === 2) {
       for (let index in data) {
-        series.push(PieChart.handleData(data[index], settings[index], isDonut, index)[0])
+        series.push(this.handleData(data[index], settings[index], isDonut, index)[0])
       }
     }
     return series
@@ -86,7 +107,7 @@ class PieChart extends BaseChart {
 
     const tooltip = tooltipVisible && PieChart.getPieTooltip()
 
-    const legend = legendVisible && PieChart.getPieLegend({ settings })
+    const legend = legendVisible && PieChart.getPieLegend({ data, settings })
 
     const series = PieChart.getPieSeries({
       data,
@@ -103,7 +124,7 @@ class PieChart extends BaseChart {
     }
 
     // console.log(options)
-    console.log(JSON.stringify(options))
+    // console.log(JSON.stringify(options))
     return options
   }
 

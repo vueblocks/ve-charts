@@ -9,25 +9,28 @@ const baseData = {
   }]
 }
 
-const pieDonut = [{
-  dimensions: {
-    name: '渠道',
-    data: ['移动设备', 'PC']
+const pieDonut = [
+  {
+    dimensions: {
+      name: '渠道',
+      data: ['移动设备', 'PC']
+    },
+    measures: [{
+      name: 'PV',
+      data: [150000, 90000]
+    }]
   },
-  measures: [{
-    name: 'PV',
-    data: [150000, 90000]
-  }]
-}, {
-  dimensions: {
-    name: '渠道',
-    data: ['APP', 'M端', '微信', '手Q', '小程序', 'PC']
-  },
-  measures: [{
-    name: 'PV',
-    data: [40000, 30000, 20000, 50000, 10000, 90000]
-  }]
-}]
+  {
+    dimensions: {
+      name: '渠道',
+      data: ['APP', 'M端', '微信', '手Q', '小程序', 'PC']
+    },
+    measures: [{
+      name: 'PV',
+      data: [40000, 30000, 20000, 50000, 10000, 90000]
+    }]
+  }
+]
 
 export default {
   name: '饼图',
@@ -42,7 +45,8 @@ export default {
       title: '饼图 - 选中扇区',
       data: baseData,
       settings: {
-        selectedMode: 'single'
+        selectedMode: 'single',
+        legendSelected: 3
       }
     },
     {

@@ -73,6 +73,17 @@ export default {
             'React',
             'Angular'
           ]
+        },
+        itemStyle: {
+          'Vue': {
+            color: '#f4a'
+          },
+          'React': {
+            color: '#af4'
+          },
+          'Angular': {
+            color: '#4af'
+          }
         }
       }
     },
