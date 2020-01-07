@@ -60,13 +60,17 @@ class PolarChart extends BaseChart {
   }
 
   polar (data, settings, extra) {
-    const { isEmptyData } = extra
+    const {
+      legendVisible,
+      tooltipVisible,
+      isEmptyData
+    } = extra
 
     if (isEmptyData) return {}
 
-    const tooltip = PolarChart.getTooltip(settings)
+    const tooltip = tooltipVisible && PolarChart.getTooltip(settings)
 
-    const legend = PolarChart.getLegend(data)
+    const legend = legendVisible && PolarChart.getLegend(data)
 
     const polar = PolarChart.getPolar(settings)
 

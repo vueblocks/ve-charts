@@ -127,6 +127,9 @@ export default {
         polarType: 'bar',
         stack: {},
         radial: true
+      },
+      xprops: {
+        legendVisible: false
       }
     },
     {
