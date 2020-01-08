@@ -1,4 +1,4 @@
-import 'echarts-wordcloud/dist/echarts-wordcloud'
+import 'echarts-wordcloud/dist/echarts-wordcloud.min'
 
 import HocEcharts from '../../components/HocEcharts.vue'
 import Chart from './chart'
