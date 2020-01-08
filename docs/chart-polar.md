@@ -1,8 +1,10 @@
 # 极区图
 
+极区图又名极地图，是以极地坐标系上绘制的面积图或者柱形图/条形图，极区图用半径/圆周表示数值或者类目
+
 ## 示例
 
-<!-- <iframe width="100%" height="470" src="//jsfiddle.net/vecharts/u9p0kvkq/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe> -->
+<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/n8oxpfu6/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 ## 基础极区图

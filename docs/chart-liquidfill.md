@@ -3,6 +3,9 @@
 > Tips: 水球图基于 ECharts 的 扩展 `echarts-liquidfill` 封装，在使用前需安装此扩展
 > `npm install echarts-liquidfill`
 
+## 示例
+
+<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/cmh4dvuq/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ## 简单水球图
 

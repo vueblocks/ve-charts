@@ -1,5 +1,9 @@
 # 地图
 
+## 示例
+
+<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/84kfcbsg/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 ## 简单地图
 
 <vuep template="#basicGeo" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
