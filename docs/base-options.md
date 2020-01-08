@@ -145,30 +145,32 @@ data: {
 
 ## 图表配置
 
-[折线图配置](https://vueblocks.github.io/ve-charts/#/chart-line)
+* [折线图](https://vueblocks.github.io/ve-charts/#/chart-line)
 
-[柱状图配置](https://vueblocks.github.io/ve-charts/#/chart-bar)
+* [柱状图](https://vueblocks.github.io/ve-charts/#/chart-bar)
 
-[饼图配置](https://vueblocks.github.io/ve-charts/#/chart-pie)
+* [饼图](https://vueblocks.github.io/ve-charts/#/chart-pie)
 
-[环形图配置](https://vueblocks.github.io/ve-charts/#/chart-donut)
+* [环形图](https://vueblocks.github.io/ve-charts/#/chart-donut)
 
-[雷达图配置](https://vueblocks.github.io/ve-charts/#/chart-radar)
+* [雷达图](https://vueblocks.github.io/ve-charts/#/chart-radar)
 
-[漏斗图配置](https://vueblocks.github.io/ve-charts/#/chart-funnel)
+* [漏斗图](https://vueblocks.github.io/ve-charts/#/chart-funnel)
 
-[散点图配置](https://vueblocks.github.io/ve-charts/#/chart-scatter)
+* [散点图](https://vueblocks.github.io/ve-charts/#/chart-scatter)
 
-[仪表盘配置](https://vueblocks.github.io/ve-charts/#/chart-gauge)
+* [仪表盘](https://vueblocks.github.io/ve-charts/#/chart-gauge)
 
-[旭日图配置](https://vueblocks.github.io/ve-charts/#/chart-sunburst)
+* [旭日图](https://vueblocks.github.io/ve-charts/#/chart-sunburst)
 
-[矩形树图配置](https://vueblocks.github.io/ve-charts/#/chart-treemap)
+* [矩形树图](https://vueblocks.github.io/ve-charts/#/chart-treemap)
 
-[树图配置](https://vueblocks.github.io/ve-charts/#/chart-tree)
+* [树图](https://vueblocks.github.io/ve-charts/#/chart-tree)
 
-[地图](https://vueblocks.github.io/ve-charts/#/chart-geo)
+* [地图](https://vueblocks.github.io/ve-charts/#/chart-geo)
 
-[词云图](https://vueblocks.github.io/ve-charts/#/chart-wordcloud)
+* [词云图](https://vueblocks.github.io/ve-charts/#/chart-wordcloud)
 
-[水球图](https://vueblocks.github.io/ve-charts/#/chart-liquidfill)
+* [水球图](https://vueblocks.github.io/ve-charts/#/chart-liquidfill)
+
+* [极区图](https://vueblocks.github.io/ve-charts/#/chart-polar)
