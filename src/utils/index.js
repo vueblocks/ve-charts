@@ -78,7 +78,12 @@ const getDataset = (data, settings, extra) => {
     const dyadicArray = cloneData.measures.map(col => col.data)
     // 横表转竖表 用于计算百分比堆叠图
     const zipped = zip(...dyadicArray)
-    zipSumed = zipped.map(v => sum(v))
+    zipSumed = zipped.map(v => {
+      const arr = v.map(v => {
+        return validateNumber(v) ? v : parseFloat(v, 10)
+      })
+      return sum(arr)
+    })
   }
 
   cloneData.measures.map(row => {
@@ -92,7 +97,7 @@ const getDataset = (data, settings, extra) => {
   })
 
   let dims = []
-  const firstDim = isUndefined(dimName) ? 'dimensition' : dimName
+  const firstDim = isUndefined(dimName) ? 'dimension' : dimName
   dims.push(firstDim)
   dims = [...dims, ...cloneData.measures.map(v => v.name)]
 
