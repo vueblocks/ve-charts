@@ -13,6 +13,7 @@ import VeTreeChart from './packages/tree'
 import VeWordcloudChart from './packages/wordcloud'
 import VeLiquidfillChart from './packages/liquidfill'
 import VePolarChart from './packages/polar'
+import VeSankeyChart from './packages/sankey'
 
 const components = [
   VeBarChart,
@@ -29,7 +30,8 @@ const components = [
   VeTreeChart,
   VeWordcloudChart,
   VeLiquidfillChart,
-  VePolarChart
+  VePolarChart,
+  VeSankeyChart
 ]
 
 const install = Vue => {
@@ -62,5 +64,6 @@ export default {
   VeTreeChart,
   VeWordcloudChart,
   VeLiquidfillChart,
-  VePolarChart
+  VePolarChart,
+  VeSankeyChart
 }
