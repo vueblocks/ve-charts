@@ -22,6 +22,7 @@
   - [词云图](chart-wordcloud.md)
   - [水球图](chart-liquidfill.md)
   - [极区图](chart-polar.md)
+  - [桑基图](chart-sankey.md)
 
 - 其他
   - [属性配置](setting-demo.md)
