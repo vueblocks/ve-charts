@@ -5,24 +5,18 @@ import {
 } from '../constant/sankeyData'
 
 const sankeyData1 = {
-  measures: {
-    nodes: base.nodes,
-    links: base.links
-  }
+  dimensions: base.nodes,
+  measures: base.links
 }
 
 const sankeyData2 = {
-  measures: {
-    nodes: outcome.nodes,
-    links: outcome.links
-  }
+  dimensions: outcome.nodes,
+  measures: outcome.links
 }
 
 const sankeyData3 = {
-  measures: {
-    nodes: product.nodes,
-    links: product.links
-  }
+  dimensions: product.nodes,
+  measures: product.links
 }
 
 export default {
@@ -35,10 +29,40 @@ export default {
       settings: {}
     },
     {
+      title: '纵向桑基图',
+      data: sankeyData1,
+      settings: {
+        orient: 'vertical',
+        label: {
+          position: 'top'
+        }
+      }
+    },
+    {
       title: '高亮节点',
       data: sankeyData2,
       settings: {
-        focusNodeAdjacency: 'allEdges'
+        focusNodeAdjacency: true
+      }
+    },
+    {
+      title: '暗色背景',
+      data: sankeyData2,
+      settings: {
+        focusNodeAdjacency: true,
+        label: {
+          normal: {
+            color: '#fff'
+          }
+        },
+        lineStyle: {
+          normal: {
+            opacity: 0.5
+          }
+        }
+      },
+      xprops: {
+        backgroundColor: '#0e2439'
       }
     },
     {
@@ -46,6 +70,55 @@ export default {
       data: sankeyData3,
       settings: {
         draggable: false
+      }
+    },
+    {
+      title: 'Levels Setting',
+      data: sankeyData3,
+      settings: {
+        draggable: false,
+        levels: [
+          {
+            depth: 0,
+            itemStyle: {
+              color: '#fbb4ae'
+            },
+            lineStyle: {
+              color: 'source',
+              opacity: 0.6
+            }
+          },
+          {
+            depth: 1,
+            itemStyle: {
+              color: '#b3cde3'
+            },
+            lineStyle: {
+              color: 'source',
+              opacity: 0.6
+            }
+          },
+          {
+            depth: 2,
+            itemStyle: {
+              color: '#ccebc5'
+            },
+            lineStyle: {
+              color: 'source',
+              opacity: 0.6
+            }
+          },
+          {
+            depth: 3,
+            itemStyle: {
+              color: '#decbe4'
+            },
+            lineStyle: {
+              color: 'source',
+              opacity: 0.6
+            }
+          }
+        ]
       }
     }
   ]

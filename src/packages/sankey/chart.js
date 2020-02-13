@@ -7,8 +7,7 @@ class SankeyChart extends BaseChart {
 
   // build series
   static getSeries ({ data, settings }) {
-    const { measures } = data
-    const { nodes, links } = measures
+    const { dimensions, measures } = data
     const {
       orient = 'horizontal',
       draggable = true,
@@ -18,8 +17,8 @@ class SankeyChart extends BaseChart {
 
     return {
       type: 'sankey',
-      data: nodes,
-      edges: links,
+      data: dimensions, // same as nodes
+      edges: measures, // same as links
       orient,
       draggable,
       focusNodeAdjacency,
