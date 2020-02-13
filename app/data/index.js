@@ -13,6 +13,7 @@ import wordcloud from './wordcloud'
 import geo from './geo'
 import liquidfill from './liquidfill'
 import polar from './polar'
+import sankey from './sankey'
 
 export default {
   bar,
@@ -29,5 +30,6 @@ export default {
   wordcloud,
   geo,
   liquidfill,
-  polar
+  polar,
+  sankey
 }
