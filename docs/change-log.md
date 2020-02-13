@@ -2,7 +2,7 @@
 
 ## v0.8.6
 
-* **新增** - [桑基图]()
+* **新增** - [桑基图](https://vueblocks.github.io/ve-charts/#/chart-sankey)
 
 ## v0.8.5
 

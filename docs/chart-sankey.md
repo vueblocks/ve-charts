@@ -4,7 +4,7 @@
 
 ## 示例
 
-<!-- <iframe width="100%" height="470" src="//jsfiddle.net/vecharts/n8oxpfu6/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe> -->
+<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/tzm4bn8c/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 ## 基础桑基图
