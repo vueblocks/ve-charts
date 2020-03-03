@@ -57,22 +57,29 @@ class ScatterChart extends BaseChart {
 
   static getScatterXAxis (args) {
     const { settings } = args
-    const { xAxisScale = false } = settings
-    return {
+    const { xAxisScale = false, xAxisName, xAxisNameGap, xAxisNameLocation } = settings
+    let axisValue = {
       scale: xAxisScale,
+      nameGap: 5,
       splitLine: {
         lineStyle: {
           type: 'dashed'
         }
       }
     }
+    // x轴名称
+    if (xAxisName) axisValue['name'] = xAxisName
+    // 坐标轴名称与轴线之间的距离
+    if (xAxisNameGap) axisValue['nameGap'] = xAxisNameGap
+    // 坐标轴名称显示位置
+    if (xAxisNameLocation) axisValue['nameLocation'] = xAxisNameLocation
+    return axisValue
   }
 
   static getScatterYAxis (args) {
     const { settings } = args
-    const { yAxisScale = false } = settings
-
-    return {
+    const { yAxisScale = false, yAxisName } = settings
+    let axisValue = {
       scale: yAxisScale,
       splitLine: {
         lineStyle: {
@@ -80,6 +87,8 @@ class ScatterChart extends BaseChart {
         }
       }
     }
+    if (yAxisName) axisValue['name'] = yAxisName
+    return axisValue
   }
 
   scatter (data, settings, extra) {

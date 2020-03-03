@@ -147,7 +147,11 @@ export default {
       data: baseData,
       settings: {
         xAxisScale: true,
-        yAxisScale: true
+        yAxisScale: true,
+        yAxisName: '体重',
+        xAxisName: '身高',
+        xAxisNameGap: -5,
+        xAxisNameLocation: 'middle'
       },
       xprops: {
         tooltip: {
