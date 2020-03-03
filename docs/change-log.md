@@ -1,5 +1,9 @@
 # 更新日志
 
+## v0.8.7
+
+* **优化** - 散点图增加坐标轴名称设置
+
 ## v0.8.6
 
 * **新增** - [桑基图](https://vueblocks.github.io/ve-charts/#/chart-sankey)
