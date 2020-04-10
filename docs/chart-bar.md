@@ -658,3 +658,5 @@
 | yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
 | yAxisName | 坐标轴名称 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
 | percentage | 是否是百分比堆叠柱状图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
+| xAxisInverse | X轴方向反向| Boolean | `true`/`false` | 默认 `false`  参见[文档](https://www.echartsjs.com/zh/option.html#xAxis.inverse) |
+| yAxisInverse | Y轴方向反向| Boolean | `true`/`false` | 默认 `false`   参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.inverse) |

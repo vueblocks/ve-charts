@@ -162,12 +162,14 @@ export default {
       }
     },
     {
-      title: '条形图',
+      title: '条形图-X轴Y轴翻转',
       data: simpleData,
       settings: {
         direction: 'row',
         xAxisLabelType: ['zh'],
-        xAxisLabelDigits: 0
+        xAxisLabelDigits: 0,
+        yAxisInverse: true,
+        xAxisInverse: true
       }
     },
     {
