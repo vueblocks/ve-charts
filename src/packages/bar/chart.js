@@ -209,6 +209,7 @@ class BarChart extends BaseChart {
     } = settings
 
     // 默认柱状图
+    // TODO 此处注意值与命名语义相反，true代表是条形图，false是柱图
     const isBar = direction !== 'column' && direction === 'row'
 
     const defaultMeaAxisType = secondMeaAxis !== null ? ['normal', 'normal'] : ['normal']
@@ -240,6 +241,11 @@ class BarChart extends BaseChart {
 
     const series = BarChart.getBarSeries(data, settings, isBar)
 
+    // 处理X轴和Y轴翻转
+    const { yAxisInverse, xAxisInverse } = settings
+    if (yAxisInverse !== undefined) yAxis.forEach(i => { i.inverse = yAxisInverse })
+    if (xAxisInverse !== undefined) xAxis.forEach(i => { i.inverse = xAxisInverse })
+
     // build echarts options
     const options = {
       grid,
@@ -251,7 +257,7 @@ class BarChart extends BaseChart {
       series
     }
 
-    console.log(options)
+    // console.log(options)
 
     return options
   }
