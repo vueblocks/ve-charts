@@ -97,9 +97,9 @@ class GeoChart extends BaseChart {
       zoom = 1,
       lineEffectVisible = false,
       lineEffect = {},
-      overlayEffectVisible = false,
+      overlayEffectVisible = true,
       overlayEffect = {},
-      effectScatterLabelVisible,
+      effectScatterLabelVisible = false,
       effectScatterLabel = {},
       lineStyle = {},
       connect
@@ -126,6 +126,10 @@ class GeoChart extends BaseChart {
             zlevel: 1,
             effect: {
               show: lineEffectVisible,
+              period: 5,
+              trailLength: 0,
+              color: '#fff',
+              symbolSize: 3,
               ...lineEffect
             },
             lineStyle: {
@@ -142,6 +146,10 @@ class GeoChart extends BaseChart {
             zlevel: 2,
             effect: {
               show: overlayEffectVisible,
+              period: 5,
+              trailLength: 0.4,
+              symbol: 'arrow',
+              symbolSize: 6,
               ...overlayEffect
             },
             lineStyle: {
