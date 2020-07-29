@@ -11,6 +11,7 @@ import treemap from './treemap'
 import tree from './tree'
 import wordcloud from './wordcloud'
 import geo from './geo'
+import geolines from './geolines'
 import liquidfill from './liquidfill'
 import polar from './polar'
 import sankey from './sankey'
@@ -29,6 +30,7 @@ export default {
   tree,
   wordcloud,
   geo,
+  geolines,
   liquidfill,
   polar,
   sankey
