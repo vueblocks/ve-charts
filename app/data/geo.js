@@ -76,37 +76,9 @@ const geolinesData = {
       name: '北京',
       data: [
         { name: '上海', value: randomData() },
-        { name: '重庆', value: randomData() },
-        { name: '河北', value: randomData() },
-        { name: '河南', value: randomData() },
-        { name: '云南', value: randomData() },
-        { name: '辽宁', value: randomData() },
-        { name: '黑龙江', value: randomData() },
-        { name: '湖南', value: randomData() },
-        { name: '安徽', value: randomData() },
-        { name: '山东', value: randomData() },
-        { name: '新疆', value: randomData() },
-        { name: '江苏', value: randomData() },
-        { name: '浙江', value: randomData() },
-        { name: '江西', value: randomData() },
-        { name: '湖北', value: randomData() },
-        { name: '广西', value: randomData() },
-        { name: '甘肃', value: randomData() },
-        { name: '山西', value: randomData() },
-        { name: '内蒙古', value: randomData() },
-        { name: '陕西', value: randomData() },
-        { name: '吉林', value: randomData() },
-        { name: '福建', value: randomData() },
-        { name: '贵州', value: randomData() },
-        { name: '广东', value: randomData() },
-        { name: '青海', value: randomData() },
-        { name: '西藏', value: randomData() },
-        { name: '四川', value: randomData() },
-        { name: '宁夏', value: randomData() },
-        { name: '海南', value: randomData() },
-        { name: '台湾', value: randomData() },
-        { name: '香港', value: randomData() },
-        { name: '澳门', value: randomData() }
+        { name: '齐齐哈尔市', value: randomData() },
+        { name: '西宁市', value: randomData() },
+        { name: '昆明市', value: randomData() }
       ]
     }
   ]
@@ -175,13 +147,12 @@ export default {
       data: geolinesData,
       settings: {
         mode: 'lines',
-        visualMapVisible: true,
-        visualMap: {
-          inRange: {
-            color: ['#a6c84c', '#ffa022', '#46bee9']
-          }
+        lineStyle: {
+          color: '#ED3574',
+          width: 1,
+          opacity: 0.6,
+          curveness: 0.2
         },
-        symbolSize: 10,
         lineEffectVisible: false,
         lineEffect: {
           period: 0,
@@ -189,16 +160,10 @@ export default {
           color: '#fff',
           symbolSize: 3
         },
-        lineStyle: {
-          color: '#ED3574',
-          width: 1,
-          opacity: 0.6,
-          curveness: 0.2
-        },
         overlayEffectVisible: true,
         overlayEffect: {
           period: 5,
-          trailLength: 0.7,
+          trailLength: 0.4,
           symbol: 'arrow',
           symbolSize: 6
         },
@@ -206,6 +171,13 @@ export default {
         effectScatterLabel: {
           normal: { position: 'left' }
         },
+        visualMapVisible: true,
+        visualMap: {
+          inRange: {
+            color: [ '#C6FFDD', '#FBD786', '#f7797d' ]
+          }
+        },
+        symbolSize: 10,
         itemStyle: {
           normal: {
             areaColor: '#020933',
@@ -217,14 +189,10 @@ export default {
           emphasis: {
             areaColor: '#2B91B7'
           }
-        },
-        labelVisible: true,
-        label: {
-          normal: { show: true, color: '#fff' }, emphasis: { show: true }
         }
       },
       xprops: {
-        legendVisible: true
+        legendVisible: false
       }
     }
   ]
