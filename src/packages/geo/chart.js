@@ -46,6 +46,40 @@ class GeoChart extends BaseChart {
     return res
   }
 
+  static convertLinesData (name, data) {
+    const res = []
+    const fromCoord = cityGeo[name] || cityGeo2[name]
+    if (!fromCoord) return []
+    for (let i = 0, len = data.length; i < len; i++) {
+      const dataItem = data[i]
+      const toCoord = cityGeo[dataItem.name] || cityGeo2[dataItem.name]
+      if (toCoord) {
+        res.push({
+          fromName: name,
+          toName: dataItem.name,
+          coords: [fromCoord, toCoord],
+          value: dataItem.value
+        })
+      }
+    }
+    return res
+  }
+
+  static convertEffectScatterData (data) {
+    const res = []
+    for (let i = 0, len = data.length; i < len; i++) {
+      const dataItem = data[i]
+      const toCoord = cityGeo[dataItem.name] || cityGeo2[dataItem.name]
+      if (toCoord) {
+        res.push({
+          name: dataItem.name,
+          value: toCoord.concat([dataItem.value])
+        })
+      }
+    }
+    return res
+  }
+
   static getGeoData (args) {
     const { data, settings } = args
     const { measures } = data
@@ -54,14 +88,23 @@ class GeoChart extends BaseChart {
       mapName = 'china',
       labelVisible,
       isMapMode,
+      isLinesMode,
       itemStyle,
       visualMap,
       label,
       symbolSize = 10,
       roam = false,
       zoom = 1,
+      lineEffectVisible = false,
+      lineEffect = {},
+      overlayEffectVisible = true,
+      overlayEffect = {},
+      effectScatterLabelVisible = false,
+      effectScatterLabel = {},
+      lineStyle = {},
       connect
     } = settings
+
     const [legendData, seriesData] = [[], []]
 
     // computed max value
@@ -71,38 +114,137 @@ class GeoChart extends BaseChart {
     }).reduce((a, b) => a + b)
 
     measures && measures.forEach(({ name, data }, index) => {
-      const mapData = isMapMode ? data : GeoChart.convertCityData(data, { index, connect })
+      const mapData = isMapMode ? data : isLinesMode ? GeoChart.convertLinesData(name, data) : GeoChart.convertCityData(data, { index, connect })
 
       const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
-
-      seriesData[index] = {
-        name,
-        type: mode,
-        roam,
-        visualMap,
-        label: labelVisible ? label : unShowLabel,
-        selectedMode: 'single',
-        mapType: mapName,
-        data: mapData,
-        zoom
-      }
-
-      if (itemStyle) {
-        seriesData[index].itemStyle = itemStyle
-      }
-
-      if (!isMapMode) {
-        seriesData[index] = { ...seriesData[index],
-          ...{
+      if (isLinesMode) {
+        seriesData.push(
+          // lines trailLength settings
+          {
+            name: name,
+            type: 'lines',
+            zlevel: 1,
+            effect: {
+              show: lineEffectVisible,
+              period: 5,
+              trailLength: 0,
+              color: '#fff',
+              symbolSize: 3,
+              ...lineEffect
+            },
+            lineStyle: {
+              normal: {
+                width: 0
+              }
+            },
+            data: mapData
+          },
+          // overlay and lines settings
+          {
+            name: name,
+            type: 'lines',
+            zlevel: 2,
+            effect: {
+              show: overlayEffectVisible,
+              period: 5,
+              trailLength: 0.4,
+              symbol: 'arrow',
+              symbolSize: 6,
+              ...overlayEffect
+            },
+            lineStyle: {
+              normal: {
+                color: '#ED3574',
+                width: 1,
+                opacity: 0.6,
+                curveness: 0.2,
+                ...lineStyle
+              }
+            },
+            data: mapData
+          },
+          // target nodes settings
+          {
+            name: name,
+            type: 'effectScatter',
             coordinateSystem: 'geo',
-            label: unShowLabel,
-            symbolSize,
+            zlevel: 2,
             showEffectOn: 'render',
             rippleEffect: {
               brushType: 'stroke'
             },
-            itemStyle: {}
-          } }
+            label: effectScatterLabelVisible ? {
+              normal: {
+                show: true,
+                formatter: '{b}',
+                ...effectScatterLabel.normal
+              },
+              emphasis: {
+                ...effectScatterLabel.emphasis
+              }
+            } : unShowLabel,
+            symbolSize: symbolSize,
+            itemStyle: {},
+            data: GeoChart.convertEffectScatterData(data)
+          },
+          // source nodes settings
+          {
+            name: name,
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            zlevel: 3,
+            showEffectOn: 'render',
+            rippleEffect: {
+              brushType: 'stroke'
+            },
+            label: effectScatterLabelVisible ? {
+              normal: {
+                show: true,
+                formatter: '{b}',
+                ...effectScatterLabel.normal
+              },
+              emphasis: {
+                ...effectScatterLabel.emphasis
+              }
+            } : unShowLabel,
+            symbolSize: symbolSize,
+            itemStyle: {},
+            data: [{
+              name: name,
+              value: cityGeo[name] || cityGeo2[name]
+            }]
+          }
+        )
+      } else {
+        seriesData[index] = {
+          name,
+          type: mode,
+          roam,
+          visualMap,
+          label: labelVisible ? label : unShowLabel,
+          selectedMode: 'single',
+          mapType: mapName,
+          data: mapData,
+          zoom
+        }
+
+        if (itemStyle) {
+          seriesData[index].itemStyle = itemStyle
+        }
+
+        if (!isMapMode) {
+          seriesData[index] = { ...seriesData[index],
+            ...{
+              coordinateSystem: 'geo',
+              label: unShowLabel,
+              symbolSize,
+              showEffectOn: 'render',
+              rippleEffect: {
+                brushType: 'stroke'
+              },
+              itemStyle: {}
+            } }
+        }
       }
 
       legendData.push(name)
@@ -115,12 +257,24 @@ class GeoChart extends BaseChart {
     }
   }
 
-  static getGeoTooltip (isMapMode) {
+  static getGeoTooltip (isMapMode, isLinesMode) {
     const formatter = function (params) {
-      const { seriesName, name, value, marker } = params
+      const { seriesName, name, value, marker, seriesType, data } = params
       const seriesValue = Array.isArray(value) ? value[2] : value
+
+      if (isLinesMode) {
+        const { fromName, toName, name } = data
+        if (seriesType === 'effectScatter') {
+          return `线路：${name} ${seriesValue || ''}`
+        } else if (seriesType === 'lines') {
+          return `${fromName} -> ${toName}<br>${seriesValue}`
+        } else {
+          return `${toName}`
+        }
+      }
       return `${seriesName}<br>${marker}${name}: ${seriesValue}`
     }
+
     return isMapMode
       ? { trigger: 'item' }
       : { trigger: 'item', formatter }
@@ -205,11 +359,13 @@ class GeoChart extends BaseChart {
     } = settings
 
     const isMapMode = mode === 'map'
+    const isLinesMode = mode === 'lines'
     settings.isMapMode = isMapMode
+    settings.isLinesMode = isLinesMode
 
     const { legendData, seriesData, max } = GeoChart.getGeoData({ data, settings })
 
-    const tooltip = tooltipVisible && GeoChart.getGeoTooltip(isMapMode)
+    const tooltip = tooltipVisible && GeoChart.getGeoTooltip(isMapMode, isLinesMode)
 
     const legend = legendVisible && GeoChart.getGeoLegend({ legendData, settings })
 

@@ -456,6 +456,88 @@ module.exports = {
 }
 </script>
 
+## 地图 + 飞线效果图
+
+> 飞线图可以在地图上展现运动轨迹，可以用于展示不同地点之间的关系
+
+<vuep template="#linesGeo" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="linesGeo">
+
+<template>
+  <ve-geo-chart :data="chartData" :settings="chartSettings" :legend-visible="false" />
+</template>
+
+<script>
+const randomData = () => {
+  return Math.round(Math.random() * 1000)
+}
+
+module.exports = {
+  created () {
+    this.chartData = {
+      measures: [
+        {
+          name: '北京',
+          data: [
+            { name: '上海', value: randomData() },
+            { name: '齐齐哈尔市', value: randomData() },
+            { name: '西宁市', value: randomData() },
+            { name: '昆明市', value: randomData() }
+          ]
+        }
+      ]
+    }
+    this.chartSettings = {
+      mode: 'lines',
+      lineStyle: {
+        color: '#ED3574',
+        width: 1,
+        opacity: 0.6,
+        curveness: 0.2
+      },
+      lineEffectVisible: false,
+      lineEffect: {
+        period: 0,
+        trailLength: 0,
+        color: '#fff',
+        symbolSize: 3
+      },
+      overlayEffectVisible: true,
+      overlayEffect: {
+        period: 5,
+        trailLength: 0.4,
+        symbol: 'arrow',
+        symbolSize: 6
+      },
+      effectScatterLabelVisible: true,
+      effectScatterLabel: {
+        normal: { position: 'left' }
+      },
+      visualMapVisible: true,
+      visualMap: {
+        inRange: {
+          color: [ '#C6FFDD', '#FBD786', '#f7797d' ]
+        }
+      },
+      symbolSize: 10,
+      itemStyle: {
+        normal: {
+          areaColor: '#020933',
+          borderColor: '#3fdaff',
+          borderWidth: 1,
+          shadowColor: 'rgba(63, 218, 255, 0.5)',
+          shadowBlur: 10
+        },
+        emphasis: {
+          areaColor: '#2B91B7'
+        }
+      }
+    }
+  }
+}
+</script>
+
 ## 地图下钻
 
 <vuep template="#insideGeo" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
@@ -735,7 +817,7 @@ module.exports = {
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
-| mode | geo地图支持不同的模式 | String | 默认为 `map`，可选 `scatter`、`effectScatter`、`heatmap` |
+| mode | geo地图支持不同的模式 | String | 默认为 `map`，可选 `scatter`、`effectScatter`、`heatmap`、`lines`|
 | mapName | 地图名称 | String | 默认为 `china`，中国地图可选 `china-cities`、`china-contour`、`province/beijing`，可传入自定义地图名称 |
 | mapUrlPrefix | 地图链接前缀 | String | 默认为 `https://unpkg.com/echarts@4.1.0/map/json/`，可传入自定义地址 |
 | visualMapVisible | 视觉映射开关 | Boolean | 默认为 `false`，可选 `true` |
@@ -746,6 +828,14 @@ module.exports = {
 | roam | 是否开启鼠标缩放和平移漫游 | [Boolean, String] | 默认为 `false` 可以设置成 `scale` 或者 `move`。设置成 `true` 为都开启 |
 | zoom | 当前视角的缩放比例 | Number | 默认为 `1` |
 | symbolSize | 散点图标记的大小 | number, Array, Function | 参见[文档](https://echarts.baidu.com/option.html#series-scatter.symbolSize) |
+| lineStyle | 线样式配置 | Object | 参见[文档](https://echarts.apache.org/zh/option.html#series-lines.lineStyle) |
+| lineEffectVisible | 线特效开关 | Boolean | 默认为 `false`，可选 `true` |
+| lineEffect | 线特效配置 | Object | 参见[文档](https://echarts.apache.org/zh/option.html#series-lines.effect) |
+| overlayEffectVisible | overlay 特效开关 | Boolean | 默认为 `true`，可选 `false` |
+| overlayEffect | overlay 特效配置 | Object | 参见[文档](https://echarts.apache.org/zh/option.html#series-lines.effect) |
+| effectScatterLabelVisible | effectScatter 图形文本标签开关 | Boolean | 默认为 `false`，可选 `true` |
+| effectScatterLabel | effectScatter 图形文本标签 | Object | 参见[文档](https://echarts.apache.org/zh/option.html#series-lines.label) |
+
 
 > Tip1: mode 为非 map 时，使用 `coordinateSystem` 配置地理坐标系为 `geo` 生成地图
 
