@@ -1,5 +1,10 @@
 # 更新日志
 
+## v0.9.0
+
+* **新增** - [飞线地图](https://vueblocks.github.io/ve-charts/#/chart-geo?id=地图-飞线效果图)
+* **更新** - `resize-detector` 升级至 v0.2.2
+
 ## v0.8.8
 
 * **优化** - 柱状图增加新增X轴和Y轴反向属性设置
