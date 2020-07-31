@@ -70,6 +70,20 @@ const baseData = {
   ]
 }
 
+const geolinesData = {
+  measures: [
+    {
+      name: '北京',
+      data: [
+        { name: '上海', value: randomData() },
+        { name: '齐齐哈尔市', value: randomData() },
+        { name: '西宁市', value: randomData() },
+        { name: '昆明市', value: randomData() }
+      ]
+    }
+  ]
+}
+
 export default {
   name: '地图',
   type: 'geo',
@@ -126,6 +140,59 @@ export default {
         symbolSize: 15,
         mapUrlPrefix: 'https://raw.githubusercontent.com/pissang/starbucks/gh-pages/json/',
         mapName: 'USA'
+      }
+    },
+    {
+      title: '飞线地图',
+      data: geolinesData,
+      settings: {
+        mode: 'lines',
+        lineStyle: {
+          color: '#ED3574',
+          width: 1,
+          opacity: 0.6,
+          curveness: 0.2
+        },
+        lineEffectVisible: false,
+        lineEffect: {
+          period: 0,
+          trailLength: 0,
+          color: '#fff',
+          symbolSize: 3
+        },
+        overlayEffectVisible: true,
+        overlayEffect: {
+          period: 5,
+          trailLength: 0.4,
+          symbol: 'arrow',
+          symbolSize: 6
+        },
+        effectScatterLabelVisible: true,
+        effectScatterLabel: {
+          normal: { position: 'left' }
+        },
+        visualMapVisible: true,
+        visualMap: {
+          inRange: {
+            color: [ '#C6FFDD', '#FBD786', '#f7797d' ]
+          }
+        },
+        symbolSize: 10,
+        itemStyle: {
+          normal: {
+            areaColor: '#020933',
+            borderColor: '#3fdaff',
+            borderWidth: 1,
+            shadowColor: 'rgba(63, 218, 255, 0.5)',
+            shadowBlur: 10
+          },
+          emphasis: {
+            areaColor: '#2B91B7'
+          }
+        }
+      },
+      xprops: {
+        legendVisible: false
       }
     }
   ]

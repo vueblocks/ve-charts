@@ -91,7 +91,7 @@ export default {
         mapName: 'china',
         visualMapVisible: true,
         visualMap: {
-          inRange: { color: ['#ee0979', '#ff6a00'] },
+          inRange: { color: ['#4af', '#1ea'] },
           textStyle: {
             color: '#fff'
           }
@@ -112,7 +112,7 @@ export default {
         label: {
           normal: {
             show: true,
-            color: '#00ff00',
+            color: '#1af',
             fontSize: 13
           },
           emphasis: {
