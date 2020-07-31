@@ -10,6 +10,14 @@ import cityGeo2 from './map-data/cityGeo2.json'
 import mapCityId from './map-data/mapCityId.json'
 
 class GeoChart extends BaseChart {
+  static convertCityName (name) {
+    return isNaN(name * 1) ? name : mapCityId[name]
+  }
+
+  static convertCoord (name) {
+    return cityGeo[name] || cityGeo2[name]
+  }
+
   static convertCityData (data, options) {
     const { index, connect } = options
     const dataIndex = connect ? connect.dataIndex : -1
@@ -19,9 +27,9 @@ class GeoChart extends BaseChart {
 
     const res = []
     for (let i = 0; i < data.length; i++) {
-      const name = isNaN(data[i].name * 1) ? data[i].name : mapCityId[data[i].name]
+      const name = GeoChart.convertCityName(data[i].name)
       const value = data[i].value
-      const geoCoord = cityGeo[name] || cityGeo2[name]
+      const geoCoord = GeoChart.convertCoord(name)
 
       if (geoCoord) {
         res.push({
@@ -48,15 +56,17 @@ class GeoChart extends BaseChart {
 
   static convertLinesData (name, data) {
     const res = []
-    const fromCoord = cityGeo[name] || cityGeo2[name]
+    name = GeoChart.convertCityName(name)
+    const fromCoord = GeoChart.convertCoord(name)
     if (!fromCoord) return []
     for (let i = 0, len = data.length; i < len; i++) {
       const dataItem = data[i]
-      const toCoord = cityGeo[dataItem.name] || cityGeo2[dataItem.name]
+      const dataItemName = GeoChart.convertCityName(dataItem.name)
+      const toCoord = GeoChart.convertCoord(dataItemName)
       if (toCoord) {
         res.push({
           fromName: name,
-          toName: dataItem.name,
+          toName: dataItemName,
           coords: [fromCoord, toCoord],
           value: dataItem.value
         })
@@ -69,11 +79,12 @@ class GeoChart extends BaseChart {
     const res = []
     for (let i = 0, len = data.length; i < len; i++) {
       const dataItem = data[i]
-      const toCoord = cityGeo[dataItem.name] || cityGeo2[dataItem.name]
-      if (toCoord) {
+      const dataItemName = GeoChart.convertCityName(dataItem.name)
+      const geoCoord = GeoChart.convertCoord(dataItemName)
+      if (geoCoord) {
         res.push({
-          name: dataItem.name,
-          value: toCoord.concat([dataItem.value])
+          name: dataItemName,
+          value: geoCoord.concat([dataItem.value])
         })
       }
     }
@@ -118,6 +129,7 @@ class GeoChart extends BaseChart {
 
       const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
       if (isLinesMode) {
+        name = GeoChart.convertCityName(name)
         seriesData.push(
           // lines trailLength settings
           {
@@ -211,7 +223,7 @@ class GeoChart extends BaseChart {
             itemStyle: {},
             data: [{
               name: name,
-              value: cityGeo[name] || cityGeo2[name]
+              value: GeoChart.convertCoord(name)
             }]
           }
         )
