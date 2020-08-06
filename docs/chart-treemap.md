@@ -170,4 +170,4 @@
 | --- | --- | --- | --- |
 | data.measures | 矩形树图只需要度量即可渲染 | [Array] |  |
 
-> Tip: 其他配置项请参考[treemap](http://echarts.baidu.com/option.html#series-treemap)
+> Tip: 其他配置项请参考[treemap](https://echarts.apache.org/zh/option.html#series-treemap)

@@ -1,5 +1,9 @@
 # 更新日志
 
+## v0.9.1
+
+* **新增** - 折线图、柱状图加入 `tooltip`、`legend` 配置
+
 ## v0.9.0
 
 * **新增** - [飞线地图](https://vueblocks.github.io/ve-charts/#/chart-geo?id=地图-飞线效果图)

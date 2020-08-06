@@ -162,5 +162,5 @@
 | --- | --- | --- | --- |
 | radius | 旭日图的半径，数组的第一项是内半径，第二项是外半径。| Array | - |
 | label | 描述了每个扇形块中，文本标签的样式。 | Object | - |
-| tooltip | 设置提示组件框 | Object | 参见[文档](http://echarts.baidu.com/option.html#tooltip) |
+| tooltip | 设置提示组件框 | Object | 参见[文档](https://echarts.apache.org/zh/option.html#tooltip) |
 > Tip:

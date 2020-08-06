@@ -104,34 +104,34 @@ data: {
 }
 ```
 
-## 通用配置
+## 通用配置 https://echarts.apache.org/zh/option.html#title
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 |
 | --- | :---: | :---: | --- | --- |
 | data | 图表数据，dimensions: 维度，measures: 度量 | [Array, Object] | [] or {} | [] |
 | settings | 图表配置项，内容参考图表具体配置 | [Array, Object] | [] or {} | {} |
-| title | 标题组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#title) |
-| legend | 图例组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#legend) |
-| xAxis | 直角坐标系 grid 中的 x 轴 | [Array, Object] | - | [参考配置](http://echarts.baidu.com/option.html#xAxis) |
-| yAxis | 直角坐标系 grid 中的 y 轴 | [Array, Object] | - | [参考配置](http://echarts.baidu.com/option.html#yAxis) |
-| dataZoom | 区域缩放 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#dataZoom) |
-| visualMap | 视觉映射 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#visualMap) |
-| tooltip | 提示框组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#tooltip) |
-| axisPointer | 坐标轴指示器 | Object | - | [参考配置](http://echarts.baidu.com/option.html#axisPointer) |
-| toolbox | 工具栏 | Object | - | [参考配置](http://echarts.baidu.com/option.html#toolbox) |
-| brush | 区域选择组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#brush) |
-| geo | 地理坐标系组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#geo) |
-| timeline | 时间线组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#timeline) |
-| graphic | 原生图形元素组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#graphic) |
-| series | 系列列表 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#series) |
-| color | 调色盘组件 | Object | - | [参考配置](http://echarts.baidu.com/option.html#color) |
-| backgroundColor | 背景色，默认无背景 | [Object, Array] | - | [参考配置](http://echarts.baidu.com/option.html#backgroundColor) |
-| textStyle | 全局的字体样式 | Object | - | [参考配置](http://echarts.baidu.com/option.html#textStyle) |
-| animation | 是否开启动画 | Object | - | [参考配置](http://echarts.baidu.com/option.html#animation) |
+| title | 标题组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#title) |
+| legend | 图例组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#legend) |
+| xAxis | 直角坐标系 grid 中的 x 轴 | [Array, Object] | - | [参考配置](https://echarts.apache.org/zh/option.html#xAxis) |
+| yAxis | 直角坐标系 grid 中的 y 轴 | [Array, Object] | - | [参考配置](https://echarts.apache.org/zh/option.html#yAxis) |
+| dataZoom | 区域缩放 | [Object, Array] | - | [参考配置](https://echarts.apache.org/zh/option.html#dataZoom) |
+| visualMap | 视觉映射 | [Object, Array] | - | [参考配置](https://echarts.apache.org/zh/option.html#visualMap) |
+| tooltip | 提示框组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#tooltip) |
+| axisPointer | 坐标轴指示器 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#axisPointer) |
+| toolbox | 工具栏 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#toolbox) |
+| brush | 区域选择组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#brush) |
+| geo | 地理坐标系组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#geo) |
+| timeline | 时间线组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#timeline) |
+| graphic | 原生图形元素组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#graphic) |
+| series | 系列列表 | [Object, Array] | - | [参考配置](https://echarts.apache.org/zh/option.html#series) |
+| color | 调色盘组件 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#color) |
+| backgroundColor | 背景色，默认无背景 | [Object, Array] | - | [参考配置](https://echarts.apache.org/zh/option.html#backgroundColor) |
+| textStyle | 全局的字体样式 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#textStyle) |
+| animation | 是否开启动画 | Object | - | [参考配置](https://echarts.apache.org/zh/option.html#animation) |
 | tooltipVisible | 组件 `tooltip` 提示框显示开关 | Boolean | `true` or `false` | `true` |
 | legendVisible | 组件 `legend` 图例显示开关 | Boolean | `true` or `false` | `true` |
 | legendPosition | 组件 `legend` 图例显示位置 | Boolean | `top-left`/`top-center`/`top-right`/`bottom-left`/`bottom-center`/`bottom-right` | `top-center` |
-| theme | 自定义主题，如果传入主题名称，需要全局注册 `echarts` 以及主题文件 | [String, Object] | 主题名称，主题对象 | [参考主题](http://echarts.baidu.com/theme-builder/) |
+| theme | 自定义主题，如果传入主题名称，需要全局注册 `echarts` 以及主题文件 | [String, Object] | 主题名称，主题对象 | [参考主题](https://echarts.apache.org/zh/theme-builder/) |
 | emptyText | 自定义空数据文案 | String | 暂无数据 | - |
 | loading | 加载数据动效开关 | Boolean | `true` or `false` | `false` |
 | height | 图表高度 | Number | - | `400`，单位`px` |

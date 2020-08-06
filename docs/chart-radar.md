@@ -319,5 +319,5 @@
 | radius | 图形半径。默认值为'75%' | String | 参见配置雷达图 |
 | splitNumber | 指示器轴的分割段数 | Number | 参见配置雷达图 |
 | shape | 雷达图绘制类型。支持 'polygon' 和 'circle' | String | 参见圆形雷达图 |
-| splitArea | 坐标轴在 grid 区域中的分隔区域，默认不显示 | Object | 参见圆形雷达图。具体配置项参考[文档](http://echarts.baidu.com/option.html#radar.splitArea) |
-| itemStyle | 图形样式 | Object | 参见基础雷达图(面积)。具体配置项参考[文档](http://echarts.baidu.com/option.html#series-radar.itemStyle) |
+| splitArea | 坐标轴在 grid 区域中的分隔区域，默认不显示 | Object | 参见圆形雷达图。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#radar.splitArea) |
+| itemStyle | 图形样式 | Object | 参见基础雷达图(面积)。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#series-radar.itemStyle) |
