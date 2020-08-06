@@ -7,23 +7,24 @@ import BaseChart from '../../BaseChart'
 class BarChart extends BaseChart {
   // build tooltip
   static getBarTooltip (settings) {
-    const { tooltipFormatter } = settings
+    const { tooltipOptions } = settings
     return {
       trigger: 'axis',
       axisPointer: { // 坐标轴指示器，坐标轴触发有效
         type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
       },
-      formatter: tooltipFormatter
+      ...tooltipOptions
     }
   }
 
   // build legend
   static getBarLegend (data, settings) {
     const { measures } = data
-    const { legendType, legendPadding, waterfall } = settings
+    const { legendType, legendPadding, waterfall, legendOptions } = settings
     let result = {
       type: legendType || 'plain',
-      padding: legendPadding || 5
+      padding: legendPadding || 5,
+      ...legendOptions
     }
     // 当配置项填入waterfall,瀑布图默认将图例去除secondaryMeasure--by:jeff
     if (waterfall && waterfall === true) {

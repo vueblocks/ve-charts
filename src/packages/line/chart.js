@@ -3,19 +3,24 @@ import BaseChart from '../../BaseChart'
 
 class LineChart extends BaseChart {
   static getLineTooltip (settings) {
-    const { tooltipFormatter } = settings
+    const { tooltipOptions } = settings
     return {
       trigger: 'axis',
-      formatter: tooltipFormatter
+      ...tooltipOptions
     }
   }
 
-  static getLineLegend (args) {
-    const { settings } = args
-    const { legendType = 'plain', legendPadding = 5 } = settings
+  static getLineLegend (settings) {
+    const {
+      legendType = 'plain',
+      legendPadding = 5,
+      legendOptions
+    } = settings
+
     return {
       type: legendType,
-      padding: legendPadding
+      padding: legendPadding,
+      ...legendOptions
     }
   }
 
@@ -145,7 +150,7 @@ class LineChart extends BaseChart {
 
     const tooltip = tooltipVisible && LineChart.getLineTooltip(settings)
 
-    const legend = legendVisible && LineChart.getLineLegend({ settings })
+    const legend = legendVisible && LineChart.getLineLegend(settings)
 
     const xAxis = LineChart.getLineDimAxis({ settings })
 
