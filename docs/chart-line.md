@@ -379,10 +379,10 @@
 
 | 配置项 | 说明 | 类型 | 可选值 | 用法 |
 | --- | --- | --- | --- | --- |
-| smooth | 设置图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等 | Object | - | 参见[文档](http://echarts.baidu.com/option.html#series-line.smooth) |
+| smooth | 设置图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#series-line.smooth) |
 | stack | 设置数据堆叠，区别于并排显示分类的分组折线图 | Object | - | 指定哪些度量堆叠展示，例如: 指定`React`与`Angular`以`lang`堆叠 |
-| step | 阶梯线图配置 | String | `start`, `middle`, `end` | 参见[文档](http://echarts.baidu.com/option.html#series-line.step) |
-| label | 设置图形上的文本标签。| Object | - | 参见[文档](http://echarts.baidu.com/option.html#series-line.label) |
+| step | 阶梯线图配置 | String | `start`, `middle`, `end` | 参见[文档](https://echarts.apache.org/zh/option.html#series-line.step) |
+| label | 设置图形上的文本标签。| Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#series-line.label) |
 | yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | String | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
 | yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number | 0 ~ 20 | 默认值为 0 |
 | yAxisInterval | 强制设置坐标轴分割间隔 | Number | - |参见[文档](https://www.echartsjs.com/option.html#yAxis.inverse) |
@@ -391,3 +391,5 @@
 | yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
 | yAxisName | 坐标轴名称 | String | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
 | percentage | 是否是百分比堆叠面积图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
+| tooltipOptions | 配置tooltip提示框组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#tooltip)  |
+| legendOptions | 配置图例组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#legend)  |

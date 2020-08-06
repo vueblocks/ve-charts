@@ -338,8 +338,8 @@
 | --- | --- | --- | --- |
 | dimensions | 维度在散点图中的应用为设置**X-Y轴**分别代表的维度名称，默认数组中第一个值映射**X**轴；数组中第二个值映射**Y**轴 | Array | `['身高', '体重']` |
 | measures | 度量在散点图中的应用为设置**X-Y轴**维度所对应的数据，默认数组中第一个值映射**X**轴；数组中第二个值映射**Y**轴 | Array | required |
-| itemStyle | 图形样式 | Object | 参见[文档](http://echarts.baidu.com/option.html#series-scatter.itemStyle) |
-| symbolSize | 图形标记的大小 | [number, Array, Function] | 参见[文档](http://echarts.baidu.com/option.html#series-scatter.symbolSize) |
+| itemStyle | 图形样式 | Object | 参见[文档](https://echarts.apache.org/zh/option.html#series-scatter.itemStyle) |
+| symbolSize | 图形标记的大小 | [number, Array, Function] | 参见[文档](https://echarts.apache.org/zh/option.html#series-scatter.symbolSize) |
 | yAxisName | Y轴名称 | [string] | 参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.name) |
 | xAxisName | X轴名称 | [string] | 参见[文档](https://www.echartsjs.com/zh/option.html#xAxis.name) |
 | xAxisNameGap | X轴名称与轴线之间的距离 | [number] | 默认值为5 |

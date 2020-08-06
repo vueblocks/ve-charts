@@ -41,7 +41,7 @@
 
 ## 更换主题
 
-> 支持 `Object` 格式的主题，可以通过 [echarts主题构建工具](http://echarts.baidu.com/theme-builder/) 生成，下例为 `walden` 主题的应用
+> 支持 `Object` 格式的主题，可以通过 [echarts主题构建工具](https://echarts.apache.org/zh/theme-builder/) 生成，下例为 `walden` 主题的应用
 
 <vuep template="#changeTheme" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
 

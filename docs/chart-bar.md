@@ -651,7 +651,8 @@
 | yAxisLabelType | 设置柱状图Y轴的标签格式化规则 | Array | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
 | yAxisLabelDigits | 设置柱状图Y轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number/Array | 0 ~ 20 | 默认值为 0 |
 | waterfall | 配置柱图为瀑布图类型 | Boolean | `true` or `false` | 瀑布图的数据维度中，须包含一组名为 `secondaryMeasure` 的辅助度量|
-| tooltipFormatter | 配置tooltip提示框组件 | Function | - | 参见[文档](http://echarts.baidu.com/option.html#tooltip.formatter)  |
+| tooltipOptions | 配置tooltip提示框组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#tooltip)  |
+| legendOptions | 配置图例组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#legend)  |
 | yAxisInterval | 强制设置坐标轴分割间隔 | Array | - |参见[文档](https://www.echartsjs.com/option.html#yAxis.inverse) |
 | yAxisMax | 坐标轴刻度最大值 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.max) |
 | yAxisMin | 坐标轴刻度最小值 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |

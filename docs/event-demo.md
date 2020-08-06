@@ -98,4 +98,4 @@ methods: {
 
 ## 事件列表
 
-参见 [Echarts events](http://echarts.baidu.com/api.html#events)
+参见 [Echarts events](https://echarts.apache.org/zh/api.html#events)

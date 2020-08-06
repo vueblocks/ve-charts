@@ -389,6 +389,6 @@
 | --- | --- | --- | --- | --- |
 | data.measures | 树图只需要度量即可渲染 | Array | - | |
 | seriesMap | 除数据外的其他series映射 | Array | - | 如果有多个树图渲染，按数组索引映射树图配置 |
-| labelRotate | 设置树图标签的旋转值 | Number | - | [参考配置](http://echarts.baidu.com/option.html#series-tree.label.rotate) |
+| labelRotate | 设置树图标签的旋转值 | Number | - | [参考配置](https://echarts.apache.org/zh/option.html#series-tree.label.rotate) |
 
-> Tip: 其他配置项请参考[tree](http://echarts.baidu.com/option.html#series-tree)
+> Tip: 其他配置项请参考[tree](https://echarts.apache.org/zh/option.html#series-tree)

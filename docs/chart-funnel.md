@@ -271,9 +271,9 @@
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
 | funnelSort | 漏斗图排序方式，默认为倒序 `desc` | String | `asc`: 正序 | 
-| funnelAlign | 水平方向对齐布局类型，默认居中对齐 | String | 参见[文档](http://echarts.baidu.com/option.html#series-funnel.funnelAlign) |
+| funnelAlign | 水平方向对齐布局类型，默认居中对齐 | String | 参见[文档](https://echarts.apache.org/zh/option.html#series-funnel.funnelAlign) |
 | funnelLabel | 漏斗图图形上的文本标签 | Array/Object | 支持传入数组，对应每一个指标 |
-| labelPosition | 标签的位置，默认为显示在外侧 | String | 参见[文档](http://echarts.baidu.com/option.html#series-funnel.label.position) |
+| labelPosition | 标签的位置，默认为显示在外侧 | String | 参见[文档](https://echarts.apache.org/zh/option.html#series-funnel.label.position) |
 | symmetric | 对称漏斗图开关，默认为 `false` | Boolean | `true`: 开启对称漏斗图 |
 | contrast | 对比漏斗图开关，默认为 `false` | Boolean | `true`: 开启对比漏斗图 |
 
