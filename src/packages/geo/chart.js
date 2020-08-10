@@ -146,7 +146,8 @@ class GeoChart extends BaseChart {
             },
             lineStyle: {
               normal: {
-                width: 0
+                width: 0,
+                curveness: (lineStyle && lineStyle.curveness) || 0.2
               }
             },
             data: mapData
