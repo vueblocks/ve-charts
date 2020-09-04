@@ -113,7 +113,8 @@ class GeoChart extends BaseChart {
       effectScatterLabelVisible = false,
       effectScatterLabel = {},
       lineStyle = {},
-      connect
+      connect,
+      symbolColor
     } = settings
 
     const [legendData, seriesData] = [[], []]
@@ -209,7 +210,9 @@ class GeoChart extends BaseChart {
               }
             } : unShowLabel,
             symbolSize: symbolSize,
-            itemStyle: {},
+            itemStyle: symbolColor ? {
+              color: symbolColor
+            } : {},
             data: GeoChart.convertEffectScatterData(data)
           },
           // source nodes settings
@@ -233,7 +236,9 @@ class GeoChart extends BaseChart {
               }
             } : unShowLabel,
             symbolSize: symbolSize,
-            itemStyle: {},
+            itemStyle: symbolColor ? {
+              color: symbolColor
+            } : {},
             data: [{
               name: name,
               value: GeoChart.convertCoord(name)
@@ -267,7 +272,9 @@ class GeoChart extends BaseChart {
               rippleEffect: {
                 brushType: 'stroke'
               },
-              itemStyle: {}
+              itemStyle: symbolColor ? {
+                color: symbolColor
+              } : {}
             } }
         }
       }
