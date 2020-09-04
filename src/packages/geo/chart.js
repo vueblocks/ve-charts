@@ -1,4 +1,4 @@
-import { ceil } from 'lodash-es'
+import { ceil, floor } from 'lodash-es'
 import echarts from 'echarts/lib/echarts'
 
 import { getMapJSON } from '../../utils'
@@ -117,12 +117,24 @@ class GeoChart extends BaseChart {
     } = settings
 
     const [legendData, seriesData] = [[], []]
+    let max = 0
+    let min = 0
+    let allValues = []
 
     // computed max value
-    const max = measures.map(({ data }) => {
+    let minMaxArr = measures.map(({ name, data }) => {
       const dataValues = data.map(v => parseInt(v.value))
-      return Math.max(...dataValues)
-    }).reduce((a, b) => a + b)
+      allValues = [...allValues, ...dataValues]
+      return [Math.min(...dataValues), Math.max(...dataValues)]
+    })
+
+    if (isLinesMode) {
+      min = Math.min(...allValues)
+      max = Math.max(...allValues)
+    } else {
+      min = minMaxArr.reduce((a, b) => a + b[0], 0)
+      max = minMaxArr.reduce((a, b) => a + b[1], 0)
+    }
 
     measures && measures.forEach(({ name, data }, index) => {
       const mapData = isMapMode ? data : isLinesMode ? GeoChart.convertLinesData(name, data) : GeoChart.convertCityData(data, { index, connect })
@@ -266,7 +278,8 @@ class GeoChart extends BaseChart {
     return {
       legendData,
       seriesData,
-      max: ceil(max, -2)
+      max: ceil(max, -2),
+      min: floor(min, -2)
     }
   }
 
@@ -330,11 +343,11 @@ class GeoChart extends BaseChart {
   }
 
   static getVisualMap (args) {
-    const { max = 200, settings } = args
+    const { min = 0, max = 200, settings } = args
     const { visualMap } = settings
 
     return {
-      min: 0,
+      min: min,
       max,
       left: 'left',
       top: 'bottom',
@@ -376,7 +389,7 @@ class GeoChart extends BaseChart {
     settings.isMapMode = isMapMode
     settings.isLinesMode = isLinesMode
 
-    const { legendData, seriesData, max } = GeoChart.getGeoData({ data, settings })
+    const { legendData, seriesData, min, max } = GeoChart.getGeoData({ data, settings })
 
     const tooltip = tooltipVisible && GeoChart.getGeoTooltip(isMapMode, isLinesMode)
 
@@ -384,7 +397,7 @@ class GeoChart extends BaseChart {
 
     const geo = !isMapMode && GeoChart.getGeo({ data, settings })
 
-    const geoVisualMap = visualMapVisible && GeoChart.getVisualMap({ max, settings })
+    const geoVisualMap = visualMapVisible && GeoChart.getVisualMap({ min, max, settings })
 
     // build echarts options
     const options = {
