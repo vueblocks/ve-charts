@@ -291,7 +291,7 @@ class GeoChart extends BaseChart {
       if (isLinesMode) {
         const { fromName, toName, name } = data
         if (seriesType === 'effectScatter') {
-          return `线路：${name} ${seriesValue || ''}`
+          return `${name}`
         } else if (seriesType === 'lines') {
           return `${fromName} -> ${toName}<br>${seriesValue}`
         } else {
