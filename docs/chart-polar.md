@@ -245,3 +245,13 @@
 | stack | 设置数据堆叠 | Object | - |  |
 | areaStyle | 设置面积图，当 polarType 为 `line` 时生效 | Object | - |  |
 | radial | 设置数据展示方式 | Boolean | `true`：径向、`false`：环形 | 默认：`false`，代表环形 |
+| clockwise | 增长方向 | Boolean | `true`：顺时针、`false`：逆时针 | 默认：`true` |
+| startAngle | 起始角度 | Number | - | 默认：`90` |
+| showAngleAxisLine | 角度轴轴线 | Boolean | - | 默认：`true` |
+| showAngleSplitLine | 角度轴分割线 | Boolean | - | 默认：`true` |
+| showAngleAxisLabel | 角度轴标签 | Boolean | - | 默认：`true` |
+| angleAxisLabelType | 设置角度轴标签格式化规则 | Array | `en`、`zh`、`percentage` | `en` 英文数字规则；`zh` 中文数字规则；`percentage` 百分比 |
+| angleAxisLabelDigits | 设置角度轴标签格式化后保留几位小数，配合 `yAxisLabelType` 使用 | Number/Array | 0 ~ 20 | 默认值为 0 |
+| AngleAxisMax | 角度轴刻度最大值 | Array | - | 参见[文档](https://echarts.apache.org/zh/option.html#angleAxis.max) |
+| AngleAxisMin | 角度轴刻度最小值 | Array | - | 参见[文档](https://echarts.apache.org/zh/option.html#angleAxis.min) |
+| 
