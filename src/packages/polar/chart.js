@@ -1,5 +1,5 @@
 import BaseChart from '../../BaseChart'
-import { getDataset } from '../../utils'
+import { formatMeasure, getDataset } from '../../utils'
 
 class PolarChart extends BaseChart {
   static getTooltip (settings) {
@@ -20,11 +20,33 @@ class PolarChart extends BaseChart {
 
   static getAngleAxis (settings) {
     const {
-      radial = false
+      radial = false,
+      startAngle = 90,
+      clockwise = true,
+      showAngleAxisLine = true,
+      showAngleSplitLine = true,
+      showAngleAxisLabel = true,
+      angleAxisLabelType,
+      angleAxisLabelDigits,
+      AngleAxisMax,
+      AngleAxisMin
     } = settings
 
     return {
-      type: radial ? 'category' : 'value'
+      type: radial ? 'category' : 'value',
+      clockwise,
+      startAngle,
+      min: AngleAxisMin || null,
+      max: AngleAxisMax || null,
+      axisLine: { show: showAngleAxisLine },
+      axisTick: { show: showAngleAxisLine },
+      splitLine: { show: showAngleSplitLine },
+      axisLabel: {
+        show: showAngleAxisLabel,
+        margin: 10,
+        fontWeight: 400,
+        formatter: value => formatMeasure(angleAxisLabelType, value, angleAxisLabelDigits)
+      }
     }
   }
 
@@ -45,14 +67,16 @@ class PolarChart extends BaseChart {
     const {
       polarType = 'line',
       stack = null,
+      itemStyle = {},
       ...others
     } = settings
 
-    const series = measures.map((item, idx) => {
+    const series = measures.map(({ name }, idx) => {
       return {
         type: polarType,
-        coordinateSystem: 'polar',
         stack,
+        coordinateSystem: 'polar',
+        itemStyle: itemStyle[name] || {},
         ...others
       }
     })
