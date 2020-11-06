@@ -28,16 +28,16 @@ class PolarChart extends BaseChart {
       showAngleAxisLabel = true,
       angleAxisLabelType,
       angleAxisLabelDigits,
-      AngleAxisMax,
-      AngleAxisMin
+      angleAxisMax,
+      angleAxisMin
     } = settings
 
     return {
       type: radial ? 'category' : 'value',
       clockwise,
       startAngle,
-      min: AngleAxisMin || null,
-      max: AngleAxisMax || null,
+      min: angleAxisMin || null,
+      max: angleAxisMax || null,
       axisLine: { show: showAngleAxisLine },
       axisTick: { show: showAngleAxisLine },
       splitLine: { show: showAngleSplitLine },
@@ -68,6 +68,7 @@ class PolarChart extends BaseChart {
       polarType = 'line',
       stack = null,
       itemStyle = {},
+      roundCap = false,
       ...others
     } = settings
 
@@ -75,6 +76,7 @@ class PolarChart extends BaseChart {
       return {
         type: polarType,
         stack,
+        roundCap,
         coordinateSystem: 'polar',
         itemStyle: itemStyle[name] || {},
         ...others
