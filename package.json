@@ -25,6 +25,7 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
+    "echarts": "^5.0.2",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
@@ -32,6 +33,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0-0",
     "typescript": "~3.9.3",
+    "vue-demi": "^0.6.0",
     "vue-jest": "^5.0.0-0"
   },
   "eslintConfig": {
