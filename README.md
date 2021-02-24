@@ -39,7 +39,12 @@ Vue.use(VeCharts)
 
 ## 文档
 
-[ve-charts](https://vueblocks.github.io/ve-charts)
+| 服务 | 地址 |
+| :--: | :--: |
+| GitHub Page | [https://vueblocks.github.io/ve-charts](https://vueblocks.github.io/ve-charts) |
+| Gitee Page | [https://vueblocks.gitee.io/ve-charts/](https://vueblocks.gitee.io/ve-charts/) |
+
+
 
 ## License
 
