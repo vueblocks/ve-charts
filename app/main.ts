@@ -1,4 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import VeCharts from '../src/index'
+
+const app = createApp(App)
+
+app.use(VeCharts)
+
+app.mount('#app')

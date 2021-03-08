@@ -1,12 +1,24 @@
 import { defineComponent } from 'vue-demi'
-import * as echarts from 'echarts/core'
+import { use } from 'echarts/core'
 import { BarChart } from 'echarts/charts'
+import {
+  GridComponent,
+  TitleComponent,
+  TooltipComponent
+} from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
 
-echarts.use([BarChart])
+import HocChart from '../../HocChart'
+
+use([
+  BarChart,
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  CanvasRenderer
+])
 
 export default defineComponent({
   name: 'VeBarChart',
-  setup () {
-
-  }
+  mixins: [HocChart]
 })
