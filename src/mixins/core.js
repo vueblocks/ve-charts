@@ -57,6 +57,7 @@ export default {
     // ve-charts custom props
     tooltipVisible: { type: Boolean, default: true },
     legendVisible: { type: Boolean, default: true },
+    tickMarkVisible: { type: Boolean, default: false }, // 雷达图是否显示刻度
     legendPosition: String,
     theme: [String, Object],
     loading: { type: Boolean, default: false },
@@ -128,6 +129,7 @@ export default {
         legendVisible: this.legendVisible,
         isEmptyData: this.isEmptyData,
         isEmptySeries: this.isEmptySeries,
+        tickMarkVisible: this.tickMarkVisible,
         _once: this._once
       }
       if (this.beforeConfig) data = this.beforeConfig(data)
