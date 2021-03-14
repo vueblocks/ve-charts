@@ -4,11 +4,18 @@
       :data="chartData"
       :settings="settings"
       :height="400"
+      :width="800"
+      dark-mode
+      @click="handleClick"
+      @legendselected="handleLegendSeleted"
+      @brushEnd="handleClick"
+      @zr:click="handleClick"
     />
   </div>
 </template>
 
 <script lang='ts'>
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -46,7 +53,9 @@ export default defineComponent({
     }
 
     return {
-      settings
+      settings,
+      handleClick: (val: any) => console.log(val),
+      handleLegendSeleted: (val: any) => console.log(val)
     }
   }
 })

@@ -1,13 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, h } from 'vue-demi'
 import BaseChart from './BaseChart'
 
 export default defineComponent({
-  components: {
-    BaseChart
-  },
   props: {
-    // data: { type: [Object, Array], default () { return {} } },
-    // settings: { type: [Object, Array], default () { return {} } },
     // echarts default options
     title: Object,
     legend: Object,
@@ -34,7 +30,7 @@ export default defineComponent({
     dataset: Object,
     aria: Object,
     series: [Object, Array],
-    darkmode: Boolean,
+    darkMode: Boolean,
     color: Array,
     backgroundColor: [Object, String],
     textStyle: Object,
@@ -64,7 +60,7 @@ export default defineComponent({
       renderer: 'canvas'
     }
   }),
-  render () {
-    return h(BaseChart, {})
+  render (props: any) {
+    return h(BaseChart, props.$props)
   }
 })
