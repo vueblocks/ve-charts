@@ -4,6 +4,9 @@ import BaseChart from './BaseChart'
 
 export default defineComponent({
   props: {
+    // basic option
+    data: [Object, Array],
+    settings: [Object, Array],
     // echarts default options
     title: Object,
     legend: Object,
@@ -49,7 +52,6 @@ export default defineComponent({
     options: Object,
     media: Array,
     // ve-charts props
-    theme: { type: [String, Object], default: '' },
     loading: { type: Boolean, default: false },
     emptyText: String,
     renderer: { type: String, default: 'canvas' },
@@ -61,6 +63,9 @@ export default defineComponent({
     }
   }),
   render (props: any) {
-    return h(BaseChart, props.$props)
+    return h(BaseChart, {
+      ...props.$props,
+      option: this.settings
+    })
   }
 })

@@ -5,18 +5,20 @@
       :settings="settings"
       :height="400"
       :width="800"
-      dark-mode
+      :dark-mode="darkMode"
+      :background-color="bgColor"
       @click="handleClick"
       @legendselected="handleLegendSeleted"
       @brushEnd="handleClick"
       @zr:click="handleClick"
     />
+    <button @click="darkMode = !darkMode">Toggle</button>
   </div>
 </template>
 
 <script lang='ts'>
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineComponent } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'HelloWorld',
@@ -52,8 +54,13 @@ export default defineComponent({
       }]
     }
 
+    const darkMode = ref(false)
+    const bgColor = computed(() => darkMode.value ? '#000' : '#fff')
+
     return {
       settings,
+      darkMode,
+      bgColor,
       handleClick: (val: any) => console.log(val),
       handleLegendSeleted: (val: any) => console.log(val)
     }

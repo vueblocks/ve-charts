@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { EChartsType, init as initChart } from 'echarts/core'
+import { init as initChart } from 'echarts/core'
 import {
   defineComponent,
   h,
@@ -10,12 +10,19 @@ import {
   toRef,
   toRefs,
   nextTick,
-  watch
+  watch,
+  PropType
 } from 'vue-demi'
 import { useResizeObserver } from '@vueblocks/vue-use-core'
 
-// import type { Option } from './types'
-import { isOn, toCamelCase, toKebabCase } from './utils'
+import type {
+  EChartsType,
+  ECBasicOption,
+  Theme,
+  InitOpts,
+  SetOptionOpts
+} from './types'
+import { useAttrs } from './composable'
 
 export default defineComponent({
   name: 'BaseChart',
@@ -23,24 +30,23 @@ export default defineComponent({
   inheritAttrs: false,
 
   props: {
-    // ve-charts custom props
-    data: [Object, Array],
-    settings: [Object, Array],
-    chartHeight: { type: Number, default: 400 },
-    theme: { type: [String, Object], default: '' },
-    initOptions: Object
+    option: [Object, Array] as PropType<ECBasicOption>,
+    initOptions: Object as PropType<InitOpts>,
+    theme: [String, Object] as PropType<Theme>,
+    chartHeight: { type: Number, default: 400 }
   },
 
   setup (props, { attrs }) {
-    const { data } = toRefs(props)
+    const { option } = toRefs(props)
     const theme = toRef(props, 'theme')
     const initOptions = toRef(props, 'initOptions')
     const echartsRef = ref<HTMLElement>()
     const echartsInstance = shallowRef<EChartsType>()
     const canvasRect = ref({})
+    const { echartsOptions, echartsEvents } = useAttrs(attrs)
 
-    console.log(data)
-    // const echartsOpts = ref({})
+    console.log(option)
+    console.log(echartsOptions)
 
     const resize = () => {
       if (echartsInstance.value) {
@@ -56,20 +62,8 @@ export default defineComponent({
     }
 
     const delegateEvents = (instance: EChartsType) => {
-      const listeners: Record<string, Function> = {}
-
-      Object.keys(attrs)
-        .filter(key => isOn(key) && typeof attrs[key] === 'function')
-        .forEach(key => {
-          const [, ...rest] = toKebabCase(key).split('-')
-          const eventKey = rest.length === 1
-            ? rest.join('')
-            : toCamelCase(rest)
-          listeners[eventKey] = attrs[key] as Function
-        })
-
-      Object.keys(listeners).forEach(key => {
-        const handler = listeners[key] as any
+      Object.keys(echartsEvents).forEach(key => {
+        const handler = echartsEvents[key] as any
 
         if (!handler) return
 
@@ -81,18 +75,29 @@ export default defineComponent({
       })
     }
 
-    const init = (options?: any) => {
+    const init = (options?: ECBasicOption) => {
       if (!echartsRef.value) return
 
-      echartsInstance.value = initChart(echartsRef.value, undefined, {
+      echartsInstance.value = initChart(echartsRef.value, props.theme, {
         renderer: 'canvas'
       })
       console.log(echartsInstance)
-      echartsInstance.value.setOption(options)
+      options && echartsInstance.value.setOption(options)
 
       delegateEvents(echartsInstance.value)
 
       nextTick(resize)
+    }
+
+    const setOption = (option: ECBasicOption, opts: SetOptionOpts) => {
+      if (!echartsInstance.value) {
+        init(option)
+      } else {
+        echartsInstance.value.setOption(option, {
+          ...echartsOptions.value,
+          ...opts
+        })
+      }
     }
 
     useResizeObserver(
@@ -101,6 +106,15 @@ export default defineComponent({
         canvasRect.value = entry.contentRect
         resize()
       }
+    )
+
+    watch(
+      () => echartsOptions.value,
+      (opts) => {
+        console.log(opts)
+        props.option && setOption(props.option, opts)
+      },
+      { deep: true }
     )
 
     watch(
@@ -113,10 +127,7 @@ export default defineComponent({
     )
 
     onMounted(() => {
-      console.log(attrs)
-      if (props.settings) {
-        init(props.settings)
-      }
+      props.option && init(props.option)
     })
 
     onUnmounted(dispose)
