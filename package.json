@@ -1,7 +1,7 @@
 {
   "name": "ve-charts-next",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,9 +9,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@vueblocks/vue-use-core": "^0.2.9",
+    "@vueblocks/vue-use-core": "^0.2.10",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.7"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",
@@ -34,7 +34,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0-0",
     "typescript": "~3.9.3",
-    "vue-demi": "^0.6.0",
+    "vue-demi": "^0.7.3",
     "vue-jest": "^5.0.0-0"
   },
   "eslintConfig": {
