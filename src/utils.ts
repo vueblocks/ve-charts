@@ -11,6 +11,8 @@ export const toCamelCase = (arr: string[]) =>
     .map((str, idx) => idx > 0 ? str.charAt(0).toLocaleUpperCase() + str.slice(1) : str)
     .join('')
 
+export const isObject = (prop: any) => Object.prototype.toString.call(prop) === '[object Object]'
+
 // Copied from
 // https://github.com/vuejs/vue-next/blob/5a7a1b8293822219283d6e267496bec02234b0bc/packages/shared/src/index.ts#L40-L41
 export const isOn = (key: string) => /^on[^a-z]/.test(key)

@@ -8,7 +8,6 @@ import {
   ref,
   shallowRef,
   toRef,
-  toRefs,
   nextTick,
   watch,
   PropType
@@ -17,10 +16,10 @@ import { useResizeObserver } from '@vueblocks/vue-use-core'
 
 import type {
   EChartsType,
-  ECBasicOption,
   Theme,
   InitOpts,
-  SetOptionOpts
+  SetOptionOpts,
+  EChartsOption
 } from './types'
 import { useAttrs } from './composable'
 
@@ -30,23 +29,27 @@ export default defineComponent({
   inheritAttrs: false,
 
   props: {
-    option: [Object, Array] as PropType<ECBasicOption>,
+    option: Object as PropType<EChartsOption>,
     initOptions: Object as PropType<InitOpts>,
     theme: [String, Object] as PropType<Theme>,
-    chartHeight: { type: Number, default: 400 }
+    setOptionOpts: Object as PropType<SetOptionOpts>,
+    chartHeight: { type: Number, default: 400 },
+    needUpdate: Boolean
   },
 
   setup (props, { attrs }) {
-    const { option } = toRefs(props)
+    const option = toRef(props, 'option')
     const theme = toRef(props, 'theme')
     const initOptions = toRef(props, 'initOptions')
+    const setOptionOpts = toRef(props, 'setOptionOpts')
+    const needUpdate = toRef(props, 'needUpdate')
     const echartsRef = ref<HTMLElement>()
     const echartsInstance = shallowRef<EChartsType>()
     const canvasRect = ref({})
-    const { echartsOptions, echartsEvents } = useAttrs(attrs)
+    const { echartsAttrs, echartsEvents } = useAttrs(attrs)
 
-    console.log(option)
-    console.log(echartsOptions)
+    console.log(option.value)
+    console.log(echartsAttrs.value)
 
     const resize = () => {
       if (echartsInstance.value) {
@@ -75,28 +78,25 @@ export default defineComponent({
       })
     }
 
-    const init = (options?: ECBasicOption) => {
+    const init = (option?: EChartsOption) => {
       if (!echartsRef.value) return
 
       echartsInstance.value = initChart(echartsRef.value, props.theme, {
         renderer: 'canvas'
       })
-      console.log(echartsInstance)
-      options && echartsInstance.value.setOption(options)
+      console.log(echartsInstance.value)
+      option && echartsInstance.value.setOption(option)
 
       delegateEvents(echartsInstance.value)
 
       nextTick(resize)
     }
 
-    const setOption = (option: ECBasicOption, opts: SetOptionOpts) => {
+    const setOption = (option: EChartsOption, opts?: SetOptionOpts) => {
       if (!echartsInstance.value) {
         init(option)
       } else {
-        echartsInstance.value.setOption(option, {
-          ...echartsOptions.value,
-          ...opts
-        })
+        echartsInstance.value.setOption(option, opts)
       }
     }
 
@@ -109,10 +109,15 @@ export default defineComponent({
     )
 
     watch(
-      () => echartsOptions.value,
-      (opts) => {
-        console.log(opts)
-        props.option && setOption(props.option, opts)
+      needUpdate,
+      (needUpdate) => {
+        if (needUpdate && option.value) {
+          if (setOptionOpts.value) {
+            setOption(option.value, setOptionOpts.value)
+          } else {
+            setOption(option.value)
+          }
+        }
       },
       { deep: true }
     )
@@ -127,13 +132,15 @@ export default defineComponent({
     )
 
     onMounted(() => {
-      props.option && init(props.option)
+      option.value && init(option.value)
     })
 
     onUnmounted(dispose)
 
     return {
-      echartsRef
+      echartsRef,
+      echartsInstance,
+      setOption
     }
   },
 

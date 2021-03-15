@@ -34,9 +34,8 @@ export default defineComponent({
       }]
     }
   }),
-  setup: () => {
-    // const settings: BarChartOptions = {
-    const settings = {
+  setup () {
+    const settings = ref({
       title: {
         text: 'ECharts 5 入门示例'
       },
@@ -52,10 +51,28 @@ export default defineComponent({
         data: [120, 200, 150, 80, 70, 110, 130],
         type: 'bar'
       }]
-    }
+    })
 
     const darkMode = ref(false)
     const bgColor = computed(() => darkMode.value ? '#000' : '#fff')
+    // const timer = ref(0)
+
+    // const refreshData = () => {
+    //   if (timer.value) clearInterval(timer.value)
+    //   timer.value = setInterval(() => {
+    //     settings.value.series = settings.value.series.map(item => {
+    //       const data = item.data
+    //       data.shift()
+    //       data.push(Math.random() * 1000)
+    //       return {
+    //         ...item,
+    //         data
+    //       }
+    //     })
+    //   }, 6666)
+    // }
+
+    // onMounted(() => refreshData())
 
     return {
       settings,

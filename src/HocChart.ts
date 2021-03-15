@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineComponent, h } from 'vue-demi'
+import { defineComponent, h, PropType } from 'vue-demi'
 import BaseChart from './BaseChart'
+// import { isObject } from './utils'
+import type { EChartsOption } from './types'
 
 export default defineComponent({
   props: {
-    // basic option
-    data: [Object, Array],
-    settings: [Object, Array],
     // echarts default options
     title: Object,
     legend: Object,
@@ -51,6 +50,12 @@ export default defineComponent({
     useUTC: { type: Boolean, default: false },
     options: Object,
     media: Array,
+    // ve-charts basic option
+    data: [Object, Array],
+    settings: {
+      type: [Object, Array] as PropType<EChartsOption>,
+      default: {}
+    },
     // ve-charts props
     loading: { type: Boolean, default: false },
     emptyText: String,
@@ -60,12 +65,43 @@ export default defineComponent({
   data: () => ({
     initOptions: {
       renderer: 'canvas'
-    }
+    },
+    needUpdate: false,
+    setOptionOpts: {}
   }),
-  render (props: any) {
-    return h(BaseChart, {
-      ...props.$props,
-      option: this.settings
+  computed: {
+    baseChartOpts (): any {
+      return {
+        option: this.settings,
+        initOptions: this.initOptions,
+        needUpdate: this.needUpdate,
+        setOptionOpts: this.setOptionOpts
+      }
+    }
+  },
+  created () {
+    Object.keys(this.$props).forEach(prop => {
+      this.$watch(
+        prop,
+        (val: any) => {
+          console.log(val)
+          this.mergePropsToOption({ [prop]: val })
+          this.needUpdate = true
+          this.$nextTick(() => {
+            this.needUpdate = false
+          })
+        }
+        // { deep: true }
+      )
     })
+  },
+  methods: {
+    mergePropsToOption (props: any) {
+      Object.assign(this.settings, props)
+    }
+  },
+  render () {
+    // props.$props
+    return h(BaseChart, this.baseChartOpts)
   }
 })

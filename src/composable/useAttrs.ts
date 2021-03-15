@@ -4,7 +4,7 @@ import { isOn, omitOn, toKebabCase, toCamelCase } from '../utils'
 import { Attrs } from '../types'
 
 const useAttrs = (attrs: Attrs) => {
-  const echartsOptions = computed(() => omitOn(attrs))
+  const echartsAttrs = computed(() => omitOn(attrs))
   const echartsEvents: Record<string, Function> = {}
 
   Object.keys(attrs)
@@ -18,7 +18,7 @@ const useAttrs = (attrs: Attrs) => {
     })
 
   return {
-    echartsOptions,
+    echartsAttrs,
     echartsEvents
   }
 }

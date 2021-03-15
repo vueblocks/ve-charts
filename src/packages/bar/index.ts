@@ -20,5 +20,8 @@ use([
 
 export default defineComponent({
   name: 'VeBarChart',
-  mixins: [HocChart]
+  extends: HocChart,
+  setup (props) {
+    console.log(props)
+  }
 })
