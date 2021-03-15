@@ -180,6 +180,22 @@ export default {
       }
     },
     {
+      title: '设置坐标轴刻度标签和轴线显隐',
+      data: groupData,
+      settings: {
+        direction: 'row',
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        xAxisLabelShow: false,
+        xAxisLineShow: false,
+        yAxisLabelShow: true,
+        yAxisLineShow: false
+      }
+    },
+    {
       title: '堆叠条形图',
       data: groupData,
       settings: {

@@ -214,6 +214,47 @@
   }
 </script>
 
+## 设置坐标轴刻度标签和轴线显隐
+
+<vuep template="#setAxisBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="setAxisBar" />
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: '渠道',
+          data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序'].reverse()
+        },
+        measures: [{
+          name: 'PV',
+          data: [36000, 28000, 24000, 20000, 12000, 6000].reverse()
+        }, {
+          name: 'UV',
+          data: [28000, 22000, 18000, 14000, 8000, 2000].reverse()
+        }]
+      }
+      this.chartSettings = {
+        direction: 'row',
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        xAxisLabelShow: false,
+        xAxisLineShow: false,
+        yAxisLabelShow: true,
+        yAxisLineShow: false
+      }
+    }
+  }
+</script>
+
 ## 对比条形图
 
 <vuep template="#rowGroupBarCop" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
@@ -661,3 +702,7 @@
 | percentage | 是否是百分比堆叠柱状图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
 | xAxisInverse | X轴方向反向| Boolean | `true`/`false` | 默认 `false`  参见[文档](https://www.echartsjs.com/zh/option.html#xAxis.inverse) |
 | yAxisInverse | Y轴方向反向| Boolean | `true`/`false` | 默认 `false`   参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.inverse) |
+| yAxisLabelShow | 纵坐标轴刻度标签显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| yAxisLineShow | 纵坐标轴轴线显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| xAxisLabelShow | 横坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |

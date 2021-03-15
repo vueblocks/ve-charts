@@ -48,14 +48,18 @@ class BarChart extends BaseChart {
 
   // build dimension Axis
   static getBarDimAxis (settings) {
-    const { dimAxisType } = settings
+    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow } = settings
 
     const axisItem = {
       type: dimAxisType,
+      axisLine: {
+        show: Array.isArray(dimAxisLineShow) ? dimAxisLineShow[0] : dimAxisLineShow
+      },
       axisTick: {
         show: false
       },
       axisLabel: {
+        show: Array.isArray(dimAxisLabelShow) ? dimAxisLabelShow[0] : dimAxisLabelShow,
         margin: 10,
         fontWeight: 400
       }
@@ -70,6 +74,8 @@ class BarChart extends BaseChart {
     const {
       meaAxisType,
       meaAxisDigits,
+      meaAxisLineShow,
+      meaAxisLabelShow,
       yAxisScale = false,
       percentage = false,
       yAxisName,
@@ -91,6 +97,7 @@ class BarChart extends BaseChart {
     const meaAxis = []
     meaAxisType.forEach((type, i) => {
       const axisLabel = {
+        show: Array.isArray(meaAxisLabelShow) ? meaAxisLabelShow[i] : meaAxisLabelShow,
         margin: 10,
         fontWeight: 400
       }
@@ -103,9 +110,14 @@ class BarChart extends BaseChart {
           axisLabel.formatter = value => formatMeasure(type, value, meaAxisDigits)
         }
       }
+      const axisLine = {
+        show: Array.isArray(meaAxisLineShow) ? meaAxisLineShow[i] : meaAxisLineShow
+      }
+
       const axisItem = {
         ...meaAxisBase,
-        axisLabel
+        axisLabel,
+        axisLine
       }
       if (yAxisName && yAxisName.length) {
         axisItem['name'] = yAxisName[i]
@@ -204,9 +216,13 @@ class BarChart extends BaseChart {
       yAxisLabelType,
       yAxisLabelDigits = 0,
       yAxisName,
+      yAxisLabelShow = [true, true],
+      yAxisLineShow = [true, true],
       xAxisLabelType,
       xAxisLabelDigits = 0,
-      xAxisName
+      xAxisName,
+      xAxisLabelShow = true,
+      xAxisLineShow = true
     } = settings
 
     // 默认柱状图
@@ -218,9 +234,13 @@ class BarChart extends BaseChart {
     settings.meaAxisType = (isBar ? xAxisLabelType : yAxisLabelType) || defaultMeaAxisType
     settings.meaAxisDigits = isBar ? xAxisLabelDigits : yAxisLabelDigits
     settings.meaAxisName = (isBar ? xAxisName : yAxisName) || []
+    settings.meaAxisLabelShow = (isBar ? xAxisLabelShow : yAxisLabelShow)
+    settings.meaAxisLineShow = (isBar ? xAxisLineShow : yAxisLineShow)
     settings.dimAxisType = (isBar ? yAxisLabelType : xAxisLabelType) || 'category'
     settings.dimAxisDigits = isBar ? yAxisLabelDigits : xAxisLabelDigits
     settings.dimAxisName = (isBar ? yAxisName : xAxisName) || ''
+    settings.dimAxisLabelShow = (isBar ? yAxisLabelShow : xAxisLabelShow)
+    settings.dimAxisLineShow = (isBar ? yAxisLineShow : xAxisLineShow)
 
     // 如果设置了双Y轴，将双Y轴统一设置 meaAxisType
     if (defaultMeaAxisType.length > settings.meaAxisType.length) {
