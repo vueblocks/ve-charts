@@ -20,11 +20,11 @@ import type {
   InitOpts,
   SetOptionOpts,
   EChartsOption
-} from './types'
-import { useAttrs } from './composable'
+} from '../types'
+import { useAttrs } from '../use'
 
 export default defineComponent({
-  name: 'BaseChart',
+  name: 'VeChart',
 
   inheritAttrs: false,
 

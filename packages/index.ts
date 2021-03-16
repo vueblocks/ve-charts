@@ -1,11 +1,11 @@
 import { App } from 'vue-demi'
 
-import BaseChart from './BaseChart'
-import BarChart from './packages/bar/index'
-import LineChart from './packages/line/index'
+import VeChart from './base/index'
+import BarChart from './bar/index'
+import LineChart from './line/index'
 
 export const install = (app: App): void => {
-  app.component(BaseChart.name, BaseChart)
+  app.component(VeChart.name, VeChart)
   app.component(BarChart.name, BarChart)
   app.component(LineChart.name, LineChart)
 }

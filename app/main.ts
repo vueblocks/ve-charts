@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import VeCharts from '../src/index'
+import VeCharts from '../packages/index'
 
 const app = createApp(App)
 

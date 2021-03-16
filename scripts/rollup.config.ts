@@ -6,6 +6,7 @@ import dts from 'rollup-plugin-dts'
 import filesize from 'rollup-plugin-filesize'
 
 import pkg from '../package.json'
+import { activePackages } from './packages'
 
 interface Output {
   format: string;
@@ -23,6 +24,7 @@ const createOutputs = (arg: Output) => {
     format,
     name,
     isMinify,
+    display,
     globals = {},
     plugins = []
   } = arg
@@ -33,9 +35,11 @@ const createOutputs = (arg: Output) => {
     umdSettings = {
       globals: {
         'vue-demi': 'VueDemi',
+        'lodash.clonedeep': 'CloneDeep',
+        '@vueblocks/vue-use-core': 'VueUseCore',
         ...globals
       },
-      name: 'VeCharts'
+      name: display
     }
   }
 
@@ -51,17 +55,11 @@ const createOutputs = (arg: Output) => {
 
   return {
     banner: makeBanner(name),
-    file: `lib/index.${fileType}.js`,
+    file: `packages/${name}/lib/index.${fileType}.js`,
     format,
-    ...umdSettings,
+    exports: 'default',
     plugins,
-    globals: {
-      'vue-demi': 'vue-demi',
-      echarts: 'echarts',
-      'echarts/core': 'echarts',
-      'lodash.clonedeep': 'lodash.clonedeep',
-      '@vueblocks/vue-use-core': 'VueUseCore'
-    }
+    ...umdSettings
   }
 }
 
@@ -76,60 +74,63 @@ const minifyPlugins = [
   })
 ]
 
-// build lib cjs/esm/umd/umd.min js
-const configMap = [
-  { format: 'cjs', name: 've-charts', isMinify: false },
-  { format: 'es', name: 've-charts', isMinify: false },
-  { format: 'umd', name: 've-charts', isMinify: false, display: 'VeCharts' },
-  { format: 'umd', name: 've-charts', isMinify: true, display: 'VeCharts', plugins: minifyPlugins }
-]
+const createConfig = (name, display, external = [], globals = {}) => {
+  // build lib cjs/esm/umd/umd.min js
+  const configMap = [
+    { format: 'cjs', name, isMinify: false },
+    { format: 'es', name, isMinify: false },
+    { format: 'umd', name, isMinify: false, display, globals, },
+    { format: 'umd', name, isMinify: true, display, globals, plugins: minifyPlugins }
+  ]
 
-function createEntry (config) {
-  return {
-    input: 'src/index.ts',
-    output: [
-      createOutputs(config)
-    ],
-    plugins: [
-      typescript({
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: false
+  function createEntry (config) {
+    return {
+      input: `packages/${name}/index.ts`,
+      output: [
+        createOutputs(config)
+      ],
+      plugins: [
+        typescript({
+          tsconfigOverride: {
+            compilerOptions: {
+              declaration: false
+            }
           }
-        }
-      }),
-      replace({
-        preventAssignment: true,
-        __DEV__: config.format !== 'umd'
-          ? '(process.env.NODE_ENV !== "production")'
-          : config.isMinify ? 'false' : 'true'
-      }),
-      filesize()
-    ],
-    external: [
-      'vue-demi',
-      'lodash.clonedeep',
-      'echarts/core',
-      'echarts/charts',
-      'echarts/components',
-      'echarts/renderers',
-      '@vueblocks/vue-use-core'
-    ]
+        }),
+        replace({
+          preventAssignment: true,
+          __DEV__: config.format !== 'umd'
+            ? '(process.env.NODE_ENV !== "production")'
+            : config.isMinify ? 'false' : 'true'
+        }),
+        filesize()
+      ],
+      external: [
+        'vue-demi',
+        'lodash.clonedeep',
+        '@vueblocks/vue-use-core',
+        ...external
+      ]
+    }
   }
+
+  configMap.map((c) => configs.push(createEntry(c)))
+
+  // build lib d.ts
+  configs.push({
+    input: `packages/${name}/index.ts`,
+    output: {
+      file: `packages/${name}/lib/index.d.ts`,
+      format: 'es'
+    },
+    plugins: [
+      dts()
+    ]
+  })
 }
 
-configMap.map((c) => configs.push(createEntry(c)))
-
-// build lib d.ts
-configs.push({
-  input: 'src/index.ts',
-  output: {
-    file: 'lib/index.d.ts',
-    format: 'es'
-  },
-  plugins: [
-    dts()
-  ]
-})
+for(const {name, display, external = [], globals = {}} of activePackages) {
+  createConfig(name, display, external, globals)
+}
 
 export default configs

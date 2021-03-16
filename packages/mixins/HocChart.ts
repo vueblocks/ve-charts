@@ -2,9 +2,10 @@
 import { defineComponent, h, PropType } from 'vue-demi'
 import cloneDeep from 'lodash.clonedeep'
 
-import BaseChart from './BaseChart'
+import '../use/useCommonChart'
+import VeChart from '../base/index'
 // import { isObject } from './utils'
-import type { EChartsOption, ECSetOption } from './types'
+import type { EChartsOption, ECSetOption } from '../types'
 
 export default defineComponent({
   props: {
@@ -14,30 +15,30 @@ export default defineComponent({
      * https://echarts.apache.org/zh/option.html
      */
     title: Object as PropType<ECSetOption['title']>,
-    legend: Object,
-    grid: Object,
-    xAxis: [Object, Array],
-    yAxis: [Object, Array],
-    polar: Object,
-    radiusAxis: Object,
-    angleAxis: Object,
-    radar: [Object, Array],
-    dataZoom: [Object, Array],
-    visualMap: [Object, Array],
-    tooltip: Object,
-    axisPointer: Object,
-    toolbox: Object,
-    brush: Object,
-    geo: Object,
-    parallel: Object,
-    parallelAxis: Array,
-    singleAxis: Array,
-    timeline: Object,
-    graphic: Object,
-    calendar: Object,
-    dataset: Object,
-    aria: Object,
-    series: [Object, Array],
+    legend: Object as PropType<ECSetOption['legend']>,
+    grid: Object as PropType<ECSetOption['grid']>,
+    xAxis: [Object, Array] as PropType<ECSetOption['xAxis']>,
+    yAxis: [Object, Array] as PropType<ECSetOption['yAxis']>,
+    polar: Object as PropType<ECSetOption['polar']>,
+    radiusAxis: Object as PropType<ECSetOption['radiusAxis']>,
+    angleAxis: Object as PropType<ECSetOption['angleAxis']>,
+    radar: [Object, Array] as PropType<ECSetOption['radar']>,
+    dataZoom: [Object, Array] as PropType<ECSetOption['dataZoom']>,
+    visualMap: [Object, Array] as PropType<ECSetOption['visualMap']>,
+    tooltip: Object as PropType<ECSetOption['toolbox']>,
+    axisPointer: Object as PropType<ECSetOption['axisPointer']>,
+    toolbox: Object as PropType<ECSetOption['toolbox']>,
+    brush: Object as PropType<ECSetOption['brush']>,
+    geo: Object as PropType<ECSetOption['geo']>,
+    parallel: Object as PropType<ECSetOption['parallel']>,
+    parallelAxis: Array as PropType<ECSetOption['parallelAxis']>,
+    singleAxis: Array as PropType<ECSetOption['singleAxis']>,
+    timeline: Object as PropType<ECSetOption['timeline']>,
+    graphic: Object as PropType<ECSetOption['graphic']>,
+    calendar: Object as PropType<ECSetOption['calendar']>,
+    dataset: Object as PropType<ECSetOption['dataset']>,
+    aria: Object as PropType<ECSetOption['aria']>,
+    series: [Object, Array] as PropType<ECSetOption['series']>,
     darkMode: { type: [Boolean, String], default: 'auto' },
     color: Array,
     backgroundColor: [Object, String],
@@ -76,7 +77,7 @@ export default defineComponent({
     mergedOption: {}
   }),
   computed: {
-    baseChartOpts (): any {
+    chartOpts (): any {
       return {
         option: this.mergedOption,
         initOptions: this.initOptions,
@@ -127,6 +128,6 @@ export default defineComponent({
   },
   render () {
     // props.$props
-    return h(BaseChart, this.baseChartOpts)
+    return h(VeChart, this.chartOpts)
   }
 })

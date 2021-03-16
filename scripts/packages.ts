@@ -1,7 +1,7 @@
 export interface PackageManifest {
   name: string;
   display: string;
-  addon?: boolean;
+  minimal?: boolean;
   author?: string;
   description?: string;
   external?: string[];
@@ -12,33 +12,52 @@ export interface PackageManifest {
 
 export const packages: PackageManifest[] = [
   {
-    name: 'bar',
-    display: 'VeBarChart',
-    description: 'Bar Chart Component.',
+    name: 'base',
+    display: 'VeChart',
+    description: 'Base Chart Component.',
+    minimal: true,
     external: [
-      'vue-demi',
-      'lodash.clonedeep',
-      'echarts/core',
-      'echarts/charts',
-      'echarts/components',
-      'echarts/renderers',
-      '@vueblocks/vue-use-core'
+      'echarts/core'
     ],
     globals: {
-      'echarts/charts': 'EchartsCharts'
+      'echarts/core': 'EchartsCore'
     }
   },
   {
-    name: 'vuex',
-    display: 'Vuex',
-    description: 'Utilities for Vuex',
-    addon: true
+    name: 'bar',
+    display: 'VeBarChart',
+    description: 'Bar Chart Component.',
+    minimal: true,
+    external: [
+      'echarts/core',
+      'echarts/charts',
+      'echarts/components',
+      'echarts/renderers'
+    ],
+    globals: {
+      'echarts/core': 'EchartsCore',
+      'echarts/charts': 'EchartsCharts',
+      'echarts/components': 'EchartsComponents',
+      'echarts/renderers': 'EchartsRenderers'
+    }
   },
   {
-    name: 'axios',
-    display: 'Axios',
-    description: 'Utilities for Axios',
-    addon: true
+    name: 'line',
+    display: 'VeLineChart',
+    description: 'Line Chart Components.',
+    minimal: true,
+    external: [
+      'echarts/core',
+      'echarts/charts',
+      'echarts/components',
+      'echarts/renderers'
+    ],
+    globals: {
+      'echarts/core': 'EchartsCore',
+      'echarts/charts': 'EchartsCharts',
+      'echarts/components': 'EchartsComponents',
+      'echarts/renderers': 'EchartsRenderers'
+    }
   }
 ]
 

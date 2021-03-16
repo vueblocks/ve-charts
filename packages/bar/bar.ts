@@ -1,4 +1,3 @@
-import { defineComponent } from 'vue-demi'
 import { ComposeOption } from 'echarts/core'
 import { BarSeriesOption } from 'echarts/charts'
 import {
@@ -12,6 +11,4 @@ type BarChartOptions = ComposeOption<
   BarSeriesOption | GridComponentOption | TitleComponentOption | TooltipComponentOption
 >
 
-export default defineComponent({
-
-})
+export { BarChartOptions }
