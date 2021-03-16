@@ -33,8 +33,8 @@ export default defineComponent({
     initOptions: Object as PropType<InitOpts>,
     theme: [String, Object] as PropType<Theme>,
     setOptionOpts: Object as PropType<SetOptionOpts>,
-    chartHeight: { type: Number, default: 400 },
-    needUpdate: Boolean
+    height: { type: Number, default: 400 },
+    needUpdate: { type: Boolean, default: false }
   },
 
   setup (props, { attrs }) {
@@ -46,10 +46,9 @@ export default defineComponent({
     const echartsRef = ref<HTMLElement>()
     const echartsInstance = shallowRef<EChartsType>()
     const canvasRect = ref({})
-    const { echartsAttrs, echartsEvents } = useAttrs(attrs)
+    const { echartsEvents } = useAttrs(attrs)
 
     console.log(option.value)
-    console.log(echartsAttrs.value)
 
     const resize = () => {
       if (echartsInstance.value) {
@@ -147,7 +146,7 @@ export default defineComponent({
   render (props: any) {
     const echartsStyle = {
       width: 'auto',
-      height: `${props.chartHeight}px`
+      height: `${props.height}px`
     }
 
     return h('div', {
