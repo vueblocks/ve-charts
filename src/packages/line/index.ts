@@ -1,12 +1,25 @@
 import { defineComponent } from 'vue-demi'
-import * as echarts from 'echarts/core'
+import { use } from 'echarts/core'
 import { LineChart } from 'echarts/charts'
 
-import BaseCharts from '../../BaseChart'
+import {
+  GridComponent,
+  TitleComponent,
+  TooltipComponent
+} from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
 
-echarts.use([LineChart])
+import HocChart from '../../HocChart'
+
+use([
+  LineChart,
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  CanvasRenderer
+])
 
 export default defineComponent({
   name: 'VeLineChart',
-  mixins: [BaseCharts]
+  extends: HocChart
 })
