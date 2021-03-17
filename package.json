@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "rollup -c rollup.config.js",
     "test:unit": "vue-cli-service test:unit",
+    "prerelease": "npm run build && sh prerelease.sh",
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
