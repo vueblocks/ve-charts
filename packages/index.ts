@@ -1,19 +1,19 @@
 import { App } from 'vue-demi'
 
 import VeChart from './base/index'
-import BarChart from './bar/index'
-import LineChart from './line/index'
+import VeBarChart from './bar/index'
+import VeLineChart from './line/index'
 
 const install = (app: App): void => {
   app.component(VeChart.name, VeChart)
-  app.component(BarChart.name, BarChart)
-  app.component(LineChart.name, LineChart)
+  app.component(VeBarChart.name, VeBarChart)
+  app.component(VeLineChart.name, VeLineChart)
 }
 
 export {
   VeChart,
-  BarChart,
-  LineChart,
+  VeBarChart,
+  VeLineChart,
   install
 }
 
