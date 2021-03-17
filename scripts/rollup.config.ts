@@ -23,6 +23,7 @@ const createOutputs = (arg: Output) => {
   const {
     format,
     name,
+    minimal,
     isMinify,
     display,
     globals = {},
@@ -44,6 +45,7 @@ const createOutputs = (arg: Output) => {
   }
 
   const fileType = isMinify ? format + '.min' : format === 'es' ? 'esm' : format
+  const filepath = minimal ? `${name}/` : ''
 
   const makeBanner = (name: string) => {
     return `/*!
@@ -55,9 +57,9 @@ const createOutputs = (arg: Output) => {
 
   return {
     banner: makeBanner(name),
-    file: `packages/${name}/lib/index.${fileType}.js`,
+    file: `packages/${filepath}lib/index.${fileType}.js`,
     format,
-    exports: 'default',
+    exports: minimal ? 'default' : 'named',
     plugins,
     ...umdSettings
   }
@@ -74,18 +76,20 @@ const minifyPlugins = [
   })
 ]
 
-const createConfig = (name, display, external = [], globals = {}) => {
+const createConfig = (name, display, minimal, external = [], globals = {}) => {
   // build lib cjs/esm/umd/umd.min js
   const configMap = [
-    { format: 'cjs', name, isMinify: false },
-    { format: 'es', name, isMinify: false },
-    { format: 'umd', name, isMinify: false, display, globals, },
-    { format: 'umd', name, isMinify: true, display, globals, plugins: minifyPlugins }
+    { format: 'cjs', name, minimal, isMinify: false },
+    { format: 'es', name, minimal, isMinify: false },
+    { format: 'umd', name, minimal, isMinify: false, display, globals },
+    { format: 'umd', name, minimal, isMinify: true, display, globals, plugins: minifyPlugins }
   ]
+
+  const filepath = minimal ? `${name}/` : ''
 
   function createEntry (config) {
     return {
-      input: `packages/${name}/index.ts`,
+      input: `packages/${filepath}index.ts`,
       output: [
         createOutputs(config)
       ],
@@ -118,9 +122,9 @@ const createConfig = (name, display, external = [], globals = {}) => {
 
   // build lib d.ts
   configs.push({
-    input: `packages/${name}/index.ts`,
+    input: `packages/${filepath}index.ts`,
     output: {
-      file: `packages/${name}/lib/index.d.ts`,
+      file: `packages/${filepath}lib/index.d.ts`,
       format: 'es'
     },
     plugins: [
@@ -129,8 +133,8 @@ const createConfig = (name, display, external = [], globals = {}) => {
   })
 }
 
-for(const {name, display, external = [], globals = {}} of activePackages) {
-  createConfig(name, display, external, globals)
+for (const { name, display, minimal, external = [], globals = {} } of activePackages) {
+  createConfig(name, display, minimal, external, globals)
 }
 
 export default configs

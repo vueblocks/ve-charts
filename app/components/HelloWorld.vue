@@ -13,7 +13,9 @@
       @brushEnd="handleClick"
       @zr:click="handleZrClick"
     />
+
     <button @click="handleToggle">Toggle</button>
+
     <ve-line-chart
       :data="chartData"
       :option="lineChartOptions"

@@ -12,6 +12,24 @@ export interface PackageManifest {
 
 export const packages: PackageManifest[] = [
   {
+    name: 'global',
+    display: 'VeCharts',
+    description: 'VeCharts Component.',
+    minimal: false,
+    external: [
+      'echarts/core',
+      'echarts/charts',
+      'echarts/components',
+      'echarts/renderers'
+    ],
+    globals: {
+      'echarts/core': 'EchartsCore',
+      'echarts/charts': 'EchartsCharts',
+      'echarts/components': 'EchartsComponents',
+      'echarts/renderers': 'EchartsRenderers'
+    }
+  },
+  {
     name: 'base',
     display: 'VeChart',
     description: 'Base Chart Component.',
