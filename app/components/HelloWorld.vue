@@ -9,9 +9,9 @@
       :background-color="bgColor"
       :legend="chartLegend"
       @click="handleClick"
-      @legendselected="handleLegendSeleted"
-      @brushEnd="handleClick"
       @zr:click="handleZrClick"
+      @legendselected="handleLegendSeleted"
+      @mouseover="handleZrClick"
     />
 
     <button @click="handleToggle">Toggle</button>
@@ -25,7 +25,6 @@
       :legend="chartLegend"
       @click="handleClick"
       @legendselected="handleLegendSeleted"
-      @brushEnd="handleClick"
       @zr:click="handleZrClick"
     />
   </div>
@@ -142,6 +141,7 @@ export default defineComponent({
       chartLegend,
       handleClick: (val: any) => console.log(val),
       handleZrClick: (val: any) => console.log(val),
+      handleZrMouseover: (val: any) => console.log(val),
       handleLegendSeleted: (val: any) => console.log(val),
       handleToggle
     }

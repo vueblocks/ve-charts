@@ -1,13 +1,13 @@
 # VeCharts Next Version
 
-> 📈  ECharts 5.x fro Vue3.x
+> 📈  ECharts 5.x for Vue.js 3.x.
 
 ## Installation
 
 ```bash
-$ yarn add echarts ve-charts
+$ yarn add echarts ve-charts@next
 or
-$ npm i echarts ve-charts
+$ npm i echarts ve-charts@next
 ```
 
 ## Usage
@@ -88,10 +88,13 @@ $ npm i echarts ve-charts
   - `contextmenu` [→](https://echarts.apache.org/en/api.html#events.Mouse%20events.contextmenu)
 - ZRender events
   - `zr:click`
-  - `zr:mousedown`
-  - `zr:mouseup`
-  - `zr:mousewheel`
   - `zr:dblclick`
+  - `zr:mousedown`
+  - `zr:mousemove`
+  - `zr:mouseup`
+  - `zr:mouseover`
+  - `zr:mouseout`
+  - `zr:mousewheel`
   - `zr:contextmenu`
 
 See supported events [here →](https://echarts.apache.org/en/api.html#events)
