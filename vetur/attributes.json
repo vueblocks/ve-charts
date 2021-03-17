@@ -1,0 +1,395 @@
+{
+  "ve-chart/option": {
+    "type": "object",
+    "version": ">=0.1.0",
+    "description": "echartsInstance.setOption['option']"
+  },
+  "ve-chart/initOptions": {
+    "type": "object",
+    "description": "echarts.init(['opts'])"
+  },
+  "ve-chart/theme": {
+    "type": "string | object",
+    "description": "echarts.init(['theme'])"
+  },
+  "ve-chart/setOptionOpts": {
+    "type": "object",
+    "description": "echartsInstance.setOption['opts']"
+  },
+  "ve-chart/height": {
+    "type": "number",
+    "description": "echartsInstance.height, default: 400(px)"
+  },
+  "ve-chart/needUpdate": {
+    "type": "boolean",
+    "description": "Whether echarts need update or not"
+  },
+  "ve-bar-chart/title": {
+    "type": "object",
+    "description": "Title component, including main title and subtitle. \n https://echarts.apache.org/en/option.html#title"
+  },
+  "ve-bar-chart/legend": {
+    "type": "object",
+    "description": "Legend component shows symbol, color and name of different series. \n https://echarts.apache.org/en/option.html#legend"
+  },
+  "ve-bar-chart/grid": {
+    "type": "object",
+    "description": "Drawing grid in rectangular coordinate. \n https://echarts.apache.org/en/option.html#grid"
+  },
+  "ve-bar-chart/xAxis": {
+    "type": "object | array",
+    "description": "The x axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#xAxis"
+  },
+  "ve-bar-chart/yAxis": {
+    "type": "object | array",
+    "description": "The y axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#yAxis"
+  },
+  "ve-bar-chart/polar": {
+    "type": "object",
+    "description": "Polar coordinate can be used in scatter and line chart. Every polar coordinate has an `angleAxis` and a `radiusAxis`. \n https://echarts.apache.org/en/option.html#polar"
+  },
+  "ve-bar-chart/radiusAxis": {
+    "type": "object",
+    "description": "Radial axis of polar coordinate. \n https://echarts.apache.org/en/option.html#radiusAxis"
+  },
+  "ve-bar-chart/angleAxis": {
+    "type": "object",
+    "description": "The angle axis in Polar Coordinate. \n https://echarts.apache.org/en/option.html#angleAxis"
+  },
+  "ve-bar-chart/radar": {
+    "type": "object | array",
+    "description": "Coordinate for radar charts. \n https://echarts.apache.org/en/option.html#radar"
+  },
+  "ve-bar-chart/dataZoom": {
+    "type": "object | array",
+    "description": "dataZoom component is used for zooming a specific area, which enables user to investigate data in detail, or get an overview of the data, or get rid of outlier points. \n https://echarts.apache.org/en/option.html#dataZoom"
+  },
+  "ve-bar-chart/visualMap": {
+    "type": "object | array",
+    "description": "visualMap is a type of component for visual encoding, which maps the data to visual channels. \n https://echarts.apache.org/en/option.html#visualMap"
+  },
+  "ve-bar-chart/tooltip": {
+    "type": "object",
+    "description": "Tooltip component. \n https://echarts.apache.org/en/option.html#tooltip"
+  },
+  "ve-bar-chart/axisPointer": {
+    "type": "object",
+    "description": "This is the global configurations of axisPointer. \n https://echarts.apache.org/en/option.html#axisPointer"
+  },
+  "ve-bar-chart/toolbox": {
+    "type": "object",
+    "description": "A group of utility tools, which includes `export`, `data view`, `dynamic type switching`, `data area zooming`, and `reset`. \n https://echarts.apache.org/en/option.html#toolbox"
+  },
+  "ve-bar-chart/brush": {
+    "type": "object",
+    "description": "brush is an area-selecting component, with which user can select part of data from a chart to display in detail, or do calculations with them. \n https://echarts.apache.org/en/option.html#brush"
+  },
+  "ve-bar-chart/geo": {
+    "type": "object",
+    "description": "Geographic coorinate system component is used to draw maps, which also supports `scatter series`, and `line series`. \n https://echarts.apache.org/en/option.html#geo"
+  },
+  "ve-bar-chart/parallel": {
+    "type": "object | array",
+    "description": "`Parallel Coordinates` is a common way of visualizing high-dimensional geometry and analyzing multivariate data. \n https://echarts.apache.org/en/option.html#parallel"
+  },
+  "ve-bar-chart/parallelAxis": {
+    "type": "array",
+    "description": "This component is the coordinate axis for parallel coordinate. \n https://echarts.apache.org/en/option.html#parallelAxis"
+  },
+  "ve-bar-chart/singleAxis": {
+    "type": "array",
+    "description": "An axis with a single dimension. It can be used to display data in one dimension. \n https://echarts.apache.org/en/option.html#singleAxis"
+  },
+  "ve-bar-chart/timeline": {
+    "type": "object",
+    "description": "`timeline` component, which provides functions like switching and playing between multiple ECharts options. \n https://echarts.apache.org/en/option.html#timeline"
+  },
+  "ve-bar-chart/graphic": {
+    "type": "object",
+    "description": "`graphic` component enables creating graphic elements in ECharts. \n https://echarts.apache.org/en/option.html#graphic"
+  },
+  "ve-bar-chart/calendar": {
+    "type": "object",
+    "description": "Calendar coordinates. \n https://echarts.apache.org/en/option.html#calendar"
+  },
+  "ve-bar-chart/dataset": {
+    "type": "object | array",
+    "description": "dataset brings convenience in data management separated with styles and enables data reuse by different series. More importantly, it enables data encoding from data to visual, which brings convenience in some scenarios. \n https://echarts.apache.org/en/option.html#dataset"
+  },
+  "ve-bar-chart/aria": {
+    "type": "object | array",
+    "description": "The W3C has developed the WAI-ARIA, the Accessible Rich Internet Applications Suite, which is dedicated to making web content and web applications accessible. \n https://echarts.apache.org/en/option.html#aria"
+  },
+  "ve-bar-chart/series": {
+    "type": "object | array",
+    "description": " \n https://echarts.apache.org/en/option.html#series"
+  },
+  "ve-bar-chart/color": {
+    "type": "array",
+    "description": "The color list of palette. If no color is set in series, the colors would be adopted sequentially and circularly from this list as the colors of series. \n https://echarts.apache.org/en/option.html#color"
+  },
+  "ve-bar-chart/backgroundColor": {
+    "type": "object | string",
+    "description": "Background color. Defaults to have no background. \n https://echarts.apache.org/en/option.html#backgroundColor"
+  },
+  "ve-bar-chart/textStyle": {
+    "type": "object",
+    "description": "Global font style. \n https://echarts.apache.org/en/option.html#textStyle"
+  },
+  "ve-bar-chart/animation": {
+    "type": "boolean",
+    "description": "Whether to enable animation. \n https://echarts.apache.org/en/option.html#animation"
+  },
+  "ve-bar-chart/animationThreshold": {
+    "type": "number",
+    "description": "Whether to set graphic number threshold to animation. Animation will be disabled when graphic number is larger than threshold. \n https://echarts.apache.org/en/option.html#animationThreshold"
+  },
+  "ve-bar-chart/animationDuration": {
+    "type": "number | method",
+    "description": "Duration of the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDuration"
+  },
+  "ve-bar-chart/animationEasing": {
+    "type": "string | method",
+    "description": "Easing method used for the first animation. \n https://echarts.apache.org/en/option.html#animationEasing"
+  },
+  "ve-bar-chart/animationDelay": {
+    "type": "number | method",
+    "description": "Delay before updating the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDelay"
+  },
+  "ve-bar-chart/animationDurationUpdate": {
+    "type": "number | method",
+    "description": "Time for animation to complete, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDurationUpdate"
+  },
+  "ve-bar-chart/animationEasingUpdate": {
+    "type": "string | method",
+    "description": "Easing method used for animation. \n https://echarts.apache.org/en/option.html#animationEasingUpdate"
+  },
+  "ve-bar-chart/animationDelayUpdate": {
+    "type": "string | method",
+    "description": "Delay before updating animation, which supports callback function for different data to have different animation effects. \n https://echarts.apache.org/en/option.html#animationDelayUpdate"
+  },
+  "ve-bar-chart/blendMode": {
+    "type": "object",
+    "description": "Sets the type of compositing operation to apply when drawing a new shape. \n https://echarts.apache.org/en/option.html#blendMode"
+  },
+  "ve-bar-chart/hoverLayerThreshold": {
+    "type": "number",
+    "description": "When the number of element of the whole chart is larger than hoverLayerThreshold, a seperate hover layer is used to render hovered elements. \n https://echarts.apache.org/en/option.html#hoverLayerThreshold"
+  },
+  "ve-bar-chart/useUTC": {
+    "type": "boolean",
+    "description": "Whether to use UTC in display. \n https://echarts.apache.org/en/option.html#useUTC"
+  },
+  "ve-bar-chart/options": {
+    "type": "object",
+    "description": "Option array used in `timeline`. Each item of this array is an echarts option (ECUnitOption). \n https://echarts.apache.org/en/option.html#options"
+  },
+  "ve-bar-chart/media": {
+    "type": "array",
+    "description": "See [Responsive Mobile-End] for details. \n https://echarts.apache.org/en/option.html#media"
+  },
+  "ve-bar-chart/data": {
+    "type": "array|object",
+    "description": "See [ve-charts documentation] for more details."
+  },
+  "ve-bar-chart/settings": {
+    "type": "array|object",
+    "description": "See [ve-charts documentation] for more details."
+  },
+  "ve-bar-chart/loading": {
+    "type": "boolean",
+    "description": "Whether loading data or not."
+  },
+  "ve-bar-chart/emptyText": {
+    "type": "string",
+    "description": "change the empty text placeholder."
+  },
+  "ve-bar-chart/option": {
+    "type": "array|object",
+    "description": "ve-charts common props. echartsInstance.setOption['option'] \n https://echarts.apache.org/en/option.html"
+  },
+  "ve-line-chart/title": {
+    "type": "object",
+    "description": "Title component, including main title and subtitle. \n https://echarts.apache.org/en/option.html#title"
+  },
+  "ve-line-chart/legend": {
+    "type": "object",
+    "description": "Legend component shows symbol, color and name of different series. \n https://echarts.apache.org/en/option.html#legend"
+  },
+  "ve-line-chart/grid": {
+    "type": "object",
+    "description": "Drawing grid in rectangular coordinate. \n https://echarts.apache.org/en/option.html#grid"
+  },
+  "ve-line-chart/xAxis": {
+    "type": "object | array",
+    "description": "The x axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#xAxis"
+  },
+  "ve-line-chart/yAxis": {
+    "type": "object | array",
+    "description": "The y axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#yAxis"
+  },
+  "ve-line-chart/polar": {
+    "type": "object",
+    "description": "Polar coordinate can be used in scatter and line chart. Every polar coordinate has an `angleAxis` and a `radiusAxis`. \n https://echarts.apache.org/en/option.html#polar"
+  },
+  "ve-line-chart/radiusAxis": {
+    "type": "object",
+    "description": "Radial axis of polar coordinate. \n https://echarts.apache.org/en/option.html#radiusAxis"
+  },
+  "ve-line-chart/angleAxis": {
+    "type": "object",
+    "description": "The angle axis in Polar Coordinate. \n https://echarts.apache.org/en/option.html#angleAxis"
+  },
+  "ve-line-chart/radar": {
+    "type": "object | array",
+    "description": "Coordinate for radar charts. \n https://echarts.apache.org/en/option.html#radar"
+  },
+  "ve-line-chart/dataZoom": {
+    "type": "object | array",
+    "description": "dataZoom component is used for zooming a specific area, which enables user to investigate data in detail, or get an overview of the data, or get rid of outlier points. \n https://echarts.apache.org/en/option.html#dataZoom"
+  },
+  "ve-line-chart/visualMap": {
+    "type": "object | array",
+    "description": "visualMap is a type of component for visual encoding, which maps the data to visual channels. \n https://echarts.apache.org/en/option.html#visualMap"
+  },
+  "ve-line-chart/tooltip": {
+    "type": "object",
+    "description": "Tooltip component. \n https://echarts.apache.org/en/option.html#tooltip"
+  },
+  "ve-line-chart/axisPointer": {
+    "type": "object",
+    "description": "This is the global configurations of axisPointer. \n https://echarts.apache.org/en/option.html#axisPointer"
+  },
+  "ve-line-chart/toolbox": {
+    "type": "object",
+    "description": "A group of utility tools, which includes `export`, `data view`, `dynamic type switching`, `data area zooming`, and `reset`. \n https://echarts.apache.org/en/option.html#toolbox"
+  },
+  "ve-line-chart/brush": {
+    "type": "object",
+    "description": "brush is an area-selecting component, with which user can select part of data from a chart to display in detail, or do calculations with them. \n https://echarts.apache.org/en/option.html#brush"
+  },
+  "ve-line-chart/geo": {
+    "type": "object",
+    "description": "Geographic coorinate system component is used to draw maps, which also supports `scatter series`, and `line series`. \n https://echarts.apache.org/en/option.html#geo"
+  },
+  "ve-line-chart/parallel": {
+    "type": "object | array",
+    "description": "`Parallel Coordinates` is a common way of visualizing high-dimensional geometry and analyzing multivariate data. \n https://echarts.apache.org/en/option.html#parallel"
+  },
+  "ve-line-chart/parallelAxis": {
+    "type": "array",
+    "description": "This component is the coordinate axis for parallel coordinate. \n https://echarts.apache.org/en/option.html#parallelAxis"
+  },
+  "ve-line-chart/singleAxis": {
+    "type": "array",
+    "description": "An axis with a single dimension. It can be used to display data in one dimension. \n https://echarts.apache.org/en/option.html#singleAxis"
+  },
+  "ve-line-chart/timeline": {
+    "type": "object",
+    "description": "`timeline` component, which provides functions like switching and playing between multiple ECharts options. \n https://echarts.apache.org/en/option.html#timeline"
+  },
+  "ve-line-chart/graphic": {
+    "type": "object",
+    "description": "`graphic` component enables creating graphic elements in ECharts. \n https://echarts.apache.org/en/option.html#graphic"
+  },
+  "ve-line-chart/calendar": {
+    "type": "object",
+    "description": "Calendar coordinates. \n https://echarts.apache.org/en/option.html#calendar"
+  },
+  "ve-line-chart/dataset": {
+    "type": "object | array",
+    "description": "dataset brings convenience in data management separated with styles and enables data reuse by different series. More importantly, it enables data encoding from data to visual, which brings convenience in some scenarios. \n https://echarts.apache.org/en/option.html#dataset"
+  },
+  "ve-line-chart/aria": {
+    "type": "object | array",
+    "description": "The W3C has developed the WAI-ARIA, the Accessible Rich Internet Applications Suite, which is dedicated to making web content and web applications accessible. \n https://echarts.apache.org/en/option.html#aria"
+  },
+  "ve-line-chart/series": {
+    "type": "object | array",
+    "description": " \n https://echarts.apache.org/en/option.html#series"
+  },
+  "ve-line-chart/color": {
+    "type": "array",
+    "description": "The color list of palette. If no color is set in series, the colors would be adopted sequentially and circularly from this list as the colors of series. \n https://echarts.apache.org/en/option.html#color"
+  },
+  "ve-line-chart/backgroundColor": {
+    "type": "object | string",
+    "description": "Background color. Defaults to have no background. \n https://echarts.apache.org/en/option.html#backgroundColor"
+  },
+  "ve-line-chart/textStyle": {
+    "type": "object",
+    "description": "Global font style. \n https://echarts.apache.org/en/option.html#textStyle"
+  },
+  "ve-line-chart/animation": {
+    "type": "boolean",
+    "description": "Whether to enable animation. \n https://echarts.apache.org/en/option.html#animation"
+  },
+  "ve-line-chart/animationThreshold": {
+    "type": "number",
+    "description": "Whether to set graphic number threshold to animation. Animation will be disabled when graphic number is larger than threshold. \n https://echarts.apache.org/en/option.html#animationThreshold"
+  },
+  "ve-line-chart/animationDuration": {
+    "type": "number | method",
+    "description": "Duration of the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDuration"
+  },
+  "ve-line-chart/animationEasing": {
+    "type": "string | method",
+    "description": "Easing method used for the first animation. \n https://echarts.apache.org/en/option.html#animationEasing"
+  },
+  "ve-line-chart/animationDelay": {
+    "type": "number | method",
+    "description": "Delay before updating the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDelay"
+  },
+  "ve-line-chart/animationDurationUpdate": {
+    "type": "number | method",
+    "description": "Time for animation to complete, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDurationUpdate"
+  },
+  "ve-line-chart/animationEasingUpdate": {
+    "type": "string | method",
+    "description": "Easing method used for animation. \n https://echarts.apache.org/en/option.html#animationEasingUpdate"
+  },
+  "ve-line-chart/animationDelayUpdate": {
+    "type": "string | method",
+    "description": "Delay before updating animation, which supports callback function for different data to have different animation effects. \n https://echarts.apache.org/en/option.html#animationDelayUpdate"
+  },
+  "ve-line-chart/blendMode": {
+    "type": "object",
+    "description": "Sets the type of compositing operation to apply when drawing a new shape. \n https://echarts.apache.org/en/option.html#blendMode"
+  },
+  "ve-line-chart/hoverLayerThreshold": {
+    "type": "number",
+    "description": "When the number of element of the whole chart is larger than hoverLayerThreshold, a seperate hover layer is used to render hovered elements. \n https://echarts.apache.org/en/option.html#hoverLayerThreshold"
+  },
+  "ve-line-chart/useUTC": {
+    "type": "boolean",
+    "description": "Whether to use UTC in display. \n https://echarts.apache.org/en/option.html#useUTC"
+  },
+  "ve-line-chart/options": {
+    "type": "object",
+    "description": "Option array used in `timeline`. Each item of this array is an echarts option (ECUnitOption). \n https://echarts.apache.org/en/option.html#options"
+  },
+  "ve-line-chart/media": {
+    "type": "array",
+    "description": "See [Responsive Mobile-End] for details. \n https://echarts.apache.org/en/option.html#media"
+  },
+  "ve-line-chart/data": {
+    "type": "array|object",
+    "description": "See [ve-charts documentation] for more details."
+  },
+  "ve-line-chart/settings": {
+    "type": "array|object",
+    "description": "See [ve-charts documentation] for more details."
+  },
+  "ve-line-chart/loading": {
+    "type": "boolean",
+    "description": "Whether loading data or not."
+  },
+  "ve-line-chart/emptyText": {
+    "type": "string",
+    "description": "change the empty text placeholder."
+  },
+  "ve-line-chart/option": {
+    "type": "array|object",
+    "description": "ve-charts common props. echartsInstance.setOption['option'] \n https://echarts.apache.org/en/option.html"
+  }
+}
