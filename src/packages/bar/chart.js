@@ -271,7 +271,7 @@ class BarChart extends BaseChart {
 
     // 处理X轴和Y轴翻转
     const { yAxisInverse, xAxisInverse } = settings
-    if (yAxisInverse !== undefined) yAxis.forEach(i => { i.inverse = yAxisInverse })
+    if (yAxisInverse !== undefined) yAxis.forEach((i, index) => { i.inverse = Array.isArray(yAxisInverse) ? yAxisInverse[index] : yAxisInverse })
     if (xAxisInverse !== undefined) xAxis.forEach(i => { i.inverse = xAxisInverse })
 
     // build echarts options
