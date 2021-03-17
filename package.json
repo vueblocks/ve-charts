@@ -1,5 +1,5 @@
 {
-  "name": "ve-charts-next",
+  "name": "ve-charts",
   "version": "1.0.0-alpha.0",
   "description": "Next Version of ve-charts, EChart 5.x for Vue3.x",
   "scripts": {
