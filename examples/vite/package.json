@@ -1,0 +1,21 @@
+{
+  "name": "vite",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "echarts": "^5.0.2",
+    "ve-charts": "^1.0.0-alpha.0",
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "typescript": "^4.1.3",
+    "vite": "^2.1.0",
+    "vue-tsc": "^0.0.8"
+  }
+}
