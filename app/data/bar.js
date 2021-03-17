@@ -210,7 +210,9 @@ export default {
       data: mixinData,
       settings: {
         secondMeaAxis: 'Vue',
-        yAxisLabelType: ['en', 'zh']
+        yAxisLabelType: ['en', 'zh'],
+        yAxisLabelColor: ['rgba(209, 10, 220, 1)', 'rgba(247, 14, 6, 1)'],
+        xAxisLabelColor: 'rgba(14, 33, 237, 1)'
       }
     },
     {
