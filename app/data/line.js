@@ -164,6 +164,20 @@ export default {
       }
     },
     {
+      title: '折线图设置 - 刻度标签、轴线显隐',
+      data: baseData,
+      settings: {
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        smooth: true,
+        yAxisLabelShow: false,
+        yAxisLineShow: false
+      }
+    },
+    {
       title: '折线图使用 markArea',
       xprops: lineWithMarkArea
     }

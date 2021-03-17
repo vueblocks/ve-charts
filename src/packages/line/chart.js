@@ -24,16 +24,20 @@ class LineChart extends BaseChart {
     }
   }
 
-  static getLineDimAxis (args) {
-    const { settings } = args
-    const type = settings.yAxisType || 'category'
+  static getLineDimAxis ({ settings }) {
+    const { yAxisType, xAxisLabelShow = true, xAxisLineShow = true } = settings
+    const type = yAxisType || 'category'
     return {
       type,
       boundaryGap: false,
+      axisLine: {
+        show: xAxisLineShow
+      },
       axisTick: {
         show: false
       },
       axisLabel: {
+        show: xAxisLabelShow,
         margin: 10,
         fontWeight: 400
       }
@@ -50,16 +54,22 @@ class LineChart extends BaseChart {
       yAxisInterval,
       yAxisMax,
       yAxisMin,
-      percentage = false
+      percentage = false,
+      yAxisLabelShow = true,
+      yAxisLineShow = true
     } = settings
 
     let axisValue = {
       type: 'value',
       scale: yAxisScale,
+      axisLine: {
+        show: yAxisLineShow
+      },
       axisTick: {
         show: false
       },
       axisLabel: {
+        show: yAxisLabelShow,
         margin: 10,
         fontWeight: 400,
         formatter: value => formatMeasure(yAxisLabelType, value, yAxisLabelDigits)

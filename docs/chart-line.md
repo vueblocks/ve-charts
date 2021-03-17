@@ -274,6 +274,51 @@
   }
 </script>
 
+## 折线图设置 - 刻度标签、轴线显隐
+
+<vuep template="#axisShow" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="axisShow">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+  module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'Vue',
+          data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        },
+        {
+          name: 'Angular',
+          data: [827, 949, 1400, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
+        }]
+      }
+      this.chartSettings = {
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        smooth: true,
+        yAxisLabelShow: false,
+        yAxisLineShow: false,
+        xAxisLineShow: false
+      }
+    }
+  }
+</script>
+
 ## 折线图设置 - 格式化Y轴
 
 <vuep template="#formatYLine" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
@@ -393,3 +438,7 @@
 | percentage | 是否是百分比堆叠面积图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
 | tooltipOptions | 配置tooltip提示框组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#tooltip)  |
 | legendOptions | 配置图例组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#legend)  |
+| yAxisLabelShow | 纵坐标轴刻度标签显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| yAxisLineShow | 纵坐标轴轴线显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| xAxisLabelShow | 横坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
