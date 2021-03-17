@@ -180,6 +180,15 @@ export default {
       }
     },
     {
+      title: '折线图设置 - 坐标轴翻转',
+      data: simpleData,
+      settings: {
+        smooth: true,
+        xAxisInverse: true,
+        yAxisInverse: false
+      }
+    },
+    {
       title: '折线图使用 markArea',
       xprops: lineWithMarkArea
     }
