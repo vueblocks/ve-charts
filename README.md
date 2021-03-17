@@ -1,10 +1,8 @@
 # VeCharts Next Version
 
-> ECharts 5.x fro Vue3.x
+> 📈  ECharts 5.x fro Vue3.x
 
 ## Installation
-
-### 
 
 ```bash
 $ yarn add echarts ve-charts
@@ -14,8 +12,10 @@ $ npm i echarts ve-charts
 
 ## Usage
 
-##
-### VeChart Props
+### VeChart
+
+`VeChart` is a base chart component, it delegate all echarts events & instance methods in the component.
+#### Props
 
 - `theme` Second argument of `echarts.init` method [→](https://echarts.apache.org/en/api.html#echarts.init)
 - `initOptions` - Third argument of `echarts.init` method [→](https://echarts.apache.org/en/api.html#echarts.init)
@@ -24,7 +24,9 @@ $ npm i echarts ve-charts
 - `height` - Number, Default: 400(px)
 - `needUpdate` - Boolean, Default: `false`
 
-### Methods
+#### Methods
+
+`VeChart` support the following methods:
 
 - `setOption` [→](https://echarts.apache.org/en/api.html#echartsInstance.setOption)
 - `getWidth` [→](https://echarts.apache.org/en/api.html#echartsInstance.getWidth)
@@ -44,9 +46,9 @@ $ npm i echarts ve-charts
 - `clear` [→](https://echarts.apache.org/en/api.html#echartsInstance.clear)
 - `dispose` [→](https://echarts.apache.org/en/api.html#echartsInstance.dispose)
 
-### Events
+#### Events
 
-Vue-ECharts support the following events:
+`VeChart` support the following events:
 
 - `highlight` [→](https://echarts.apache.org/en/api.html#events.highlight)
 - `downplay` [→](https://echarts.apache.org/en/api.html#events.downplay)
