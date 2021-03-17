@@ -160,7 +160,9 @@ export default {
           fontSize: '12',
           fontWeight: 'bold'
         },
-        smooth: true
+        smooth: true,
+        yAxisLabelColor: 'rgba(209, 10, 220, 1)',
+        xAxisLabelColor: 'rgba(14, 33, 237, 1)'
       }
     },
     {

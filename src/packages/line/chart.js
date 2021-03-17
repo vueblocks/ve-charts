@@ -25,7 +25,7 @@ class LineChart extends BaseChart {
   }
 
   static getLineDimAxis ({ settings }) {
-    const { yAxisType, xAxisLabelShow = true, xAxisLineShow = true } = settings
+    const { yAxisType, xAxisLabelShow = true, xAxisLineShow = true, xAxisLabelColor } = settings
     const type = yAxisType || 'category'
     return {
       type,
@@ -39,7 +39,8 @@ class LineChart extends BaseChart {
       axisLabel: {
         show: xAxisLabelShow,
         margin: 10,
-        fontWeight: 400
+        fontWeight: 400,
+        color: xAxisLabelColor || null
       }
     }
   }
@@ -56,7 +57,8 @@ class LineChart extends BaseChart {
       yAxisMin,
       percentage = false,
       yAxisLabelShow = true,
-      yAxisLineShow = true
+      yAxisLineShow = true,
+      yAxisLabelColor
     } = settings
 
     let axisValue = {
@@ -72,6 +74,7 @@ class LineChart extends BaseChart {
         show: yAxisLabelShow,
         margin: 10,
         fontWeight: 400,
+        color: yAxisLabelColor || null,
         formatter: value => formatMeasure(yAxisLabelType, value, yAxisLabelDigits)
       },
       min: percentage ? 0 : null,

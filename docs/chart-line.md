@@ -268,7 +268,9 @@
           fontSize: '12',
           fontWeight: 'bold'
         },
-        smooth: true
+        smooth: true,
+        yAxisLabelColor: 'rgba(209, 10, 220, 1)',
+        xAxisLabelColor: 'rgba(14, 33, 237, 1)'
       }
     }
   }
@@ -439,6 +441,9 @@
 | tooltipOptions | 配置tooltip提示框组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#tooltip)  |
 | legendOptions | 配置图例组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#legend)  |
 | yAxisLabelShow | 纵坐标轴刻度标签显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| yAxisLabelColor | 纵坐标轴刻度标签文字颜色| String | - | 默认 null |
 | yAxisLineShow | 纵坐标轴轴线显隐| Boolean/Array | `true`/`false`| 默认 `true` |
 | xAxisLabelShow | 横坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
 | xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
+
