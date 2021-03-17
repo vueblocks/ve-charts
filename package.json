@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Next Version of ve-charts, EChart 5.x for Vue3.x",
   "scripts": {
     "serve": "vue-cli-service serve",
