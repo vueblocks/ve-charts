@@ -1,0 +1,14 @@
+{
+  "lerna": "4.0.0",
+  "packages": [
+    "packages/base",
+    "packages/bar",
+    "packages/line"
+  ],
+  "command": {
+    "publish": {
+      "message": "chore(release): publish"
+    }
+  },
+  "version": "1.0.0"
+}
