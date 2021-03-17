@@ -676,10 +676,10 @@ util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-ve-charts@^1.0.0-alpha.0:
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/ve-charts/-/ve-charts-1.0.0-alpha.0.tgz#dede69228108b9672cba8c194cab1a95cb1308fe"
-  integrity sha512-JRygpFSMb9dacR3CrtqZr0Iciw85ckiST3UNcJ3cdrRQNae+3Yov4U0F3nl7rIMiIdXDLFvhgpbq/Ibj1OV8Vw==
+ve-charts@^1.0.0-alpha.1:
+  version "1.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/ve-charts/-/ve-charts-1.0.0-alpha.1.tgz#4e90149220e11e588d6842334e47069021738fb7"
+  integrity sha512-IGHS0ez6NpHJ+PbBhlBHmGFVvFyd49QH2VYLPg8HBjqCwr6r727lMdx7l2woEqMSKxZMCUl29L6mIOokeRlZQQ==
   dependencies:
     "@vueblocks/vue-use-core" "^0.2.10"
     lodash.clonedeep "^4.5.0"
