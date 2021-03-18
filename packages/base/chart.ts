@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { init as initChart } from 'echarts/core'
 import {
   defineComponent,
   h,
@@ -12,7 +11,8 @@ import {
   watch,
   PropType
 } from 'vue-demi'
-import { useResizeObserver } from '@vueblocks/vue-use-core'
+import { init as initChart } from 'echarts/core'
+import { useResizeObserver, useInstance } from '@vueblocks/vue-use-core'
 
 import type {
   EChartsType,
@@ -143,10 +143,12 @@ export default defineComponent({
     }
   },
 
-  render (props: any) {
+  render () {
+    const vm = useInstance()
+
     const echartsStyle = {
       width: 'auto',
-      height: `${props.height}px`
+      height: `${vm.$props.height}px`
     }
 
     return h('div', {

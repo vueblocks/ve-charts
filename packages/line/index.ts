@@ -1,3 +1,10 @@
+import { App } from 'vue-demi'
+
 import VeLineChart from './chart'
 
-export default VeLineChart
+const install = (app: App): void => {
+  app.component(VeLineChart.name, VeLineChart)
+}
+
+export { VeLineChart }
+export default install

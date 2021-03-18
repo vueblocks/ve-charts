@@ -1,20 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { App } from 'vue-demi'
 
-import VeChart from './base/index'
-import VeBarChart from './bar/index'
-import VeLineChart from './line/index'
+import { VeChart } from './base/index'
+import { VeBarChart } from './bar/index'
+import { VeLineChart } from './line/index'
+
+const componentList = [
+  VeChart,
+  VeBarChart,
+  VeLineChart
+]
 
 const install = (app: App): void => {
-  app.component(VeChart.name, VeChart)
-  app.component(VeBarChart.name, VeBarChart)
-  app.component(VeLineChart.name, VeLineChart)
+  componentList.forEach(component => {
+    app.component(component.name, component)
+  })
 }
 
 export {
   VeChart,
   VeBarChart,
-  VeLineChart,
-  install
+  VeLineChart
 }
-
 export default install

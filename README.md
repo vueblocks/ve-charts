@@ -4,7 +4,7 @@
 
 [![NPM][npmBadge]][npmUrl]
 [![NPM Download][npmDtBadge]][npmDtUrl]
-<!-- ![support][supportBadge] -->
+![support][supportBadge]
 [![Minzipped Size][bundlePhobiaBadge]][bundlePhobiaUrl]
 [![License][licenseBadge]][licenseUrl]
 
@@ -22,10 +22,12 @@
 [licenseBadge]:https://img.shields.io/badge/license-MIT-blue.svg
 [licenseUrl]:https://raw.githubusercontent.com/vueblocks/ve-charts/master/LICENSE
 
-<!-- [supportBadge]:https://img.shields.io/badge/support-2%263-%234FC08D?style=flat&logo=Vue.js -->
+[supportBadge]:https://img.shields.io/badge/support-2%263-%234FC08D?style=flat&logo=Vue.js
 
 [bundlePhobiaBadge]:https://badgen.net/bundlephobia/minzip/ve-charts@next
 [bundlePhobiaUrl]:https://bundlephobia.com/result?p=ve-charts@next
+
+</div>
 
 ## ✨ Features
 

@@ -11,6 +11,7 @@ import { activePackages } from './packages'
 interface Output {
   format: string;
   name: string;
+  minimal: boolean;
   isMinify: boolean;
   display?: string;
   globals?: object;
@@ -35,6 +36,7 @@ const createOutputs = (arg: Output) => {
   if (format === 'umd') {
     umdSettings = {
       globals: {
+        vue: 'Vue',
         'vue-demi': 'VueDemi',
         'lodash.clonedeep': 'CloneDeep',
         '@vueblocks/vue-use-core': 'VueUseCore',
@@ -59,7 +61,7 @@ const createOutputs = (arg: Output) => {
     banner: makeBanner(name),
     file: `packages/${filepath}lib/index.${fileType}.js`,
     format,
-    exports: minimal ? 'default' : 'named',
+    exports: 'named',
     plugins,
     ...umdSettings
   }
@@ -110,6 +112,7 @@ const createConfig = (name, display, minimal, external = [], globals = {}) => {
         filesize()
       ],
       external: [
+        'vue',
         'vue-demi',
         'lodash.clonedeep',
         '@vueblocks/vue-use-core',

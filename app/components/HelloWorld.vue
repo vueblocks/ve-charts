@@ -17,12 +17,10 @@
     <button @click="handleToggle">Toggle</button>
 
     <ve-line-chart
-      :data="chartData"
-      :option="lineChartOptions"
+      v-bind="lineChartOptions"
       :height="400"
       :dark-mode="darkMode"
       :background-color="bgColor"
-      :legend="chartLegend"
       @click="handleClick"
       @legendselected="handleLegendSeleted"
       @zr:click="handleZrClick"
@@ -82,6 +80,9 @@ export default defineComponent({
     const lineChartOptions = ref({
       title: {
         text: '简单折线图'
+      },
+      legend: {
+        data: ['PV', 'UV']
       },
       tooltip: {},
       xAxis: {

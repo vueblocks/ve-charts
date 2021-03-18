@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineComponent, h, PropType } from 'vue-demi'
+import { defineComponent, h, PropType, isVue2 } from 'vue-demi'
 import cloneDeep from 'lodash.clonedeep'
 
 import '../use/useCommonChart'
-import VeChart from '../base/index'
+import { VeChart } from '../base/index'
 // import { isObject } from './utils'
 import type { EChartsOption, ECSetOption } from '../types'
+import { isEmpty } from '../utils'
 
 export default defineComponent({
   props: {
@@ -65,7 +66,7 @@ export default defineComponent({
     // ve-charts common props
     option: {
       type: [Object, Array] as PropType<EChartsOption>,
-      default: {}
+      default: () => { return {} }
     }
   },
   data: () => ({
@@ -90,18 +91,21 @@ export default defineComponent({
     this.mergedOption = this.option
 
     Object.keys(this.$props)
-      .filter(prop => !/data|setting|height|loading|emptyText/.test(prop))
+      // .forEach((prop: string) => (this.$props[prop] === undefined) && delete this.$props[prop])
+      .filter((prop: string) => !/data|settings|height|loading|emptyText/.test(prop))
       .forEach((prop: string) => {
         this.$watch(
           prop,
           (val: any) => {
-            // merge echarts default option
-            const option = prop === 'option'
-              ? this.option
-              : { [prop]: val }
-            this.mergePropsToOption(option)
+            if (!isEmpty(val)) {
+              // merge echarts default option
+              const option = prop === 'option'
+                ? this.option
+                : { [prop]: val }
+              this.mergePropsToOption(option)
+            }
 
-            this.manualUpdate()
+            this.forcedUpdate()
           },
           {
             // TODO only object types need deep watch
@@ -120,14 +124,16 @@ export default defineComponent({
 
       this.mergedOption = { ...option, ...props }
     },
-    manualUpdate () {
+    forcedUpdate () {
       // manual update echarts options
       this.needUpdate = true
       this.$nextTick(() => { this.needUpdate = false })
     }
   },
   render () {
-    // props.$props
-    return h(VeChart, this.chartOpts)
+    const attrs = isVue2
+      ? { props: this.chartOpts }
+      : this.chartOpts
+    return h(VeChart, attrs)
   }
 })

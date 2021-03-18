@@ -12,6 +12,7 @@ export const toCamelCase = (arr: string[]) =>
     .join('')
 
 export const isObject = (prop: any) => Object.prototype.toString.call(prop) === '[object Object]'
+export const isEmpty = (prop: any) => prop === null || prop === undefined
 
 // Copied from
 // https://github.com/vuejs/vue-next/blob/5a7a1b8293822219283d6e267496bec02234b0bc/packages/shared/src/index.ts#L40-L41
