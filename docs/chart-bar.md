@@ -711,3 +711,4 @@
 | xAxisLabelShow | 横坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
 | xAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
 | xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisSplitLine | 坐标轴分隔线| Object | - | 默认不显示 | https://echarts.apache.org/zh/option.html#xAxis.splitLine |

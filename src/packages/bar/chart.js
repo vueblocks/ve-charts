@@ -48,7 +48,7 @@ class BarChart extends BaseChart {
 
   // build dimension Axis
   static getBarDimAxis (settings) {
-    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow, dimAxisLabelColor, xAxisName } = settings
+    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow, dimAxisLabelColor, xAxisName, xAxisSplitLine } = settings
 
     const axisItem = {
       type: dimAxisType,
@@ -67,6 +67,10 @@ class BarChart extends BaseChart {
     }
     if (xAxisName) {
       axisItem.name = xAxisName
+    }
+
+    if (xAxisSplitLine) {
+      axisItem.splitLine = xAxisSplitLine
     }
 
     const disAxis = []

@@ -449,4 +449,5 @@
 | xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
 | xAxisInverse | X轴方向反向| Boolean | `true`/`false` | 默认 `false`  参见[文档](https://www.echartsjs.com/zh/option.html#xAxis.inverse) |
 | yAxisInverse | Y轴方向反向| Boolean | `true`/`false` | 默认 `false`   参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.inverse) |
+| xAxisSplitLine | 坐标轴分隔线| Object | - | 默认不显示 | https://echarts.apache.org/zh/option.html#xAxis.splitLine |
 
