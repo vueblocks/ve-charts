@@ -290,70 +290,76 @@
 
 <script v-pre type="text/x-template" id="optionRadar">
 <template>
- <ve-radar-chart :data="chartData" :color="color" :background-color="backgroundColor"
-                 :settings="settings" :series="series" :legend="legend" />
+  <ve-radar-chart
+    :data="chartData"
+    :color="color"
+    :background-color="backgroundColor"
+    :settings="settings"
+    :series="series"
+    :legend="legend"
+  />
 </template>
 
 <script>
- module.exports = {
-    created () {
-      this.settings = {
-    	  radius: '60%',      // 图形半径
-    	  offsetY: '45%',     // 圆心纵坐标
-    	  splitNumber: 8,     // 分割段数
-    	  itemStyle: { normal: { areaStyle: { type: 'default' } } },   // 面积
-    	  splitArea: {
-    	    areaStyle: {
-    	      color: 'rgba(127,95,132,.3)',
-    	      opacity: 1,
-    	      shadowBlur: 45,
-    	      shadowColor: 'rgba(0,0,0,.5)',
-    	      shadowOffsetX: 0,
-            shadowOffsetY: 15
-          }
+module.exports = {
+  created () {
+    this.settings = {
+      radius: '60%',      // 图形半径
+      offsetY: '45%',     // 圆心纵坐标
+      splitNumber: 8,     // 分割段数
+      itemStyle: { normal: { areaStyle: { type: 'default' } } },   // 面积
+      splitArea: {
+        areaStyle: {
+          color: 'rgba(127,95,132,.3)',
+          opacity: 1,
+          shadowBlur: 45,
+          shadowColor: 'rgba(0,0,0,.5)',
+          shadowOffsetX: 0,
+          shadowOffsetY: 15
         }
-      };
-      this.legend = { show: false };
-      this.color = ['#ef4b4c', '#b1eadb'];
-      this.backgroundColor = {
-        type: 'radial',
-        x: 0.5,
-        y: 0.45,
-        r: 0.5,
-        colorStops: [
-          { offset: 0, color: '#895355' }, // 0% 处的颜色
-          { offset: .4, color: '#593640' }, // 100% 处的颜色
-          { offset: 1, color: '#39273d' }] // 100% 处的颜色
-      };
-      this.series = [{
-          type: 'radar',
-          symbolSize: 0,
-          areaStyle: {
-              normal: {
-                  shadowBlur: 13,
-                  shadowColor: 'rgba(0,0,0,.2)',
-                  shadowOffsetX: 0,
-                  shadowOffsetY: 10,
-                  opacity: 1
-              }
-          },
-          data: [
-            { name: '2018', value: [5000, 7000, 12000, 11000, 15000, 14000] },
-            { name: '2017', value: [2500, 12000, 8000, 8500, 12000, 12000] }
-          ]
-      }],
-      this.chartData = {
-         dimensions: [
-            { name: 'APP', max: 6000 },
-            { name: 'PC', max: 16000 },
-            { name: 'M端', max: 30000 },
-            { name: '微信', max: 35000 },
-            { name: '手Q', max: 50000 },
-            { name: '小程序', max: 25000 }],
-         measures: []
       }
+    };
+    this.legend = { show: false };
+    this.color = ['#ef4b4c', '#b1eadb'];
+    this.backgroundColor = {
+      type: 'radial',
+      x: 0.5,
+      y: 0.45,
+      r: 0.5,
+      colorStops: [
+        { offset: 0, color: '#895355' }, // 0% 处的颜色
+        { offset: .4, color: '#593640' }, // 100% 处的颜色
+        { offset: 1, color: '#39273d' }] // 100% 处的颜色
+    };
+    this.series = [{
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                shadowBlur: 13,
+                shadowColor: 'rgba(0,0,0,.2)',
+                shadowOffsetX: 0,
+                shadowOffsetY: 10,
+                opacity: 1
+            }
+        },
+        data: [
+          { name: '2018', value: [5000, 7000, 12000, 11000, 15000, 14000] },
+          { name: '2017', value: [2500, 12000, 8000, 8500, 12000, 12000] }
+        ]
+    }],
+    this.chartData = {
+        dimensions: [
+          { name: 'APP', max: 6000 },
+          { name: 'PC', max: 16000 },
+          { name: 'M端', max: 30000 },
+          { name: '微信', max: 35000 },
+          { name: '手Q', max: 50000 },
+          { name: '小程序', max: 25000 }],
+        measures: [{name: '2018', data: [15000, 17000, 12000, 11000, 15000, 14000]}]
     }
   }
+}
 </script>
 
 ## 混合雷达图
