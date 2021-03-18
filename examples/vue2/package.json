@@ -11,7 +11,7 @@
     "@vue/composition-api": "^1.0.0-rc.5",
     "core-js": "^3.6.5",
     "echarts": "^5.0.2",
-    "ve-charts": "^1.0.0-alpha.1",
+    "ve-charts": "^1.0.0-alpha.2",
     "vue": "^2.6.11",
     "vue-demi": "^0.7.3"
   },
