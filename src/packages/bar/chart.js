@@ -48,7 +48,7 @@ class BarChart extends BaseChart {
 
   // build dimension Axis
   static getBarDimAxis (settings) {
-    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow, dimAxisLabelColor } = settings
+    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow, dimAxisLabelColor, xAxisName } = settings
 
     const axisItem = {
       type: dimAxisType,
@@ -65,6 +65,10 @@ class BarChart extends BaseChart {
         color: Array.isArray(dimAxisLabelColor) ? dimAxisLabelColor[0] : dimAxisLabelColor
       }
     }
+    if (xAxisName) {
+      axisItem.name = xAxisName
+    }
+
     const disAxis = []
     disAxis.push(axisItem)
     return disAxis

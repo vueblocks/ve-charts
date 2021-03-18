@@ -25,7 +25,7 @@ class LineChart extends BaseChart {
   }
 
   static getLineDimAxis ({ settings }) {
-    const { yAxisType, xAxisLabelShow = true, xAxisLineShow = true, xAxisLabelColor, xAxisInverse = false } = settings
+    const { yAxisType, xAxisLabelShow = true, xAxisLineShow = true, xAxisLabelColor, xAxisInverse = false, xAxisName } = settings
     const type = yAxisType || 'category'
     return {
       type,
@@ -42,7 +42,8 @@ class LineChart extends BaseChart {
         fontWeight: 400,
         color: xAxisLabelColor || null
       },
-      inverse: xAxisInverse
+      inverse: xAxisInverse,
+      name: xAxisName !== undefined ? xAxisName : null
     }
   }
 

@@ -437,6 +437,7 @@
 | yAxisMin | 坐标轴刻度最小值 | Number | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |
 | yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
 | yAxisName | 坐标轴名称 | String | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
+| xAxisName | 坐标轴名称 | String | - | 参见[文档](https://echarts.apache.org/zh/option.html#xAxis.name)  |
 | percentage | 是否是百分比堆叠面积图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
 | tooltipOptions | 配置tooltip提示框组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#tooltip)  |
 | legendOptions | 配置图例组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#legend)  |
