@@ -123,7 +123,11 @@
   },
   "ve-bar-chart/series": {
     "type": "object|array",
-    "description": " \n https://echarts.apache.org/en/option.html#series"
+    "description": "Define echarts built-in chart types series. \n https://echarts.apache.org/en/option.html#series"
+  },
+  "ve-bar-chart/dark-mode": {
+    "type": "boolean",
+    "description": "Whether is darkMode or not. \n https://echarts.apache.org/en/option.html#darkMode"
   },
   "ve-bar-chart/color": {
     "type": "array",
@@ -485,7 +489,11 @@
   },
   "ve-line-chart/series": {
     "type": "object|array",
-    "description": " \n https://echarts.apache.org/en/option.html#series"
+    "description": "Define echarts built-in chart types series. \n https://echarts.apache.org/en/option.html#series"
+  },
+  "ve-line-chart/dark-mode": {
+    "type": "boolean",
+    "description": "Whether is darkMode or not. \n https://echarts.apache.org/en/option.html#darkMode"
   },
   "ve-line-chart/color": {
     "type": "array",
