@@ -214,6 +214,47 @@
   }
 </script>
 
+## 设置坐标轴刻度标签和轴线显隐
+
+<vuep template="#setAxisBar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="setAxisBar" />
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: '渠道',
+          data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序'].reverse()
+        },
+        measures: [{
+          name: 'PV',
+          data: [36000, 28000, 24000, 20000, 12000, 6000].reverse()
+        }, {
+          name: 'UV',
+          data: [28000, 22000, 18000, 14000, 8000, 2000].reverse()
+        }]
+      }
+      this.chartSettings = {
+        direction: 'row',
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        xAxisLabelShow: false,
+        xAxisLineShow: false,
+        yAxisLabelShow: true,
+        yAxisLineShow: false
+      }
+    }
+  }
+</script>
+
 ## 对比条形图
 
 <vuep template="#rowGroupBarCop" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
@@ -409,7 +450,9 @@
         }]
       }
       this.chartSettings = {
-        secondMeaAxis: 'Vue'
+        secondMeaAxis: 'Vue',
+        yAxisLabelColor: ['rgba(209, 10, 220, 1)', 'rgba(247, 14, 6, 1)'],
+        xAxisLabelColor: 'rgba(14, 33, 237, 1)'
       }
     }
   }
@@ -658,6 +701,14 @@
 | yAxisMin | 坐标轴刻度最小值 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |
 | yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
 | yAxisName | 坐标轴名称 | Array | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
+| xAxisName | 坐标轴名称 | String | - | 参见[文档](https://echarts.apache.org/zh/option.html#xAxis.name)  |
 | percentage | 是否是百分比堆叠柱状图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
 | xAxisInverse | X轴方向反向| Boolean | `true`/`false` | 默认 `false`  参见[文档](https://www.echartsjs.com/zh/option.html#xAxis.inverse) |
-| yAxisInverse | Y轴方向反向| Boolean | `true`/`false` | 默认 `false`   参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.inverse) |
+| yAxisInverse | Y轴方向反向| Boolean/Array | `true`/`false` | 默认 `false`   参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.inverse) |
+| yAxisLabelShow | 纵坐标轴刻度标签显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| yAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
+| yAxisLineShow | 纵坐标轴轴线显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| xAxisLabelShow | 横坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
+| xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisSplitLine | 坐标轴分隔线| Object | - | 默认不显示 | https://echarts.apache.org/zh/option.html#xAxis.splitLine |

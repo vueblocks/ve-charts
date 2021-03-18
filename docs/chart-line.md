@@ -268,7 +268,54 @@
           fontSize: '12',
           fontWeight: 'bold'
         },
-        smooth: true
+        smooth: true,
+        yAxisLabelColor: 'rgba(209, 10, 220, 1)',
+        xAxisLabelColor: 'rgba(14, 33, 237, 1)'
+      }
+    }
+  }
+</script>
+
+## 折线图设置 - 刻度标签、轴线显隐
+
+<vuep template="#axisShow" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="axisShow">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+  module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'Vue',
+          data: [3000, 3500, 3900, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: [2000, 2000, 2600, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        },
+        {
+          name: 'Angular',
+          data: [827, 949, 1400, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
+        }]
+      }
+      this.chartSettings = {
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        smooth: true,
+        yAxisLabelShow: false,
+        yAxisLineShow: false,
+        xAxisLineShow: false
       }
     }
   }
@@ -390,6 +437,17 @@
 | yAxisMin | 坐标轴刻度最小值 | Number | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.min) |
 | yAxisScale | 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度 | Boolean | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.scale)  |
 | yAxisName | 坐标轴名称 | String | - | 参见[文档](https://www.echartsjs.com/option.html#yAxis.name)  |
+| xAxisName | 坐标轴名称 | String | - | 参见[文档](https://echarts.apache.org/zh/option.html#xAxis.name)  |
 | percentage | 是否是百分比堆叠面积图，通常结合 `yAxisLabelType` 一起使用 | Boolean | `true`/`false` | 默认 `false`  |
 | tooltipOptions | 配置tooltip提示框组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#tooltip)  |
 | legendOptions | 配置图例组件 | Object | - | 参见[文档](https://echarts.apache.org/zh/option.html#legend)  |
+| yAxisLabelShow | 纵坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
+| yAxisLabelColor | 纵坐标轴刻度标签文字颜色| String | - | 默认 null |
+| yAxisLineShow | 纵坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisLabelShow | 横坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
+| xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
+| xAxisInverse | X轴方向反向| Boolean | `true`/`false` | 默认 `false`  参见[文档](https://www.echartsjs.com/zh/option.html#xAxis.inverse) |
+| yAxisInverse | Y轴方向反向| Boolean | `true`/`false` | 默认 `false`   参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.inverse) |
+| xAxisSplitLine | 坐标轴分隔线| Object | - | 默认不显示 | https://echarts.apache.org/zh/option.html#xAxis.splitLine |
+
