@@ -1,5 +1,22 @@
 # 更新日志
 
+## v0.9.6
+
+* **新增** 柱状图/折线图新增维度轴分隔线设置
+* **新增** 柱状图/折线图新增维度坐标名称设置
+* **新增** 折线图新增坐标轴翻转
+* **新增** 柱状图支持双纵坐标分别翻转
+* **新增** 柱状图新增坐标轴刻度标签颜色设置
+* **新增** 折线图新增坐标轴刻度标签颜色设置
+* **新增** 折线图新增坐标轴刻度标签和轴线设置显隐
+* **新增** 柱状图新增坐标轴刻度标签和轴线可设置显隐
+* **新增** 雷达图新增刻度轴/指示器/标签设置
+
+### PRS
+
+* [#142](https://github.com/vueblocks/ve-charts/pull/142) by [liweina-fans](https://github.com/liweina-fans)
+* [#139](https://github.com/vueblocks/ve-charts/pull/139) by [liweina-fans](https://github.com/liweina-fans)
+
 ## v0.9.5
 
 * **更新** 极区图新增圆角配置项

@@ -24,19 +24,27 @@ class LineChart extends BaseChart {
     }
   }
 
-  static getLineDimAxis (args) {
-    const { settings } = args
-    const type = settings.yAxisType || 'category'
+  static getLineDimAxis ({ settings }) {
+    const { yAxisType, xAxisLabelShow = true, xAxisLineShow = true, xAxisLabelColor, xAxisInverse = false, xAxisName, xAxisSplitLine } = settings
+    const type = yAxisType || 'category'
     return {
       type,
       boundaryGap: false,
+      axisLine: {
+        show: xAxisLineShow
+      },
       axisTick: {
         show: false
       },
       axisLabel: {
+        show: xAxisLabelShow,
         margin: 10,
-        fontWeight: 400
-      }
+        fontWeight: 400,
+        color: xAxisLabelColor || null
+      },
+      inverse: xAxisInverse,
+      name: xAxisName !== undefined ? xAxisName : null,
+      splitLine: xAxisSplitLine !== undefined ? xAxisSplitLine : null
     }
   }
 
@@ -50,18 +58,27 @@ class LineChart extends BaseChart {
       yAxisInterval,
       yAxisMax,
       yAxisMin,
-      percentage = false
+      yAxisInverse,
+      percentage = false,
+      yAxisLabelShow = true,
+      yAxisLineShow = true,
+      yAxisLabelColor
     } = settings
 
     let axisValue = {
       type: 'value',
       scale: yAxisScale,
+      axisLine: {
+        show: yAxisLineShow
+      },
       axisTick: {
         show: false
       },
       axisLabel: {
+        show: yAxisLabelShow,
         margin: 10,
         fontWeight: 400,
+        color: yAxisLabelColor || null,
         formatter: value => formatMeasure(yAxisLabelType, value, yAxisLabelDigits)
       },
       min: percentage ? 0 : null,
@@ -71,6 +88,7 @@ class LineChart extends BaseChart {
     if (yAxisInterval) axisValue['interval'] = Number(yAxisInterval)
     if (yAxisMax) axisValue['max'] = yAxisMax
     if (yAxisMin) axisValue['min'] = yAxisMin
+    if (yAxisInverse !== undefined) axisValue['inverse'] = yAxisInverse
 
     return axisValue
   }

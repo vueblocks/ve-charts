@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.umd.min.js",
   "unpkg": "lib/ve-charts.umd.min.js",
@@ -27,8 +27,8 @@
     "front-end"
   ],
   "peerDependencies": {
-    "echarts": ">=4.5.0",
-    "vue": ">=2.6.0"
+    "echarts": "^4.5.0",
+    "vue": "^2.6.0"
   },
   "license": "MIT",
   "dependencies": {

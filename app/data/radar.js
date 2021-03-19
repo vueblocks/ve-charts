@@ -13,6 +13,21 @@ const baseData = {
   ]
 }
 
+const polarData = {
+  dimensions: [
+    { name: '销售（sales）', max: 52000 },
+    { name: '管理（Administration）', max: 52000 },
+    { name: '信息技术（Information Techology）', max: 52000 },
+    { name: '客服（Customer Support）', max: 52000 },
+    { name: '研发（Development）', max: 52000 },
+    { name: '市场（Marketing）', max: 52000 }
+  ],
+  measures: [
+    { name: '预算分配（Allocated Budget）', data: [37000, 30000, 28000, 35000, 35000, 19000] },
+    { name: '实际开销（Actual Spending）', data: [23000, 24000, 28000, 31000, 42000, 21000] }
+  ]
+}
+
 export default {
   name: '雷达图',
   type: 'radar',
@@ -33,6 +48,39 @@ export default {
             }
           }
         }
+      }
+    },
+    {
+      title: '雷达图设置 - 数据标签',
+      data: baseData,
+      settings: {
+        radius: 120,
+        splitNumber: 4,
+        shape: 'circle',
+        label: {
+          show: true,
+          color: 'auto',
+          fontFamily: 'MicroSoft YaHei',
+          fontSize: '12',
+          fontWeight: 'bold',
+          formatDigits: 0,
+          formatType: 'currency',
+          position: 'top'
+        }
+      }
+    },
+    {
+      title: '雷达图(带刻度)',
+      data: polarData,
+      xprops: {
+        tickMarkVisible: true
+      },
+      settings: {
+        radius: 120,
+        splitNumber: 4,
+        fontSize: 14,
+        color: 'rgba(64, 177, 126, 1)',
+        shape: 'circle'
       }
     },
     {

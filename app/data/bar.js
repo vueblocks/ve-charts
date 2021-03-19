@@ -180,6 +180,22 @@ export default {
       }
     },
     {
+      title: '设置坐标轴刻度标签和轴线显隐',
+      data: groupData,
+      settings: {
+        direction: 'row',
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        xAxisLabelShow: false,
+        xAxisLineShow: false,
+        yAxisLabelShow: true,
+        yAxisLineShow: false
+      }
+    },
+    {
       title: '堆叠条形图',
       data: groupData,
       settings: {
@@ -194,7 +210,9 @@ export default {
       data: mixinData,
       settings: {
         secondMeaAxis: 'Vue',
-        yAxisLabelType: ['en', 'zh']
+        yAxisLabelType: ['en', 'zh'],
+        yAxisLabelColor: ['rgba(209, 10, 220, 1)', 'rgba(247, 14, 6, 1)'],
+        xAxisLabelColor: 'rgba(14, 33, 237, 1)'
       }
     },
     {

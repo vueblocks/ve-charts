@@ -100,6 +100,140 @@
   }
 </script>
 
+## 雷达图 - 指示器
+
+<vuep template="#nameRadar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="nameRadar">
+<template>
+ <ve-radar-chart :data="chartData" :legend="legend" :settings="settings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.legend = { show: false };
+      this.settings = {
+        radius: 120,
+        splitNumber: 3,     // 分割段数
+        shape: 'circle',    // 绘制为圆形
+        name: {  // 指示器样式
+          fontSize: 14,
+          color: 'rgba(185, 11, 220, 1)'
+        }
+      };
+      this.chartData = {
+         dimensions: [
+            { name: 'APP', max: 6000 },
+            { name: 'PC', max: 16000 },
+            { name: 'M端', max: 30000 },
+            { name: '微信', max: 35000 },
+            { name: '手Q', max: 50000 },
+            { name: '小程序', max: 25000 }],
+         measures: [{name: '2018', data: [5000, 7000, 12000, 11000, 15000, 14000]}]
+      }
+    }
+  }
+</script>
+
+## 雷达图 - 数据标签
+
+<vuep template="#labelRadar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="labelRadar">
+<template>
+ <ve-radar-chart :data="chartData" :legend="legend" :settings="settings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.legend = { show: false };
+      this.settings = {
+        radius: 120,
+        splitNumber: 3,     // 分割段数
+        shape: 'circle',    // 绘制为圆形
+        splitArea: {        // 底色
+          areaStyle: {
+            color: ['rgba(114, 172, 209, 0.2)','rgba(114, 172, 209, 0.4)', 'rgba(114, 172, 209, 0.6)','rgba(114, 172, 209, 0.8)', 'rgba(114, 172, 209, 1)'],
+            shadowColor: 'rgba(0, 0, 0, 0.3)',
+            shadowBlur: 10
+          }
+        },
+        label: { // 数据标签
+          show: true,
+          color: 'auto',
+          fontFamily: 'MicroSoft YaHei',
+          fontSize: '12',
+          fontWeight: 'bold',
+          formatDigits: 0,
+          formatType: 'currency',
+          position: 'top'
+        }
+      };
+      this.chartData = {
+         dimensions: [
+            { name: 'APP', max: 6000 },
+            { name: 'PC', max: 16000 },
+            { name: 'M端', max: 30000 },
+            { name: '微信', max: 35000 },
+            { name: '手Q', max: 50000 },
+            { name: '小程序', max: 25000 }],
+         measures: [{name: '2018', data: [5000, 7000, 12000, 11000, 15000, 14000]}]
+      }
+    }
+  }
+</script>
+
+## 雷达图 - 刻度线
+
+<vuep template="#polarRadar" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="polarRadar">
+<template>
+ <ve-radar-chart :data="chartData" :legend="legend" :tick-mark-visible="tickMarkVisible" :settings="settings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.legend = { show: false };
+      this.settings = {
+        radius: 120,
+        splitNumber: 3,     // 分割段数
+        shape: 'circle',    // 绘制为圆形
+        splitArea: {        // 底色
+          areaStyle: {
+            color: ['rgba(114, 172, 209, 0.2)','rgba(114, 172, 209, 0.4)', 'rgba(114, 172, 209, 0.6)','rgba(114, 172, 209, 0.8)', 'rgba(114, 172, 209, 1)'],
+            shadowColor: 'rgba(0, 0, 0, 0.3)',
+            shadowBlur: 10
+          }
+        },
+        axisLabel: { // 坐标轴刻度标签
+          color: 'rgba(185, 11, 220, 1)'
+        },
+        axisLine: { // 坐标轴轴线
+          lineStyle: {
+            color: 'rgba(185, 11, 220, 1)',
+            width: 2
+          }
+        }
+      };
+      this.chartData = {
+         dimensions: [
+            { name: 'APP', max: 20000 },
+            { name: 'PC', max: 20000 },
+            { name: 'M端', max: 20000 },
+            { name: '微信', max: 20000 },
+            { name: '手Q', max: 20000 },
+            { name: '小程序', max: 20000 }],
+         measures: [{name: '2018', data: [15000, 17000, 12000, 11000, 15000, 14000]}]
+      }
+      this.tickMarkVisible = true
+    }
+  }
+</script>
+
 ## 多雷达图
 
 > 覆盖 `radar`及`series` 属性。
@@ -156,70 +290,76 @@
 
 <script v-pre type="text/x-template" id="optionRadar">
 <template>
- <ve-radar-chart :data="chartData" :color="color" :background-color="backgroundColor"
-                 :settings="settings" :series="series" :legend="legend" />
+  <ve-radar-chart
+    :data="chartData"
+    :color="color"
+    :background-color="backgroundColor"
+    :settings="settings"
+    :series="series"
+    :legend="legend"
+  />
 </template>
 
 <script>
- module.exports = {
-    created () {
-      this.settings = {
-    	  radius: '60%',      // 图形半径
-    	  offsetY: '45%',     // 圆心纵坐标
-    	  splitNumber: 8,     // 分割段数
-    	  itemStyle: { normal: { areaStyle: { type: 'default' } } },   // 面积
-    	  splitArea: {
-    	    areaStyle: {
-    	      color: 'rgba(127,95,132,.3)',
-    	      opacity: 1,
-    	      shadowBlur: 45,
-    	      shadowColor: 'rgba(0,0,0,.5)',
-    	      shadowOffsetX: 0,
-            shadowOffsetY: 15
-          }
+module.exports = {
+  created () {
+    this.settings = {
+      radius: '60%',      // 图形半径
+      offsetY: '45%',     // 圆心纵坐标
+      splitNumber: 8,     // 分割段数
+      itemStyle: { normal: { areaStyle: { type: 'default' } } },   // 面积
+      splitArea: {
+        areaStyle: {
+          color: 'rgba(127,95,132,.3)',
+          opacity: 1,
+          shadowBlur: 45,
+          shadowColor: 'rgba(0,0,0,.5)',
+          shadowOffsetX: 0,
+          shadowOffsetY: 15
         }
-      };
-      this.legend = { show: false };
-      this.color = ['#ef4b4c', '#b1eadb'];
-      this.backgroundColor = {
-        type: 'radial',
-        x: 0.5,
-        y: 0.45,
-        r: 0.5,
-        colorStops: [
-          { offset: 0, color: '#895355' }, // 0% 处的颜色
-          { offset: .4, color: '#593640' }, // 100% 处的颜色
-          { offset: 1, color: '#39273d' }] // 100% 处的颜色
-      };
-      this.series = [{
-          type: 'radar',
-          symbolSize: 0,
-          areaStyle: {
-              normal: {
-                  shadowBlur: 13,
-                  shadowColor: 'rgba(0,0,0,.2)',
-                  shadowOffsetX: 0,
-                  shadowOffsetY: 10,
-                  opacity: 1
-              }
-          },
-          data: [
-            { name: '2018', value: [5000, 7000, 12000, 11000, 15000, 14000] },
-            { name: '2017', value: [2500, 12000, 8000, 8500, 12000, 12000] }
-          ]
-      }],
-      this.chartData = {
-         dimensions: [
-            { name: 'APP', max: 6000 },
-            { name: 'PC', max: 16000 },
-            { name: 'M端', max: 30000 },
-            { name: '微信', max: 35000 },
-            { name: '手Q', max: 50000 },
-            { name: '小程序', max: 25000 }],
-         measures: []
       }
+    };
+    this.legend = { show: false };
+    this.color = ['#ef4b4c', '#b1eadb'];
+    this.backgroundColor = {
+      type: 'radial',
+      x: 0.5,
+      y: 0.45,
+      r: 0.5,
+      colorStops: [
+        { offset: 0, color: '#895355' }, // 0% 处的颜色
+        { offset: .4, color: '#593640' }, // 100% 处的颜色
+        { offset: 1, color: '#39273d' }] // 100% 处的颜色
+    };
+    this.series = [{
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                shadowBlur: 13,
+                shadowColor: 'rgba(0,0,0,.2)',
+                shadowOffsetX: 0,
+                shadowOffsetY: 10,
+                opacity: 1
+            }
+        },
+        data: [
+          { name: '2018', value: [5000, 7000, 12000, 11000, 15000, 14000] },
+          { name: '2017', value: [2500, 12000, 8000, 8500, 12000, 12000] }
+        ]
+    }],
+    this.chartData = {
+        dimensions: [
+          { name: 'APP', max: 6000 },
+          { name: 'PC', max: 16000 },
+          { name: 'M端', max: 30000 },
+          { name: '微信', max: 35000 },
+          { name: '手Q', max: 50000 },
+          { name: '小程序', max: 25000 }],
+        measures: [{name: '2018', data: [15000, 17000, 12000, 11000, 15000, 14000]}]
     }
   }
+}
 </script>
 
 ## 混合雷达图
@@ -312,6 +452,7 @@
 </script>
 
 ## settings 配置项
+axisLabel
 
 | 配置项 | 简介 | 类型 | 用法 |
 | --- | --- | --- | --- |
@@ -321,3 +462,7 @@
 | shape | 雷达图绘制类型。支持 'polygon' 和 'circle' | String | 参见圆形雷达图 |
 | splitArea | 坐标轴在 grid 区域中的分隔区域，默认不显示 | Object | 参见圆形雷达图。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#radar.splitArea) |
 | itemStyle | 图形样式 | Object | 参见基础雷达图(面积)。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#series-radar.itemStyle) |
+| name | 指示器样式 | Object | 参见配置雷达图。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#radar.name) |
+| label | 数据标签| Object | 参见配置雷达图。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#series-radar.label) |
+| axisLabel | 坐标轴刻度标签 | Object | 参见配置雷达图。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#radiusAxis.axisLabel) |
+| axisLine | 坐标轴轴线相关设置 | Object | 参见配置雷达图。具体配置项参考[文档](https://echarts.apache.org/zh/option.html#radiusAxis.axisLine) |

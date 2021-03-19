@@ -160,7 +160,32 @@ export default {
           fontSize: '12',
           fontWeight: 'bold'
         },
-        smooth: true
+        smooth: true,
+        yAxisLabelColor: 'rgba(209, 10, 220, 1)',
+        xAxisLabelColor: 'rgba(14, 33, 237, 1)'
+      }
+    },
+    {
+      title: '折线图设置 - 刻度标签、轴线显隐',
+      data: baseData,
+      settings: {
+        label: {
+          show: true,
+          fontSize: '12',
+          fontWeight: 'bold'
+        },
+        smooth: true,
+        yAxisLabelShow: false,
+        yAxisLineShow: false
+      }
+    },
+    {
+      title: '折线图设置 - 坐标轴翻转',
+      data: simpleData,
+      settings: {
+        smooth: true,
+        xAxisInverse: true,
+        yAxisInverse: false
       }
     },
     {
