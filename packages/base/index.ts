@@ -1,10 +1,7 @@
-import { App } from 'vue-demi'
+import _VeChart from './chart'
+import { withInstall } from '../utils'
 
-import VeChart from './chart'
-
-const install = (app: App): void => {
-  app.component(VeChart.name, VeChart)
-}
+const VeChart = withInstall<typeof _VeChart>(_VeChart)
 
 export { VeChart }
-export default install
+export default VeChart

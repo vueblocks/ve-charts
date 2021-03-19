@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { App } from 'vue'
+import { WithInstall } from './types'
+
 export const toKebabCase = (str: string) =>
   str
     .replace(/([A-Z])([A-Z])/g, '$1-$2')
@@ -27,4 +30,13 @@ export function omitOn (attrs: Record<string, any>) {
   }
 
   return result
+}
+
+export const withInstall = <T>(comp: T): WithInstall<T> & Plugin => {
+  const c = comp as any
+  c.install = (app: App) => {
+    app.component(c.name, c)
+  }
+
+  return c
 }
