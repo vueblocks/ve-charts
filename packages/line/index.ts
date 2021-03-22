@@ -1,7 +1,7 @@
-import _VeLineChart from './chart'
+import Chart from './chart'
 import { withInstall } from '../utils'
 
-const VeLineChart = withInstall<typeof _VeLineChart>(_VeLineChart)
+const LineChart = withInstall<typeof Chart>(Chart)
 
-export { VeLineChart }
-export default VeLineChart
+export { LineChart }
+export default LineChart

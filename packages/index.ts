@@ -2,13 +2,15 @@
 import { App } from 'vue-demi'
 
 import { VeChart } from './base/index'
-import { VeBarChart } from './bar/index'
-import { VeLineChart } from './line/index'
+import { BarChart } from './bar/index'
+import { LineChart } from './line/index'
+import { PieChart } from './pie/index'
 
 const componentList = [
   VeChart,
-  VeBarChart,
-  VeLineChart
+  BarChart,
+  LineChart,
+  PieChart
 ]
 
 const install = (app: App): void => {
@@ -19,7 +21,8 @@ const install = (app: App): void => {
 
 export {
   VeChart,
-  VeBarChart,
-  VeLineChart
+  BarChart,
+  LineChart,
+  PieChart
 }
 export default install

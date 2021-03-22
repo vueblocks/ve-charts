@@ -1,15 +1,18 @@
 import { defineComponent } from 'vue-demi'
 import { use } from 'echarts/core'
-import { BarChart } from 'echarts/charts'
+import { PieChart } from 'echarts/charts'
 
 import HocChart from '../mixins/HocChart'
 
-use([BarChart])
+use([PieChart])
 
 export default defineComponent({
-  name: 'BarChart',
+  name: 'PieChart',
   extends: HocChart,
-  setup (props) {
-    console.log(props)
+  setup () {
+    import('echarts/charts')
+      .then((module) => {
+        console.log(module)
+      })
   }
 })

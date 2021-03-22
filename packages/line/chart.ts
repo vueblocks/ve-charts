@@ -7,7 +7,7 @@ import HocChart from '../mixins/HocChart'
 use([LineChart])
 
 export default defineComponent({
-  name: 'VeLineChart',
+  name: 'LineChart',
   extends: HocChart,
   setup (props) {
     console.log(props)

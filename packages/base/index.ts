@@ -1,7 +1,7 @@
-import _VeChart from './chart'
+import Chart from './chart'
 import { withInstall } from '../utils'
 
-const VeChart = withInstall<typeof _VeChart>(_VeChart)
+const VeChart = withInstall<typeof Chart>(Chart)
 
 export { VeChart }
 export default VeChart

@@ -1,6 +1,6 @@
 <template>
   <div class='hello'>
-    <ve-bar-chart
+    <bar-chart
       :data="chartData"
       :option="barChartOptions"
       :height="400"
@@ -16,7 +16,7 @@
 
     <button @click="handleToggle">Toggle</button>
 
-    <ve-line-chart
+    <line-chart
       v-bind="lineChartOptions"
       :height="400"
       :dark-mode="darkMode"
@@ -25,12 +25,23 @@
       @legendselected="handleLegendSeleted"
       @zr:click="handleZrClick"
     />
+
+    <hr>
+
+    <pie-chart
+      v-bind="pieChartOptions"
+      :height="400"
+      :dark-mode="darkMode"
+      :background-color="bgColor"
+      @click="handleClick"
+      @legendselected="handleLegendSeleted"
+    />
   </div>
 </template>
 
 <script lang='ts'>
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { computed, defineComponent, ref, onMounted } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 
 import { use } from 'echarts/core'
 import { LegendComponent } from 'echarts/components'
@@ -105,10 +116,45 @@ export default defineComponent({
         }
       ]
     })
+    const pieChartOptions = ref({
+      title: {
+        text: '某站点用户访问来源',
+        subtext: '纯属虚构',
+        left: 'center'
+      },
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left'
+      },
+      series: [
+        {
+          name: '访问来源',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 1048, name: '搜索引擎' },
+            { value: 735, name: '直接访问' },
+            { value: 580, name: '邮件营销' },
+            { value: 484, name: '联盟广告' },
+            { value: 300, name: '视频广告' }
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
+    })
 
     const darkMode = ref(false)
     const bgColor = computed(() => darkMode.value ? '#000' : '#fff')
-    const timer = ref(0)
+    // const timer = ref(0)
     const chartLegend = ref({
       data: ['PV', 'UV']
     })
@@ -117,26 +163,27 @@ export default defineComponent({
       darkMode.value = !darkMode.value
     }
 
-    const refreshData = () => {
-      if (timer.value) clearInterval(timer.value)
-      timer.value = setInterval(() => {
-        barChartOptions.value.series = barChartOptions.value.series.map(item => {
-          const data = item.data
-          data.shift()
-          data.push(Math.random() * 1000)
-          return {
-            ...item,
-            data
-          }
-        })
-      }, 5000)
-    }
+    // const refreshData = () => {
+    //   if (timer.value) clearInterval(timer.value)
+    //   timer.value = setInterval(() => {
+    //     barChartOptions.value.series = barChartOptions.value.series.map(item => {
+    //       const data = item.data
+    //       data.shift()
+    //       data.push(Math.random() * 1000)
+    //       return {
+    //         ...item,
+    //         data
+    //       }
+    //     })
+    //   }, 5000)
+    // }
 
-    onMounted(() => refreshData())
+    // onMounted(() => refreshData())
 
     return {
       barChartOptions,
       lineChartOptions,
+      pieChartOptions,
       darkMode,
       bgColor,
       chartLegend,
