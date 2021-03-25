@@ -1,5 +1,13 @@
 # 更新日志
 
+## v0.9.7
+
+* **修复** 雷达图刻度轴不可取消的问题
+
+### PRS
+
+* [#144](https://github.com/vueblocks/ve-charts/pull/142) by [liweina-fans](https://github.com/liweina-fans)
+
 ## v0.9.6
 
 * **新增** 柱状图/折线图新增维度轴分隔线设置
