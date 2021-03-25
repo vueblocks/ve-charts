@@ -75,7 +75,15 @@ class RadarChart extends BaseChart {
     return series
   }
 
-  static getRadiusPolar ({ data, settings }) {
+  static getRadiusPolar ({ data, settings, tickMarkVisible }) {
+    if (!tickMarkVisible) {
+      return {
+        polar: null,
+        radiusAxis: null,
+        angleAxis: null
+      }
+    }
+
     const { splitNumber = 5, offsetY = '50%', radius = '75%', axisLabel = {}, axisLine = {} } = settings
     const max = data.dimensions[0].max
     const min = 0
@@ -126,7 +134,7 @@ class RadarChart extends BaseChart {
 
     const series = RadarChart.getRadarSeries({ data, settings })
 
-    const polarOptions = tickMarkVisible ? RadarChart.getRadiusPolar({ data, settings }) : {}
+    const polarOptions = RadarChart.getRadiusPolar({ data, settings, tickMarkVisible })
 
     // build echarts options
     const options = {
