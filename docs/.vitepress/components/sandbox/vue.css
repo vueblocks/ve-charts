@@ -1,0 +1,94 @@
+/*
+    Name:       vue
+    Author : xiaoluoboding (http://github.com/xiaoluoboding)
+*/
+
+.cm-s-vue.CodeMirror {
+  padding: 5px;
+  background-color: #fff;
+  color: #525252;
+}
+
+.cm-s-vue .CodeMirror-gutters {
+  background: #fff;
+  color: #42b983;
+  border: none;
+}
+
+.cm-s-vue .CodeMirror-guttermarker,
+.cm-s-vue .CodeMirror-guttermarker-subtle,
+.cm-s-vue .CodeMirror-linenumber {
+  color: #42b983;
+}
+
+.cm-s-vue .CodeMirror-cursor {
+  border-left: 1px solid #525252;
+}
+
+.cm-s-vue .CodeMirror-activeline-background {
+  background: rgba(0, 0, 0, 0);
+}
+
+.cm-s-vue .cm-keyword,
+.cm-s-vue .cm-variable {
+  color: #e96900;
+}
+
+.cm-s-vue .cm-operator,
+.cm-s-vue .cm-property {
+  color: #525252;
+}
+
+.cm-s-vue .cm-variable-3,
+.cm-s-vue .cm-type {
+  color: #82B1FF;
+}
+
+.cm-s-vue .cm-atom,
+.cm-s-vue .cm-number {
+  color: #ae81ff;
+}
+
+.cm-s-vue .cm-def {
+  color: #525252;
+
+}
+
+.cm-s-vue .cm-string {
+  color: #42b983;
+}
+
+.cm-s-vue .cm-string-2,
+.cm-s-vue .cm-variable-2
+.cm-s-vue .cm-tag,
+.cm-s-vue .cm-meta {
+  color: #80CBC4;
+}
+
+.cm-s-vue .cm-comment {
+  color: #b3b3b3;
+}
+
+.cm-s-vue .cm-attribute,
+.cm-s-vue .cm-tag,
+.cm-s-vue .cm-word.cm-error {
+  color: #2973b7;
+  background: transparent;
+}
+
+.cm-s-vue .cm-qualifier,
+.cm-s-vue .cm-builtin,
+.cm-s-vue .cm-variable-3,
+.cm-s-vue .cm-type {
+  color: #525252;
+}
+
+.cm-s-vue .cm-error {
+  color: rgba(255, 255, 255, 1.0);
+  background-color: #EC5F67;
+}
+
+.cm-s-vue .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "ve-charts-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "xiaoluoboding<xiaoluoboding@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:serve": "vitepress serve"
+  },
+  "devDependencies": {
+    "sass": "^1.32.8",
+    "vitepress": "^0.12.2"
+  },
+  "dependencies": {
+    "codemirror": "^5.60.0",
+    "monaco-editor": "^0.23.0",
+    "monaco-themes": "^0.3.3",
+    "ve-charts": "^1.0.0-alpha.2"
+  }
+}

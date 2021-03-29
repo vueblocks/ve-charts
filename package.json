@@ -3,6 +3,9 @@
   "version": "1.0.0-alpha.2",
   "description": "Next Version of ve-charts, EChart 5.x for Vue3.x",
   "scripts": {
+    "docs:dev": "npm run docs:dev --prefix docs",
+    "docs:build": "npm run docs:build --prefix docs",
+    "docs:serve": "npm run docs:serve --prefix docs",
     "serve": "vue-cli-service serve",
     "build": "rollup -c rollup.config.js",
     "test:unit": "vue-cli-service test:unit",
