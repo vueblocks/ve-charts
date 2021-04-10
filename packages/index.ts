@@ -5,12 +5,16 @@ import { VeChart } from './base/index'
 import { BarChart } from './bar/index'
 import { LineChart } from './line/index'
 import { PieChart } from './pie/index'
+import { FunnelChart } from './funnel/index'
+import { GaugeChart } from './gauge/index'
 
 const componentList = [
   VeChart,
   BarChart,
   LineChart,
-  PieChart
+  PieChart,
+  FunnelChart,
+  GaugeChart
 ]
 
 const install = (app: App): void => {
@@ -23,6 +27,9 @@ export {
   VeChart,
   BarChart,
   LineChart,
-  PieChart
+  PieChart,
+  FunnelChart,
+  GaugeChart
 }
+
 export default install
