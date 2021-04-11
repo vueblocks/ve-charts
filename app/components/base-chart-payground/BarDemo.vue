@@ -3,7 +3,7 @@
     :data="chartData"
     :width="800"
     :legend="chartLegend"
-    :option="barChartOptions"
+    :option="chartOptions"
     @click="testEvent"
     @zr:click="testEvent"
     @legendselected="testEvent"
@@ -15,7 +15,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, inject, ref } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
 
 export default defineComponent({
   setup () {
@@ -31,7 +31,7 @@ export default defineComponent({
         data: [256, 767, 1356, 2087, 803, 582, 432]
       }]
     }
-    const barChartOptions = ref({
+    const chartOptions = ref({
       title: {
         text: '简单柱状图'
       },
@@ -67,7 +67,7 @@ export default defineComponent({
     return {
       chartData,
       chartLegend,
-      barChartOptions,
+      chartOptions,
       testEvent
     }
   }

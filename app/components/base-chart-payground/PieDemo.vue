@@ -1,6 +1,6 @@
 <template>
   <pie-chart
-    v-bind="pieChartOptions"
+    v-bind="chartOptions"
     @click="testEvent"
     @legendselected="testEvent"
   />
@@ -10,13 +10,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, ref, inject } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
 
 export default defineComponent({
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
-    const pieChartOptions = ref({
+    const chartOptions = ref({
       title: {
         text: '某站点用户访问来源',
         subtext: '纯属虚构',
@@ -56,7 +56,7 @@ export default defineComponent({
     const testEvent = (val: any) => console.log(val)
 
     return {
-      pieChartOptions,
+      chartOptions,
       testEvent
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <line-chart
-    v-bind="lineChartOptions"
+    v-bind="chartOptions"
     @click="testEvent"
     @legendselected="testEvent"
     @zr:click="testEvent"
@@ -11,13 +11,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, inject, ref } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
 
 export default defineComponent({
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
-    const lineChartOptions = ref({
+    const chartOptions = ref({
       title: {
         text: '简单折线图'
       },
@@ -50,7 +50,7 @@ export default defineComponent({
     const testEvent = (val: any) => console.log(val)
 
     return {
-      lineChartOptions,
+      chartOptions,
       testEvent
     }
   }

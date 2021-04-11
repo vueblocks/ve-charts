@@ -26,7 +26,7 @@ import { LegendComponent } from 'echarts/components'
 use([LegendComponent])
 
 export default defineComponent({
-  name: 'HelloWorld',
+  name: 'VeChartsDemo',
   data: () => ({
     chartData: {
       dimensions: {

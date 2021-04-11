@@ -1,17 +1,17 @@
 <template>
-  <funnel-chart v-bind="funnelChartOptions" />
+  <funnel-chart v-bind="chartOptions" />
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, inject } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
 
 export default defineComponent({
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
-    const funnelChartOptions = ref({
+    const chartOptions = ref({
       title: {
         text: '漏斗图',
         subtext: '纯属虚构'
@@ -81,7 +81,7 @@ export default defineComponent({
     })
 
     return {
-      funnelChartOptions
+      chartOptions
     }
   }
 })
