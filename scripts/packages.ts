@@ -40,43 +40,43 @@ export const packages: PackageManifest[] = [
     globals: {
       'echarts/core': 'EchartsCore'
     }
-  },
-  {
-    name: 'bar',
-    display: 'VeBarChart',
-    description: 'Bar Chart Component.',
-    minimal: true,
-    external: [
-      'echarts/core',
-      'echarts/charts',
-      'echarts/components',
-      'echarts/renderers'
-    ],
-    globals: {
-      'echarts/core': 'EchartsCore',
-      'echarts/charts': 'EchartsCharts',
-      'echarts/components': 'EchartsComponents',
-      'echarts/renderers': 'EchartsRenderers'
-    }
-  },
-  {
-    name: 'line',
-    display: 'VeLineChart',
-    description: 'Line Chart Components.',
-    minimal: true,
-    external: [
-      'echarts/core',
-      'echarts/charts',
-      'echarts/components',
-      'echarts/renderers'
-    ],
-    globals: {
-      'echarts/core': 'EchartsCore',
-      'echarts/charts': 'EchartsCharts',
-      'echarts/components': 'EchartsComponents',
-      'echarts/renderers': 'EchartsRenderers'
-    }
   }
+  // {
+  //   name: 'bar',
+  //   display: 'VeBarChart',
+  //   description: 'Bar Chart Component.',
+  //   minimal: true,
+  //   external: [
+  //     'echarts/core',
+  //     'echarts/charts',
+  //     'echarts/components',
+  //     'echarts/renderers'
+  //   ],
+  //   globals: {
+  //     'echarts/core': 'EchartsCore',
+  //     'echarts/charts': 'EchartsCharts',
+  //     'echarts/components': 'EchartsComponents',
+  //     'echarts/renderers': 'EchartsRenderers'
+  //   }
+  // },
+  // {
+  //   name: 'line',
+  //   display: 'VeLineChart',
+  //   description: 'Line Chart Components.',
+  //   minimal: true,
+  //   external: [
+  //     'echarts/core',
+  //     'echarts/charts',
+  //     'echarts/components',
+  //     'echarts/renderers'
+  //   ],
+  //   globals: {
+  //     'echarts/core': 'EchartsCore',
+  //     'echarts/charts': 'EchartsCharts',
+  //     'echarts/components': 'EchartsComponents',
+  //     'echarts/renderers': 'EchartsRenderers'
+  //   }
+  // }
 ]
 
 export const activePackages = packages.filter(i => !i.deprecated)
