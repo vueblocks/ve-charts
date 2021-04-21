@@ -176,10 +176,16 @@ export default {
       this.options = Object.assign(cloneDeep(this.options), options)
     },
     seriesHandler (series) {
-      if (!(series instanceof Array) || series.length === 0) return []
+      // 当 series 系列为空数组
+      if (Array.isArray(series) && series.length === 0) return []
 
+      // 当 series 为对象时，初始化为数组
+      if (!(series instanceof Array)) return [series]
+
+      // 当未配置 seriesOption 系列配置时
       if (Object.keys(this.seriesOption).length === 0) return series
 
+      // 合并 series 配置
       for (const [key, opt] of Object.entries(this.seriesOption)) {
         const _idx = series.findIndex(v => v.name === key)
         if (_idx > -1) merge(series[_idx], opt)
