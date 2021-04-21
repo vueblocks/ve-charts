@@ -49,10 +49,8 @@ class RadarChart extends BaseChart {
       return formatMeasure(formatType, value, formatDigits)
     }
     return {
-      normal: {
-        formatter,
-        ...others
-      }
+      formatter,
+      ...others
     }
   }
 

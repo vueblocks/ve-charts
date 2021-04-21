@@ -5,10 +5,11 @@ const simpleData = {
     name: 'Week',
     data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
   },
-  measures: [{
-    name: 'Vue',
-    data: [2100, 2800, 3500, 5400, 2600, 4100, 3300]
-  }]
+  measures: [
+    {
+      name: 'Vue',
+      data: [2100, 2800, 3500, 5400, 2600, 4100, 3300]
+    }]
 }
 
 const numberData = {
@@ -16,10 +17,11 @@ const numberData = {
     name: 'Week',
     data: ['1', '2', '3', '4', '5', '6', '7']
   },
-  measures: [{
-    name: 'Vue',
-    data: [2100, 2800, 3500, 5400, 2600, 4100, 3300]
-  }]
+  measures: [
+    {
+      name: 'Vue',
+      data: [2100, 2800, 3500, 5400, 2600, 4100, 3300]
+    }]
 }
 
 const baseData = {
@@ -30,18 +32,19 @@ const baseData = {
       'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'
     ]
   },
-  measures: [{
-    name: 'Vue',
-    data: ['3000.12', 3500.33, 3900.23, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
-  },
-  {
-    name: 'React',
-    data: ['2000.34', '2000.23', 2600.87, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
-  },
-  {
-    name: 'Angular',
-    data: ['827.56', 949.39, 1400.78, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
-  }]
+  measures: [
+    {
+      name: 'Vue',
+      data: ['3000.12', 3500.33, 3900.23, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+    },
+    {
+      name: 'React',
+      data: ['2000.34', '2000.23', 2600.87, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+    },
+    {
+      name: 'Angular',
+      data: ['827.56', 949.39, 1400.78, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
+    }]
 }
 
 export default {
@@ -191,6 +194,31 @@ export default {
     {
       title: '折线图使用 markArea',
       xprops: lineWithMarkArea
+    },
+    {
+      title: '系列自定义',
+      data: baseData,
+      settings: {
+        smooth: true,
+        itemStyle: {
+          'Vue': {
+            color: '#f4a'
+          },
+          'React': {
+            color: '#af4'
+          },
+          'Angular': {
+            color: '#4af'
+          }
+        }
+      },
+      seriesOption: {
+        'Vue': {
+          itemStyle: { color: 'green' },
+          showSymbol: false,
+          lineStyle: { type: 'dotted' }
+        }
+      }
     }
   ]
 }

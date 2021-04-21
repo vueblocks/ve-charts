@@ -116,23 +116,19 @@ export default {
         },
         labelVisible: false,
         label: {
-          normal: {
-            show: false,
-            color: '#fff'
-          },
+          show: false,
+          color: '#fff',
           emphasis: {
             show: false,
             color: '#fff'
           }
         },
         itemStyle: {
-          normal: {
-            areaColor: '#020933',
-            borderColor: '#3fdaff',
-            borderWidth: 1,
-            shadowColor: 'rgba(63, 218, 255, 0.5)',
-            shadowBlur: 30
-          },
+          areaColor: '#020933',
+          borderColor: '#3fdaff',
+          borderWidth: 1,
+          shadowColor: 'rgba(63, 218, 255, 0.5)',
+          shadowBlur: 30,
           emphasis: {
             areaColor: '#2B91B7'
           }
@@ -169,23 +165,23 @@ export default {
         },
         effectScatterLabelVisible: true,
         effectScatterLabel: {
-          normal: { position: 'left' }
+          normal: {
+            position: 'left'
+          }
         },
         visualMapVisible: true,
         visualMap: {
           inRange: {
-            color: [ '#C6FFDD', '#FBD786', '#f7797d' ]
+            color: ['#C6FFDD', '#FBD786', '#f7797d']
           }
         },
         symbolSize: 10,
         itemStyle: {
-          normal: {
-            areaColor: '#020933',
-            borderColor: '#3fdaff',
-            borderWidth: 1,
-            shadowColor: 'rgba(63, 218, 255, 0.5)',
-            shadowBlur: 10
-          },
+          areaColor: '#020933',
+          borderColor: '#3fdaff',
+          borderWidth: 1,
+          shadowColor: 'rgba(63, 218, 255, 0.5)',
+          shadowBlur: 10,
           emphasis: {
             areaColor: '#2B91B7'
           }

@@ -10,6 +10,7 @@
           class="chart-demo"
           :data="item.data"
           :settings="item.settings"
+          :series-option="item.seriesOption"
           :color="color"
           :ec.sync="chart"
           v-bind="item.xprops"

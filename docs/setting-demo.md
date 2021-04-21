@@ -762,3 +762,47 @@ module.exports = {
   }
 }
 </script>
+
+## 系列配置项
+
+<vuep template="#seriesOption" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="seriesOption">
+<template>
+  <ve-line-chart :data="chartData" :series-option="seriesOption" />
+</template>
+
+<script>
+module.exports = {
+  created () {
+    this.chartData = {
+      dimensions: {
+        name: 'Month',
+        data: ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
+      },
+      measures: [
+        {
+          name: 'Vue',
+          data: ['3000.12', 3500.33, 3900.23, 3100, 3200, 3100, 3600, 3300, 3600, 3400, 3100, 3000]
+        },
+        {
+          name: 'React',
+          data: ['2000.34', '2000.23', 2600.87, 2300, 2300, 2000, 2600, 2200, 2500, 2800, 2500, 2200]
+        },
+        {
+          name: 'Angular',
+          data: ['827.56', 949.39, 1400.78, 1000, 884, 911, 983, 989, 925, 1100, 1200, 930]
+        }
+      ]
+    }
+    this.seriesOption = {
+      'Vue': {
+        itemStyle: { color: 'green' },
+        showSymbol: false,
+        lineStyle: { type: 'dotted' }
+      },
+      'Angular': { type: 'bar' }
+    }
+  }
+}
+</script>

@@ -1,4 +1,4 @@
-import { cloneDeep, isNull, isEmpty, isUndefined, get } from 'lodash-es'
+import { cloneDeep, isNull, isEmpty, isUndefined, get, merge } from 'lodash-es'
 
 import { getType } from '../utils'
 import { color } from '../base-options'
@@ -63,7 +63,8 @@ export default {
     loading: { type: Boolean, default: false },
     emptyText: String,
     renderer: { type: String, default: 'canvas' },
-    height: { type: Number, default: 400 }
+    height: { type: Number, default: 400 },
+    seriesOption: { type: Object, default () { return {} } }
   },
   data () {
     return {
@@ -170,8 +171,20 @@ export default {
           options[key] = this.animation[key]
         })
       }
+      options.series = this.seriesHandler(options.series)
       // Merge options
       this.options = Object.assign(cloneDeep(this.options), options)
+    },
+    seriesHandler (series) {
+      if (!(series instanceof Array) || series.length === 0) return []
+
+      if (Object.keys(this.seriesOption).length === 0) return series
+
+      for (const [key, opt] of Object.entries(this.seriesOption)) {
+        const _idx = series.findIndex(v => v.name === key)
+        if (_idx > -1) merge(series[_idx], opt)
+      }
+      return series
     },
     init () {
       if (this.data) this.dataHandler(this.data)

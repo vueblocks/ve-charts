@@ -3,10 +3,11 @@ const baseData = {
     name: '渠道',
     data: ['APP', 'M端', '微信', '手Q', '小程序', 'PC']
   },
-  measures: [{
-    name: 'PV',
-    data: [40000, 27800, 22000, 20200, 15600, 13600]
-  }]
+  measures: [
+    {
+      name: 'PV',
+      data: [40000, 27800, 22000, 20200, 15600, 13600]
+    }]
 }
 
 const numberData = {
@@ -14,10 +15,11 @@ const numberData = {
     name: '渠道',
     data: [1, 2, 3, 4, 5, 6]
   },
-  measures: [{
-    name: 'PV',
-    data: [40000, 27800, 22000, 20200, 15600, 13600]
-  }]
+  measures: [
+    {
+      name: 'PV',
+      data: [40000, 27800, 22000, 20200, 15600, 13600]
+    }]
 }
 
 const pieDonut = [
@@ -26,20 +28,22 @@ const pieDonut = [
       name: '渠道',
       data: ['移动设备', 'PC']
     },
-    measures: [{
-      name: 'PV',
-      data: [150000, 90000]
-    }]
+    measures: [
+      {
+        name: 'PV',
+        data: [150000, 90000]
+      }]
   },
   {
     dimensions: {
       name: '渠道',
       data: ['APP', 'M端', '微信', '手Q', '小程序', 'PC']
     },
-    measures: [{
-      name: 'PV',
-      data: [40000, 30000, 20000, 50000, 10000, 90000]
-    }]
+    measures: [
+      {
+        name: 'PV',
+        data: [40000, 30000, 20000, 50000, 10000, 90000]
+      }]
   }
 ]
 
@@ -63,23 +67,19 @@ export default {
     {
       title: '环饼图',
       data: pieDonut,
-      settings: [{
-        selectedMode: 'single',
-        radius: [0, '30%'],
-        labelLine: {
-          normal: {
-            show: false
-          }
-        },
-        label: {
-          normal: {
+      settings: [
+        {
+          selectedMode: 'single',
+          radius: [0, '30%'],
+          label: {
             position: 'inner'
           }
+        },
+        {
+          selectedMode: 'single',
+          radius: ['40%', '55%']
         }
-      }, {
-        selectedMode: 'single',
-        radius: ['40%', '55%']
-      }]
+      ]
     },
     {
       title: '南丁格尔玫瑰图（半径模式）',
