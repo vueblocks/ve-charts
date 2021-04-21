@@ -47,7 +47,7 @@ $ npm i echarts ve-charts@next -S
 
 ## 🦄️ Demos
 
-Vue 3 Demo: [Vue CLI 3.x](./examples/vue3/README.md)  |  Vite 2 Demo: [@vitejs/app](./examples/vite2/README.md)
+Vue 3 Demo: [Vue CLI 3.x](./examples/vue3/README.md)  |  Vite 2 Demo: [@vitejs/app](./examples/vite2/README.md) | Vue 2 Demo: [Vue CLI 3.x](./examples/vue2/README.md)
 
 ## 💡 Usage
 
@@ -74,19 +74,22 @@ It will imports `VeCharts` entirely.
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import { VeBarChart, VeLineChart } from 've-charts'
+import { BarChart } from 've-charts'
 
 const app = createApp(App)
 
-app.component(VeBarChart.name, VeBarChart)
-app.component(VeLineChart.name, VeLineChart)
+// app.use
+app.use(BarChart)
+
+// or app.component
+// app.component(BarChart.name, BarChart)
 
 app.mount('#app')
 ```
 
-It will imports `VeBarChart` & `VeLineChart` on demandly.
+It will imports `BarChart` on demandly.
 
-Fullly Component list reference
+Fullly Component list reference [here →](./packages/index.ts)
 
 ## 📖 Documentation
 
