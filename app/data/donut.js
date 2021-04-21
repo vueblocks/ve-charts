@@ -3,10 +3,11 @@ const baseData = {
     name: '渠道',
     data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
   },
-  measures: [{
-    name: 'PV',
-    data: [40000, 27800, 22000, 20200, 15600, 13600]
-  }]
+  measures: [
+    {
+      name: 'PV',
+      data: [40000, 27800, 22000, 20200, 15600, 13600]
+    }]
 }
 
 export default {
@@ -37,21 +38,14 @@ export default {
       data: baseData,
       settings: {
         label: {
-          normal: {
-            show: false,
-            position: 'center'
-          },
+          show: false,
+          position: 'center',
           emphasis: {
             show: true,
             textStyle: {
               fontSize: '24',
               fontWeight: 'bold'
             }
-          }
-        },
-        labelLine: {
-          normal: {
-            show: false
           }
         },
         avoidLabelOverlap: false

@@ -137,6 +137,7 @@ data: {
 | height | 图表高度 | Number | - | `400`，单位`px` |
 | renderer | 渲染方式 | String | `canvas` or `svg` | `canvas` |
 | ec | 通过 echarts.init 创建的实例 | Object | - | 使用 `.sync` 进行绑定 [参考API](https://echarts.baidu.com/api.html#echartsInstance) |
+| seriesOption | `series`系列配置项 | Object | - | [参考示例](setting-demo.md) |
 | --- | --- | --- | --- | --- |
 
 > Tips:

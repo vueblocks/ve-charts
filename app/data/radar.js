@@ -92,7 +92,8 @@ export default {
         shape: 'circle',
         splitArea: {
           areaStyle: {
-            color: ['rgba(114, 172, 209, 0.2)', 'rgba(114, 172, 209, 0.4)',
+            color: [
+              'rgba(114, 172, 209, 0.2)', 'rgba(114, 172, 209, 0.4)',
               'rgba(114, 172, 209, 0.6)', 'rgba(114, 172, 209, 0.8)', 'rgba(114, 172, 209, 1)'],
             shadowColor: 'rgba(0, 0, 0, 0.3)',
             shadowBlur: 10

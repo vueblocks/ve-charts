@@ -5,10 +5,11 @@ const baseData = {
     name: '渠道',
     data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
   },
-  measures: [{
-    name: 'PV',
-    data: [36000, 30000, 24000, 18000, 12000, 6000]
-  }]
+  measures: [
+    {
+      name: 'PV',
+      data: [36000, 30000, 24000, 18000, 12000, 6000]
+    }]
 }
 
 const compareData = {
@@ -16,13 +17,14 @@ const compareData = {
     name: '渠道',
     data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
   },
-  measures: [{
-    name: 'PV',
-    data: [100, 80, 60, 50, 40, 20]
-  }, {
-    name: 'UV',
-    data: [80, 75, 50, 40, 32, 10]
-  }]
+  measures: [
+    {
+      name: 'PV',
+      data: [100, 80, 60, 50, 40, 20]
+    }, {
+      name: 'UV',
+      data: [80, 75, 50, 40, 32, 10]
+    }]
 }
 
 const sameData = {
@@ -30,16 +32,17 @@ const sameData = {
     name: '渠道',
     data: ['APP', 'PC', 'M端', '微信', '手Q', '小程序']
   },
-  measures: [{
-    name: 'PV',
-    data: [36000, 28000, 24000, 20000, 12000, 6000]
-  }, {
-    name: 'PV',
-    data: [36000, 28000, 24000, 20000, 12000, 6000]
-  }, {
-    name: 'PV',
-    data: [36000, 28000, 24000, 20000, 12000, 6000]
-  }]
+  measures: [
+    {
+      name: 'PV',
+      data: [36000, 28000, 24000, 20000, 12000, 6000]
+    }, {
+      name: 'PV',
+      data: [36000, 28000, 24000, 20000, 12000, 6000]
+    }, {
+      name: 'PV',
+      data: [36000, 28000, 24000, 20000, 12000, 6000]
+    }]
 }
 
 export default {
@@ -77,6 +80,11 @@ export default {
       data: compareData,
       settings: {
         contrast: true
+      },
+      seriesOption: {
+        'PV': {
+          label: { show: false }
+        }
       }
     },
     {
@@ -85,27 +93,21 @@ export default {
       settings: {
         funnelLabel: [
           {
-            normal: {
-              position: 'right'
+            position: 'right'
+          },
+          {
+            position: 'left',
+            formatter: function (params) {
+              const [, value] = params.value
+              return value
             }
           },
           {
-            normal: {
-              position: 'left',
-              formatter: function (params) {
-                const [, value] = params.value
-                return value
-              }
-            }
-          },
-          {
-            normal: {
-              position: 'inside',
-              formatter: function (params) {
-                const [, value] = params.value
-                const maxMea = max([36000, 28000, 24000, 20000, 12000, 6000])
-                return `转化率 ${Math.round(value / maxMea * 100)} %`
-              }
+            position: 'inside',
+            formatter: function (params) {
+              const [, value] = params.value
+              const maxMea = max([36000, 28000, 24000, 20000, 12000, 6000])
+              return `转化率 ${Math.round(value / maxMea * 100)} %`
             }
           }
         ]
@@ -129,8 +131,7 @@ export default {
     {
       title: '多个漏斗图',
       data: compareData,
-      settings: {
-      },
+      settings: {},
       xprops: {
         series: [
           {
@@ -139,9 +140,7 @@ export default {
             left: '10%',
             top: '15%',
             label: {
-              normal: {
-                position: 'left'
-              }
+              position: 'left'
             }
           },
           {

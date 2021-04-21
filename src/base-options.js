@@ -5,8 +5,7 @@ export const options = {
     left: 10,
     containLabel: true
   },
-  series: [
-  ]
+  series: []
 }
 
 export const itemPoint = (color) => {
@@ -30,25 +29,19 @@ export const color = [
 export const treemapLevels = [
   {
     itemStyle: {
-      normal: {
-        borderColor: '#fff'
-      }
+      borderColor: '#fff'
     }
   }, {
     colorSaturation: [0.3, 0.6],
     itemStyle: {
-      normal: {
-        borderColorSaturation: 0.7,
-        gapWidth: 5,
-        borderWidth: 2
-      }
+      borderColorSaturation: 0.7,
+      gapWidth: 5,
+      borderWidth: 2
     }
   }, {
     colorSaturation: [0.3, 0.5],
     itemStyle: {
-      normal: {
-        borderColorSaturation: 0.6
-      }
+      borderColorSaturation: 0.6
     }
   }, {
     colorSaturation: [0.3, 0.5]
@@ -57,10 +50,8 @@ export const treemapLevels = [
 
 export const waterfallConfig = {
   secondaryMeasure: {
-    normal: {
-      barBorderColor: 'rgba(0,0,0,0)',
-      color: 'rgba(0,0,0,0)'
-    },
+    barBorderColor: 'rgba(0,0,0,0)',
+    color: 'rgba(0,0,0,0)',
     emphasis: {
       barBorderColor: 'rgba(0,0,0,0)',
       color: 'rgba(0,0,0,0)'

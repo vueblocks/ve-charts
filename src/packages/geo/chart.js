@@ -45,9 +45,7 @@ class GeoChart extends BaseChart {
         ...res[dataIndex],
         symbolSize,
         itemStyle: {
-          normal: {
-            shadowBlur: normalShadowBlur
-          }
+          shadowBlur: normalShadowBlur
         }
       }
     }
@@ -140,7 +138,7 @@ class GeoChart extends BaseChart {
     measures && measures.forEach(({ name, data }, index) => {
       const mapData = isMapMode ? data : isLinesMode ? GeoChart.convertLinesData(name, data) : GeoChart.convertCityData(data, { index, connect })
 
-      const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
+      const unShowLabel = { show: false, emphasis: { show: false } }
       if (isLinesMode) {
         name = GeoChart.convertCityName(name)
         seriesData.push(
@@ -158,10 +156,8 @@ class GeoChart extends BaseChart {
               ...lineEffect
             },
             lineStyle: {
-              normal: {
-                width: 0,
-                curveness: (lineStyle && lineStyle.curveness) || 0.2
-              }
+              width: 0,
+              curveness: (lineStyle && lineStyle.curveness) || 0.2
             },
             data: mapData
           },
@@ -179,13 +175,11 @@ class GeoChart extends BaseChart {
               ...overlayEffect
             },
             lineStyle: {
-              normal: {
-                color: '#ED3574',
-                width: 1,
-                opacity: 0.6,
-                curveness: 0.2,
-                ...lineStyle
-              }
+              color: '#ED3574',
+              width: 1,
+              opacity: 0.6,
+              curveness: 0.2,
+              ...lineStyle
             },
             data: mapData
           },
@@ -200,11 +194,9 @@ class GeoChart extends BaseChart {
               brushType: 'stroke'
             },
             label: effectScatterLabelVisible ? {
-              normal: {
-                show: true,
-                formatter: '{b}',
-                ...effectScatterLabel.normal
-              },
+              show: true,
+              formatter: '{b}',
+              ...effectScatterLabel.normal,
               emphasis: {
                 ...effectScatterLabel.emphasis
               }
@@ -226,11 +218,9 @@ class GeoChart extends BaseChart {
               brushType: 'stroke'
             },
             label: effectScatterLabelVisible ? {
-              normal: {
-                show: true,
-                formatter: '{b}',
-                ...effectScatterLabel.normal
-              },
+              show: true,
+              formatter: '{b}',
+              ...effectScatterLabel.normal,
               emphasis: {
                 ...effectScatterLabel.emphasis
               }
@@ -263,7 +253,8 @@ class GeoChart extends BaseChart {
         }
 
         if (!isMapMode) {
-          seriesData[index] = { ...seriesData[index],
+          seriesData[index] = {
+            ...seriesData[index],
             ...{
               coordinateSystem: 'geo',
               label: unShowLabel,
@@ -275,7 +266,8 @@ class GeoChart extends BaseChart {
               itemStyle: symbolColor ? {
                 color: symbolColor
               } : {}
-            } }
+            }
+          }
         }
       }
 
@@ -334,7 +326,7 @@ class GeoChart extends BaseChart {
       roam = false,
       mapName = 'china'
     } = args.settings
-    const unShowLabel = { normal: { show: false }, emphasis: { show: false } }
+    const unShowLabel = { show: false, emphasis: { show: false } }
     const geo = {
       map: mapName,
       silent,

@@ -107,11 +107,9 @@ class LineChart extends BaseChart {
       return formatMeasure(formatType, value[seriesIndex], formatDigits)
     }
     return {
-      normal: {
-        position,
-        formatter,
-        ...others
-      }
+      position,
+      formatter,
+      ...others
     }
   }
 
@@ -132,20 +130,11 @@ class LineChart extends BaseChart {
     const series = []
     const stackMap = stack && getStackMap(stack)
 
-    function getLineStyle (lineParams) {
-      return {
-        normal: {
-          width: 2
-        }
-      }
-    }
-
     measures.forEach(({ name, data }, i) => {
       series.push({
         type: 'line',
         name,
         label: this.getLineLabel(label),
-        lineStyle: getLineStyle(),
         showSymbol,
         smooth,
         stack: stack && stackMap[name],

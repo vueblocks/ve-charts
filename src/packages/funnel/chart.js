@@ -77,22 +77,18 @@ class FunnelChart extends BaseChart {
         }
       }
       let label = {
-        normal: {
-          position: labelPosition
-        }
+        position: labelPosition
       }
 
       if (contrast) {
         const contrastLabel = {
-          normal: {
-            position: 'inside',
-            formatter: params => {
-              const maxValue = measures.reduce((prev, next) => {
-                return max([max(prev.data), max(next.data)])
-              })
-              const [, , mea2] = params.value
-              return `${Math.round((mea2 / maxValue * 100), 2)}%`
-            }
+          position: 'inside',
+          formatter: params => {
+            const maxValue = measures.reduce((prev, next) => {
+              return max([max(prev.data), max(next.data)])
+            })
+            const [, , mea2] = params.value
+            return `${Math.round((mea2 / maxValue * 100), 2)}%`
           },
           emphasis: {
             position: 'inside',
@@ -111,15 +107,11 @@ class FunnelChart extends BaseChart {
 
       if (symmetric) {
         const rightLabel = {
-          normal: {
-            position: labelPosition !== 'outside' ? labelPosition : 'left'
-          }
+          position: labelPosition !== 'outside' ? labelPosition : 'left'
         }
 
         const leftLabel = {
-          normal: {
-            position: labelPosition !== 'outside' ? labelPosition : 'right'
-          }
+          position: labelPosition !== 'outside' ? labelPosition : 'right'
         }
         label = idx === 0 ? rightLabel : leftLabel
       }

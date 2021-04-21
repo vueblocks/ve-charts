@@ -49,21 +49,17 @@ class TreeChart extends BaseChart {
     }
     return {
       label: {
-        normal: {
-          position: labelPosition,
-          verticalAlign: 'middle',
-          align: labelAlign,
-          rotate
-        }
+        position: labelPosition,
+        verticalAlign: 'middle',
+        align: labelAlign,
+        rotate
       },
       leaves: {
         label: {
-          normal: {
-            position: leavesPosition,
-            verticalAlign: 'middle',
-            align: leavesAlign,
-            rotate
-          }
+          position: leavesPosition,
+          verticalAlign: 'middle',
+          align: leavesAlign,
+          rotate
         }
       }
     }
