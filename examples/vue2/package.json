@@ -1,5 +1,5 @@
 {
-  "name": "vue2",
+  "name": "ve-charts-vue2-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "@vue/composition-api": "^1.0.0-rc.5",
     "core-js": "^3.6.5",
     "echarts": "^5.0.2",
-    "ve-charts": "^1.0.0-alpha.2",
+    "ve-charts": "^1.0.0-alpha.3",
     "vue": "^2.6.11",
     "vue-demi": "^0.7.3"
   },

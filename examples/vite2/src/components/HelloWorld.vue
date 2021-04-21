@@ -1,7 +1,6 @@
 <template>
   <div class='hello'>
-    <ve-bar-chart
-      :data="chartData"
+    <bar-chart
       :option="barChartOptions"
       :height="400"
       :width="800"
@@ -16,8 +15,7 @@
 
     <button @click="handleToggle">Toggle</button>
 
-    <ve-line-chart
-      :data="chartData"
+    <line-chart
       :option="lineChartOptions"
       :height="400"
       :dark-mode="darkMode"

@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { VeBarChart, VeLineChart } from 've-charts'
+import { BarChart, LineChart } from 've-charts'
 
 const app = createApp(App)
 
-app.component(VeBarChart.name, VeBarChart)
-app.component(VeLineChart.name, VeLineChart)
+app.use(BarChart)
+app.component(LineChart.name, LineChart)
 
 app.mount('#app')

@@ -1,5 +1,5 @@
 {
-  "name": "vue3",
+  "name": "ve-charts-vue3-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "echarts": "^5.0.2",
-    "ve-charts": "^1.0.0-alpha.1",
+    "ve-charts": "^1.0.0-alpha.3",
     "vue": "^3.0.0"
   },
   "devDependencies": {

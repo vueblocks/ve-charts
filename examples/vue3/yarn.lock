@@ -8968,10 +8968,10 @@ vary@~1.1.2:
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-ve-charts@^1.0.0-alpha.1:
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/ve-charts/-/ve-charts-1.0.0-alpha.1.tgz#4e90149220e11e588d6842334e47069021738fb7"
-  integrity sha512-IGHS0ez6NpHJ+PbBhlBHmGFVvFyd49QH2VYLPg8HBjqCwr6r727lMdx7l2woEqMSKxZMCUl29L6mIOokeRlZQQ==
+ve-charts@^1.0.0-alpha.3:
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/ve-charts/-/ve-charts-1.0.0-alpha.3.tgz#822533a89dc943fd4700818dfa3821446afc6b6a"
+  integrity sha512-9ifF2zdyC2FCbqzeei6QrS598GROg3HYQKzf7HeIHaqrWPEkeQU1Iazh1BdUbDWSl1ijIur9vUL0F9Z6nc1H+w==
   dependencies:
     "@vueblocks/vue-use-core" "^0.2.10"
     lodash.clonedeep "^4.5.0"

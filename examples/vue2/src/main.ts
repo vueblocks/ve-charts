@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { VeBarChart, VeLineChart } from 've-charts'
+import { BarChart, LineChart } from 've-charts'
 
-Vue.component(VeBarChart.name, VeBarChart)
-Vue.component(VeLineChart.name, VeLineChart)
+Vue.use(BarChart)
+Vue.component(LineChart.name, LineChart)
 
 Vue.config.productionTip = false
 
