@@ -1,12 +1,20 @@
 # 更新日志
 
+## v0.9.8
+
+* **新增** 公共系列配置项 [series-option](https://vueblocks.github.io/ve-charts/#/base-options?id=%e9%80%9a%e7%94%a8%e9%85%8d%e7%bd%ae)
+
+### PRS
+
+* [#149](https://github.com/vueblocks/ve-charts/pull/149) by [zimuZhao](https://github.com/zimuZhao)
+
 ## v0.9.7
 
 * **修复** 雷达图刻度轴不可取消的问题
 
 ### PRS
 
-* [#144](https://github.com/vueblocks/ve-charts/pull/142) by [liweina-fans](https://github.com/liweina-fans)
+* [#144](https://github.com/vueblocks/ve-charts/pull/144) by [liweina-fans](https://github.com/liweina-fans)
 
 ## v0.9.6
 

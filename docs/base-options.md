@@ -2,7 +2,7 @@
 
 `ve-charts` 组件的基本属性包括 **数据** 与 **配置项**，**配置项** 又包括 **通用配置** 和 **图表配置**。
 
-```html
+```vue
 <ve-bar-chart
   :data="chartData"               // 数据
   :settings="chartSettings"       // 图表配置
@@ -104,7 +104,7 @@ data: {
 }
 ```
 
-## 通用配置 https://echarts.apache.org/zh/option.html#title
+## 通用配置
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 |
 | --- | :---: | :---: | --- | --- |
