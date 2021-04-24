@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { use } from 'echarts/core'
 import { TreemapChart } from 'echarts/charts'
 

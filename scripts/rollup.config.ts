@@ -113,9 +113,6 @@ const createConfig = (name, display, minimal, external = [], globals = {}) => {
       ],
       external: [
         'vue',
-        'vue-demi',
-        'lodash.clonedeep',
-        '@vueblocks/vue-use-core',
         ...external
       ]
     }

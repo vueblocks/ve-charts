@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { App, SetupContext } from 'vue-demi'
+import { SetupContext } from 'vue'
 import { init } from 'echarts/core'
 import {
   AriaComponentOption,
@@ -73,8 +72,4 @@ export type ECSetOption = {
   readonly visualMap: VisualMapComponentOption;
   readonly xAxis: XAXisOption;
   readonly yAxis: YAXisOption;
-}
-
-export type WithInstall<T> = T & {
-  install(app: App): void;
 }

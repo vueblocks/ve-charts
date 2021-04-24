@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { computed } from 'vue-demi'
+import { computed } from 'vue'
 import { isOn, omitOn, toKebabCase, toCamelCase } from '../utils'
 import { Attrs } from '../types'
 
@@ -23,4 +23,4 @@ const useAttrs = (attrs: Attrs) => {
   }
 }
 
-export default useAttrs
+export { useAttrs }

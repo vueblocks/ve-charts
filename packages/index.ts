@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { App } from 'vue-demi'
+import { App } from 'vue'
 
 import { VeChart } from './base/index'
 import { BarChart } from './bar/index'

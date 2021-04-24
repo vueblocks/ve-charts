@@ -1,9 +1,8 @@
 <template>
   <bar-chart
-    :data="chartData"
-    :width="800"
+    :height="480"
     :legend="chartLegend"
-    :option="chartOptions"
+    v-bind="chartOptions"
     @click="testEvent"
     @zr:click="testEvent"
     @legendselected="testEvent"

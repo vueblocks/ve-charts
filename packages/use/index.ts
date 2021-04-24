@@ -1,1 +1,2 @@
-export { default as useAttrs } from './useAttrs'
+export * from './useAttrs'
+export * from './useResizeObserver'

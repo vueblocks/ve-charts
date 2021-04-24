@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { App } from 'vue'
-import { WithInstall } from './types'
+import { App, unref } from 'vue'
+import { WithInstall, RefTypedElement } from './types'
 
 export const toKebabCase = (str: string) =>
   str
@@ -21,7 +21,7 @@ export const isEmpty = (prop: any) => prop === null || prop === undefined
 // https://github.com/vuejs/vue-next/blob/5a7a1b8293822219283d6e267496bec02234b0bc/packages/shared/src/index.ts#L40-L41
 export const isOn = (key: string) => /^on[^a-z]/.test(key)
 
-export function omitOn (attrs: Record<string, any>) {
+export const omitOn = (attrs: Record<string, any>) => {
   const result: Record<string, any> = {}
   for (const key in attrs) {
     if (!isOn(key)) {
@@ -39,4 +39,8 @@ export const withInstall = <T>(comp: T): WithInstall<T> & Plugin => {
   }
 
   return c
+}
+
+export const unrefElement = (refEl: RefTypedElement): any => {
+  return unref(refEl)
 }

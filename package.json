@@ -31,7 +31,7 @@
     "attributes": "vetur/attributes.json"
   },
   "dependencies": {
-    "@vueblocks/vue-use-core": "^0.2.10",
+    "@juggle/resize-observer": "^3.3.0",
     "lodash.clonedeep": "^4.5.0"
   },
   "devDependencies": {
@@ -67,8 +67,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.2.3",
-    "vue": "^3.0.7",
-    "vue-demi": "^0.7.3",
+    "vue": "^3.0.11",
     "vue-jest": "^5.0.0-0"
   },
   "eslintConfig": {

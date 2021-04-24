@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineComponent, h, PropType, isVue2 } from 'vue-demi'
+import { defineComponent, h, PropType } from 'vue'
 import cloneDeep from 'lodash.clonedeep'
 
 import '../use/useCommonChart'
 import { VeChart } from '../base/index'
-// import { isObject } from './utils'
 import type { EChartsOption, ECSetOption } from '../types'
 import { isEmpty } from '../utils'
 
@@ -131,9 +130,6 @@ export default defineComponent({
     }
   },
   render () {
-    const attrs = isVue2
-      ? { props: this.chartOpts }
-      : this.chartOpts
-    return h(VeChart, attrs)
+    return h(VeChart, this.chartOpts)
   }
 })

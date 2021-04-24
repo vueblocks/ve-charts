@@ -10,9 +10,8 @@ import {
   nextTick,
   watch,
   PropType
-} from 'vue-demi'
+} from 'vue'
 import { init as initChart } from 'echarts/core'
-import { useResizeObserver, useInstance } from '@vueblocks/vue-use-core'
 
 import type {
   EChartsType,
@@ -21,7 +20,7 @@ import type {
   SetOptionOpts,
   EChartsOption
 } from '../types'
-import { useAttrs } from '../use'
+import { useAttrs, useResizeObserver } from '../use'
 
 export default defineComponent({
   name: 'VeChart',
@@ -46,6 +45,7 @@ export default defineComponent({
     const echartsRef = ref<HTMLElement>()
     const echartsInstance = shallowRef<EChartsType>()
     const canvasRect = ref({})
+
     const { echartsEvents } = useAttrs(attrs)
 
     console.log(option.value)
@@ -143,12 +143,10 @@ export default defineComponent({
     }
   },
 
-  render () {
-    const vm = useInstance()
-
+  render (ctx: any) {
     const echartsStyle = {
       width: 'auto',
-      height: `${vm.$props.height}px`
+      height: `${ctx.$props.height}px`
     }
 
     return h('div', {
