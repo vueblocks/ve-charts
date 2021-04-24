@@ -1,3 +1,12 @@
+# [1.0.0-alpha.4](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-04-24)
+
+
+### Features
+
+* remove support vue 2.x ([1ec143a](https://github.com/xiaoluoboding/ve-charts/commit/1ec143a83555ac1ab0f45e6d8ebc28cde39c182d))
+
+
+
 # [1.0.0-alpha.3](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-04-11)
 
 

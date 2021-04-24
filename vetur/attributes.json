@@ -25,734 +25,734 @@
     "description": "Whether echarts need update or not"
   },
   "--- ---[ve-bar-chart]--- [props] ---": {},
-  "ve-bar-chart/title": {
+  "bar-chart/title": {
     "type": "object",
     "description": "Title component, including main title and subtitle. \n https://echarts.apache.org/en/option.html#title"
   },
-  "ve-bar-chart/legend": {
+  "bar-chart/legend": {
     "type": "object",
     "description": "Legend component shows symbol, color and name of different series. \n https://echarts.apache.org/en/option.html#legend"
   },
-  "ve-bar-chart/grid": {
+  "bar-chart/grid": {
     "type": "object",
     "description": "Drawing grid in rectangular coordinate. \n https://echarts.apache.org/en/option.html#grid"
   },
-  "ve-bar-chart/x-axis": {
+  "bar-chart/x-axis": {
     "type": "object|array",
     "description": "The x axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#xAxis"
   },
-  "ve-bar-chart/y-axis": {
+  "bar-chart/y-axis": {
     "type": "object|array",
     "description": "The y axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#yAxis"
   },
-  "ve-bar-chart/polar": {
+  "bar-chart/polar": {
     "type": "object",
     "description": "Polar coordinate can be used in scatter and line chart. Every polar coordinate has an `angleAxis` and a `radiusAxis`. \n https://echarts.apache.org/en/option.html#polar"
   },
-  "ve-bar-chart/radius-axis": {
+  "bar-chart/radius-axis": {
     "type": "object",
     "description": "Radial axis of polar coordinate. \n https://echarts.apache.org/en/option.html#radiusAxis"
   },
-  "ve-bar-chart/angle-axis": {
+  "bar-chart/angle-axis": {
     "type": "object",
     "description": "The angle axis in Polar Coordinate. \n https://echarts.apache.org/en/option.html#angleAxis"
   },
-  "ve-bar-chart/radar": {
+  "bar-chart/radar": {
     "type": "object|array",
     "description": "Coordinate for radar charts. \n https://echarts.apache.org/en/option.html#radar"
   },
-  "ve-bar-chart/data-zoom": {
+  "bar-chart/data-zoom": {
     "type": "object|array",
     "description": "dataZoom component is used for zooming a specific area, which enables user to investigate data in detail, or get an overview of the data, or get rid of outlier points. \n https://echarts.apache.org/en/option.html#dataZoom"
   },
-  "ve-bar-chart/visual-map": {
+  "bar-chart/visual-map": {
     "type": "object|array",
     "description": "visualMap is a type of component for visual encoding, which maps the data to visual channels. \n https://echarts.apache.org/en/option.html#visualMap"
   },
-  "ve-bar-chart/tooltip": {
+  "bar-chart/tooltip": {
     "type": "object",
     "description": "Tooltip component. \n https://echarts.apache.org/en/option.html#tooltip"
   },
-  "ve-bar-chart/axis-pointer": {
+  "bar-chart/axis-pointer": {
     "type": "object",
     "description": "This is the global configurations of axisPointer. \n https://echarts.apache.org/en/option.html#axisPointer"
   },
-  "ve-bar-chart/toolbox": {
+  "bar-chart/toolbox": {
     "type": "object",
     "description": "A group of utility tools, which includes `export`, `data view`, `dynamic type switching`, `data area zooming`, and `reset`. \n https://echarts.apache.org/en/option.html#toolbox"
   },
-  "ve-bar-chart/brush": {
+  "bar-chart/brush": {
     "type": "object",
     "description": "brush is an area-selecting component, with which user can select part of data from a chart to display in detail, or do calculations with them. \n https://echarts.apache.org/en/option.html#brush"
   },
-  "ve-bar-chart/geo": {
+  "bar-chart/geo": {
     "type": "object",
     "description": "Geographic coorinate system component is used to draw maps, which also supports `scatter series`, and `line series`. \n https://echarts.apache.org/en/option.html#geo"
   },
-  "ve-bar-chart/parallel": {
+  "bar-chart/parallel": {
     "type": "object|array",
     "description": "`Parallel Coordinates` is a common way of visualizing high-dimensional geometry and analyzing multivariate data. \n https://echarts.apache.org/en/option.html#parallel"
   },
-  "ve-bar-chart/parallel-axis": {
+  "bar-chart/parallel-axis": {
     "type": "array",
     "description": "This component is the coordinate axis for parallel coordinate. \n https://echarts.apache.org/en/option.html#parallelAxis"
   },
-  "ve-bar-chart/single-axis": {
+  "bar-chart/single-axis": {
     "type": "array",
     "description": "An axis with a single dimension. It can be used to display data in one dimension. \n https://echarts.apache.org/en/option.html#singleAxis"
   },
-  "ve-bar-chart/timeline": {
+  "bar-chart/timeline": {
     "type": "object",
     "description": "`timeline` component, which provides functions like switching and playing between multiple ECharts options. \n https://echarts.apache.org/en/option.html#timeline"
   },
-  "ve-bar-chart/graphic": {
+  "bar-chart/graphic": {
     "type": "object",
     "description": "`graphic` component enables creating graphic elements in ECharts. \n https://echarts.apache.org/en/option.html#graphic"
   },
-  "ve-bar-chart/calendar": {
+  "bar-chart/calendar": {
     "type": "object",
     "description": "Calendar coordinates. \n https://echarts.apache.org/en/option.html#calendar"
   },
-  "ve-bar-chart/dataset": {
+  "bar-chart/dataset": {
     "type": "object|array",
     "description": "dataset brings convenience in data management separated with styles and enables data reuse by different series. More importantly, it enables data encoding from data to visual, which brings convenience in some scenarios. \n https://echarts.apache.org/en/option.html#dataset"
   },
-  "ve-bar-chart/aria": {
+  "bar-chart/aria": {
     "type": "object|array",
     "description": "The W3C has developed the WAI-ARIA, the Accessible Rich Internet Applications Suite, which is dedicated to making web content and web applications accessible. \n https://echarts.apache.org/en/option.html#aria"
   },
-  "ve-bar-chart/series": {
+  "bar-chart/series": {
     "type": "object|array",
     "description": "Define echarts built-in chart types series. \n https://echarts.apache.org/en/option.html#series"
   },
-  "ve-bar-chart/dark-mode": {
+  "bar-chart/dark-mode": {
     "type": "boolean",
     "description": "Whether is darkMode or not. \n https://echarts.apache.org/en/option.html#darkMode"
   },
-  "ve-bar-chart/color": {
+  "bar-chart/color": {
     "type": "array",
     "description": "The color list of palette. If no color is set in series, the colors would be adopted sequentially and circularly from this list as the colors of series. \n https://echarts.apache.org/en/option.html#color"
   },
-  "ve-bar-chart/background-color": {
+  "bar-chart/background-color": {
     "type": "object|string",
     "description": "Background color. Defaults to have no background. \n https://echarts.apache.org/en/option.html#backgroundColor"
   },
-  "ve-bar-chart/text-style": {
+  "bar-chart/text-style": {
     "type": "object",
     "description": "Global font style. \n https://echarts.apache.org/en/option.html#textStyle"
   },
-  "ve-bar-chart/animation": {
+  "bar-chart/animation": {
     "type": "boolean",
     "description": "Whether to enable animation. \n https://echarts.apache.org/en/option.html#animation"
   },
-  "ve-bar-chart/animation-threshold": {
+  "bar-chart/animation-threshold": {
     "type": "number",
     "description": "Whether to set graphic number threshold to animation. Animation will be disabled when graphic number is larger than threshold. \n https://echarts.apache.org/en/option.html#animationThreshold"
   },
-  "ve-bar-chart/animation-duration": {
+  "bar-chart/animation-duration": {
     "type": "number|function",
     "description": "Duration of the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDuration"
   },
-  "ve-bar-chart/animation-easing": {
+  "bar-chart/animation-easing": {
     "type": "string|function",
     "description": "Easing method used for the first animation. \n https://echarts.apache.org/en/option.html#animationEasing"
   },
-  "ve-bar-chart/animation-delay": {
+  "bar-chart/animation-delay": {
     "type": "number|function",
     "description": "Delay before updating the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDelay"
   },
-  "ve-bar-chart/animation-duration-update": {
+  "bar-chart/animation-duration-update": {
     "type": "number|function",
     "description": "Time for animation to complete, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDurationUpdate"
   },
-  "ve-bar-chart/animation-easing-update": {
+  "bar-chart/animation-easing-update": {
     "type": "string|function",
     "description": "Easing method used for animation. \n https://echarts.apache.org/en/option.html#animationEasingUpdate"
   },
-  "ve-bar-chart/animation-delay-update": {
+  "bar-chart/animation-delay-update": {
     "type": "string|function",
     "description": "Delay before updating animation, which supports callback function for different data to have different animation effects. \n https://echarts.apache.org/en/option.html#animationDelayUpdate"
   },
-  "ve-bar-chart/blend-mode": {
+  "bar-chart/blend-mode": {
     "type": "object",
     "description": "Sets the type of compositing operation to apply when drawing a new shape. \n https://echarts.apache.org/en/option.html#blendMode"
   },
-  "ve-bar-chart/hover-layer-threshold": {
+  "bar-chart/hover-layer-threshold": {
     "type": "number",
     "description": "When the number of element of the whole chart is larger than hoverLayerThreshold, a seperate hover layer is used to render hovered elements. \n https://echarts.apache.org/en/option.html#hoverLayerThreshold"
   },
-  "ve-bar-chart/useUTC": {
+  "bar-chart/useUTC": {
     "type": "boolean",
     "description": "Whether to use UTC in display. \n https://echarts.apache.org/en/option.html#useUTC"
   },
-  "ve-bar-chart/options": {
+  "bar-chart/options": {
     "type": "object",
     "description": "Option array used in `timeline`. Each item of this array is an echarts option (ECUnitOption). \n https://echarts.apache.org/en/option.html#options"
   },
-  "ve-bar-chart/media": {
+  "bar-chart/media": {
     "type": "array",
     "description": "See [Responsive Mobile-End] for details. \n https://echarts.apache.org/en/option.html#media"
   },
-  "ve-bar-chart/data": {
+  "bar-chart/data": {
     "type": "array|object",
     "description": "See [ve-charts documentation] for more details."
   },
-  "ve-bar-chart/settings": {
+  "bar-chart/settings": {
     "type": "array|object",
     "description": "See [ve-charts documentation] for more details."
   },
-  "ve-bar-chart/loading": {
+  "bar-chart/loading": {
     "type": "boolean",
     "description": "Whether loading data or not."
   },
-  "ve-bar-chart/empty-text": {
+  "bar-chart/empty-text": {
     "type": "string",
     "description": "change the empty text placeholder."
   },
-  "ve-bar-chart/option": {
+  "bar-chart/option": {
     "type": "array|object",
     "description": "ve-charts common props. echartsInstance.setOption['option'] \n https://echarts.apache.org/en/option.html"
   },
   "/* --- ---[ve-bar-chart]---[events]--- */": {},
-  "ve-bar-chart/highlight": {
+  "bar-chart/highlight": {
     "type": "event",
     "description": "Event of data highlight. \n → https://echarts.apache.org/en/api.html#events.highlight"
   },
-  "ve-bar-chart/downplay": {
+  "bar-chart/downplay": {
     "type": "event",
     "description": "Event of data downplay. \n → https://echarts.apache.org/en/api.html#events.downplay"
   },
-  "ve-bar-chart/selectchanged": {
+  "bar-chart/selectchanged": {
     "type": "event",
     "description": "Event emitted when data selection is changed. \n → https://echarts.apache.org/en/api.html#events.selectchanged"
   },
-  "ve-bar-chart/legendselectchanged": {
+  "bar-chart/legendselectchanged": {
     "type": "event",
     "description": "[legendToggleSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendToggleSelect) Event emitted after legend selecting state changes. \n → https://echarts.apache.org/en/api.html#events.legendselectchanged"
   },
-  "ve-bar-chart/legendselected": {
+  "bar-chart/legendselected": {
     "type": "event",
     "description": "[legendSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendSelect) Event emitted after legend is selected. \n → https://echarts.apache.org/en/api.html#events.legendselected"
   },
-  "ve-bar-chart/legendunselected": {
+  "bar-chart/legendunselected": {
     "type": "event",
     "description": "[legendUnSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendUnSelect) Event emitted after unselecting legend. \n → https://echarts.apache.org/en/api.html#events.legendunselected"
   },
-  "ve-bar-chart/legendselectall": {
+  "bar-chart/legendselectall": {
     "type": "event",
     "description": "[legendAllSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendAllSelect) Event emitted after all legends are selected. \n → https://echarts.apache.org/en/api.html#events.legendselectall"
   },
-  "ve-bar-chart/legendinverseselect": {
+  "bar-chart/legendinverseselect": {
     "type": "event",
     "description": "[legendInverseSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendInverseSelect) Event emitted after inversing all legends. \n → https://echarts.apache.org/en/api.html#events.legendinverseselect"
   },
-  "ve-bar-chart/legendscroll": {
+  "bar-chart/legendscroll": {
     "type": "event",
     "description": "[legendscroll](https://echarts.apache.org/v4/zh/api.html#action.legend.legendScroll) Event when trigger legend scroll. \n → https://echarts.apache.org/en/api.html#events.legendscroll"
   },
-  "ve-bar-chart/datazoom": {
+  "bar-chart/datazoom": {
     "type": "event",
     "description": "Event emitted after zooming data area. \n → https://echarts.apache.org/en/api.html#events.datazoom"
   },
-  "ve-bar-chart/datarangeselected": {
+  "bar-chart/datarangeselected": {
     "type": "event",
     "description": "[selectDataRange](https://echarts.apache.org/en/api.html#action.dataRange.selectDataRange) Event emitted after range is changed in visualMap. \n → https://echarts.apache.org/en/api.html#events.datarangeselected"
   },
-  "ve-bar-chart/timelinechanged": {
+  "bar-chart/timelinechanged": {
     "type": "event",
     "description": "[timelineChange](https://echarts.apache.org/en/api.html#action.timeline.timelineChange) Event emitted after time point in timeline is changed. \n → https://echarts.apache.org/en/api.html#events.timelinechanged"
   },
-  "ve-bar-chart/timelineplaychanged": {
+  "bar-chart/timelineplaychanged": {
     "type": "event",
     "description": "[timelinePlayChange](https://echarts.apache.org/en/api.html#action.timeline.timelinePlayChange) Switching event of play state in timeline. \n → https://echarts.apache.org/en/api.html#events.timelineplaychanged"
   },
-  "ve-bar-chart/restore": {
+  "bar-chart/restore": {
     "type": "event",
     "description": "[restore](https://echarts.apache.org/en/api.html#action.toolbox.restore) Resets option event. \n → https://echarts.apache.org/en/api.html#events.restore"
   },
-  "ve-bar-chart/dataviewchanged": {
+  "bar-chart/dataviewchanged": {
     "type": "event",
     "description": "Changing event of [data view tool in toolbox](https://echarts.apache.org/en/option.html#toolbox.feature.dataView). \n → https://echarts.apache.org/en/api.html#events.dataviewchanged"
   },
-  "ve-bar-chart/magictypechanged": {
+  "bar-chart/magictypechanged": {
     "type": "event",
     "description": "Switching event of [magic type tool in toolbox](https://echarts.apache.org/en/option.html#toolbox.feature.magicType). \n → https://echarts.apache.org/en/api.html#events.magictypechanged"
   },
-  "ve-bar-chart/geoselectchanged": {
+  "bar-chart/geoselectchanged": {
     "type": "event",
     "description": "Event emitted after selecting state changes. It will be triggered when user clicks to select. \n → https://echarts.apache.org/en/api.html#events.geoselectchanged"
   },
-  "ve-bar-chart/geoselected": {
+  "bar-chart/geoselected": {
     "type": "event",
     "description": "Event after selecting. Use `dispatchAction` can trigger this event, but user clicking this event won't trigger this. \n → https://echarts.apache.org/en/api.html#events.geoselected"
   },
-  "ve-bar-chart/geounselected": {
+  "bar-chart/geounselected": {
     "type": "event",
     "description": "cancels selected event. Use `dispatchAction` will trigger this event, but user clicking won't trigger it. \n → https://echarts.apache.org/en/api.html#events.geounselected"
   },
-  "ve-bar-chart/axisareaselected": {
+  "bar-chart/axisareaselected": {
     "type": "event",
     "description": "Selecting event of range of [parallel axis](https://echarts.apache.org/en/option.html#parallelAxis). \n → https://echarts.apache.org/en/api.html#events.axisareaselected"
   },
-  "ve-bar-chart/brush": {
+  "bar-chart/brush": {
     "type": "event",
     "description": "Event triggered after action [brush](https://echarts.apache.org/en/api.html#action.brush.brush) dispatched. \n → https://echarts.apache.org/en/api.html#events.brush"
   },
-  "ve-bar-chart/brush-end": {
+  "bar-chart/brush-end": {
     "type": "event",
     "description": "Event triggered after action [brushEnd](https://echarts.apache.org/en/api.html#action.brush.brushEnd) dispatched. \n → https://echarts.apache.org/en/api.html#events.brushEnd"
   },
-  "ve-bar-chart/brushselected": {
+  "bar-chart/brushselected": {
     "type": "event",
     "description": "Notice what are selected. \n → https://echarts.apache.org/en/api.html#events.brushselected"
   },
-  "ve-bar-chart/globalcursortaken": {
+  "bar-chart/globalcursortaken": {
     "type": "event",
     "description": "See [takeGlobalCursor](https://echarts.apache.org/en/api.html#action.brush.takeGlobalCursor). \n → https://echarts.apache.org/en/api.html#events.globalcursortaken"
   },
-  "ve-bar-chart/rendered": {
+  "bar-chart/rendered": {
     "type": "event",
     "description": "Trigger when a frame rendered. \n → https://echarts.apache.org/en/api.html#events.rendered"
   },
-  "ve-bar-chart/finished": {
+  "bar-chart/finished": {
     "type": "event",
     "description": "Triggered when render finished \n → https://echarts.apache.org/en/api.html#events.finished"
   },
-  "ve-bar-chart/click": {
+  "bar-chart/click": {
     "type": "event",
     "description": "Trigger when click the echarts instance. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.click"
   },
-  "ve-bar-chart/dblclick": {
+  "bar-chart/dblclick": {
     "type": "event",
     "description": "Trigger when double click the echarts instance. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.dblclick"
   },
-  "ve-bar-chart/mousedown": {
+  "bar-chart/mousedown": {
     "type": "event",
     "description": "Fired a mousedown event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mousedown"
   },
-  "ve-bar-chart/mousemove": {
+  "bar-chart/mousemove": {
     "type": "event",
     "description": "Fired a mousemove event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mousemove"
   },
-  "ve-bar-chart/mouseup": {
+  "bar-chart/mouseup": {
     "type": "event",
     "description": "Fired a mouseup event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mouseup"
   },
-  "ve-bar-chart/mouseover": {
+  "bar-chart/mouseover": {
     "type": "event",
     "description": "Fired a mouseover event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mouseover"
   },
-  "ve-bar-chart/mouseout": {
+  "bar-chart/mouseout": {
     "type": "event",
     "description": "Fired a mouseout event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mouseout"
   },
-  "ve-bar-chart/globalout": {
+  "bar-chart/globalout": {
     "type": "event",
     "description": "Fired a globalout event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.globalout"
   },
-  "ve-bar-chart/contextmenu": {
+  "bar-chart/contextmenu": {
     "type": "event",
     "description": "Fired a contextmenu event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.contextmenu"
   },
-  "ve-bar-chart/zr:click": {
+  "bar-chart/zr:click": {
     "type": "event",
     "description": "Fired a zrender click event."
   },
-  "ve-bar-chart/zr:dblclick": {
+  "bar-chart/zr:dblclick": {
     "type": "event",
     "description": "Fired a zrender dblclick event."
   },
-  "ve-bar-chart/zr:mousedown": {
+  "bar-chart/zr:mousedown": {
     "type": "event",
     "description": "Fired a zrender mousedown event."
   },
-  "ve-bar-chart/zr:mousemove": {
+  "bar-chart/zr:mousemove": {
     "type": "event",
     "description": "Fired a zrender mousemove event."
   },
-  "ve-bar-chart/zr:mouseup": {
+  "bar-chart/zr:mouseup": {
     "type": "event",
     "description": "Fired a zrender mouseup event."
   },
-  "ve-bar-chart/zr:mouseover": {
+  "bar-chart/zr:mouseover": {
     "type": "event",
     "description": "Fired a zrender mouseover event."
   },
-  "ve-bar-chart/zr:mouseout": {
+  "bar-chart/zr:mouseout": {
     "type": "event",
     "description": "Fired a zrender mouseout event."
   },
-  "ve-bar-chart/zr:mousewheel": {
+  "bar-chart/zr:mousewheel": {
     "type": "event",
     "description": "Fired a zrender mousewheel event."
   },
-  "ve-bar-chart/zr:contextmenu": {
+  "bar-chart/zr:contextmenu": {
     "type": "event",
     "description": "Fired a zrender contextmenu event."
   },
   "/* --- ---[ve-line-chart]--- [props] --- */": {},
-  "ve-line-chart/title": {
+  "line-chart/title": {
     "type": "object",
     "description": "Title component, including main title and subtitle. \n https://echarts.apache.org/en/option.html#title"
   },
-  "ve-line-chart/legend": {
+  "line-chart/legend": {
     "type": "object",
     "description": "Legend component shows symbol, color and name of different series. \n https://echarts.apache.org/en/option.html#legend"
   },
-  "ve-line-chart/grid": {
+  "line-chart/grid": {
     "type": "object",
     "description": "Drawing grid in rectangular coordinate. \n https://echarts.apache.org/en/option.html#grid"
   },
-  "ve-line-chart/x-axis": {
+  "line-chart/x-axis": {
     "type": "object|array",
     "description": "The x axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#xAxis"
   },
-  "ve-line-chart/y-axis": {
+  "line-chart/y-axis": {
     "type": "object|array",
     "description": "The y axis in cartesian(rectangular) coordinate. \n https://echarts.apache.org/en/option.html#yAxis"
   },
-  "ve-line-chart/polar": {
+  "line-chart/polar": {
     "type": "object",
     "description": "Polar coordinate can be used in scatter and line chart. Every polar coordinate has an `angleAxis` and a `radiusAxis`. \n https://echarts.apache.org/en/option.html#polar"
   },
-  "ve-line-chart/radius-axis": {
+  "line-chart/radius-axis": {
     "type": "object",
     "description": "Radial axis of polar coordinate. \n https://echarts.apache.org/en/option.html#radiusAxis"
   },
-  "ve-line-chart/angle-axis": {
+  "line-chart/angle-axis": {
     "type": "object",
     "description": "The angle axis in Polar Coordinate. \n https://echarts.apache.org/en/option.html#angleAxis"
   },
-  "ve-line-chart/radar": {
+  "line-chart/radar": {
     "type": "object|array",
     "description": "Coordinate for radar charts. \n https://echarts.apache.org/en/option.html#radar"
   },
-  "ve-line-chart/data-zoom": {
+  "line-chart/data-zoom": {
     "type": "object|array",
     "description": "dataZoom component is used for zooming a specific area, which enables user to investigate data in detail, or get an overview of the data, or get rid of outlier points. \n https://echarts.apache.org/en/option.html#dataZoom"
   },
-  "ve-line-chart/visual-map": {
+  "line-chart/visual-map": {
     "type": "object|array",
     "description": "visualMap is a type of component for visual encoding, which maps the data to visual channels. \n https://echarts.apache.org/en/option.html#visualMap"
   },
-  "ve-line-chart/tooltip": {
+  "line-chart/tooltip": {
     "type": "object",
     "description": "Tooltip component. \n https://echarts.apache.org/en/option.html#tooltip"
   },
-  "ve-line-chart/axis-pointer": {
+  "line-chart/axis-pointer": {
     "type": "object",
     "description": "This is the global configurations of axisPointer. \n https://echarts.apache.org/en/option.html#axisPointer"
   },
-  "ve-line-chart/toolbox": {
+  "line-chart/toolbox": {
     "type": "object",
     "description": "A group of utility tools, which includes `export`, `data view`, `dynamic type switching`, `data area zooming`, and `reset`. \n https://echarts.apache.org/en/option.html#toolbox"
   },
-  "ve-line-chart/brush": {
+  "line-chart/brush": {
     "type": "object",
     "description": "brush is an area-selecting component, with which user can select part of data from a chart to display in detail, or do calculations with them. \n https://echarts.apache.org/en/option.html#brush"
   },
-  "ve-line-chart/geo": {
+  "line-chart/geo": {
     "type": "object",
     "description": "Geographic coorinate system component is used to draw maps, which also supports `scatter series`, and `line series`. \n https://echarts.apache.org/en/option.html#geo"
   },
-  "ve-line-chart/parallel": {
+  "line-chart/parallel": {
     "type": "object|array",
     "description": "`Parallel Coordinates` is a common way of visualizing high-dimensional geometry and analyzing multivariate data. \n https://echarts.apache.org/en/option.html#parallel"
   },
-  "ve-line-chart/parallel-axis": {
+  "line-chart/parallel-axis": {
     "type": "array",
     "description": "This component is the coordinate axis for parallel coordinate. \n https://echarts.apache.org/en/option.html#parallelAxis"
   },
-  "ve-line-chart/single-axis": {
+  "line-chart/single-axis": {
     "type": "array",
     "description": "An axis with a single dimension. It can be used to display data in one dimension. \n https://echarts.apache.org/en/option.html#singleAxis"
   },
-  "ve-line-chart/timeline": {
+  "line-chart/timeline": {
     "type": "object",
     "description": "`timeline` component, which provides functions like switching and playing between multiple ECharts options. \n https://echarts.apache.org/en/option.html#timeline"
   },
-  "ve-line-chart/graphic": {
+  "line-chart/graphic": {
     "type": "object",
     "description": "`graphic` component enables creating graphic elements in ECharts. \n https://echarts.apache.org/en/option.html#graphic"
   },
-  "ve-line-chart/calendar": {
+  "line-chart/calendar": {
     "type": "object",
     "description": "Calendar coordinates. \n https://echarts.apache.org/en/option.html#calendar"
   },
-  "ve-line-chart/dataset": {
+  "line-chart/dataset": {
     "type": "object|array",
     "description": "dataset brings convenience in data management separated with styles and enables data reuse by different series. More importantly, it enables data encoding from data to visual, which brings convenience in some scenarios. \n https://echarts.apache.org/en/option.html#dataset"
   },
-  "ve-line-chart/aria": {
+  "line-chart/aria": {
     "type": "object|array",
     "description": "The W3C has developed the WAI-ARIA, the Accessible Rich Internet Applications Suite, which is dedicated to making web content and web applications accessible. \n https://echarts.apache.org/en/option.html#aria"
   },
-  "ve-line-chart/series": {
+  "line-chart/series": {
     "type": "object|array",
     "description": "Define echarts built-in chart types series. \n https://echarts.apache.org/en/option.html#series"
   },
-  "ve-line-chart/dark-mode": {
+  "line-chart/dark-mode": {
     "type": "boolean",
     "description": "Whether is darkMode or not. \n https://echarts.apache.org/en/option.html#darkMode"
   },
-  "ve-line-chart/color": {
+  "line-chart/color": {
     "type": "array",
     "description": "The color list of palette. If no color is set in series, the colors would be adopted sequentially and circularly from this list as the colors of series. \n https://echarts.apache.org/en/option.html#color"
   },
-  "ve-line-chart/background-color": {
+  "line-chart/background-color": {
     "type": "object|string",
     "description": "Background color. Defaults to have no background. \n https://echarts.apache.org/en/option.html#backgroundColor"
   },
-  "ve-line-chart/text-style": {
+  "line-chart/text-style": {
     "type": "object",
     "description": "Global font style. \n https://echarts.apache.org/en/option.html#textStyle"
   },
-  "ve-line-chart/animation": {
+  "line-chart/animation": {
     "type": "boolean",
     "description": "Whether to enable animation. \n https://echarts.apache.org/en/option.html#animation"
   },
-  "ve-line-chart/animation-threshold": {
+  "line-chart/animation-threshold": {
     "type": "number",
     "description": "Whether to set graphic number threshold to animation. Animation will be disabled when graphic number is larger than threshold. \n https://echarts.apache.org/en/option.html#animationThreshold"
   },
-  "ve-line-chart/animation-duration": {
+  "line-chart/animation-duration": {
     "type": "number|function",
     "description": "Duration of the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDuration"
   },
-  "ve-line-chart/animation-easing": {
+  "line-chart/animation-easing": {
     "type": "string|function",
     "description": "Easing method used for the first animation. \n https://echarts.apache.org/en/option.html#animationEasing"
   },
-  "ve-line-chart/animation-delay": {
+  "line-chart/animation-delay": {
     "type": "number|function",
     "description": "Delay before updating the first animation, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDelay"
   },
-  "ve-line-chart/animation-duration-update": {
+  "line-chart/animation-duration-update": {
     "type": "number|function",
     "description": "Time for animation to complete, which supports callback function for different data to have different animation effect. \n https://echarts.apache.org/en/option.html#animationDurationUpdate"
   },
-  "ve-line-chart/animation-easing-update": {
+  "line-chart/animation-easing-update": {
     "type": "string|function",
     "description": "Easing method used for animation. \n https://echarts.apache.org/en/option.html#animationEasingUpdate"
   },
-  "ve-line-chart/animation-delay-update": {
+  "line-chart/animation-delay-update": {
     "type": "string|function",
     "description": "Delay before updating animation, which supports callback function for different data to have different animation effects. \n https://echarts.apache.org/en/option.html#animationDelayUpdate"
   },
-  "ve-line-chart/blend-mode": {
+  "line-chart/blend-mode": {
     "type": "object",
     "description": "Sets the type of compositing operation to apply when drawing a new shape. \n https://echarts.apache.org/en/option.html#blendMode"
   },
-  "ve-line-chart/hover-layer-threshold": {
+  "line-chart/hover-layer-threshold": {
     "type": "number",
     "description": "When the number of element of the whole chart is larger than hoverLayerThreshold, a seperate hover layer is used to render hovered elements. \n https://echarts.apache.org/en/option.html#hoverLayerThreshold"
   },
-  "ve-line-chart/useUTC": {
+  "line-chart/useUTC": {
     "type": "boolean",
     "description": "Whether to use UTC in display. \n https://echarts.apache.org/en/option.html#useUTC"
   },
-  "ve-line-chart/options": {
+  "line-chart/options": {
     "type": "object",
     "description": "Option array used in `timeline`. Each item of this array is an echarts option (ECUnitOption). \n https://echarts.apache.org/en/option.html#options"
   },
-  "ve-line-chart/media": {
+  "line-chart/media": {
     "type": "array",
     "description": "See [Responsive Mobile-End] for details. \n https://echarts.apache.org/en/option.html#media"
   },
-  "ve-line-chart/data": {
+  "line-chart/data": {
     "type": "array|object",
     "description": "See [ve-charts documentation] for more details."
   },
-  "ve-line-chart/settings": {
+  "line-chart/settings": {
     "type": "array|object",
     "description": "See [ve-charts documentation] for more details."
   },
-  "ve-line-chart/loading": {
+  "line-chart/loading": {
     "type": "boolean",
     "description": "Whether loading data or not."
   },
-  "ve-line-chart/empty-text": {
+  "line-chart/empty-text": {
     "type": "string",
     "description": "change the empty text placeholder."
   },
-  "ve-line-chart/option": {
+  "line-chart/option": {
     "type": "array|object",
     "description": "ve-charts common props. echartsInstance.setOption['option'] \n https://echarts.apache.org/en/option.html"
   },
   "/* --- ---[ve-line-chart]---[events]--- */": {},
-  "ve-line-chart/highlight": {
+  "line-chart/highlight": {
     "type": "event",
     "description": "Event of data highlight. \n → https://echarts.apache.org/en/api.html#events.highlight"
   },
-  "ve-line-chart/downplay": {
+  "line-chart/downplay": {
     "type": "event",
     "description": "Event of data downplay. \n → https://echarts.apache.org/en/api.html#events.downplay"
   },
-  "ve-line-chart/selectchanged": {
+  "line-chart/selectchanged": {
     "type": "event",
     "description": "Event emitted when data selection is changed. \n → https://echarts.apache.org/en/api.html#events.selectchanged"
   },
-  "ve-line-chart/legendselectchanged": {
+  "line-chart/legendselectchanged": {
     "type": "event",
     "description": "[legendToggleSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendToggleSelect) Event emitted after legend selecting state changes. \n → https://echarts.apache.org/en/api.html#events.legendselectchanged"
   },
-  "ve-line-chart/legendselected": {
+  "line-chart/legendselected": {
     "type": "event",
     "description": "[legendSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendSelect) Event emitted after legend is selected. \n → https://echarts.apache.org/en/api.html#events.legendselected"
   },
-  "ve-line-chart/legendunselected": {
+  "line-chart/legendunselected": {
     "type": "event",
     "description": "[legendUnSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendUnSelect) Event emitted after unselecting legend. \n → https://echarts.apache.org/en/api.html#events.legendunselected"
   },
-  "ve-line-chart/legendselectall": {
+  "line-chart/legendselectall": {
     "type": "event",
     "description": "[legendAllSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendAllSelect) Event emitted after all legends are selected. \n → https://echarts.apache.org/en/api.html#events.legendselectall"
   },
-  "ve-line-chart/legendinverseselect": {
+  "line-chart/legendinverseselect": {
     "type": "event",
     "description": "[legendInverseSelect](https://echarts.apache.org/v4/zh/api.html#action.legend.legendInverseSelect) Event emitted after inversing all legends. \n → https://echarts.apache.org/en/api.html#events.legendinverseselect"
   },
-  "ve-line-chart/legendscroll": {
+  "line-chart/legendscroll": {
     "type": "event",
     "description": "[legendscroll](https://echarts.apache.org/v4/zh/api.html#action.legend.legendScroll) Event when trigger legend scroll. \n → https://echarts.apache.org/en/api.html#events.legendscroll"
   },
-  "ve-line-chart/datazoom": {
+  "line-chart/datazoom": {
     "type": "event",
     "description": "Event emitted after zooming data area. \n → https://echarts.apache.org/en/api.html#events.datazoom"
   },
-  "ve-line-chart/datarangeselected": {
+  "line-chart/datarangeselected": {
     "type": "event",
     "description": "[selectDataRange](https://echarts.apache.org/en/api.html#action.dataRange.selectDataRange) Event emitted after range is changed in visualMap. \n → https://echarts.apache.org/en/api.html#events.datarangeselected"
   },
-  "ve-line-chart/timelinechanged": {
+  "line-chart/timelinechanged": {
     "type": "event",
     "description": "[timelineChange](https://echarts.apache.org/en/api.html#action.timeline.timelineChange) Event emitted after time point in timeline is changed. \n → https://echarts.apache.org/en/api.html#events.timelinechanged"
   },
-  "ve-line-chart/timelineplaychanged": {
+  "line-chart/timelineplaychanged": {
     "type": "event",
     "description": "[timelinePlayChange](https://echarts.apache.org/en/api.html#action.timeline.timelinePlayChange) Switching event of play state in timeline. \n → https://echarts.apache.org/en/api.html#events.timelineplaychanged"
   },
-  "ve-line-chart/restore": {
+  "line-chart/restore": {
     "type": "event",
     "description": "[restore](https://echarts.apache.org/en/api.html#action.toolbox.restore) Resets option event. \n → https://echarts.apache.org/en/api.html#events.restore"
   },
-  "ve-line-chart/dataviewchanged": {
+  "line-chart/dataviewchanged": {
     "type": "event",
     "description": "Changing event of [data view tool in toolbox](https://echarts.apache.org/en/option.html#toolbox.feature.dataView). \n → https://echarts.apache.org/en/api.html#events.dataviewchanged"
   },
-  "ve-line-chart/magictypechanged": {
+  "line-chart/magictypechanged": {
     "type": "event",
     "description": "Switching event of [magic type tool in toolbox](https://echarts.apache.org/en/option.html#toolbox.feature.magicType). \n → https://echarts.apache.org/en/api.html#events.magictypechanged"
   },
-  "ve-line-chart/geoselectchanged": {
+  "line-chart/geoselectchanged": {
     "type": "event",
     "description": "Event emitted after selecting state changes. It will be triggered when user clicks to select. \n → https://echarts.apache.org/en/api.html#events.geoselectchanged"
   },
-  "ve-line-chart/geoselected": {
+  "line-chart/geoselected": {
     "type": "event",
     "description": "Event after selecting. Use `dispatchAction` can trigger this event, but user clicking this event won't trigger this. \n → https://echarts.apache.org/en/api.html#events.geoselected"
   },
-  "ve-line-chart/geounselected": {
+  "line-chart/geounselected": {
     "type": "event",
     "description": "cancels selected event. Use `dispatchAction` will trigger this event, but user clicking won't trigger it. \n → https://echarts.apache.org/en/api.html#events.geounselected"
   },
-  "ve-line-chart/axisareaselected": {
+  "line-chart/axisareaselected": {
     "type": "event",
     "description": "Selecting event of range of [parallel axis](https://echarts.apache.org/en/option.html#parallelAxis). \n → https://echarts.apache.org/en/api.html#events.axisareaselected"
   },
-  "ve-line-chart/brush": {
+  "line-chart/brush": {
     "type": "event",
     "description": "Event triggered after action [brush](https://echarts.apache.org/en/api.html#action.brush.brush) dispatched. \n → https://echarts.apache.org/en/api.html#events.brush"
   },
-  "ve-line-chart/brush-end": {
+  "line-chart/brush-end": {
     "type": "event",
     "description": "Event triggered after action [brushEnd](https://echarts.apache.org/en/api.html#action.brush.brushEnd) dispatched. \n → https://echarts.apache.org/en/api.html#events.brushEnd"
   },
-  "ve-line-chart/brushselected": {
+  "line-chart/brushselected": {
     "type": "event",
     "description": "Notice what are selected. \n → https://echarts.apache.org/en/api.html#events.brushselected"
   },
-  "ve-line-chart/globalcursortaken": {
+  "line-chart/globalcursortaken": {
     "type": "event",
     "description": "See [takeGlobalCursor](https://echarts.apache.org/en/api.html#action.brush.takeGlobalCursor). \n → https://echarts.apache.org/en/api.html#events.globalcursortaken"
   },
-  "ve-line-chart/rendered": {
+  "line-chart/rendered": {
     "type": "event",
     "description": "Trigger when a frame rendered. \n → https://echarts.apache.org/en/api.html#events.rendered"
   },
-  "ve-line-chart/finished": {
+  "line-chart/finished": {
     "type": "event",
     "description": "Triggered when render finished \n → https://echarts.apache.org/en/api.html#events.finished"
   },
-  "ve-line-chart/click": {
+  "line-chart/click": {
     "type": "event",
     "description": "Trigger when click the echarts instance. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.click"
   },
-  "ve-line-chart/dblclick": {
+  "line-chart/dblclick": {
     "type": "event",
     "description": "Trigger when double click the echarts instance. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.dblclick"
   },
-  "ve-line-chart/mousedown": {
+  "line-chart/mousedown": {
     "type": "event",
     "description": "Fired a mousedown event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mousedown"
   },
-  "ve-line-chart/mousemove": {
+  "line-chart/mousemove": {
     "type": "event",
     "description": "Fired a mousemove event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mousemove"
   },
-  "ve-line-chart/mouseup": {
+  "line-chart/mouseup": {
     "type": "event",
     "description": "Fired a mouseup event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mouseup"
   },
-  "ve-line-chart/mouseover": {
+  "line-chart/mouseover": {
     "type": "event",
     "description": "Fired a mouseover event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mouseover"
   },
-  "ve-line-chart/mouseout": {
+  "line-chart/mouseout": {
     "type": "event",
     "description": "Fired a mouseout event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.mouseout"
   },
-  "ve-line-chart/globalout": {
+  "line-chart/globalout": {
     "type": "event",
     "description": "Fired a globalout event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.globalout"
   },
-  "ve-line-chart/contextmenu": {
+  "line-chart/contextmenu": {
     "type": "event",
     "description": "Fired a contextmenu event. \n → https://echarts.apache.org/en/api.html#events.Mouse%20events.contextmenu"
   },
-  "ve-line-chart/zr:click": {
+  "line-chart/zr:click": {
     "type": "event",
     "description": "Fired a zrender click event."
   },
-  "ve-line-chart/zr:dblclick": {
+  "line-chart/zr:dblclick": {
     "type": "event",
     "description": "Fired a zrender dblclick event."
   },
-  "ve-line-chart/zr:mousedown": {
+  "line-chart/zr:mousedown": {
     "type": "event",
     "description": "Fired a zrender mousedown event."
   },
-  "ve-line-chart/zr:mousemove": {
+  "line-chart/zr:mousemove": {
     "type": "event",
     "description": "Fired a zrender mousemove event."
   },
-  "ve-line-chart/zr:mouseup": {
+  "line-chart/zr:mouseup": {
     "type": "event",
     "description": "Fired a zrender mouseup event."
   },
-  "ve-line-chart/zr:mouseover": {
+  "line-chart/zr:mouseover": {
     "type": "event",
     "description": "Fired a zrender mouseover event."
   },
-  "ve-line-chart/zr:mouseout": {
+  "line-chart/zr:mouseout": {
     "type": "event",
     "description": "Fired a zrender mouseout event."
   },
-  "ve-line-chart/zr:mousewheel": {
+  "line-chart/zr:mousewheel": {
     "type": "event",
     "description": "Fired a zrender mousewheel event."
   },
-  "ve-line-chart/zr:contextmenu": {
+  "line-chart/zr:contextmenu": {
     "type": "event",
     "description": "Fired a zrender contextmenu event."
   }

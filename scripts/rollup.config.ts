@@ -113,6 +113,8 @@ const createConfig = (name, display, minimal, external = [], globals = {}) => {
       ],
       external: [
         'vue',
+        '@juggle/resize-observer',
+        'lodash.clonedeep',
         ...external
       ]
     }

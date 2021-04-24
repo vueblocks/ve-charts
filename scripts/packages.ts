@@ -26,7 +26,8 @@ export const packages: PackageManifest[] = [
       'echarts/core': 'EchartsCore',
       'echarts/charts': 'EchartsCharts',
       'echarts/components': 'EchartsComponents',
-      'echarts/renderers': 'EchartsRenderers'
+      'echarts/renderers': 'EchartsRenderers',
+      '@juggle/resize-observer': 'resizeObserver'
     }
   },
   {
@@ -38,7 +39,8 @@ export const packages: PackageManifest[] = [
       'echarts/core'
     ],
     globals: {
-      'echarts/core': 'EchartsCore'
+      'echarts/core': 'EchartsCore',
+      '@juggle/resize-observer': 'resizeObserver'
     }
   }
   // {

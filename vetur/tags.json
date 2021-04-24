@@ -11,7 +11,7 @@
     ],
     "defaults": ["option", "init-options", "height"]
   },
-  "ve-bar-chart": {
+  "bar-chart": {
     "description": "Bar Chart Component",
     "attributes": [
       "title",
@@ -107,7 +107,7 @@
     ],
     "defaults": ["data", "settings", "height", "option"]
   },
-  "ve-line-chart": {
+  "line-chart": {
     "description": "Line Chart Component",
     "attributes": [
       "title",
