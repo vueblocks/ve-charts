@@ -900,7 +900,7 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@juggle/resize-observer@^3.2.0":
+"@juggle/resize-observer@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.0.tgz#2e7a2935adbfae46f9efbd1e1455254ee7ea2219"
   integrity sha512-P1v2nvK7z2gOLVM/bveIRLG9L99uEahTGgTltyF03zixZAjI9YmKLj5Z9MpS9wBIUt5WDoQORT2lXvLOIF89iA==
@@ -1488,13 +1488,6 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/composition-api@^1.0.0-rc.3":
-  version "1.0.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-rc.5.tgz#9b857743dd2692073b6df90fa2cfb9a75a1bb2f6"
-  integrity sha512-sFBUDZxwi5YOQqH//VSGenO6WH0JuW94+CWo1eUsGSTRue8POfwD4oeduVqi/c6QcwXg2tJL/m6aOD2t/IR6zg==
-  dependencies:
-    tslib "^2.1.0"
-
 "@vue/eslint-config-standard@^5.1.2":
   version "5.1.2"
   resolved "https://registry.npm.taobao.org/@vue/eslint-config-standard/download/@vue/eslint-config-standard-5.1.2.tgz?cache=0&sync_timestamp=1607330181396&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Feslint-config-standard%2Fdownload%2F%40vue%2Feslint-config-standard-5.1.2.tgz#c5d55af894a3ae23b65b1af4a425777ac0170b42"
@@ -1549,23 +1542,6 @@
   version "1.3.0"
   resolved "https://registry.npm.taobao.org/@vue/web-component-wrapper/download/@vue/web-component-wrapper-1.3.0.tgz?cache=0&sync_timestamp=1613216588742&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fweb-component-wrapper%2Fdownload%2F%40vue%2Fweb-component-wrapper-1.3.0.tgz#b6b40a7625429d2bd7c2281ddba601ed05dc7f1a"
   integrity sha1-trQKdiVCnSvXwigd26YB7QXcfxo=
-
-"@vueblocks/vue-use-core@^0.2.10":
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/@vueblocks/vue-use-core/-/vue-use-core-0.2.10.tgz#f6a2b2fdb36d1f29c3ef7bc1122eb6c243d5240a"
-  integrity sha512-7qoUhudkLeEvNtR/iDCIXA2770EWh/j1UCMRRbjeD5JxQSL9WblZHKG+k443t+0XBtd6QAP8xUUiAlug7UL3bA==
-  dependencies:
-    "@juggle/resize-observer" "^3.2.0"
-    "@vue/composition-api" "^1.0.0-rc.3"
-    color2k "^1.2.4"
-    keymaster "^1.6.2"
-    lodash.clonedeep "^4.5.0"
-    lodash.debounce "^4.0.8"
-    lodash.throttle "^4.1.1"
-    number-precision "^1.5.0"
-    screenfull "^5.1.0"
-    stateshot "^1.3.3"
-    vue-demi "^0.7.1"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -2776,11 +2752,6 @@ color-string@^1.5.4:
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
-
-color2k@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/color2k/-/color2k-1.2.4.tgz#af34950ac58e23cf224a01cb8dd0c9911a79605e"
-  integrity sha512-DiwdBwc0BryPFFXoCrW8XQGXl2rEtMToODybxZjKnN5IJXt/tV/FsN02pCK/b7KcWvJEioz3c74lQSmayFvS4Q==
 
 color@^3.0.0:
   version "3.1.3"
@@ -5565,11 +5536,6 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-keymaster@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/keymaster/-/keymaster-1.6.2.tgz#e1ae54d0ea9488f9f60b66b668f02e9a1946c6eb"
-  integrity sha1-4a5U0OqUiPn2C2a2aPAumhlGxus=
-
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/killable/download/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -5735,11 +5701,6 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npm.taobao.org/lodash.memoize/download/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
-
-lodash.throttle@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
-  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash.transform@^4.6.0:
   version "4.6.0"
@@ -6304,11 +6265,6 @@ num2fraction@^1.2.2:
   version "1.2.2"
   resolved "https://registry.npm.taobao.org/num2fraction/download/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4=
-
-number-precision@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/number-precision/-/number-precision-1.5.0.tgz#eca1e3657cc7de3778987f2d22aa9dea4be238d5"
-  integrity sha512-CxmQK1FFj3G3YXS4PDZSz3+IvtNESpuMwK6JY+y4IIDBbyY1ldkvk2nqBzDJj+EKFXZrrmL/fObqtSoB8b/jZQ==
 
 oauth-sign@~0.9.0:
   version "0.9.0"
@@ -7794,11 +7750,6 @@ schema-utils@^2.0.0, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
-screenfull@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.1.0.tgz#85c13c70f4ead4c1b8a935c70010dfdcd2c0e5c8"
-  integrity sha512-dYaNuOdzr+kc6J6CFcBrzkLCfyGcMg+gWkJ8us93IQ7y1cevhQAugFsaCdMHb6lw8KV3xPzSxzH7zM1dQap9mA==
-
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/select-hose/download/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
@@ -8194,11 +8145,6 @@ stackframe@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/stackframe/download/stackframe-1.2.0.tgz#52429492d63c62eb989804c11552e3d22e779303"
   integrity sha1-UkKUktY8YuuYmATBFVLj0i53kwM=
-
-stateshot@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/stateshot/-/stateshot-1.3.3.tgz#d7cc0c69c50c24e7c20382ed22b1d3ec5bd6c717"
-  integrity sha512-BW6Jzhk0RDazSQMP41LkPeS7LGMIvWhRE/oKKvZRo+Gy5cOx8YGreLEojBHMhaK71ONemzxNLhSPS1a0Tvxolg==
 
 static-extend@^0.1.1:
   version "0.1.2"
@@ -8648,11 +8594,6 @@ tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1609887512458&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
-tslib@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
-  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
-
 tslint@^5.20.1:
   version "5.20.1"
   resolved "https://registry.npm.taobao.org/tslint/download/tslint-5.20.1.tgz#e401e8aeda0152bc44dd07e614034f3f80c67b7d"
@@ -8968,12 +8909,12 @@ vary@~1.1.2:
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-ve-charts@^1.0.0-alpha.3:
-  version "1.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/ve-charts/-/ve-charts-1.0.0-alpha.3.tgz#822533a89dc943fd4700818dfa3821446afc6b6a"
-  integrity sha512-9ifF2zdyC2FCbqzeei6QrS598GROg3HYQKzf7HeIHaqrWPEkeQU1Iazh1BdUbDWSl1ijIur9vUL0F9Z6nc1H+w==
+ve-charts@^1.0.0-alpha.4:
+  version "1.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/ve-charts/-/ve-charts-1.0.0-alpha.4.tgz#62ed55588106f5f14aac7d76d3a0ddc1f35035d3"
+  integrity sha512-ByXVhMfGbqoRCKiXydf84DsTCNinJUqqS20PYShikDfLQ0T6TJptv0Q46sIHgpuuZOTQY7yKXH2EdP4JwXaiUQ==
   dependencies:
-    "@vueblocks/vue-use-core" "^0.2.10"
+    "@juggle/resize-observer" "^3.3.0"
     lodash.clonedeep "^4.5.0"
 
 vendors@^1.0.0:
@@ -8994,11 +8935,6 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
-
-vue-demi@^0.7.1:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.3.tgz#463188044d31d33985e67da51f315b447a1fed85"
-  integrity sha512-vrzM26H4CZCXBf/eu4T8nks6o7qgziYM52myk8bg+atw4qYqpeWJf5c82W8VdmgGfSIdh9ulOOe9+GeLc3Z/8A==
 
 vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.6.0:
   version "7.6.0"
