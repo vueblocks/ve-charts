@@ -4,9 +4,9 @@
   "description": "Next Version of ve-charts, EChart 5.x for Vue3.x",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "rollup -c rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
     "test:unit": "vue-cli-service test:unit",
-    "prerelease": "npm run build && sh prerelease.sh",
+    "prerelease": "cross-env NODE_ENV=production sh prerelease.sh",
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
@@ -50,6 +50,7 @@
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
     "echarts": "^5.0.2",
     "esbuild": "^0.9.2",
     "esbuild-register": "^2.3.0",
