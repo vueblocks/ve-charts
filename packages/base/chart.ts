@@ -48,7 +48,11 @@ export default defineComponent({
 
     const { echartsEvents } = useAttrs(attrs)
 
-    console.log(option.value)
+    // console.log(option.value)
+    const echartsStyle = {
+      width: 'auto',
+      height: `${props.height}px`
+    }
 
     const resize = () => {
       if (echartsInstance.value) {
@@ -83,7 +87,7 @@ export default defineComponent({
       echartsInstance.value = initChart(echartsRef.value, props.theme, {
         renderer: 'canvas'
       })
-      console.log(echartsInstance.value)
+      // console.log(echartsInstance.value)
       option && echartsInstance.value.setOption(option)
 
       delegateEvents(echartsInstance.value)
@@ -136,21 +140,8 @@ export default defineComponent({
 
     onUnmounted(dispose)
 
-    return {
-      echartsRef,
-      echartsInstance,
-      setOption
-    }
-  },
-
-  render (ctx: any) {
-    const echartsStyle = {
-      width: 'auto',
-      height: `${ctx.$props.height}px`
-    }
-
-    return h('div', {
-      ref: 'echartsRef',
+    return () => h('div', {
+      ref: echartsRef,
       style: echartsStyle
     })
   }

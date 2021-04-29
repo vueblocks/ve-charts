@@ -58,7 +58,7 @@ export default defineComponent({
     TreemapDemo
   },
   setup () {
-    const height = ref(480)
+    const height = ref(400)
     const darkMode = ref(false)
     const backgroundColor = computed(() => darkMode.value ? '#000' : '#fff')
 
