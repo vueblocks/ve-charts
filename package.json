@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "prerelease": "npm run build && sh prerelease.sh",
     "lint": "vue-cli-service lint",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "main": "packages/lib/index.cjs.js",
   "module": "packages/lib/index.esm.js",
