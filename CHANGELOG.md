@@ -1,3 +1,12 @@
+# [1.0.0-alpha.6](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-05-11)
+
+
+### Features
+
+* use vnode as tag named ve-chart ([4d17b09](https://github.com/xiaoluoboding/ve-charts/commit/4d17b09e69e3c3df9e084ce7a2e8707c8203975c))
+
+
+
 # [1.0.0-alpha.5](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-04-29)
 
 
