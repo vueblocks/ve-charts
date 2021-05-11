@@ -1,2 +1,2 @@
-export * from './useAttrs'
+export * from './useEchartsEvents'
 export * from './useResizeObserver'

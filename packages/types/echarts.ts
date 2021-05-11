@@ -1,4 +1,3 @@
-import { SetupContext } from 'vue'
 import { init } from 'echarts/core'
 import {
   AriaComponentOption,
@@ -29,8 +28,6 @@ import {
   XAXisOption,
   YAXisOption
 } from 'echarts/types/dist/shared'
-
-export type Attrs = NonNullable<SetupContext['attrs']>
 
 export type { EChartsType, EChartsCoreOption } from 'echarts/core'
 export type { ECBasicOption, EChartsOption } from 'echarts/types/dist/shared'

@@ -20,7 +20,9 @@ import type {
   SetOptionOpts,
   EChartsOption
 } from '../types'
-import { useAttrs, useResizeObserver } from '../use'
+import { useEchartsEvents, useResizeObserver } from '../use'
+
+import { toKebabCase } from '../utils'
 
 export default defineComponent({
   name: 'VeChart',
@@ -46,7 +48,7 @@ export default defineComponent({
     const echartsInstance = shallowRef<EChartsType>()
     const canvasRect = ref({})
 
-    const { echartsEvents } = useAttrs(attrs)
+    const { echartsEvents } = useEchartsEvents(attrs)
 
     // console.log(option.value)
     const echartsStyle = {
@@ -140,9 +142,17 @@ export default defineComponent({
 
     onUnmounted(dispose)
 
-    return () => h('div', {
-      ref: echartsRef,
-      style: echartsStyle
+    return {
+      echartsRef,
+      echartsStyle
+    }
+  },
+
+  render () {
+    return h('ve-chart', {
+      ref: 'echartsRef',
+      style: this.echartsStyle,
+      'chart-type': toKebabCase(this.$attrs.chartType as any)
     })
   }
 })

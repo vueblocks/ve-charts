@@ -1,5 +1,5 @@
 <template>
-  <radar-chart v-bind="chartOptions" />
+  <treemap-chart v-bind="chartOptions" />
 </template>
 
 <script lang="ts">

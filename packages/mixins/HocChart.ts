@@ -82,7 +82,8 @@ export default defineComponent({
         option: this.mergedOption,
         initOptions: this.initOptions,
         needUpdate: this.needUpdate,
-        setOptionOpts: this.setOptionOpts
+        setOptionOpts: this.setOptionOpts,
+        chartType: this.$options.name
       }
     }
   },

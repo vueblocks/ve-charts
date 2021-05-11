@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { isOn, omitOn, toKebabCase, toCamelCase } from '../utils'
 import { Attrs } from '../types'
 
-const useAttrs = (attrs: Attrs) => {
+const useEchartsEvents = (attrs: Attrs) => {
   const echartsAttrs = computed(() => omitOn(attrs))
   const echartsEvents: Record<string, Function> = {}
 
@@ -23,4 +23,4 @@ const useAttrs = (attrs: Attrs) => {
   }
 }
 
-export { useAttrs }
+export { useEchartsEvents }
