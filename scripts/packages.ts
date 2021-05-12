@@ -20,14 +20,16 @@ export const packages: PackageManifest[] = [
       'echarts/core',
       'echarts/charts',
       'echarts/components',
-      'echarts/renderers'
+      'echarts/renderers',
+      'lodash-es'
     ],
     globals: {
       'echarts/core': 'EchartsCore',
       'echarts/charts': 'EchartsCharts',
       'echarts/components': 'EchartsComponents',
       'echarts/renderers': 'EchartsRenderers',
-      '@juggle/resize-observer': 'resizeObserver'
+      '@juggle/resize-observer': 'ResizeObserver',
+      'lodash-es': 'Lodash'
     }
   },
   {
@@ -36,11 +38,13 @@ export const packages: PackageManifest[] = [
     description: 'Base Chart Component.',
     minimal: true,
     external: [
-      'echarts/core'
+      'echarts/core',
+      'lodash-es'
     ],
     globals: {
       'echarts/core': 'EchartsCore',
-      '@juggle/resize-observer': 'resizeObserver'
+      '@juggle/resize-observer': 'ResizeObserver',
+      'lodash-es': 'Lodash'
     }
   }
   // {
