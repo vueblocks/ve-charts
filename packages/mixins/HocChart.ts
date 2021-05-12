@@ -95,7 +95,7 @@ export default defineComponent({
     if (this.$props && propsKeys.length > 0) {
       propsKeys
         // .forEach((prop: string) => (this.$props[prop] === undefined) && delete this.$props[prop])
-        .filter((prop: string) => !/data|settings|height|loading|emptyText/.test(prop))
+        .filter((prop: string) => !/(data|settings|height|loading|emptyText)$/.test(prop))
         .forEach((prop: string) => {
           this.$watch(
             prop,
