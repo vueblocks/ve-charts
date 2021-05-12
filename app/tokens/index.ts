@@ -4,6 +4,7 @@ interface OtherChartOptions {
   darkMode: Ref<boolean>;
   backgroundColor: ComputedRef<string>;
   height: Ref<number>;
+  theme?: Ref<string>;
 }
 
 // For individual build sharing injection key, we had to make `Symbol` to string

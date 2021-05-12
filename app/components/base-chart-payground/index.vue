@@ -1,6 +1,12 @@
 <template>
   <div class="action">
     <button @click="handleToggle">Toggle Darkmode</button>
+    <select name="theme" id="themet-select" v-model="activeTheme">
+      <option value="">--Choose a Theme--</option>
+      <option value="default">Default</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
   </div>
   <div class="playground">
     <base-demo />
@@ -64,19 +70,25 @@ export default defineComponent({
     const height = ref(400)
     const darkMode = ref(false)
     const backgroundColor = computed(() => darkMode.value ? '#000' : '#fff')
+    const activeTheme = ref('')
 
     const handleToggle = () => {
       darkMode.value = !darkMode.value
+
+      // it will dispose and recreate echarts instance
+      activeTheme.value = darkMode.value ? 'dark' : 'default'
     }
 
     provide(OTHER_CHART_OPTIONS_KEY, {
       height,
       darkMode,
-      backgroundColor
+      backgroundColor,
+      theme: activeTheme
     })
 
     return {
-      handleToggle
+      handleToggle,
+      activeTheme
     }
   }
 })

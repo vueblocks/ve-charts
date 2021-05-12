@@ -1,10 +1,10 @@
 <template>
-  <ve-chart :option="chartOptions" />
+  <ve-chart :option="chartOptions" :needUpdate="needUpdate" :theme="chartTheme" />
 </template>
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { computed, defineComponent, inject } from 'vue'
+import { computed, defineComponent, inject, nextTick, ref, watch } from 'vue'
 import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
 
 import { use } from 'echarts/core'
@@ -21,6 +21,9 @@ use([
 export default defineComponent({
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
+    const needUpdate = ref(false)
+
+    const chartTheme = computed(() => otherOptions?.theme?.value)
 
     const chartOptions = computed(() => ({
       title: {
@@ -50,10 +53,24 @@ export default defineComponent({
       darkMode: otherOptions?.darkMode.value
     }))
 
+    const forcedUpdate = () => {
+      // manual update echarts options
+      needUpdate.value = true
+      nextTick(() => { needUpdate.value = false })
+    }
+
+    watch(
+      () => otherOptions,
+      forcedUpdate,
+      { deep: true }
+    )
+
     const testEvent = (val: any) => console.log(val)
 
     return {
       chartOptions,
+      chartTheme,
+      needUpdate,
       testEvent
     }
   }

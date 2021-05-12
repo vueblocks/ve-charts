@@ -65,7 +65,7 @@ export default defineComponent({
     // ve-charts common props
     option: {
       type: [Object, Array] as PropType<EChartsOption>,
-      default: () => { return {} }
+      default: () => ({})
     }
   },
   data: () => ({

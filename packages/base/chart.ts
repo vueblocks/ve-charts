@@ -38,7 +38,10 @@ export default defineComponent({
         renderer: 'canvas'
       })
     },
-    theme: [String, Object] as PropType<Theme>,
+    theme: {
+      type: [String, Object] as PropType<Theme>,
+      default: 'default'
+    },
     setOptionOpts: {
       type: Object as PropType<SetOptionOpts>,
       default: () => ({})
@@ -95,7 +98,7 @@ export default defineComponent({
     const init = (opt?: EChartsOption) => {
       if (!echartsRef.value) return
 
-      echartsInstance.value = initChart(echartsRef.value, props.theme, initOptions.value)
+      echartsInstance.value = initChart(echartsRef.value, theme.value, initOptions.value)
 
       opt && echartsInstance.value.setOption(opt)
 
@@ -139,15 +142,6 @@ export default defineComponent({
       () => {
         dispose()
         init(option.value)
-      },
-      { deep: true }
-    )
-
-    watch(
-      () => option.value,
-      (newVal) => {
-        dispose()
-        init(newVal)
       },
       { deep: true }
     )
