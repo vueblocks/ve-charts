@@ -19,6 +19,8 @@
     <scatter-demo />
     <tree-demo />
     <treemap-demo />
+    <scatter-datazoom />
+    <dynamic-sort />
   </div>
 </template>
 
@@ -42,6 +44,8 @@ import RadarDemo from './RadarDemo.vue'
 import ScatterDemo from './ScatterDemo.vue'
 import TreeDemo from './TreeDemo.vue'
 import TreemapDemo from './TreemapDemo.vue'
+import ScatterDatazoom from './ScatterDatazoom.vue'
+import DynamicSort from './DynamicSort.vue'
 
 import { OTHER_CHART_OPTIONS_KEY } from '../../tokens/index'
 
@@ -64,10 +68,12 @@ export default defineComponent({
     RadarDemo,
     ScatterDemo,
     TreeDemo,
-    TreemapDemo
+    TreemapDemo,
+    ScatterDatazoom,
+    DynamicSort
   },
   setup () {
-    const height = ref(400)
+    const height = ref(360)
     const darkMode = ref(false)
     const backgroundColor = computed(() => darkMode.value ? '#000' : '#fff')
     const activeTheme = ref('')
@@ -97,7 +103,7 @@ export default defineComponent({
 <style>
 .playground {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   padding: 16px;
   background-color: aliceblue;

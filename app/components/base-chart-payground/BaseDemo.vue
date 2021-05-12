@@ -1,5 +1,10 @@
 <template>
-  <ve-chart :option="chartOptions" :needUpdate="needUpdate" :theme="chartTheme" />
+  <ve-chart
+    :option="chartOptions"
+    :needUpdate="needUpdate"
+    :theme="chartTheme"
+    :height="chartHeight"
+  />
 </template>
 
 <script lang="ts">
@@ -24,6 +29,7 @@ export default defineComponent({
     const needUpdate = ref(false)
 
     const chartTheme = computed(() => otherOptions?.theme?.value)
+    const chartHeight = computed(() => otherOptions?.height.value)
 
     const chartOptions = computed(() => ({
       title: {
@@ -70,6 +76,7 @@ export default defineComponent({
     return {
       chartOptions,
       chartTheme,
+      chartHeight,
       needUpdate,
       testEvent
     }
