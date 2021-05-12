@@ -3,6 +3,7 @@ import App from './App.vue'
 
 // import VeCharts from '../packages/index'
 // import { BarChart, LineChart } from '../packages/index'
+import VeChart from '../packages/base/index'
 import BarChart from '../packages/bar/index'
 import LineChart from '../packages/line/index'
 import PieChart from '../packages/pie/index'
@@ -16,6 +17,8 @@ import TreemapChart from '../packages/treemap/index'
 const app = createApp(App)
 
 // app.use(VeCharts)
+
+app.use(VeChart)
 app.use(BarChart)
 app.use(PieChart)
 app.use(FunnelChart)
@@ -24,7 +27,6 @@ app.use(RadarChart)
 app.use(ScatterChart)
 app.use(TreeChart)
 app.use(TreemapChart)
-// app.component(BarChart.name, BarChart)
 app.component(LineChart.name, LineChart)
 // app.use(LineChart)
 

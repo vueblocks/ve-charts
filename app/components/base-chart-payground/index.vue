@@ -1,8 +1,9 @@
 <template>
   <div class="action">
-    <button @click="handleToggle">Toggle</button>
+    <button @click="handleToggle">Toggle Darkmode</button>
   </div>
   <div class="playground">
+    <base-demo />
     <bar-demo />
     <line-demo />
     <pie-demo />
@@ -16,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { provide, ref, computed, defineComponent } from 'vue'
+import { provide, defineComponent, ref, computed } from 'vue'
 import { use } from 'echarts/core'
 import {
   LegendComponent,
@@ -25,6 +26,7 @@ import {
   TooltipComponent
 } from 'echarts/components'
 
+import BaseDemo from './BaseDemo.vue'
 import BarDemo from './BarDemo.vue'
 import LineDemo from './LineDemo.vue'
 import PieDemo from './PieDemo.vue'
@@ -47,6 +49,7 @@ use([
 export default defineComponent({
   name: 'BaseChartPlayground',
   components: {
+    BaseDemo,
     BarDemo,
     LineDemo,
     PieDemo,
@@ -67,9 +70,9 @@ export default defineComponent({
     }
 
     provide(OTHER_CHART_OPTIONS_KEY, {
+      height,
       darkMode,
-      backgroundColor,
-      height
+      backgroundColor
     })
 
     return {
@@ -79,7 +82,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style>
 .playground {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

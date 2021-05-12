@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <base-chart-playground />
-  </div>
+  <base-chart-playground />
 </template>
 
 <script lang="ts">

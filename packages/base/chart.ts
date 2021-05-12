@@ -9,7 +9,8 @@ import {
   toRef,
   nextTick,
   watch,
-  PropType
+  PropType,
+  pushScopeId
 } from 'vue'
 import { init as initChart } from 'echarts/core'
 
@@ -31,9 +32,17 @@ export default defineComponent({
 
   props: {
     option: Object as PropType<EChartsOption>,
-    initOptions: Object as PropType<InitOpts>,
+    initOptions: {
+      type: Object as PropType<InitOpts>,
+      default: () => ({
+        renderer: 'canvas'
+      })
+    },
     theme: [String, Object] as PropType<Theme>,
-    setOptionOpts: Object as PropType<SetOptionOpts>,
+    setOptionOpts: {
+      type: Object as PropType<SetOptionOpts>,
+      default: () => ({})
+    },
     height: { type: Number, default: 400 },
     needUpdate: { type: Boolean, default: false }
   },
@@ -83,14 +92,12 @@ export default defineComponent({
       })
     }
 
-    const init = (option?: EChartsOption) => {
+    const init = (opt?: EChartsOption) => {
       if (!echartsRef.value) return
 
-      echartsInstance.value = initChart(echartsRef.value, props.theme, {
-        renderer: 'canvas'
-      })
-      // console.log(echartsInstance.value)
-      option && echartsInstance.value.setOption(option)
+      echartsInstance.value = initChart(echartsRef.value, props.theme, initOptions.value)
+
+      opt && echartsInstance.value.setOption(opt)
 
       delegateEvents(echartsInstance.value)
 
@@ -131,7 +138,16 @@ export default defineComponent({
       [theme, initOptions],
       () => {
         dispose()
-        init()
+        init(option.value)
+      },
+      { deep: true }
+    )
+
+    watch(
+      () => option.value,
+      (newVal) => {
+        dispose()
+        init(newVal)
       },
       { deep: true }
     )
@@ -149,10 +165,13 @@ export default defineComponent({
   },
 
   render () {
-    return h('ve-chart', {
+    const scopeId = toKebabCase((this.$attrs.chartType as any || 've-chart'))
+
+    pushScopeId(scopeId)
+
+    return h('ve-charts', {
       ref: 'echartsRef',
-      style: this.echartsStyle,
-      'chart-type': toKebabCase(this.$attrs.chartType as any)
+      style: this.echartsStyle
     })
   }
 })

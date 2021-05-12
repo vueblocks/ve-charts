@@ -90,30 +90,34 @@ export default defineComponent({
   created () {
     this.mergedOption = this.option
 
-    Object.keys(this.$props)
-      // .forEach((prop: string) => (this.$props[prop] === undefined) && delete this.$props[prop])
-      .filter((prop: string) => !/data|settings|height|loading|emptyText/.test(prop))
-      .forEach((prop: string) => {
-        this.$watch(
-          prop,
-          (val: any) => {
-            if (!isEmpty(val)) {
-              // merge echarts default option
-              const option = prop === 'option'
-                ? this.option
-                : { [prop]: val }
-              this.mergePropsToOption(option)
-            }
+    const propsKeys = Object.keys(this.$props)
 
-            this.forcedUpdate()
-          },
-          {
-            // TODO only object types need deep watch
-            deep: true,
-            immediate: true
-          }
-        )
-      })
+    if (this.$props && propsKeys.length > 0) {
+      propsKeys
+        // .forEach((prop: string) => (this.$props[prop] === undefined) && delete this.$props[prop])
+        .filter((prop: string) => !/data|settings|height|loading|emptyText/.test(prop))
+        .forEach((prop: string) => {
+          this.$watch(
+            prop,
+            (val: any) => {
+              if (!isEmpty(val)) {
+                // merge echarts default option
+                const option = prop === 'option'
+                  ? this.option
+                  : { [prop]: val }
+                this.mergePropsToOption(option)
+              }
+
+              this.forcedUpdate()
+            },
+            {
+              // TODO only object types need deep watch
+              deep: true,
+              immediate: true
+            }
+          )
+        })
+    }
   },
   beforeUnmount () {
     this.mergedOption = {}
