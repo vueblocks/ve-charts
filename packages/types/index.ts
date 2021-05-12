@@ -2,7 +2,8 @@ export type {
   RefTyped,
   RefTypedElement,
   WithInstall,
-  Attrs
+  Attrs,
+  VeChartsData
 } from './common'
 
 export * from './echarts'

@@ -20,19 +20,9 @@ export default defineComponent({
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
-    const chartData = {
-      dimensions: {
-        name: 'Week',
-        data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
-      },
-      measures: [{
-        name: 'PV',
-        data: [256, 767, 1356, 2087, 803, 582, 432]
-      }]
-    }
     const chartOptions = ref({
       title: {
-        text: '简单柱状图'
+        text: 'BarChart'
       },
       tooltip: {},
       xAxis: {
@@ -64,7 +54,6 @@ export default defineComponent({
     })
 
     return {
-      chartData,
       chartLegend,
       chartOptions,
       testEvent

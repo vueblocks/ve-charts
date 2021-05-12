@@ -11,7 +11,7 @@
   <div class="playground">
     <base-demo />
     <bar-demo />
-    <line-demo />
+    <!-- <line-demo />
     <pie-demo />
     <funnel-demo />
     <gauge-demo />
@@ -20,7 +20,8 @@
     <tree-demo />
     <treemap-demo />
     <scatter-datazoom />
-    <dynamic-sort />
+    <dynamic-sort /> -->
+    <ve-bar-demo />
   </div>
 </template>
 
@@ -36,16 +37,17 @@ import {
 
 import BaseDemo from './BaseDemo.vue'
 import BarDemo from './BarDemo.vue'
-import LineDemo from './LineDemo.vue'
-import PieDemo from './PieDemo.vue'
-import FunnelDemo from './FunnelDemo.vue'
-import GaugeDemo from './GaugeDemo.vue'
-import RadarDemo from './RadarDemo.vue'
-import ScatterDemo from './ScatterDemo.vue'
-import TreeDemo from './TreeDemo.vue'
-import TreemapDemo from './TreemapDemo.vue'
-import ScatterDatazoom from './ScatterDatazoom.vue'
-import DynamicSort from './DynamicSort.vue'
+// import LineDemo from './LineDemo.vue'
+// import PieDemo from './PieDemo.vue'
+// import FunnelDemo from './FunnelDemo.vue'
+// import GaugeDemo from './GaugeDemo.vue'
+// import RadarDemo from './RadarDemo.vue'
+// import ScatterDemo from './ScatterDemo.vue'
+// import TreeDemo from './TreeDemo.vue'
+// import TreemapDemo from './TreemapDemo.vue'
+// import ScatterDatazoom from './ScatterDatazoom.vue'
+// import DynamicSort from './DynamicSort.vue'
+import VeBarDemo from './VeBarDemo.vue'
 
 import { OTHER_CHART_OPTIONS_KEY } from '../../tokens/index'
 
@@ -61,16 +63,17 @@ export default defineComponent({
   components: {
     BaseDemo,
     BarDemo,
-    LineDemo,
-    PieDemo,
-    FunnelDemo,
-    GaugeDemo,
-    RadarDemo,
-    ScatterDemo,
-    TreeDemo,
-    TreemapDemo,
-    ScatterDatazoom,
-    DynamicSort
+    // LineDemo,
+    // PieDemo,
+    // FunnelDemo,
+    // GaugeDemo,
+    // RadarDemo,
+    // ScatterDemo,
+    // TreeDemo,
+    // TreemapDemo,
+    // ScatterDatazoom,
+    // DynamicSort,
+    VeBarDemo
   },
   setup () {
     const height = ref(360)

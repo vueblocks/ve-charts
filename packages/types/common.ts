@@ -9,3 +9,13 @@ export type WithInstall<T> = T & {
 
 export type RefTyped<T> = T | Ref<T>
 export type RefTypedElement = RefTyped<Element | undefined | null>
+
+export type dataAtom = {
+  name: string;
+  data: Array<string | number>;
+}
+
+export interface VeChartsData {
+  dimensions: dataAtom;
+  measures: Array<dataAtom>;
+}

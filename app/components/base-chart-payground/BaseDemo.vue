@@ -1,9 +1,9 @@
 <template>
   <ve-chart
     :option="chartOptions"
-    :needUpdate="needUpdate"
     :theme="chartTheme"
     :height="chartHeight"
+    :needUpdate="needUpdate"
   />
 </template>
 
@@ -33,7 +33,10 @@ export default defineComponent({
 
     const chartOptions = computed(() => ({
       title: {
-        text: '简单柱状图'
+        text: 'VeChart'
+      },
+      legend: {
+        data: ['PV', 'UV']
       },
       tooltip: {},
       xAxis: {

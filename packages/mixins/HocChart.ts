@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, h, PropType } from 'vue'
-import cloneDeep from 'lodash.clonedeep'
+import { isEmpty, cloneDeep } from 'lodash-es'
 
 import '../use/useCommonChart'
 import { VeChart } from '../base/index'
 import type { EChartsOption, ECSetOption } from '../types'
-import { isEmpty } from '../utils'
 
+// setup can not be mixins or extends
 export default defineComponent({
   props: {
     /**
@@ -60,8 +60,9 @@ export default defineComponent({
     // ve-charts basic props
     data: [Object, Array],
     settings: [Object, Array],
+    variant: { type: String, default: '' },
     loading: { type: Boolean, default: false },
-    emptyText: String,
+    emptyText: { type: String, default: 'Empty Data' },
     // ve-charts common props
     option: {
       type: [Object, Array] as PropType<EChartsOption>,
@@ -77,7 +78,7 @@ export default defineComponent({
     mergedOption: {}
   }),
   computed: {
-    chartOpts (): any {
+    chartOpts (): Record<string, any> {
       return {
         option: this.mergedOption,
         initOptions: this.initOptions,
@@ -85,6 +86,10 @@ export default defineComponent({
         setOptionOpts: this.setOptionOpts,
         chartType: this.$options.name
       }
+    },
+    isEmptyData (): boolean {
+      const opt = this.mergedOption as EChartsOption
+      return isEmpty(opt?.series) && isEmpty(opt?.dataset)
     }
   },
   created () {

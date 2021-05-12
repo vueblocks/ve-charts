@@ -14,6 +14,8 @@ import {
 } from 'vue'
 import { init as initChart } from 'echarts/core'
 
+import { isEmpty } from 'lodash-es'
+
 import type {
   EChartsType,
   Theme,
@@ -31,7 +33,10 @@ export default defineComponent({
   inheritAttrs: false,
 
   props: {
-    option: Object as PropType<EChartsOption>,
+    option: {
+      type: Object as PropType<EChartsOption>,
+      default: () => ({})
+    },
     initOptions: {
       type: Object as PropType<InitOpts>,
       default: () => ({
@@ -115,6 +120,8 @@ export default defineComponent({
       }
     }
 
+    const isEmptyData = (opt: EChartsOption) => isEmpty(opt?.series) && isEmpty(opt?.dataset)
+
     useResizeObserver(
       echartsRef,
       ([entry]) => {
@@ -126,12 +133,12 @@ export default defineComponent({
     watch(
       needUpdate,
       (needUpdate) => {
-        if (needUpdate && option.value) {
-          if (setOptionOpts.value) {
-            setOption(option.value, setOptionOpts.value)
-          } else {
-            setOption(option.value)
-          }
+        // console.log(needUpdate)
+        // console.log(JSON.stringify(option.value))
+        if (needUpdate && option.value && setOptionOpts.value) {
+          setOption(option.value, setOptionOpts.value)
+        } else {
+          setOption(option.value)
         }
       },
       { deep: true }
@@ -147,7 +154,13 @@ export default defineComponent({
     )
 
     onMounted(() => {
-      option.value && init(option.value)
+      // console.group('--- new chart ---')
+      // console.log(JSON.stringify(option.value))
+      // console.log(isEmptyData(option.value) ? '空数据' : '有数据')
+      if (!isEmptyData(option.value)) {
+        init(option.value)
+      }
+      console.groupEnd()
     })
 
     onUnmounted(dispose)

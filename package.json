@@ -32,12 +32,12 @@
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.3.0",
-    "lodash.clonedeep": "^4.5.0"
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^2.4.1",
     "@types/jest": "^24.0.19",
-    "@types/lodash.clonedeep": "^4.5.6",
+    "@types/lodash-es": "^4.17.4",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
