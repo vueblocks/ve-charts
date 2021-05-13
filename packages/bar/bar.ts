@@ -1,39 +1,82 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComposeOption } from 'echarts/core'
+import { ComposeOption, EChartsCoreOption } from 'echarts/core'
 import { BarSeriesOption } from 'echarts/charts'
 import {
   GridComponentOption,
   TitleComponentOption,
-  TooltipComponentOption
+  TooltipComponentOption,
+  LegendComponentOption
 } from 'echarts/components'
 import { VeChartsData } from '../types'
 
 import { getDataset } from '../utils'
+import { BASE_OPTION } from '../constant'
 
 // Bar Chart Options
 type BarChartOptions = ComposeOption<
-  BarSeriesOption | GridComponentOption | TitleComponentOption | TooltipComponentOption
+  BarSeriesOption | GridComponentOption | TitleComponentOption | TooltipComponentOption | LegendComponentOption
 >
 
-export default class VeBarChart {
-  data: VeChartsData;
-  settings?: Record<string, unknown>;
-  extra?: any;
+export interface BarChartSettings {
+  // describe bar direciton
+  direction?: string;
+}
 
-  constructor (data: VeChartsData, settings?: Record<string, unknown>, extra?: any) {
-    this.data = data
-    this.settings = settings
-    this.extra = extra
+export default class Bar {
+  $props: any;
+  data: VeChartsData;
+  settings: BarChartSettings;
+  isColumn: boolean;
+
+  constructor (props: any) {
+    this.$props = props
+    this.data = this.$props.data
+    this.settings = this.$props.settings
+
+    // state
+    this.isColumn = this.settings?.direction === 'column'
   }
 
-  static getSeries (data: VeChartsData) {
-    const { measures } = data
-    let series = []
+  // build grid
+  getBarGrid (isColumn: boolean) {
+    const columnGrid = {
+      right: 30,
+      bottom: 10,
+      left: 30,
+      containLabel: true
+    }
 
-    series = measures.map(({ name }) => {
+    const grid = isColumn ? columnGrid : BASE_OPTION.grid
+
+    return { ...grid, ...this.$props?.grid }
+  }
+
+  getLegend () {
+    const legend: LegendComponentOption = this.$props.legend || {}
+    legend.data = this.data.measures.map(item => item.name)
+
+    return legend
+  }
+
+  getBarDimAxis () {
+    return {
+      type: 'category'
+    }
+  }
+
+  getBarMeaAxis () {
+    return {}
+  }
+
+  getSeries () {
+    let series: Array<BarSeriesOption> = []
+
+    series = this.data.measures.map(({ name }, idx) => {
+      const seriesItem = this.$props?.series?.[idx] || {}
       return {
         type: 'bar',
-        name
+        name,
+        ...seriesItem
       }
     })
 
@@ -41,21 +84,19 @@ export default class VeBarChart {
   }
 
   chartHandler () {
+    const xAxis = this.isColumn ? this.getBarMeaAxis() : this.getBarDimAxis()
+
+    const yAxis = this.isColumn ? this.getBarDimAxis() : this.getBarMeaAxis()
+
     // build echarts options
-    const option = {
-      title: {
-        text: 'VeBarChart'
-      },
-      legend: {
-        data: ['PV', 'UV']
-      },
+    const option: EChartsCoreOption = {
+      grid: this.getBarGrid(this.isColumn),
+      legend: this.getLegend(),
       tooltip: {},
-      xAxis: { type: 'category' },
-      yAxis: {},
+      xAxis,
+      yAxis,
       dataset: getDataset(this.data),
-      // Declare several bar series, each will be mapped
-      // to a column of dataset.source by default.
-      series: VeBarChart.getSeries(this.data)
+      series: this.getSeries()
     }
 
     // console.log(option)

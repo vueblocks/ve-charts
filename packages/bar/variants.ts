@@ -5,9 +5,7 @@ import { BarChart } from 'echarts/charts'
 import { DatasetComponent } from 'echarts/components'
 
 import HocChart from '../mixins/HocChart'
-
 import Bar from './bar'
-import { VeChartsData } from '../types/index'
 
 use([BarChart, DatasetComponent])
 
@@ -17,9 +15,7 @@ export default defineComponent({
   extends: HocChart,
 
   mounted () {
-    const data = this.data as VeChartsData
-
-    const baseOption = new Bar(data).chartHandler()
+    const baseOption = new Bar(this.$props).chartHandler()
 
     console.log(JSON.stringify(baseOption))
 

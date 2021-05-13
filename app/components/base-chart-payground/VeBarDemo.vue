@@ -2,10 +2,9 @@
   <ve-bar-chart
     :height="360"
     :theme="chartTheme"
-    :legend="chartLegend"
     :data="chartData"
-    :option="chartOptions"
-    variant="strip"
+    :settings="chartSettings"
+    v-bind="chartOptions"
     @click="testEvent"
     @zr:click="testEvent"
     @legendselected="testEvent"
@@ -14,7 +13,7 @@
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineComponent, inject, ref, computed } from 'vue'
+import { defineComponent, inject, computed } from 'vue'
 
 import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
 
@@ -39,10 +38,43 @@ export default defineComponent({
       ]
     }
 
+    const chartSettings = {
+      direction: 'column'
+    }
+
     const chartTheme = computed(() => otherOptions?.theme?.value)
 
     const chartOptions = computed(() => {
       return {
+        title: {
+          text: 'VeBarChart'
+        },
+        grid: {
+          left: 30,
+          right: 30,
+          bottom: 30,
+          containLabel: true
+        },
+        legend: {
+          right: 0
+        },
+        // series: [
+        //   {
+        //     label: {
+        //       show: true,
+        //       fontSize: '12',
+        //       fontWeight: 'bold'
+        //     }
+        //   },
+        //   {
+        //     label: {
+        //       show: true,
+        //       fontSize: '12',
+        //       fontWeight: 'bold',
+        //       position: 'right'
+        //     }
+        //   }
+        // ],
         backgroundColor: otherOptions?.backgroundColor.value,
         darkMode: otherOptions?.darkMode.value
       }
@@ -50,14 +82,10 @@ export default defineComponent({
 
     const testEvent = (val: any) => console.log(val)
 
-    const chartLegend = ref({
-      data: ['PV', 'UV']
-    })
-
     return {
       chartData,
+      chartSettings,
       chartTheme,
-      chartLegend,
       chartOptions,
       testEvent
     }
