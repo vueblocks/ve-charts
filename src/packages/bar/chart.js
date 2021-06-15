@@ -181,12 +181,19 @@ class BarChart extends BaseChart {
       secondMeaAxis = [],
       itemStyle = {},
       waterfall,
+      markLine = null,
+      markArea = null,
       ...others
     } = settings
 
     const axisIndexName = isBar ? 'xAxisIndex' : 'yAxisIndex'
     const series = []
     const stackMap = stack && getStackMap(stack)
+
+    // deviated from markLine/markArea of the series
+    if (markLine || markArea) {
+      series.push({ type: 'bar', markLine, markArea })
+    }
 
     measures.forEach(({ name }) => {
       // label数据类型调整为对象或者数组，Object类型为全部数据维度添加配置，Array类型根据每项name名字去修改配置----by:Jeff
