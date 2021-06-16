@@ -219,6 +219,45 @@ export default {
           lineStyle: { type: 'dotted' }
         }
       }
+    },
+    {
+      title: '全局参考线&参考区域',
+      data: simpleData,
+      seriesOption: {
+        'Vue': { markLine: { data: [[{ type: 'min' }, { type: 'max' }]] } }
+      },
+      settings: {
+        markLine: {
+          symbolSize: 10,
+          data: [
+            {
+              name: '参考线名',
+              yAxis: '4500',
+              label: {
+                show: true,
+                formatter: '{b}: {c}',
+                position: 'insideEndTop'
+              },
+              lineStyle: {
+                width: 1,
+                type: 'dashed'
+              }
+            }
+          ]
+        },
+        markArea: {
+          data: [
+            [
+              {
+                name: '坐标区域',
+                yAxis: 2000
+              },
+              {
+                yAxis: 3000
+              }
+            ]]
+        }
+      }
     }
   ]
 }

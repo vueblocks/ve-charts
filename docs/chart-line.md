@@ -422,6 +422,61 @@
   }
 </script>
 
+## 图表标线&图表标域
+
+<vuep template="#markLineAndArea" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="markLineAndArea">
+<template>
+  <ve-line-chart :data="chartData" :settings="chartSettings" :series-option="seriesOption" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'Vue',
+          data: [30, 40, 35, 50, 102, 70, 90]
+        }]
+      }
+      this.seriesOption = {
+        'Vue': { markLine: { data: [[{ type: 'min' }, { type: 'max' }]] } }
+      }
+      this.chartSettings = {
+        markLine: {
+          symbolSize: 10,
+          data: [
+                    {
+                      name: '参考线',
+                      yAxis: '90',
+                      label: {
+                        show: true,
+                        formatter: '{b}: {c}',
+                        position: 'insideEndTop'
+                      },
+                      lineStyle: {
+                        width: 1,
+                        type: 'dashed'
+                      }
+                    }
+                  ]
+                },
+          markArea: {
+            data: [[
+              { name: '坐标区域', yAxis: 30 },
+              { yAxis: 40 }
+            ]]
+          }
+      }
+    }
+  }
+</script>
+
 ## settings 配置项
 
 | 配置项 | 说明 | 类型 | 可选值 | 用法 |
@@ -450,4 +505,5 @@
 | xAxisInverse | X轴方向反向| Boolean | `true`/`false` | 默认 `false`  参见[文档](https://www.echartsjs.com/zh/option.html#xAxis.inverse) |
 | yAxisInverse | Y轴方向反向| Boolean | `true`/`false` | 默认 `false`   参见[文档](https://www.echartsjs.com/zh/option.html#yAxis.inverse) |
 | xAxisSplitLine | 坐标轴分隔线| Object | - | 默认不显示 | https://echarts.apache.org/zh/option.html#xAxis.splitLine |
-
+| markLine | 图表标线 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markLine) |
+| markArea | 图表标域 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markArea) |
