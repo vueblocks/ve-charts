@@ -125,10 +125,17 @@ class LineChart extends BaseChart {
       symbol = 'emptyCircle',
       symbolSize = 4,
       itemStyle = {},
+      markLine = null,
+      markArea = null,
       ...others
     } = settings
     const series = []
     const stackMap = stack && getStackMap(stack)
+
+    // deviated from markLine/markArea of the series
+    if (markLine || markArea) {
+      series.push({ type: 'line', markLine, markArea })
+    }
 
     measures.forEach(({ name, data }, i) => {
       series.push({

@@ -290,6 +290,42 @@ export default {
           }
         }
       }
+    },
+    {
+      title: '全局参考线&参考区域',
+      data: baseData,
+      settings: {
+        markLine: {
+          symbolSize: 20,
+          data: [
+            {
+              name: '参考线名',
+              yAxis: '3500',
+              label: {
+                show: true,
+                position: 'insideEndBottom',
+                formatter: '{b}: {c}'
+              },
+              lineStyle: {
+                width: 1,
+                type: 'dashed'
+              }
+            }
+          ]
+        },
+        markArea: {
+          data: [
+            [
+              {
+                name: '坐标区域',
+                coord: [0, 2000]
+              },
+              {
+                coord: [10, 3000]
+              }
+            ]]
+        }
+      }
     }
   ]
 }

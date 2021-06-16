@@ -1,5 +1,13 @@
 # 更新日志
 
+## v0.9.9
+
+* **新增** 折线图、柱状图新增全局 `markLine`、`markArea` 配置
+
+### PRS
+
+* [#158](https://github.com/vueblocks/ve-charts/pull/158) by [zimuZhao](https://github.com/zimuZhao)
+
 ## v0.9.8
 
 * **新增** 公共系列配置项 [series-option](https://vueblocks.github.io/ve-charts/#/base-options?id=%e9%80%9a%e7%94%a8%e9%85%8d%e7%bd%ae)

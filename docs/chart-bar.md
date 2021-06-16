@@ -682,6 +682,57 @@
   }
 </script>
 
+## 图表标线&图表标域
+
+<vuep template="#markLineAndArea" :options="{ theme: 'vue', lineNumbers: false }"></vuep>
+
+<script v-pre type="text/x-template" id="markLineAndArea">
+<template>
+  <ve-bar-chart :data="chartData" :settings="chartSettings" />
+</template>
+
+<script>
+ module.exports = {
+    created () {
+      this.chartData = {
+        dimensions: {
+          name: 'Week',
+          data: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fir.', 'Sat.', 'Sun.']
+        },
+        measures: [{
+          name: 'PV',
+          data: [256, 767, 1356, 2087, 803, 582, 432]
+        }]
+      }
+      this.chartSettings = {
+        markLine: {
+          symbolSize: 5,
+          data: [
+            {
+              name: '参考线',
+              yAxis: '2000',
+              label: {
+                show: true,
+                position: 'insideEndBottom',
+                formatter: '{b}: {c}'
+              },
+              lineStyle: {
+                width: 1,
+                type: 'dashed'
+              }
+            }
+          ]
+        },
+        markArea: {
+          data: [
+            [{ name: '坐标区域', coord: [0, 0]},{ coord: [6, 1400] }]
+          ]
+        }
+      }
+    }
+  }
+</script>
+
 ## settings 配置项
 
 | 配置项 | 说明 | 类型 | 可选值 | 用法 |
@@ -712,3 +763,5 @@
 | xAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
 | xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
 | xAxisSplitLine | 坐标轴分隔线| Object | - | 默认不显示 | https://echarts.apache.org/zh/option.html#xAxis.splitLine |
+| markLine | 图表标线 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markLine) |
+| markArea | 图表标域 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markArea) |
