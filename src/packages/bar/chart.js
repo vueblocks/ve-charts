@@ -48,7 +48,7 @@ class BarChart extends BaseChart {
 
   // build dimension Axis
   static getBarDimAxis (settings) {
-    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow, dimAxisLabelColor, xAxisName, xAxisSplitLine } = settings
+    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow, dimAxisLabelColor, xAxisName, xAxisSplitLine, dimAxisLabelRotate } = settings
 
     const axisItem = {
       type: dimAxisType,
@@ -62,7 +62,8 @@ class BarChart extends BaseChart {
         show: Array.isArray(dimAxisLabelShow) ? dimAxisLabelShow[0] : dimAxisLabelShow,
         margin: 10,
         fontWeight: 400,
-        color: Array.isArray(dimAxisLabelColor) ? dimAxisLabelColor[0] : dimAxisLabelColor
+        color: Array.isArray(dimAxisLabelColor) ? dimAxisLabelColor[0] : dimAxisLabelColor,
+        rotate: dimAxisLabelRotate
       }
     }
     if (xAxisName) {
@@ -86,6 +87,7 @@ class BarChart extends BaseChart {
       meaAxisLineShow,
       meaAxisLabelShow,
       meaAxisLabelColor,
+      meaAxisLabelRotate,
       yAxisScale = false,
       percentage = false,
       yAxisName,
@@ -110,7 +112,8 @@ class BarChart extends BaseChart {
         show: Array.isArray(meaAxisLabelShow) ? meaAxisLabelShow[i] : meaAxisLabelShow,
         margin: 10,
         fontWeight: 400,
-        color: Array.isArray(meaAxisLabelColor) ? meaAxisLabelColor[i] : meaAxisLabelColor
+        color: Array.isArray(meaAxisLabelColor) ? meaAxisLabelColor[i] : meaAxisLabelColor,
+        rotate: meaAxisLabelRotate
       }
       if (type !== 'normal') {
         // Y轴标签格式化后保留几位小数兼容之前版本类型
@@ -242,7 +245,9 @@ class BarChart extends BaseChart {
       xAxisName,
       xAxisLabelShow = true,
       xAxisLineShow = true,
-      xAxisLabelColor = null
+      xAxisLabelColor = null,
+      xAxisLabelRotate = 0,
+      yAxisLabelRotate = 0
     } = settings
 
     // 默认柱状图
@@ -257,12 +262,14 @@ class BarChart extends BaseChart {
     settings.meaAxisLabelShow = (isBar ? xAxisLabelShow : yAxisLabelShow)
     settings.meaAxisLineShow = (isBar ? xAxisLineShow : yAxisLineShow)
     settings.meaAxisLabelColor = (isBar ? xAxisLabelColor : yAxisLabelColor)
+    settings.meaAxisLabelRotate = isBar ? xAxisLabelRotate : yAxisLabelRotate
     settings.dimAxisType = (isBar ? yAxisLabelType : xAxisLabelType) || 'category'
     settings.dimAxisDigits = isBar ? yAxisLabelDigits : xAxisLabelDigits
     settings.dimAxisName = (isBar ? yAxisName : xAxisName) || ''
     settings.dimAxisLabelShow = (isBar ? yAxisLabelShow : xAxisLabelShow)
     settings.dimAxisLineShow = (isBar ? yAxisLineShow : xAxisLineShow)
     settings.dimAxisLabelColor = (isBar ? yAxisLabelColor : xAxisLabelColor)
+    settings.dimAxisLabelRotate = isBar ? yAxisLabelRotate : xAxisLabelRotate
 
     // 如果设置了双Y轴，将双Y轴统一设置 meaAxisType
     if (defaultMeaAxisType.length > settings.meaAxisType.length) {

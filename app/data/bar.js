@@ -176,7 +176,8 @@ export default {
       title: '分组条形图',
       data: groupData,
       settings: {
-        direction: 'row'
+        direction: 'row',
+        xAxisLabelRotate: 15
       }
     },
     {
