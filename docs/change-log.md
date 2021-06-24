@@ -1,5 +1,13 @@
 # 更新日志
 
+## v0.9.10
+
+* **新增** 柱状图增加刻度标签旋转角度配置
+
+### PRS
+
+* [#162](https://github.com/vueblocks/ve-charts/pull/162) by [liweina-fans](https://github.com/liweina-fans)
+
 ## v0.9.9
 
 * **新增** 折线图、柱状图新增全局 `markLine`、`markArea` 配置
