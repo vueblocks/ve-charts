@@ -759,9 +759,11 @@
 | yAxisLabelShow | 纵坐标轴刻度标签显隐| Boolean/Array | `true`/`false`| 默认 `true` |
 | yAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
 | yAxisLineShow | 纵坐标轴轴线显隐| Boolean/Array | `true`/`false`| 默认 `true` |
+| yAxisLabelRotate | 纵坐标轴刻度标签旋转角度| Number | -90度到90度 | 默认 0 | https://echarts.apache.org/zh/option.html#yAxis.axisLabel.rotate |
 | xAxisLabelShow | 横坐标轴刻度标签显隐| Boolean | `true`/`false`| 默认 `true` |
 | xAxisLabelColor | 横坐标轴刻度标签文字颜色| String | - | 默认 null |
 | xAxisLineShow | 横坐标轴轴线显隐| Boolean | `true`/`false`| 默认 `true` |
 | xAxisSplitLine | 坐标轴分隔线| Object | - | 默认不显示 | https://echarts.apache.org/zh/option.html#xAxis.splitLine |
 | markLine | 图表标线 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markLine) |
 | markArea | 图表标域 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markArea) |
+| xAxisLabelRotate | 横坐标轴刻度标签旋转角度| Number | -90度到90度 | 默认 0 | https://echarts.apache.org/zh/option.html#xAxis.axisLabel.rotate |
