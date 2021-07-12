@@ -767,3 +767,4 @@
 | markLine | 图表标线 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markLine) |
 | markArea | 图表标域 | Object | - | 参见[文档](https://echarts.apache.org/v4/zh/option.html#series-line.markArea) |
 | xAxisLabelRotate | 横坐标轴刻度标签旋转角度| Number | -90度到90度 | 默认 0 | https://echarts.apache.org/zh/option.html#xAxis.axisLabel.rotate |
+| yAxisPointerType | 纵坐标指示器类型 | String | `line`/`shadow`/`none` | 参见[文档](https://echarts.apache.org/v4/zh/option.html#axisPointer.type) |
