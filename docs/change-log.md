@@ -1,5 +1,13 @@
 # 更新日志
 
+## v0.9.11
+
+* **新增** 柱状图新增（纵坐标指示器类型）配置项
+
+### PRS
+
+* [#166](https://github.com/vueblocks/ve-charts/pull/166) by [zimuZhao](https://github.com/zimuZhao)
+  
 ## v0.9.10
 
 * **新增** 柱状图增加刻度标签旋转角度配置

@@ -1,10 +1,11 @@
 {
   "name": "ve-charts",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.umd.min.js",
   "unpkg": "lib/ve-charts.umd.min.js",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
+  "files": ["lib"],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

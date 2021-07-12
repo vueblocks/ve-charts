@@ -1,3 +1,12 @@
+## [0.9.11](https://github.com/vueblocks/ve-charts/compare/v0.9.10...v0.9.11) (2021-07-12)
+
+
+### Features
+
+* 柱状图新增yAxisPointerType（纵坐标指示器类型）配置项 ([6d2d0bc](https://github.com/vueblocks/ve-charts/commit/6d2d0bc13950aa35e6f8c21a02f44187d8bca7b2))
+
+
+
 ## [0.9.10](https://github.com/vueblocks/ve-charts/compare/v0.9.9...v0.9.10) (2021-06-24)
 
 
