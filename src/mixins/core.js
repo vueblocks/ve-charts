@@ -185,10 +185,14 @@ export default {
       // 当未配置 seriesOption 系列配置时
       if (Object.keys(this.seriesOption).length === 0) return series
 
-      // 合并 series 配置
+      // 生成 series
       for (const [key, opt] of Object.entries(this.seriesOption)) {
         const _idx = series.findIndex(v => v.name === key)
-        if (_idx > -1) merge(series[_idx], opt)
+        if (_idx > -1) { // 存在series时，合并配置项
+          merge(series[_idx], opt)
+        } else if (opt.type) { // 不存在series时，如果包含type，新建系列
+          series[series.length] = opt
+        }
       }
       return series
     },

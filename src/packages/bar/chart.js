@@ -48,7 +48,16 @@ class BarChart extends BaseChart {
 
   // build dimension Axis
   static getBarDimAxis (settings) {
-    const { dimAxisType, dimAxisLineShow, dimAxisLabelShow, dimAxisLabelColor, xAxisName, xAxisSplitLine, dimAxisLabelRotate } = settings
+    const {
+      dimAxisType,
+      dimAxisLineShow,
+      dimAxisLabelShow,
+      dimAxisLabelColor,
+      xAxisName,
+      xAxisSplitLine,
+      dimAxisLabelRotate,
+      dimAxisPointerType
+    } = settings
 
     const axisItem = {
       type: dimAxisType,
@@ -64,6 +73,10 @@ class BarChart extends BaseChart {
         fontWeight: 400,
         color: Array.isArray(dimAxisLabelColor) ? dimAxisLabelColor[0] : dimAxisLabelColor,
         rotate: dimAxisLabelRotate
+      },
+      axisPointer: {
+        show: true,
+        type: dimAxisPointerType
       }
     }
     if (xAxisName) {
@@ -195,7 +208,7 @@ class BarChart extends BaseChart {
 
     // deviated from markLine/markArea of the series
     if (markLine || markArea) {
-      series.push({ type: 'bar', markLine, markArea })
+      series.push({ type: 'bar', name: '', data: [], markLine, markArea })
     }
 
     measures.forEach(({ name }) => {
@@ -247,7 +260,9 @@ class BarChart extends BaseChart {
       xAxisLineShow = true,
       xAxisLabelColor = null,
       xAxisLabelRotate = 0,
-      yAxisLabelRotate = 0
+      yAxisLabelRotate = 0,
+      xAxisPointerType,
+      yAxisPointerType
     } = settings
 
     // 默认柱状图
@@ -270,6 +285,7 @@ class BarChart extends BaseChart {
     settings.dimAxisLineShow = (isBar ? yAxisLineShow : xAxisLineShow)
     settings.dimAxisLabelColor = (isBar ? yAxisLabelColor : xAxisLabelColor)
     settings.dimAxisLabelRotate = isBar ? yAxisLabelRotate : xAxisLabelRotate
+    settings.dimAxisPointerType = isBar ? yAxisPointerType : xAxisPointerType
 
     // 如果设置了双Y轴，将双Y轴统一设置 meaAxisType
     if (defaultMeaAxisType.length > settings.meaAxisType.length) {
