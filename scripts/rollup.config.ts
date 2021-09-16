@@ -51,7 +51,7 @@ const createOutputs = (arg: Output) => {
 
   const makeBanner = (name: string) => {
     return `/*!
- * @vueblocks/${name} v${pkg.version}
+ * ${pkg.name} v${pkg.version}
  * (c) ${new Date().getFullYear()} xiaoluoboding
  * @license MIT
  */`
