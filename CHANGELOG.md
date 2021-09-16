@@ -1,3 +1,12 @@
+# [1.0.0-alpha.8](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-09-16)
+
+
+### Bug Fixes
+
+* custom element must be a block element ([b4bb363](https://github.com/xiaoluoboding/ve-charts/commit/b4bb3633c8450c6d8d189416a05b4cbda7318492))
+
+
+
 # [1.0.0-alpha.7](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.5...v1.0.0-alpha.7) (2021-09-16)
 
 
