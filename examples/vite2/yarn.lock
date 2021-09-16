@@ -489,15 +489,15 @@ loader-utils@^1.1.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
-
-lodash.clonedeep@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
-  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
 lru-cache@^5.1.1:
   version "5.1.1"
@@ -819,13 +819,13 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-ve-charts@^1.0.0-alpha.6:
-  version "1.0.0-alpha.6"
-  resolved "http://registry.m.jd.com/ve-charts/download/ve-charts-1.0.0-alpha.6.tgz#b0c1046c88ce436406f5b4aaf6a5bc13663376e9"
-  integrity sha1-sMEEbIjOQ2QG9bSq9qW8E2Yzduk=
+ve-charts@^1.0.0-alpha.8:
+  version "1.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/ve-charts/-/ve-charts-1.0.0-alpha.8.tgz#1bd19699081a3e31348eccaed4ae83b0948a22a9"
+  integrity sha512-LewYQpFEX+ft8/r8dGfll8P3JEfqTQiJInsvctas5ZvdAM/Tm/GQFUwlp/hbsQWYlMjub64plzZRo/j54Qj1PQ==
   dependencies:
     "@juggle/resize-observer" "^3.3.0"
-    lodash.clonedeep "^4.5.0"
+    lodash-es "^4.17.21"
 
 vite@^2.5.1:
   version "2.5.1"
