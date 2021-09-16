@@ -69,6 +69,7 @@ export default defineComponent({
 
     // console.log(option.value)
     const echartsStyle = {
+      display: 'block',
       width: 'auto',
       height: `${props.height}px`
     }
