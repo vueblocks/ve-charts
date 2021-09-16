@@ -3,7 +3,6 @@
     <bar-chart
       :option="barChartOptions"
       :height="400"
-      :width="800"
       :dark-mode="darkMode"
       :background-color="bgColor"
       :legend="chartLegend"
@@ -34,9 +33,9 @@
 import { computed, defineComponent, ref, onMounted } from 'vue'
 
 import { use } from 'echarts/core'
-import { LegendComponent } from 'echarts/components'
+import { LegendComponent, TitleComponent } from 'echarts/components'
 
-use([LegendComponent])
+use([LegendComponent, TitleComponent])
 
 export default defineComponent({
   name: 'HelloWorld',
@@ -57,7 +56,6 @@ export default defineComponent({
       title: {
         text: '简单柱状图'
       },
-      tooltip: {},
       xAxis: {
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -82,7 +80,6 @@ export default defineComponent({
       title: {
         text: '简单折线图'
       },
-      tooltip: {},
       xAxis: {
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
