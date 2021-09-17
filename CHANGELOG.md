@@ -1,3 +1,12 @@
+# [1.0.0-alpha.9](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-09-17)
+
+
+### Features
+
+* change the render way ([a7fb8c0](https://github.com/xiaoluoboding/ve-charts/commit/a7fb8c0a9b12b45be4baf6f05baa8341d254f556))
+
+
+
 # [1.0.0-alpha.8](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-09-16)
 
 
