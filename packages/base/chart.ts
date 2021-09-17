@@ -68,11 +68,6 @@ export default defineComponent({
     const { echartsEvents } = useEchartsEvents(attrs)
 
     // console.log(option.value)
-    const echartsStyle = {
-      display: 'block',
-      width: 'auto',
-      height: `${props.height}px`
-    }
 
     const resize = () => {
       if (echartsInstance.value) {
@@ -167,19 +162,23 @@ export default defineComponent({
     onUnmounted(dispose)
 
     return {
-      echartsRef,
-      echartsStyle
+      echartsRef
     }
   },
 
-  render () {
-    const scopeId = toKebabCase((this.$attrs.chartType as any || 've-chart'))
+  render (ctx: any) {
+    const scopeId = toKebabCase((ctx.$attrs.chartType as any || 've-chart'))
 
     pushScopeId(scopeId)
 
-    return h('ve-charts', {
+    const echartsStyle = {
+      width: 'auto',
+      height: `${ctx.$props.height}px`
+    }
+
+    return h('div', {
       ref: 'echartsRef',
-      style: this.echartsStyle
+      style: echartsStyle
     })
   }
 })
