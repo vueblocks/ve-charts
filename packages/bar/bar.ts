@@ -14,31 +14,37 @@ import { BASE_OPTION } from '../constant'
 
 // Bar Chart Options
 type BarChartOptions = ComposeOption<
-  BarSeriesOption | GridComponentOption | TitleComponentOption | TooltipComponentOption | LegendComponentOption
+  | BarSeriesOption
+  | GridComponentOption
+  | TitleComponentOption
+  | TooltipComponentOption
+  | LegendComponentOption
 >
 
-export interface BarChartSettings {
+type BarVariants = 'column' | 'row'
+
+export interface BarChartSettings extends BarChartOptions {
   // describe bar direciton
-  direction?: string;
+  variant?: BarVariants
 }
 
 export default class Bar {
-  $props: any;
-  data: VeChartsData;
-  settings: BarChartSettings;
-  isColumn: boolean;
+  $props: any
+  data: VeChartsData
+  settings: BarChartSettings
+  isColumn: boolean
 
-  constructor (props: any) {
+  constructor(props: any) {
     this.$props = props
     this.data = this.$props.data
     this.settings = this.$props.settings
 
     // state
-    this.isColumn = this.settings?.direction === 'column'
+    this.isColumn = this.settings?.variant === 'column'
   }
 
   // build grid
-  getBarGrid (isColumn: boolean) {
+  getBarGrid(isColumn: boolean) {
     const columnGrid = {
       right: 30,
       bottom: 10,
@@ -51,24 +57,17 @@ export default class Bar {
     return { ...grid, ...this.$props?.grid }
   }
 
-  getLegend () {
-    const legend: LegendComponentOption = this.$props.legend || {}
-    legend.data = this.data.measures.map(item => item.name)
-
-    return legend
-  }
-
-  getBarDimAxis () {
+  getBarDimAxis() {
     return {
       type: 'category'
     }
   }
 
-  getBarMeaAxis () {
+  getBarMeaAxis() {
     return {}
   }
 
-  getSeries () {
+  getSeries() {
     let series: Array<BarSeriesOption> = []
 
     series = this.data.measures.map(({ name }, idx) => {
@@ -83,7 +82,7 @@ export default class Bar {
     return series
   }
 
-  chartHandler () {
+  chartHandler() {
     const xAxis = this.isColumn ? this.getBarMeaAxis() : this.getBarDimAxis()
 
     const yAxis = this.isColumn ? this.getBarDimAxis() : this.getBarMeaAxis()
@@ -91,15 +90,13 @@ export default class Bar {
     // build echarts options
     const option: EChartsCoreOption = {
       grid: this.getBarGrid(this.isColumn),
-      legend: this.getLegend(),
-      tooltip: {},
       xAxis,
       yAxis,
       dataset: getDataset(this.data),
-      series: this.getSeries()
+      series: this.getSeries(),
+      ...this.settings
     }
 
-    // console.log(option)
     return option
   }
 }

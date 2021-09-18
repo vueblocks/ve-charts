@@ -4,7 +4,7 @@ import { App } from 'vue'
 import VeChart from '../../packages/base/index'
 import { BarChart, VeBarChart } from '../../packages/bar/index'
 import LineChart from '../../packages/line/index'
-import PieChart from '../../packages/pie/index'
+import { PieChart, VePieChart } from '../../packages/pie/index'
 import FunnelChart from '../../packages/funnel/index'
 import GaugeChart from '../../packages/gauge/index'
 import RadarChart from '../../packages/radar/index'
@@ -25,7 +25,9 @@ export default {
     app.use(TreeChart)
     app.use(TreemapChart)
     app.component(LineChart.name, LineChart)
+    // VeCharts
     app.use(VeBarChart)
+    app.use(VePieChart)
     // app.use(LineChart)
   }
 }

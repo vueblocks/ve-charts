@@ -12,10 +12,13 @@ export const toKebabCase = (str: string) =>
 
 export const toCamelCase = (arr: string[]) =>
   arr
-    .map((str, idx) => idx > 0 ? str.charAt(0).toLocaleUpperCase() + str.slice(1) : str)
+    .map((str, idx) =>
+      idx > 0 ? str.charAt(0).toLocaleUpperCase() + str.slice(1) : str
+    )
     .join('')
 
-export const isObject = (prop: any) => Object.prototype.toString.call(prop) === '[object Object]'
+export const isObject = (prop: any) =>
+  Object.prototype.toString.call(prop) === '[object Object]'
 export const isEmpty = (prop: any) => prop === null || prop === undefined
 
 // Copied from
@@ -47,7 +50,8 @@ export const unrefElement = (refEl: RefTypedElement): any => {
 }
 
 // Returns true if the given value is a number, false otherwise.
-const validateNumber = (n: any) => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) === n
+const validateNumber = (n: any) =>
+  !isNaN(parseFloat(n)) && isFinite(n) && Number(n) === n
 
 /**
  * Transform dataset
@@ -57,7 +61,7 @@ const validateNumber = (n: any) => !isNaN(parseFloat(n)) && isFinite(n) && Numbe
  */
 export const getDataset = (
   data: VeChartsData,
-  settings?: Record<string, unknown>,
+  settings?: Record<string, any>,
   extra?: any
 ) => {
   const cloneData = cloneDeep(data)
@@ -85,9 +89,10 @@ export const getDataset = (
   const dimKey = `${dimName}`
   const headMeasure = dimData.length > 0 && dimData[0]
 
-  const dimValue = validateNumber(headMeasure) && extra?.chartType === 'pie'
-    ? dimData.map((v, i) => i === 0 ? `${v}` : v)
-    : dimData
+  const dimValue =
+    validateNumber(headMeasure) && extra?.chartType === 'pie'
+      ? dimData.map((v, i) => (i === 0 ? `${v}` : v))
+      : dimData
 
   const dimensions = {
     [dimKey]: dimValue
@@ -113,9 +118,10 @@ export const getDataset = (
     const isNumber = validateNumber(row.name)
     const rowName = isNumber ? `${row.name} ` : row.name
     Object.assign(measures, {
-      [rowName]: (stack && percentage)
-        ? row.data.map((v: any, i) => round((v / zipSumed[i]), 4))
-        : row.data
+      [rowName]:
+        stack && percentage
+          ? row.data.map((v: any, i) => round(v / zipSumed[i], 4))
+          : row.data
     })
   })
 

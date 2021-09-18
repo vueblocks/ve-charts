@@ -15,13 +15,12 @@ import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 export default defineComponent({
   name: 'PieDemo',
 
-  setup () {
+  setup() {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
     const chartOptions = ref({
       title: {
-        text: '某站点用户访问来源',
-        subtext: '纯属虚构',
+        text: 'PieChart',
         left: 'center'
       },
       tooltip: {
@@ -35,13 +34,14 @@ export default defineComponent({
         {
           name: '访问来源',
           type: 'pie',
-          radius: '50%',
+          radius: '60%',
           data: [
-            { value: 1048, name: '搜索引擎' },
-            { value: 735, name: '直接访问' },
-            { value: 580, name: '邮件营销' },
-            { value: 484, name: '联盟广告' },
-            { value: 300, name: '视频广告' }
+            { value: 1048, name: 'APP' },
+            { value: 735, name: 'PC' },
+            { value: 580, name: 'M端' },
+            { value: 484, name: '微信' },
+            { value: 300, name: '手Q' },
+            { value: 300, name: '小程序' }
           ],
           emphasis: {
             itemStyle: {
@@ -65,6 +65,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
-</style>
+<style></style>

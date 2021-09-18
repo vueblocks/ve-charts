@@ -13,15 +13,15 @@
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineComponent, inject, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
+import { injectStrict, OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 export default defineComponent({
   name: 'VeBarDemo',
 
-  setup () {
-    const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
+  setup() {
+    const otherOptions = injectStrict(OTHER_CHART_OPTIONS_KEY)
 
     const chartData = {
       dimensions: {
@@ -41,7 +41,7 @@ export default defineComponent({
     }
 
     const chartSettings = {
-      direction: 'column'
+      variant: 'column'
     }
 
     const chartTheme = computed(() => otherOptions?.theme?.value)
@@ -61,23 +61,6 @@ export default defineComponent({
         legend: {
           right: 0
         },
-        // series: [
-        //   {
-        //     label: {
-        //       show: true,
-        //       fontSize: '12',
-        //       fontWeight: 'bold'
-        //     }
-        //   },
-        //   {
-        //     label: {
-        //       show: true,
-        //       fontSize: '12',
-        //       fontWeight: 'bold',
-        //       position: 'right'
-        //     }
-        //   }
-        // ],
         backgroundColor: otherOptions?.backgroundColor.value,
         darkMode: otherOptions?.darkMode.value
       }
@@ -97,6 +80,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
-</style>
+<style></style>

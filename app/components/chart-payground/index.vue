@@ -9,12 +9,14 @@
     </select>
     <input type="number" step="20" v-model="height" />
   </div>
-  <UniversalTransitionDemo />
+  <!-- <UniversalTransitionDemo /> -->
   <div class="playground">
     <base-demo />
     <bar-demo />
     <ve-bar-demo />
-    <line-demo />
+    <pie-demo />
+    <ve-pie-demo />
+    <!-- <line-demo />
     <pie-demo />
     <funnel-demo />
     <gauge-demo />
@@ -22,7 +24,7 @@
     <tree-demo />
     <treemap-demo />
     <scatter-datazoom />
-    <dynamic-sort />
+    <dynamic-sort /> -->
   </div>
 </template>
 

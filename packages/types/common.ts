@@ -15,7 +15,9 @@ export type dataAtom = {
   data: Array<string | number>;
 }
 
-export interface VeChartsData {
+export interface VeDataAtom {
   dimensions: dataAtom;
   measures: Array<dataAtom>;
 }
+
+export type VeChartsData = VeDataAtom
