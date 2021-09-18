@@ -5,10 +5,12 @@
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, ref, inject } from 'vue'
-import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
-import data from '../../constants/chart-data/tree.json'
+import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
+import data from '../../../constants/chart-data/tree.json'
 
 export default defineComponent({
+  name: 'TreeDemo',
+
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 

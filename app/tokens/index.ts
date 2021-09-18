@@ -1,3 +1,4 @@
+import { inject } from 'vue'
 import type { InjectionKey, Ref, ComputedRef } from 'vue'
 
 interface OtherChartOptions {
@@ -5,6 +6,15 @@ interface OtherChartOptions {
   backgroundColor: ComputedRef<string>;
   height: Ref<number>;
   theme?: Ref<string>;
+}
+
+export const injectStrict = <T>(key: InjectionKey<T>, fallback?: T) => {
+  const resolved = inject(key, fallback)
+  if (!resolved) {
+    throw new Error(`Could not resolve ${key.description}`)
+  }
+
+  return resolved
 }
 
 // For individual build sharing injection key, we had to make `Symbol` to string

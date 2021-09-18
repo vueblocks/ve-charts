@@ -1,34 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
-// import VeCharts from '../packages/index'
-// import { BarChart, LineChart } from '../packages/index'
-import VeChart from '../packages/base/index'
-import { BarChart, VeBarChart } from '../packages/bar/index'
-import LineChart from '../packages/line/index'
-import PieChart from '../packages/pie/index'
-import FunnelChart from '../packages/funnel/index'
-import GaugeChart from '../packages/gauge/index'
-import RadarChart from '../packages/radar/index'
-import ScatterChart from '../packages/scatter/index'
-import TreeChart from '../packages/tree/index'
-import TreemapChart from '../packages/treemap/index'
+import veCharts from './plugins/ve-charts'
 
 const app = createApp(App)
 
-// app.use(VeCharts)
-
-app.use(VeChart)
-app.use(BarChart)
-app.use(PieChart)
-app.use(FunnelChart)
-app.use(GaugeChart)
-app.use(RadarChart)
-app.use(ScatterChart)
-app.use(TreeChart)
-app.use(TreemapChart)
-app.component(LineChart.name, LineChart)
-app.use(VeBarChart)
-// app.use(LineChart)
-
+app.use(veCharts)
 app.mount('#app')

@@ -1,6 +1,6 @@
 <template>
   <ve-bar-chart
-    :height="360"
+    :height="chartHeight"
     :theme="chartTheme"
     :data="chartData"
     :settings="chartSettings"
@@ -15,9 +15,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, inject, computed } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 export default defineComponent({
+  name: 'VeBarDemo',
+
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
@@ -43,6 +45,7 @@ export default defineComponent({
     }
 
     const chartTheme = computed(() => otherOptions?.theme?.value)
+    const chartHeight = computed(() => otherOptions?.height.value)
 
     const chartOptions = computed(() => {
       return {
@@ -86,6 +89,7 @@ export default defineComponent({
       chartData,
       chartSettings,
       chartTheme,
+      chartHeight,
       chartOptions,
       testEvent
     }

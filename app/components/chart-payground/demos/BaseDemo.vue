@@ -10,7 +10,7 @@
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { computed, defineComponent, inject, nextTick, ref, watch } from 'vue'
-import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 import { use } from 'echarts/core'
 import { BarChart } from 'echarts/charts'
@@ -24,6 +24,8 @@ use([
 ])
 
 export default defineComponent({
+  name: 'BaseDemo',
+
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
     const needUpdate = ref(false)

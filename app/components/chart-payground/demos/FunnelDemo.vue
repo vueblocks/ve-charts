@@ -5,9 +5,11 @@
 <script lang="ts">
 import { defineComponent, ref, inject } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 export default defineComponent({
+  name: 'FunnelDemo',
+
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 

@@ -7,21 +7,22 @@
       <option value="light">Light</option>
       <option value="dark">Dark</option>
     </select>
+    <input type="number" step="20" v-model="height" />
   </div>
+  <UniversalTransitionDemo />
   <div class="playground">
     <base-demo />
     <bar-demo />
-    <!-- <line-demo />
+    <ve-bar-demo />
+    <line-demo />
     <pie-demo />
     <funnel-demo />
     <gauge-demo />
     <radar-demo />
-    <scatter-demo />
     <tree-demo />
     <treemap-demo />
     <scatter-datazoom />
-    <dynamic-sort /> -->
-    <ve-bar-demo />
+    <dynamic-sort />
   </div>
 </template>
 
@@ -35,50 +36,20 @@ import {
   TooltipComponent
 } from 'echarts/components'
 
-import BaseDemo from './BaseDemo.vue'
-import BarDemo from './BarDemo.vue'
-// import LineDemo from './LineDemo.vue'
-// import PieDemo from './PieDemo.vue'
-// import FunnelDemo from './FunnelDemo.vue'
-// import GaugeDemo from './GaugeDemo.vue'
-// import RadarDemo from './RadarDemo.vue'
-// import ScatterDemo from './ScatterDemo.vue'
-// import TreeDemo from './TreeDemo.vue'
-// import TreemapDemo from './TreemapDemo.vue'
-// import ScatterDatazoom from './ScatterDatazoom.vue'
-// import DynamicSort from './DynamicSort.vue'
-import VeBarDemo from './VeBarDemo.vue'
-
 import { OTHER_CHART_OPTIONS_KEY } from '../../tokens/index'
+import components from './demos/index'
 
-use([
-  ToolboxComponent,
-  TooltipComponent,
-  TitleComponent,
-  LegendComponent
-])
+use([ToolboxComponent, TooltipComponent, TitleComponent, LegendComponent])
 
 export default defineComponent({
-  name: 'BaseChartPlayground',
-  components: {
-    BaseDemo,
-    BarDemo,
-    // LineDemo,
-    // PieDemo,
-    // FunnelDemo,
-    // GaugeDemo,
-    // RadarDemo,
-    // ScatterDemo,
-    // TreeDemo,
-    // TreemapDemo,
-    // ScatterDatazoom,
-    // DynamicSort,
-    VeBarDemo
-  },
-  setup () {
+  name: 'ChartPlayground',
+
+  components,
+
+  setup() {
     const height = ref(360)
     const darkMode = ref(false)
-    const backgroundColor = computed(() => darkMode.value ? '#000' : '#fff')
+    const backgroundColor = computed(() => (darkMode.value ? '#000' : '#fff'))
     const activeTheme = ref('')
 
     const handleToggle = () => {
@@ -97,7 +68,8 @@ export default defineComponent({
 
     return {
       handleToggle,
-      activeTheme
+      activeTheme,
+      height
     }
   }
 })
@@ -113,7 +85,7 @@ export default defineComponent({
 }
 
 .action {
-  margin: 60px 0;
+  margin: 20px 0;
   text-align: center;
 }
 </style>

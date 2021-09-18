@@ -9,7 +9,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, inject, onMounted, reactive, ref } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 const data: any[] = []
 for (let i = 0; i < 5; ++i) {
@@ -17,6 +17,8 @@ for (let i = 0; i < 5; ++i) {
 }
 
 export default defineComponent({
+  name: 'DynamicSort',
+
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
     const tid = ref()

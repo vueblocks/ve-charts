@@ -1,9 +1,12 @@
 <template>
-  <line-chart
+  <bar-chart
+    :height="480"
+    :legend="chartLegend"
     v-bind="chartOptions"
     @click="testEvent"
-    @legendselected="testEvent"
     @zr:click="testEvent"
+    @legendselected="testEvent"
+    @mouseover="testEvent"
   />
 </template>
 
@@ -11,18 +14,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, inject, ref } from 'vue'
 
-import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 export default defineComponent({
+  name: 'BarDemo',
+
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
     const chartOptions = ref({
       title: {
-        text: '简单折线图'
-      },
-      legend: {
-        data: ['PV', 'UV']
+        text: 'BarChart'
       },
       tooltip: {},
       xAxis: {
@@ -36,12 +38,12 @@ export default defineComponent({
         {
           name: 'PV',
           data: [120, 200, 150, 80, 70, 110, 130],
-          type: 'line'
+          type: 'bar'
         },
         {
           name: 'UV',
           data: [33, 66, 88, 44, 33, 44, 22],
-          type: 'line'
+          type: 'bar'
         }
       ],
       ...otherOptions
@@ -49,7 +51,12 @@ export default defineComponent({
 
     const testEvent = (val: any) => console.log(val)
 
+    const chartLegend = ref({
+      data: ['PV', 'UV']
+    })
+
     return {
+      chartLegend,
       chartOptions,
       testEvent
     }

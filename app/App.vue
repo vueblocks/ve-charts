@@ -1,16 +1,16 @@
 <template>
-  <base-chart-playground />
+  <ChartPlayground />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import BaseChartPlayground from './components/base-chart-payground/index.vue'
+import ChartPlayground from './components/chart-payground/index.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    BaseChartPlayground
+    ChartPlayground
   }
 })
 </script>

@@ -5,7 +5,7 @@
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, ref, inject } from 'vue'
-import { OTHER_CHART_OPTIONS_KEY } from '../../tokens'
+import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 import { use } from 'echarts/core'
 import { DataZoomComponent } from 'echarts/components'
@@ -29,6 +29,8 @@ for (let i = 0; i < 500; i++) {
 }
 
 export default defineComponent({
+  name: 'ScatterDatazoom',
+
   setup () {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
