@@ -1,10 +1,16 @@
 <template>
-  <ve-chart :option="chartOptions" />
+  <ve-chart
+    :option="chartOptions"
+    :theme="chartTheme"
+    :height="chartHeight"
+    :need-update="needUpdate"
+    :set-option-opts="{ notMerge: true }"
+  />
 </template>
 
 <script lang="ts">
 /* eslint-disable */
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted, nextTick, watch, computed } from 'vue'
 import { injectStrict, OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 
 // echarts 5.2.0 feature universal transition
@@ -18,6 +24,10 @@ export default defineComponent({
   setup() {
     const otherOptions = injectStrict(OTHER_CHART_OPTIONS_KEY)
     const isScatter = ref(true)
+    const needUpdate = ref(false)
+
+    const chartTheme = computed(() => otherOptions?.theme?.value)
+    const chartHeight = computed(() => otherOptions?.height.value)
 
     const femaleData = [
       [161.2, 51.6],
@@ -630,6 +640,16 @@ export default defineComponent({
     })
     const chartOptions = ref<any>(scatterOption)
 
+    const forcedUpdate = () => {
+      // manual update echarts options
+      needUpdate.value = true
+      nextTick(() => {
+        needUpdate.value = false
+      })
+    }
+
+    watch(() => chartOptions, forcedUpdate, { deep: true })
+
     onMounted(() => {
       setInterval(function() {
         chartOptions.value = isScatter.value
@@ -640,9 +660,9 @@ export default defineComponent({
     })
 
     return {
-      isScatter,
-      scatterOptions,
-      barOptions,
+      chartTheme,
+      chartHeight,
+      needUpdate,
       chartOptions
     }
   }

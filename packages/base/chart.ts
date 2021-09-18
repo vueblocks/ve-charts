@@ -57,9 +57,10 @@ export default defineComponent({
 
   setup (props, { attrs }) {
     const option = toRef(props, 'option')
-    const theme = toRef(props, 'theme')
     const initOptions = toRef(props, 'initOptions')
+    const theme = toRef(props, 'theme')
     const setOptionOpts = toRef(props, 'setOptionOpts')
+    // const height = toRef(props, 'height')
     const needUpdate = toRef(props, 'needUpdate')
     const echartsRef = ref<HTMLElement>()
     const echartsInstance = shallowRef<EChartsType>()
@@ -156,7 +157,7 @@ export default defineComponent({
       if (!isEmptyData(option.value)) {
         init(option.value)
       }
-      console.groupEnd()
+      // console.groupEnd()
     })
 
     onUnmounted(dispose)

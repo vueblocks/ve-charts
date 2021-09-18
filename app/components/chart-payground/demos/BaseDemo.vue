@@ -3,7 +3,7 @@
     :option="chartOptions"
     :theme="chartTheme"
     :height="chartHeight"
-    :needUpdate="needUpdate"
+    :need-update="needUpdate"
   />
 </template>
 
@@ -17,16 +17,12 @@ import { BarChart } from 'echarts/charts'
 import { GridComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
 
-use([
-  BarChart,
-  GridComponent,
-  CanvasRenderer
-])
+use([BarChart, GridComponent, CanvasRenderer])
 
 export default defineComponent({
   name: 'BaseDemo',
 
-  setup () {
+  setup() {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
     const needUpdate = ref(false)
 
@@ -67,14 +63,12 @@ export default defineComponent({
     const forcedUpdate = () => {
       // manual update echarts options
       needUpdate.value = true
-      nextTick(() => { needUpdate.value = false })
+      nextTick(() => {
+        needUpdate.value = false
+      })
     }
 
-    watch(
-      () => otherOptions,
-      forcedUpdate,
-      { deep: true }
-    )
+    watch(() => otherOptions, forcedUpdate, { deep: true })
 
     const testEvent = (val: any) => console.log(val)
 
