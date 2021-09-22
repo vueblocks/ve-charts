@@ -1,3 +1,13 @@
+# [1.0.0-alpha.10](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-09-22)
+
+
+### Features
+
+* add ve-line-chart component ([2c7842d](https://github.com/xiaoluoboding/ve-charts/commit/2c7842d4171f049b06d429d32e03854179eb4a01))
+* add ve-pie-chart component ([2b0cf7f](https://github.com/xiaoluoboding/ve-charts/commit/2b0cf7fee49a80b6ef2ccbdc7fdbd85dd2c3a6a2))
+
+
+
 # [1.0.0-alpha.9](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-09-17)
 
 
