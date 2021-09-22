@@ -2,6 +2,7 @@
 import type { App, Ref, SetupContext } from 'vue'
 
 export type Attrs = NonNullable<SetupContext['attrs']>
+export type AnyRecord = Record<string, any>
 
 export type WithInstall<T> = T & {
   install(app: App): void;
@@ -10,14 +11,14 @@ export type WithInstall<T> = T & {
 export type RefTyped<T> = T | Ref<T>
 export type RefTypedElement = RefTyped<Element | undefined | null>
 
-export type dataAtom = {
+export type DataAtom = {
   name: string;
   data: Array<string | number>;
 }
 
-export interface VeDataAtom {
-  dimensions: dataAtom;
-  measures: Array<dataAtom>;
+export interface VeDataset {
+  dimensions: DataAtom;
+  measures: Array<DataAtom>;
 }
 
-export type VeChartsData = VeDataAtom
+export type VeChartsData = VeDataset

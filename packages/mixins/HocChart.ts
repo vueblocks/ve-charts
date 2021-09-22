@@ -4,7 +4,7 @@ import { isEmpty, cloneDeep } from 'lodash-es'
 
 import '../use/useCommonChart'
 import { VeChart } from '../base/index'
-import type { EChartsOption, ECSetOption } from '../types'
+import type { AnyRecord, VeChartsData, EChartsOption, ECSetOption } from '../types'
 
 // setup can not be mixins or extends
 export default defineComponent({
@@ -58,8 +58,7 @@ export default defineComponent({
     options: Object,
     media: Array,
     // ve-charts basic props
-    data: [Object, Array],
-    settings: [Object, Array],
+    data: [Object, Array] as PropType<VeChartsData>,
     variant: { type: String, default: '' },
     loading: { type: Boolean, default: false },
     emptyText: { type: String, default: 'Empty Data' },
@@ -78,7 +77,7 @@ export default defineComponent({
     mergedOption: {}
   }),
   computed: {
-    chartOpts (): Record<string, any> {
+    chartOpts (): AnyRecord {
       return {
         option: this.mergedOption,
         initOptions: this.initOptions,

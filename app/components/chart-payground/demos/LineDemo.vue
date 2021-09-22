@@ -16,12 +16,12 @@ import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 export default defineComponent({
   name: 'LineDemo',
 
-  setup () {
+  setup() {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
     const chartOptions = ref({
       title: {
-        text: '简单折线图'
+        text: 'LineChart'
       },
       legend: {
         data: ['PV', 'UV']
@@ -59,6 +59,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
-</style>
+<style></style>

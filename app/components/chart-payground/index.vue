@@ -14,11 +14,11 @@
     <base-demo />
     <bar-demo />
     <ve-bar-demo />
+    <line-demo />
+    <ve-line-demo />
     <pie-demo />
     <ve-pie-demo />
-    <!-- <line-demo />
-    <pie-demo />
-    <funnel-demo />
+    <!-- <funnel-demo />
     <gauge-demo />
     <radar-demo />
     <tree-demo />
@@ -49,7 +49,7 @@ export default defineComponent({
   components,
 
   setup() {
-    const height = ref(360)
+    const height = ref(256)
     const darkMode = ref(false)
     const backgroundColor = computed(() => (darkMode.value ? '#000' : '#fff'))
     const activeTheme = ref('')
@@ -79,6 +79,8 @@ export default defineComponent({
 
 <style>
 .playground {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;

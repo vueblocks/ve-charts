@@ -1,26 +1,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineComponent, PropType } from 'vue'
 import { use } from 'echarts/core'
-import { BarChart } from 'echarts/charts'
+import { LineChart } from 'echarts/charts'
 import { DatasetComponent } from 'echarts/components'
 
 import HocChart from '../mixins/HocChart'
-import Bar from './bar'
-import type { BarChartSettings } from './bar'
+import Line from './line'
+import type { LineChartSettings } from './line'
 
-use([BarChart, DatasetComponent])
+use([LineChart, DatasetComponent])
 
 export default defineComponent({
-  name: 'VeBarChart',
+  name: 'VeLineChart',
 
   extends: HocChart,
 
   props: {
-    settings: [Object, Array] as PropType<BarChartSettings>
+    settings: [Object, Array] as PropType<LineChartSettings>
   },
 
   mounted() {
-    const baseOption = new Bar(this.$props).chartHandler()
+    const baseOption = new Line(this.$props).chartHandler()
 
     console.log(JSON.stringify(baseOption))
 

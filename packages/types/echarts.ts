@@ -13,7 +13,8 @@ import {
   PolarComponentOption,
   SingleAxisComponentOption,
   TimelineComponentOption,
-  TitleComponentOption
+  TitleComponentOption,
+  TooltipComponentOption
 } from 'echarts/components'
 import {
   AngleAxisOption,
@@ -70,3 +71,5 @@ export type ECSetOption = {
   readonly xAxis: XAXisOption;
   readonly yAxis: YAXisOption;
 }
+
+export type ChartCommonOption = GridComponentOption | TitleComponentOption | TooltipComponentOption | LegendComponentOption

@@ -3,8 +3,8 @@ import { App } from 'vue'
 
 import { VeChart } from './base/index'
 import { BarChart, VeBarChart } from './bar/index'
-import { LineChart } from './line/index'
-import { PieChart } from './pie/index'
+import { LineChart, VeLineChart } from './line/index'
+import { PieChart, VePieChart } from './pie/index'
 import { FunnelChart } from './funnel/index'
 import { GaugeChart } from './gauge/index'
 import { RadarChart } from './radar/index'
@@ -17,7 +17,9 @@ const componentList = [
   BarChart,
   VeBarChart,
   LineChart,
+  VeLineChart,
   PieChart,
+  VePieChart,
   FunnelChart,
   GaugeChart,
   RadarChart,
@@ -37,7 +39,9 @@ export {
   BarChart,
   VeBarChart,
   LineChart,
+  VeLineChart,
   PieChart,
+  VePieChart,
   FunnelChart,
   GaugeChart,
   RadarChart,

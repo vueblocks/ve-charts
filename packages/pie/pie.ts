@@ -1,28 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComposeOption, EChartsCoreOption } from 'echarts/core'
 import { PieSeriesOption } from 'echarts/charts'
-import {
-  GridComponentOption,
-  TitleComponentOption,
-  TooltipComponentOption,
-  LegendComponentOption
-} from 'echarts/components'
-import { VeChartsData } from '../types'
+
+import { VeChartsData, ChartCommonOption } from '../types'
 
 import { getDataset } from '../utils'
 
 // Pie Chart Options
-type PieChartOptions = ComposeOption<
-  | PieSeriesOption
-  | GridComponentOption
-  | TitleComponentOption
-  | TooltipComponentOption
-  | LegendComponentOption
->
+type PieChartOptions = ComposeOption<PieSeriesOption | ChartCommonOption>
 
 type PieVariants = 'pie' | 'donut'
 
-export interface PieChartSettings extends PieChartOptions {
+export interface PieChartSettings extends PieSeriesOption {
   // describe donut type
   variant?: PieVariants
 }

@@ -1,27 +1,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComposeOption, EChartsCoreOption } from 'echarts/core'
-import { BarSeriesOption } from 'echarts/charts'
-
+import { LineSeriesOption } from 'echarts/charts'
 import { VeChartsData, ChartCommonOption } from '../types'
 
 import { getDataset } from '../utils'
 import { BASE_OPTION } from '../constant'
 
 // Bar Chart Options
-type BarChartOptions = ComposeOption<BarSeriesOption | ChartCommonOption>
+type LineChartOptions = ComposeOption<LineSeriesOption | ChartCommonOption>
 
-type BarVariants = 'column' | 'row'
+type LineVariants = 'area' | 'stack' | 'step'
 
-export interface BarChartSettings extends BarSeriesOption {
+export interface LineChartSettings extends LineSeriesOption {
   // describe bar direciton
-  variant?: BarVariants
+  variant?: LineVariants
 }
 
-export default class Bar {
+export default class Line {
   $props: any
   data: VeChartsData
-  settings: BarChartSettings
-  isColumn: boolean
+  settings: LineChartSettings
+  chartType: string
 
   constructor(props: any) {
     this.$props = props
@@ -29,43 +28,38 @@ export default class Bar {
     this.settings = this.$props.settings
 
     // state
-    this.isColumn = this.settings?.variant === 'column'
+    this.chartType = 'line'
   }
 
   // build grid
-  getBarGrid(isColumn: boolean) {
-    const columnGrid = {
-      right: 30,
-      bottom: 10,
-      left: 30,
-      containLabel: true
-    }
-
-    const grid = isColumn ? columnGrid : BASE_OPTION.grid
+  getLineGrid() {
+    const grid = BASE_OPTION.grid
 
     return { ...grid, ...this.$props?.grid }
   }
 
-  getBarDimAxis() {
+  getLineDimAxis() {
     return {
       type: 'category'
     }
   }
 
-  getBarMeaAxis() {
+  getLineMeaAxis() {
     return {
       type: 'value'
     }
   }
 
   getSeries() {
-    let series: Array<BarSeriesOption> = []
+    let series: Array<LineSeriesOption> = []
 
     series = this.data.measures.map(({ name }, idx) => {
       const seriesItem = this.$props?.series?.[idx] || {}
       return {
-        type: 'bar',
+        type: this.chartType,
         name,
+        step: this.settings?.step || false,
+        smooth: this.settings?.smooth || false,
         ...seriesItem
       }
     })
@@ -74,13 +68,13 @@ export default class Bar {
   }
 
   chartHandler() {
-    const xAxis = this.isColumn ? this.getBarMeaAxis() : this.getBarDimAxis()
+    const xAxis = this.getLineDimAxis()
 
-    const yAxis = this.isColumn ? this.getBarDimAxis() : this.getBarMeaAxis()
+    const yAxis = this.getLineMeaAxis()
 
     // build echarts options
     const option: EChartsCoreOption = {
-      grid: this.getBarGrid(this.isColumn),
+      grid: this.getLineGrid(),
       xAxis,
       yAxis,
       dataset: getDataset(this.data),
@@ -92,4 +86,4 @@ export default class Bar {
   }
 }
 
-export { BarChartOptions }
+export { LineChartOptions }

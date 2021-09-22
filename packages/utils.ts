@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { App, unref } from 'vue'
-import { WithInstall, RefTypedElement, VeChartsData } from './types'
+import { WithInstall, RefTypedElement, VeChartsData, AnyRecord } from './types'
 import { round, sum, zip, cloneDeep } from 'lodash-es'
 
 export const toKebabCase = (str: string) =>
@@ -25,8 +25,8 @@ export const isEmpty = (prop: any) => prop === null || prop === undefined
 // https://github.com/vuejs/vue-next/blob/5a7a1b8293822219283d6e267496bec02234b0bc/packages/shared/src/index.ts#L40-L41
 export const isOn = (key: string) => /^on[^a-z]/.test(key)
 
-export const omitOn = (attrs: Record<string, any>) => {
-  const result: Record<string, any> = {}
+export const omitOn = (attrs: AnyRecord) => {
+  const result: AnyRecord = {}
   for (const key in attrs) {
     if (!isOn(key)) {
       result[key] = attrs[key]
@@ -61,8 +61,8 @@ const validateNumber = (n: any) =>
  */
 export const getDataset = (
   data: VeChartsData,
-  settings?: Record<string, any>,
-  extra?: any
+  settings?: AnyRecord,
+  options?: any
 ) => {
   const cloneData = cloneDeep(data)
   const dimName = cloneData?.dimensions?.name
@@ -72,7 +72,7 @@ export const getDataset = (
   const percentage = settings?.percentage || false
 
   // when data is not empty and data.dimensions.data is undefiend
-  if (!extra?.isEmptyData && dimData === undefined) {
+  if (!options?.isEmptyData && dimData === undefined) {
     // Vue.util.warn(`data.dimensions.data is required. Please check on you data`, this)
     return
   }
@@ -90,7 +90,7 @@ export const getDataset = (
   const headMeasure = dimData.length > 0 && dimData[0]
 
   const dimValue =
-    validateNumber(headMeasure) && extra?.chartType === 'pie'
+    validateNumber(headMeasure) && options?.chartType === 'pie'
       ? dimData.map((v, i) => (i === 0 ? `${v}` : v))
       : dimData
 

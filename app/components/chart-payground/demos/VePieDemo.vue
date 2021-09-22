@@ -50,11 +50,7 @@ export default defineComponent({
     }
 
     const chartSettings = ref<PieChartSettings>({
-      variant: 'donut',
-      title: {
-        text: 'VeDonutChart',
-        left: 'center'
-      }
+      variant: 'donut'
     })
 
     const chartOptions = ref({
