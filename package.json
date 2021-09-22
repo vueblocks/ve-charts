@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "1.0.0-alpha.9",
+  "version": "1.0.0-alpha.10",
   "description": "Next Version of ve-charts, EChart 5.x for Vue3.x",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -88,15 +88,17 @@
       "space-before-function-paren": 0,
       "@typescript-eslint/member-delimiter-style": 0
     },
-    "overrides": [{
-      "files": [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)"
-      ],
-      "env": {
-        "jest": true
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
       }
-    }]
+    ]
   },
   "browserslist": [
     "> 1%",
