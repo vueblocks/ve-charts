@@ -1,3 +1,12 @@
+# [1.0.0-alpha.11](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2021-09-23)
+
+
+### Features
+
+* add ve-scatter-chart component ([5f5e04e](https://github.com/xiaoluoboding/ve-charts/commit/5f5e04e0cb5ac4620a430472ab35444c6f1934ac))
+
+
+
 # [1.0.0-alpha.10](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-09-22)
 
 
