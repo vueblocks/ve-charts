@@ -78,8 +78,7 @@ export default class Line {
       xAxis,
       yAxis,
       dataset: getDataset(this.data),
-      series: this.getSeries(),
-      ...this.settings
+      series: this.getSeries()
     }
 
     return option

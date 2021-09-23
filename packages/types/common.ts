@@ -13,7 +13,7 @@ export type RefTypedElement = RefTyped<Element | undefined | null>
 
 export type DataAtom = {
   name: string;
-  data: Array<string | number>;
+  data: Array<string | number | Array<string | number>>;
 }
 
 export interface VeDataset {

@@ -8,24 +8,25 @@ import { PieChart, VePieChart } from './pie/index'
 import { FunnelChart } from './funnel/index'
 import { GaugeChart } from './gauge/index'
 import { RadarChart } from './radar/index'
-import { ScatterChart } from './scatter/index'
+import { ScatterChart, VeScatterChart } from './scatter/index'
 import { TreeChart } from './tree/index'
 import { TreemapChart } from './treemap/index'
 
 const componentList = [
   VeChart,
   BarChart,
-  VeBarChart,
   LineChart,
-  VeLineChart,
   PieChart,
-  VePieChart,
   FunnelChart,
   GaugeChart,
   RadarChart,
   ScatterChart,
   TreeChart,
-  TreemapChart
+  TreemapChart,
+  VeBarChart,
+  VeLineChart,
+  VePieChart,
+  VeScatterChart
 ]
 
 const install = (app: App): void => {
@@ -37,17 +38,18 @@ const install = (app: App): void => {
 export {
   VeChart,
   BarChart,
-  VeBarChart,
   LineChart,
-  VeLineChart,
   PieChart,
-  VePieChart,
   FunnelChart,
   GaugeChart,
   RadarChart,
   ScatterChart,
   TreeChart,
-  TreemapChart
+  TreemapChart,
+  VeBarChart,
+  VeLineChart,
+  VePieChart,
+  VeScatterChart
 }
 
 export default install

@@ -9,8 +9,7 @@
     </select>
     <input type="number" step="20" v-model="height" />
   </div>
-  <!-- <UniversalTransitionDemo /> -->
-  <div class="playground">
+  <div class="playground" style="--display-col: 3;">
     <base-demo />
     <bar-demo />
     <ve-bar-demo />
@@ -25,6 +24,10 @@
     <treemap-demo />
     <scatter-datazoom />
     <dynamic-sort /> -->
+  </div>
+  <div class="playground" style="--display-col: 1;">
+    <!-- <UniversalTransitionDemo /> -->
+    <ve-scatter-demo />
   </div>
 </template>
 
@@ -79,10 +82,11 @@ export default defineComponent({
 
 <style>
 .playground {
+  --display-col: 1;
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--display-col), minmax(0, 1fr));
   gap: 16px;
   padding: 16px;
   background-color: aliceblue;

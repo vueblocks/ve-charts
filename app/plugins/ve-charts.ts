@@ -8,7 +8,7 @@ import { PieChart, VePieChart } from '../../packages/pie/index'
 import FunnelChart from '../../packages/funnel/index'
 import GaugeChart from '../../packages/gauge/index'
 import RadarChart from '../../packages/radar/index'
-import ScatterChart from '../../packages/scatter/index'
+import { ScatterChart, VeScatterChart } from '../../packages/scatter/index'
 import TreeChart from '../../packages/tree/index'
 import TreemapChart from '../../packages/treemap/index'
 
@@ -29,6 +29,6 @@ export default {
     app.use(VeBarChart)
     app.use(VePieChart)
     app.use(VeLineChart)
-    // app.use(LineChart)
+    app.use(VeScatterChart)
   }
 }

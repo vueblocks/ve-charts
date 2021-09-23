@@ -21,6 +21,7 @@ export default class Bar {
   $props: any
   data: VeChartsData
   settings: BarChartSettings
+  chartType: string
   isColumn: boolean
 
   constructor(props: any) {
@@ -29,6 +30,7 @@ export default class Bar {
     this.settings = this.$props.settings
 
     // state
+    this.chartType = 'bar'
     this.isColumn = this.settings?.variant === 'column'
   }
 
@@ -64,7 +66,7 @@ export default class Bar {
     series = this.data.measures.map(({ name }, idx) => {
       const seriesItem = this.$props?.series?.[idx] || {}
       return {
-        type: 'bar',
+        type: this.chartType,
         name,
         ...seriesItem
       }
@@ -84,8 +86,7 @@ export default class Bar {
       xAxis,
       yAxis,
       dataset: getDataset(this.data),
-      series: this.getSeries(),
-      ...this.settings
+      series: this.getSeries()
     }
 
     return option

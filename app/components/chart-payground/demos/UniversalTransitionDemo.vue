@@ -2,7 +2,7 @@
   <ve-chart
     :option="chartOptions"
     :theme="chartTheme"
-    :height="chartHeight"
+    :height="chartHeight * 1.5"
     :need-update="needUpdate"
     :set-option-opts="{ notMerge: true }"
   />
@@ -565,10 +565,15 @@ export default defineComponent({
       yAxis: {
         scale: true
       },
+      legend: {
+        show: true,
+        data: ['female', 'male']
+      },
       series: [
         {
           type: 'scatter',
           id: 'female',
+          name: 'female',
           dataGroupId: 'female',
           animationDurationUpdate: 1000,
           universalTransition: {
@@ -583,6 +588,7 @@ export default defineComponent({
         {
           type: 'scatter',
           id: 'male',
+          name: 'male',
           dataGroupId: 'male',
           animationDurationUpdate: 1000,
           universalTransition: {

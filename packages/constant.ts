@@ -1,8 +1,8 @@
 export const BASE_OPTION = {
   grid: {
-    right: 10,
-    bottom: 10,
-    left: 10,
+    right: '5%',
+    bottom: 30,
+    left: '5%',
     containLabel: true
   },
   series: []
