@@ -22,7 +22,7 @@ export default defineComponent({
   mounted() {
     const baseOption = new Bar(this.$props).chartHandler()
 
-    console.log(JSON.stringify(baseOption))
+    // console.log(JSON.stringify(baseOption))
 
     this.mergedOption = { ...this.mergedOption, ...baseOption }
   }

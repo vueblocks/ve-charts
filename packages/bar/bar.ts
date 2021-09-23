@@ -35,7 +35,7 @@ export default class Bar {
   }
 
   // build grid
-  getBarGrid(isColumn: boolean) {
+  getGrid(isColumn: boolean) {
     const columnGrid = {
       right: 30,
       bottom: 10,
@@ -82,7 +82,7 @@ export default class Bar {
 
     // build echarts options
     const option: EChartsCoreOption = {
-      grid: this.getBarGrid(this.isColumn),
+      grid: this.getGrid(this.isColumn),
       xAxis,
       yAxis,
       dataset: getDataset(this.data),

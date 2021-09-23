@@ -25,6 +25,10 @@
     <scatter-datazoom />
     <dynamic-sort /> -->
   </div>
+  <div class="playground" style="--display-col: 2;">
+    <radar-demo />
+    <ve-radar-demo />
+  </div>
   <div class="playground" style="--display-col: 1;">
     <!-- <UniversalTransitionDemo /> -->
     <ve-scatter-demo />

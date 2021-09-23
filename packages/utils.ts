@@ -65,8 +65,12 @@ export const getDataset = (
   options?: any
 ) => {
   const cloneData = cloneDeep(data)
-  const dimName = cloneData?.dimensions?.name
-  const dimData = cloneData?.dimensions?.data
+  const dimName = Array.isArray(cloneData.dimensions)
+    ? ''
+    : cloneData.dimensions.name
+  const dimData = Array.isArray(cloneData.dimensions)
+    ? []
+    : cloneData.dimensions?.data
 
   const stack = settings?.stack || null
   const percentage = settings?.percentage || false

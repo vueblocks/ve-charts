@@ -74,7 +74,8 @@ export default defineComponent({
     },
     needUpdate: false,
     setOptionOpts: {},
-    mergedOption: {}
+    mergedOption: {},
+    vechart: null
   }),
   computed: {
     chartOpts (): AnyRecord {

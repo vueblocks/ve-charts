@@ -20,7 +20,8 @@ export default defineComponent({
   },
 
   mounted() {
-    const baseOption = new Bar(this.$props).chartHandler()
+    const vechart = new Bar(this.$props)
+    const baseOption = vechart.chartHandler()
 
     console.log(JSON.stringify(baseOption))
 

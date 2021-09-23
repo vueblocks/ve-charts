@@ -34,7 +34,7 @@ export default class Scatter {
   }
 
   // build grid
-  getLineGrid() {
+  getGrid() {
     const grid = BASE_OPTION.grid
 
     return { ...grid, ...this.$props?.grid }
@@ -88,7 +88,7 @@ export default class Scatter {
   chartHandler() {
     // build echarts options
     const option: EChartsCoreOption = {
-      grid: this.getLineGrid(),
+      grid: this.getGrid(),
       dataset: this.getScatterDataset(),
       series: this.getScatterSeries()
     }
