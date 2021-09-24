@@ -8,7 +8,7 @@
     @zr:click="testEvent"
     @legendselected="testEvent"
   />
-  <ve-radar-chart
+  <!-- <ve-radar-chart
     :height="chartHeight * 1.2"
     :theme="chartTheme"
     :data="chartData"
@@ -26,7 +26,7 @@
     @click="testEvent"
     @zr:click="testEvent"
     @legendselected="testEvent"
-  />
+  /> -->
 </template>
 
 <script lang="ts">

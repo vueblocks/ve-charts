@@ -10,7 +10,7 @@ import { OTHER_CHART_OPTIONS_KEY } from '@/tokens'
 export default defineComponent({
   name: 'FunnelDemo',
 
-  setup () {
+  setup() {
     const otherOptions = inject(OTHER_CHART_OPTIONS_KEY)
 
     const chartOptions = ref({
@@ -22,17 +22,9 @@ export default defineComponent({
         trigger: 'item',
         formatter: '{a} <br/>{b} : {c}%'
       },
-      toolbox: {
-        feature: {
-          dataView: { readOnly: false },
-          restore: {},
-          saveAsImage: {}
-        }
-      },
       legend: {
         data: ['展现', '点击', '访问', '咨询', '订单']
       },
-
       series: [
         {
           name: '漏斗图',
@@ -51,13 +43,13 @@ export default defineComponent({
           gap: 2,
           label: {
             show: true,
-            position: 'inside'
+            position: 'left'
           },
           labelLine: {
-            length: 10,
+            length: 20,
             lineStyle: {
               width: 1,
-              type: 'solid'
+              type: 'dashed'
             }
           },
           itemStyle: {

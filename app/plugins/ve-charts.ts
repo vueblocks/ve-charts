@@ -5,7 +5,7 @@ import VeChart from '../../packages/base/index'
 import { BarChart, VeBarChart } from '../../packages/bar/index'
 import { LineChart, VeLineChart } from '../../packages/line/index'
 import { PieChart, VePieChart } from '../../packages/pie/index'
-import FunnelChart from '../../packages/funnel/index'
+import { FunnelChart, VeFunnelChart } from '../../packages/funnel/index'
 import GaugeChart from '../../packages/gauge/index'
 import { RadarChart, VeRadarChart } from '../../packages/radar/index'
 import { ScatterChart, VeScatterChart } from '../../packages/scatter/index'
@@ -31,5 +31,6 @@ export default {
     app.use(VeLineChart)
     app.use(VeScatterChart)
     app.use(VeRadarChart)
+    app.use(VeFunnelChart)
   }
 }

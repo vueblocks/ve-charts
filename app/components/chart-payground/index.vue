@@ -17,21 +17,23 @@
     <ve-line-demo />
     <pie-demo />
     <ve-pie-demo />
-    <!-- <funnel-demo />
+    <!--
     <gauge-demo />
-    <radar-demo />
     <tree-demo />
     <treemap-demo />
-    <scatter-datazoom />
-    <dynamic-sort /> -->
+    <scatter-datazoom /> -->
   </div>
   <div class="playground" style="--display-col: 2;">
+    <funnel-demo />
+    <ve-funnel-demo />
     <radar-demo />
     <ve-radar-demo />
   </div>
   <div class="playground" style="--display-col: 1;">
     <!-- <UniversalTransitionDemo /> -->
     <ve-scatter-demo />
+    <dynamic-sort />
+    <!-- <radar-transition-demo /> -->
   </div>
 </template>
 
@@ -56,7 +58,7 @@ export default defineComponent({
   components,
 
   setup() {
-    const height = ref(256)
+    const height = ref(320)
     const darkMode = ref(false)
     const backgroundColor = computed(() => (darkMode.value ? '#000' : '#fff'))
     const activeTheme = ref('')

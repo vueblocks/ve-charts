@@ -5,7 +5,7 @@ import { VeChart } from './base/index'
 import { BarChart, VeBarChart } from './bar/index'
 import { LineChart, VeLineChart } from './line/index'
 import { PieChart, VePieChart } from './pie/index'
-import { FunnelChart } from './funnel/index'
+import { FunnelChart, VeFunnelChart } from './funnel/index'
 import { GaugeChart } from './gauge/index'
 import { RadarChart, VeRadarChart } from './radar/index'
 import { ScatterChart, VeScatterChart } from './scatter/index'
@@ -27,7 +27,8 @@ const componentList = [
   VeLineChart,
   VePieChart,
   VeScatterChart,
-  VeRadarChart
+  VeRadarChart,
+  VeFunnelChart
 ]
 
 const install = (app: App): void => {
@@ -51,7 +52,8 @@ export {
   VeLineChart,
   VePieChart,
   VeScatterChart,
-  VeRadarChart
+  VeRadarChart,
+  VeFunnelChart
 }
 
 export default install
