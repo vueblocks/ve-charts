@@ -47,7 +47,7 @@ export default defineComponent({
     const chartTheme = computed(() => otherOptions?.theme?.value)
     const chartHeight = computed(() => otherOptions?.height.value)
 
-    const chartData: VeChartsData = {
+    const chartData = ref<VeChartsData>({
       dimensions: [
         { name: 'APP', max: 6000 },
         { name: 'PC', max: 16000 },
@@ -59,7 +59,7 @@ export default defineComponent({
       measures: [
         { name: '2018', data: [5000, 7000, 12000, 11000, 15000, 14000] }
       ]
-    }
+    })
 
     const chartData1 = ref<VeChartsData>({
       dimensions: [

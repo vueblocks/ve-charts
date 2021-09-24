@@ -84,7 +84,7 @@ export default defineComponent({
         initOptions: this.initOptions,
         needUpdate: this.needUpdate,
         setOptionOpts: this.setOptionOpts,
-        chartType: this.$options.name
+        componentName: this.$options.name
       }
     },
     isEmptyData (): boolean {

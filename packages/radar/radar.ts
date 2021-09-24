@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComposeOption, EChartsCoreOption } from 'echarts/core'
 import { RadarSeriesOption } from 'echarts/charts'
-import { RadarOption, PolarOption } from 'echarts/types/dist/shared'
+import { RadarOption, PolarOption, GridOption } from 'echarts/types/dist/shared'
 
 import { VeChartsData, ChartCommonOption } from '../types'
 import { BASE_OPTION } from '../constant'
@@ -34,22 +34,19 @@ export default class Radar {
   }
 
   // build grid
-  getGrid() {
+  getGrid(): GridOption {
     const grid = BASE_OPTION.grid
 
     return { ...grid, ...this.$props?.grid }
   }
 
-  getRadarRadar() {
+  getRadarRadar(): RadarOption {
     return {
-      name: {
-        padding: [3, 5]
-      },
       center: ['50%', '50%'],
       radius: '60%',
       splitNumber: 5,
       shape: 'polygon',
-      indicator: this.data.dimensions,
+      indicator: this.data.dimensions as RadarOption['indicator'],
       ...this.settings?.radar
     }
   }

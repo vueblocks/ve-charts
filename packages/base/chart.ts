@@ -168,7 +168,7 @@ export default defineComponent({
   },
 
   render (ctx: any) {
-    const scopeId = toKebabCase((ctx.$attrs.chartType as any || 've-chart'))
+    const scopeId = toKebabCase((ctx.$attrs.componentName as any || 've-chart'))
 
     pushScopeId(scopeId)
 

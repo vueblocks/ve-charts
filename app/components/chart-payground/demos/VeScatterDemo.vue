@@ -28,9 +28,7 @@ import * as echarts from 'echarts'
 import type { ScatterChartSettings } from '../../../../packages/scatter/scatter'
 import type { VeChartsData } from '../../../../packages/types'
 import { injectStrict, OTHER_CHART_OPTIONS_KEY } from '@/tokens'
-import { randomIntArrayInRange, rangeRandom } from '@/utils'
-
-console.log(randomIntArrayInRange(10, 1000, 2))
+import { rangeRandom } from '@/utils'
 
 export default defineComponent({
   name: 'VeScatterDemo',
