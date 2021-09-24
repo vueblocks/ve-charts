@@ -2,13 +2,13 @@
 import { defineComponent, PropType } from 'vue'
 import { use } from 'echarts/core'
 import { ScatterChart } from 'echarts/charts'
-import { DatasetComponent } from 'echarts/components'
 
 import HocChart from '../mixins/HocChart'
-import Bar from './scatter'
+import Scatter from './scatter'
 import type { ScatterChartSettings } from './scatter'
+import { useDataHandler } from '../use'
 
-use([ScatterChart, DatasetComponent])
+use([ScatterChart])
 
 export default defineComponent({
   name: 'VeScatterChart',
@@ -19,11 +19,13 @@ export default defineComponent({
     settings: [Object, Array] as PropType<ScatterChartSettings>
   },
 
-  mounted() {
-    const baseOption = new Bar(this.$props).chartHandler()
+  setup(props) {
+    const chart = new Scatter(props)
 
-    // console.log(JSON.stringify(baseOption))
+    const mergedOption = useDataHandler(chart, props)
 
-    this.mergedOption = { ...this.mergedOption, ...baseOption }
+    return {
+      mergedOption
+    }
   }
 })

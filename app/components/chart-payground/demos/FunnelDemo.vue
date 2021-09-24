@@ -15,8 +15,7 @@ export default defineComponent({
 
     const chartOptions = ref({
       title: {
-        text: '漏斗图',
-        subtext: '纯属虚构'
+        text: 'FunnelChart'
       },
       tooltip: {
         trigger: 'item',

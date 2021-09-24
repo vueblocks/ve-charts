@@ -7,6 +7,7 @@ import { DatasetComponent } from 'echarts/components'
 import HocChart from '../mixins/HocChart'
 import Pie from './pie'
 import type { PieChartSettings } from './pie'
+import { useDataHandler } from '../use'
 
 use([PieChart, DatasetComponent])
 
@@ -19,11 +20,13 @@ export default defineComponent({
     settings: [Object, Array] as PropType<PieChartSettings>
   },
 
-  mounted() {
-    const baseOption = new Pie(this.$props).chartHandler()
+  setup(props) {
+    const chart = new Pie(props)
 
-    console.log(JSON.stringify(baseOption))
+    const mergedOption = useDataHandler(chart, props)
 
-    this.mergedOption = { ...this.mergedOption, ...baseOption }
+    return {
+      mergedOption
+    }
   }
 })

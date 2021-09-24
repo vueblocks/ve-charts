@@ -2,14 +2,13 @@
 import { defineComponent, PropType } from 'vue'
 import { use } from 'echarts/core'
 import { RadarChart } from 'echarts/charts'
-import { DatasetComponent } from 'echarts/components'
 
 import HocChart from '../mixins/HocChart'
 import Radar from './radar'
 import type { RadarChartSettings } from './radar'
 import { useDataHandler } from '../use'
 
-use([RadarChart, DatasetComponent])
+use([RadarChart])
 
 export default defineComponent({
   name: 'VeRadarChart',

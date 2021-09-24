@@ -7,6 +7,7 @@ import { DatasetComponent } from 'echarts/components'
 import HocChart from '../mixins/HocChart'
 import Line from './line'
 import type { LineChartSettings } from './line'
+import { useDataHandler } from '../use'
 
 use([LineChart, DatasetComponent])
 
@@ -19,11 +20,13 @@ export default defineComponent({
     settings: [Object, Array] as PropType<LineChartSettings>
   },
 
-  mounted() {
-    const baseOption = new Line(this.$props).chartHandler()
+  setup(props) {
+    const chart = new Line(props)
 
-    console.log(JSON.stringify(baseOption))
+    const mergedOption = useDataHandler(chart, props)
 
-    this.mergedOption = { ...this.mergedOption, ...baseOption }
+    return {
+      mergedOption
+    }
   }
 })
