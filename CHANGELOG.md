@@ -1,3 +1,15 @@
+# [1.0.0-alpha.12](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2021-09-24)
+
+
+### Features
+
+* add ve-funnel-chart component ([414cd1d](https://github.com/xiaoluoboding/ve-charts/commit/414cd1de159bda8a55cdb0ef2b51a9f3099bd4ab))
+* add ve-radar-chart component ([22e23f6](https://github.com/xiaoluoboding/ve-charts/commit/22e23f6502e1ee3af999e0cd9f1e2a82a4968496))
+* refactor code ([91adf32](https://github.com/xiaoluoboding/ve-charts/commit/91adf32fb68422232a30aa8956a109aa33a7f724))
+* refactor ve-radar-chart component ([708b30a](https://github.com/xiaoluoboding/ve-charts/commit/708b30a6ee0e0f5e496f572bfe3b9bf9e5fdd792))
+
+
+
 # [1.0.0-alpha.11](https://github.com/xiaoluoboding/ve-charts/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2021-09-23)
 
 
