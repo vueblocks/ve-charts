@@ -132,11 +132,6 @@ class LineChart extends BaseChart {
     const series = []
     const stackMap = stack && getStackMap(stack)
 
-    // deviated from markLine/markArea of the series
-    if (markLine || markArea) {
-      series.push({ type: 'line', markLine, markArea })
-    }
-
     measures.forEach(({ name, data }, i) => {
       series.push({
         type: 'line',
@@ -153,6 +148,10 @@ class LineChart extends BaseChart {
       })
     })
 
+    // deviated from markLine/markArea of the series
+    if (markLine || markArea) {
+      series.push({ type: 'line', markLine, markArea })
+    }
     return series
   }
 
