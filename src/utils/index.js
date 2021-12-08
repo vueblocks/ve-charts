@@ -80,7 +80,8 @@ const getDataset = (data, settings, extra) => {
     const zipped = zip(...dyadicArray)
     zipSumed = zipped.map(v => {
       const arr = v.map(v => {
-        return validateNumber(v) ? v : parseFloat(v, 10)
+        const _temp = validateNumber(v) ? v : parseFloat(v, 10)
+        return isNaN(_temp) ? 0 : _temp
       })
       return sum(arr)
     })
