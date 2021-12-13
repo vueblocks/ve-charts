@@ -1,7 +1,10 @@
-import 'echarts/lib/chart/funnel'
+import * as echarts from 'echarts/core'
+import { FunnelChart } from 'echarts/charts'
 
 import HocEcharts from '../../components/HocEcharts.vue'
 import Chart from './chart'
+
+echarts.use([FunnelChart])
 
 export default {
   name: 'VeFunnelChart',

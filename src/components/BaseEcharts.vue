@@ -3,22 +3,38 @@
 </template>
 
 <script>
-import echarts from 'echarts/lib/echarts'
+import * as echarts from 'echarts/core'
 import { debounce } from 'lodash-es'
 import { addListener, removeListener } from 'resize-detector'
 import Vue from 'vue'
 // default echarts's component in VeCharts
 import 'zrender/lib/svg/svg'
-import 'echarts/lib/component/title'
-import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/legend'
-import 'echarts/lib/component/dataset'
+import { CanvasRenderer } from 'echarts/renderers'
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  DatasetComponent
+} from 'echarts/components'
+
+echarts.use([
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  DatasetComponent,
+  CanvasRenderer
+])
 
 // enumerating ECharts events for now
 const EVENTS = [
+  'highlight',
+  'downplay',
+  'selectchanged',
   'legendselectchanged',
   'legendselected',
   'legendunselected',
+  'legendselectall',
+  'legendinverseselect',
   'legendscroll',
   'datazoom',
   'datarangeselected',
@@ -30,16 +46,9 @@ const EVENTS = [
   'geoselectchanged',
   'geoselected',
   'geounselected',
-  'pieselectchanged',
-  'pieselected',
-  'pieunselected',
-  'mapselectchanged',
-  'mapselected',
-  'mapunselected',
   'axisareaselected',
-  'focusnodeadjacency',
-  'unfocusnodeadjacency',
   'brush',
+  'brushEnd',
   'brushselected',
   'globalcursortaken',
   'rendered',
@@ -47,10 +56,11 @@ const EVENTS = [
   // mouse event
   'click',
   'dblclick',
+  'mousedown',
+  'mousemove',
+  'mouseup',
   'mouseover',
   'mouseout',
-  'mousedown',
-  'mouseup',
   'globalout',
   'contextmenu'
 ]

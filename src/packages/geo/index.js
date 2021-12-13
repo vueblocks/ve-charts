@@ -1,12 +1,29 @@
-import 'echarts/lib/chart/map'
-import 'echarts/lib/chart/scatter'
-import 'echarts/lib/chart/effectScatter'
-import 'echarts/lib/chart/heatmap'
-import 'echarts/lib/component/visualMap'
-import 'echarts/lib/component/geo'
+import * as echarts from 'echarts/core'
+import {
+  MapChart,
+  ScatterChart,
+  EffectScatterChart,
+  HeatmapChart,
+  LinesChart
+} from 'echarts/charts'
+
+import {
+  VisualMapComponent,
+  GeoComponent
+} from 'echarts/components'
 
 import HocEcharts from '../../components/HocEcharts.vue'
 import Chart from './chart'
+
+echarts.use([
+  MapChart,
+  ScatterChart,
+  EffectScatterChart,
+  HeatmapChart,
+  LinesChart,
+  VisualMapComponent,
+  GeoComponent
+])
 
 export default {
   name: 'VeGeoChart',

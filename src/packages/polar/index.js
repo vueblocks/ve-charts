@@ -1,9 +1,22 @@
-import 'echarts/lib/chart/line'
-import 'echarts/lib/chart/bar'
-import 'echarts/lib/component/polar'
+import * as echarts from 'echarts/core'
+
+import {
+  LineChart,
+  BarChart
+} from 'echarts/charts'
+
+import {
+  PolarComponent
+} from 'echarts/components'
 
 import HocEcharts from '../../components/HocEcharts.vue'
 import Chart from './chart'
+
+echarts.use([
+  LineChart,
+  BarChart,
+  PolarComponent
+])
 
 export default {
   name: 'VePolarChart',

@@ -4,7 +4,7 @@
 ![title](_media/logo_white.svg)
 
 <blockquote>
-  <p style="color:#fff;">ECharts 4.x for Vue.js 2.x.</p>
+  <p style="color:#fff;">ECharts 5.x for Vue.js 2.x.</p>
 </blockquote>
 
 <ul style="color:#fff">

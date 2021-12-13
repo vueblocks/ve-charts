@@ -32,7 +32,7 @@
 
 <script>
 import CodeBlock from '@/components/CodeBlock'
-import 'echarts/lib/component/markArea'
+import { MarkAreaComponent } from 'echarts/components'
 
 import DATA from '@/data'
 import COLOR from '@/data/color'
@@ -40,7 +40,8 @@ import COLOR from '@/data/color'
 export default {
   name: 'Chart',
   components: {
-    CodeBlock
+    CodeBlock,
+    MarkAreaComponent
   },
   props: {
     type: String

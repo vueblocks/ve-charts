@@ -116,7 +116,9 @@
         ]
       }
       this.settings = {
-        focusNodeAdjacency: true
+        emphasis: {
+          focus: 'adjacency'
+        }
       }
     }
   }
@@ -156,7 +158,6 @@
         ]
       }
       this.settings = {
-        focusNodeAdjacency: 'allEdges',
         label: {
           normal: {
             color: '#fff'

@@ -1,6 +1,6 @@
 # ve-charts
 
-> ECharts 4.x for Vue.js 2.x.
+> ECharts 5.x for Vue.js 2.x.
 
 # 使用docsify-cli
 

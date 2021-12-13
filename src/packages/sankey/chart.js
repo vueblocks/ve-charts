@@ -11,7 +11,6 @@ class SankeyChart extends BaseChart {
     const {
       orient = 'horizontal',
       draggable = true,
-      focusNodeAdjacency = false,
       ...others
     } = settings
 
@@ -21,7 +20,6 @@ class SankeyChart extends BaseChart {
       edges: measures, // same as links
       orient,
       draggable,
-      focusNodeAdjacency,
       ...others
     }
   }

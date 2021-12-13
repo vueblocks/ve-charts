@@ -42,14 +42,15 @@ export default {
       title: '高亮节点',
       data: sankeyData2,
       settings: {
-        focusNodeAdjacency: true
+        emphasis: {
+          focus: 'adjacency'
+        }
       }
     },
     {
       title: '暗色背景',
       data: sankeyData2,
       settings: {
-        focusNodeAdjacency: true,
         label: {
           normal: {
             color: '#fff'

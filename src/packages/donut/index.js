@@ -1,7 +1,10 @@
-import 'echarts/lib/chart/pie'
+import * as echarts from 'echarts/core'
+import { PieChart } from 'echarts/charts'
 
 import HocEcharts from '../../components/HocEcharts.vue'
 import Chart from '../pie/chart'
+
+echarts.use([PieChart])
 
 export default {
   name: 'VeDonutChart',

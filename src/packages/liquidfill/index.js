@@ -1,4 +1,4 @@
-import 'echarts-liquidfill/dist/echarts-liquidfill.min'
+import 'echarts-liquidfill'
 
 import HocEcharts from '../../components/HocEcharts.vue'
 import Chart from './chart'

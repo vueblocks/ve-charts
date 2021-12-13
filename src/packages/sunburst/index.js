@@ -1,7 +1,10 @@
-import 'echarts/lib/chart/sunburst'
+import * as echarts from 'echarts/core'
+import { SunburstChart } from 'echarts/charts'
 
 import HocEcharts from '../../components/HocEcharts.vue'
 import Chart from './chart'
+
+echarts.use([SunburstChart])
 
 export default {
   name: 'VeSunburstChart',

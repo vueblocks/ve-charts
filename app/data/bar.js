@@ -148,16 +148,18 @@ export default {
         },
         yAxisLabelType: ['percentage'],
         percentage: true,
-        tooltipFormatter: function (params) {
-          let [tar] = params
-          const tooltipContent = params
-            .map(v => {
-              return `${v.seriesName}：${(
-                v.value[v.seriesIndex + 1] * 100
-              ).toFixed(2)} %`
-            })
-            .join('<br/>')
-          return tar.name + '<br/>' + tooltipContent
+        tooltipOptions: {
+          formatter: function (params) {
+            let [tar] = params
+            const tooltipContent = params
+              .map(v => {
+                return `${v.seriesName}：${(
+                  v.value[v.seriesIndex + 1] * 100
+                ).toFixed(2)} %`
+              })
+              .join('<br/>')
+            return tar.name + '<br/>' + tooltipContent
+          }
         }
       }
     },
@@ -254,9 +256,11 @@ export default {
           }
         ],
         waterfall: true,
-        tooltipFormatter: function (params) {
-          let tar = params[1]
-          return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
+        tooltipOptions: {
+          formatter: function (params) {
+            let tar = params[1]
+            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
+          }
         }
       }
     },
@@ -280,14 +284,16 @@ export default {
           }
         ],
         waterfall: true,
-        tooltipFormatter: function (params) {
-          let tar
-          if (params[1].value[2] !== '-') {
-            tar = params[1]
-            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
-          } else {
-            tar = params[2]
-            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[3]
+        tooltipOptions: {
+          formatter: function (params) {
+            let tar
+            if (params[1].value[2] !== '-') {
+              tar = params[1]
+              return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[2]
+            } else {
+              tar = params[2]
+              return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value[3]
+            }
           }
         }
       }

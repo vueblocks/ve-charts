@@ -13,11 +13,11 @@
         <a href="https://raw.githubusercontent.com/vueblocks/ve-charts/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
     </p>
     <p align="center">
-       ECharts 4.x for Vue.js 2.x.<br>
+       ECharts 5.x for Vue.js 2.x.<br>
     </p>
 </p>
 
-> `VeCharts` 是基于 `Vue2.x` 与 `ECharts4.x` 构建封装的组件库，用以解决繁杂的 ECharts 配置项以及数据转化带来的烦恼。`VeCharts` 生成一个 ECharts 图表时，用户只需关心 **数据** 与 **配置项**，甚至无需配置项，即可生成一个默认的图表，使用 `VeCharts` 助你快捷、高效地构建图表。
+> `VeCharts` 是基于 `Vue2.x` 与 `ECharts5.x` 构建封装的组件库，用以解决繁杂的 ECharts 配置项以及数据转化带来的烦恼。`VeCharts` 生成一个 ECharts 图表时，用户只需关心 **数据** 与 **配置项**，甚至无需配置项，即可生成一个默认的图表，使用 `VeCharts` 助你快捷、高效地构建图表。
 
 
 ## 安装
