@@ -3,27 +3,10 @@
 </template>
 
 <script>
-import * as echarts from 'echarts/core'
+import * as echarts from 'echarts/lib/echarts'
 import { debounce } from 'lodash-es'
 import { addListener, removeListener } from 'resize-detector'
 import Vue from 'vue'
-// default echarts's component in VeCharts
-import 'zrender/lib/svg/svg'
-import { CanvasRenderer } from 'echarts/renderers'
-import {
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  DatasetComponent
-} from 'echarts/components'
-
-echarts.use([
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  DatasetComponent,
-  CanvasRenderer
-])
 
 // enumerating ECharts events for now
 const EVENTS = [

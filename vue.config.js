@@ -29,24 +29,30 @@ const setChainWebpack = config => {
 
 const setConfigureWebpack = config => {
   if (isLib) {
-    const externalLibs = [
-      'vue',
-      'echarts',
-      'zrender'
-    ]
+    // const externalLibs = [
+    //   'vue',
+    //   'echarts',
+    //   'zrender'
+    // ]
     // 将 vue 设置为外部依赖
-    let externals = [
-      function (context, request, callback) {
-        for (const lib of externalLibs) {
-          const reg = new RegExp(`^${lib}`)
-          if (reg.test(request)) {
-            return callback(null, lib)
-          }
-        }
-        callback()
-      }
-    ]
-    config.externals = externals
+    // let externals = [
+    //   function (context, request, callback) {
+    //     for (const lib of externalLibs) {
+    //       const reg = new RegExp(`^${lib}`)
+    //       if (reg.test(request)) {
+    //         return callback(null, lib)
+    //       }
+    //     }
+    //     callback()
+    //   }
+    // ]
+    config.externals = {
+      'echarts/lib/echarts': 'echarts',
+      'vue': 'vue'
+    }
+    config.optimization = {
+      concatenateModules: true
+    }
     config.output = {
       ...config.output,
       library: 'VeCharts',

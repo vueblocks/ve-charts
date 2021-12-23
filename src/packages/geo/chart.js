@@ -1,6 +1,5 @@
 import { ceil, floor } from 'lodash-es'
-import * as echarts from 'echarts/core'
-
+import * as echarts from 'echarts/lib/echarts'
 import { getMapJSON } from '../../utils'
 import { MAP_URL_PREFIX } from '../../base-options'
 import BaseChart from '../../BaseChart'
