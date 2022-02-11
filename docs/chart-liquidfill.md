@@ -5,7 +5,7 @@
 
 ## 示例
 
-<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/cmh4dvuq/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/cmh4dvuq/7/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ## 简单水球图
 

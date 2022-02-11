@@ -2,7 +2,7 @@
 
 ## 示例
 
-<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/udnhk7wm/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/udnhk7wm/15/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 ## 基础折线图

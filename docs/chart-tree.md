@@ -2,7 +2,7 @@
 
 ## 示例
 
-<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/cuLhs0v8/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="470" src="//jsfiddle.net/vecharts/cuLhs0v8/11/embedded/result,html,js/?bodyColor=fff" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ## 基础树图 - 默认右侧分布
 
