@@ -164,9 +164,9 @@ data: {
 
 * [旭日图](https://vueblocks.github.io/ve-charts/#/chart-sunburst)
 
-* [矩形树图](https://vueblocks.github.io/ve-charts/#/chart-treemap)
-
 * [树图](https://vueblocks.github.io/ve-charts/#/chart-tree)
+
+* [矩形树图](https://vueblocks.github.io/ve-charts/#/chart-treemap)
 
 * [地图](https://vueblocks.github.io/ve-charts/#/chart-geo)
 
@@ -175,3 +175,7 @@ data: {
 * [水球图](https://vueblocks.github.io/ve-charts/#/chart-liquidfill)
 
 * [极区图](https://vueblocks.github.io/ve-charts/#/chart-polar)
+
+* [桑基图](https://vueblocks.github.io/ve-charts/#/chart-sankey)
+
+* [组件扩展：柱图悬浮饼图](https://vueblocks.github.io/ve-charts/#/component-extension)

@@ -14,7 +14,7 @@ import geo from './geo'
 import liquidfill from './liquidfill'
 import polar from './polar'
 import sankey from './sankey'
-
+import barpie from './barpie'
 export default {
   bar,
   line,
@@ -31,5 +31,6 @@ export default {
   geo,
   liquidfill,
   polar,
-  sankey
+  sankey,
+  barpie
 }

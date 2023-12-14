@@ -25,5 +25,6 @@
   - [桑基图](chart-sankey.md)
 
 - 其他
+  - [组件扩展](component-extension.md)
   - [属性配置](setting-demo.md)
   - [事件处理](event-demo.md)
