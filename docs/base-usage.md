@@ -48,10 +48,13 @@ Vue.component('VeBarChart', VeBarChart)
 | 地图 | VeGeoChart |
 | 词云图 | VeWordcloudChart |
 | 水球图 | VeLiquidfillChart |
+| 极区图 | VePolarChart |
+| 桑基图 | VeSankeyChart |
+| 柱图悬浮饼图 | VeBarpieChart |
 
 > Tips:
 > * 当按需引入组件时，部分 `ECharts` 模块在用到时也要按需引入
-> * 比如 `markArea`、`markLine`，详见：[可以按需引入的模块列表](https://github.com/ecomfe/echarts/blob/master/index.js)
+> * 比如 `markArea`、`markLine`，详见：[可以按需引入的模块列表](https://github.com/apache/echarts/blob/master/src/echarts.all.ts)
 
 ## 创建图表
 

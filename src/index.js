@@ -14,7 +14,7 @@ import VeWordcloudChart from './packages/wordcloud'
 import VeLiquidfillChart from './packages/liquidfill'
 import VePolarChart from './packages/polar'
 import VeSankeyChart from './packages/sankey'
-
+import VeBarpieChart from './packages/barpie'
 const components = [
   VeBarChart,
   VeDonutChart,
@@ -31,7 +31,8 @@ const components = [
   VeWordcloudChart,
   VeLiquidfillChart,
   VePolarChart,
-  VeSankeyChart
+  VeSankeyChart,
+  VeBarpieChart
 ]
 
 const install = Vue => {
@@ -65,5 +66,6 @@ export default {
   VeWordcloudChart,
   VeLiquidfillChart,
   VePolarChart,
-  VeSankeyChart
+  VeSankeyChart,
+  VeBarpieChart
 }
