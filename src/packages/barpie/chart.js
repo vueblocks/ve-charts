@@ -8,10 +8,9 @@ import echarts from 'echarts/lib/echarts'
 class BarpieChart extends BaseChart {
   // build tooltip
   static getBarTooltip (data, settings) {
-    const { tooltipOptions, childSetting } = settings
+    const { tooltipOptions, childSetting = { series: {}, legend: {}, legendShow: {}, contentSize: {} } } = settings
     const { series, legend, ...others } = childSetting
-    console.log(others)
-    function returnPieData (data, dimensionName, sum) {
+    function returnPieData (data, dimensionName) {
       return {
         series: {
           type: 'pie',
@@ -24,7 +23,9 @@ class BarpieChart extends BaseChart {
         },
         tooltip: {
           trigger: 'item',
-          valueFormatter: (value) => value.toLocaleString('en-US', { maximumFractionDigits: 2 })
+          formatter: (params) => {
+            return params.name + ' : ' + params.value + ' (' + params.percent + '%)'
+          }
         },
         color: ['#426fff', '#40adff', '#3fdace', '#18bdb0', '#ffda3e', '#ffa900', '#83dd89', '#bedf65', '#956bfd', '#f67bb2'],
         animation: false,
@@ -76,6 +77,9 @@ class BarpieChart extends BaseChart {
               percent: true,
               ...childSetting['legendShow']
             }
+            const sum = data.reduce((accumulator, currentValue) => {
+              return accumulator + currentValue.value
+            }, 0)
             let p = (data[index].value / sum * 100).toFixed(childSetting['toFix'] || 2)
             let value = data[index].value.toLocaleString('en-US', { maximumFractionDigits: 2 })
             let thisName = name.length > 10 ? name.substr(0, 10) + '...' : name
@@ -95,11 +99,11 @@ class BarpieChart extends BaseChart {
       }
     }
 
-    function initPieTooltip (data, dimensionName, sum) {
+    function initPieTooltip (data, dimensionName) {
       setTimeout(() => { // 使用延迟机制，先执行formatter的div创建
         if (document.getElementById('pieTooltip') !== null) {
           let tooltipChart = echarts.init(document.getElementById('pieTooltip'))
-          tooltipChart.setOption(returnPieData(data, dimensionName, sum))
+          tooltipChart.setOption(returnPieData(data, dimensionName))
         }
       }, 0)
     }
@@ -126,7 +130,6 @@ class BarpieChart extends BaseChart {
       formatter: (params) => {
         let dax = params[0].dataIndex
         let childData = data.childData[dax]
-        let sum = params[0].value[1]
         let dimensionName = childData.map(item => {
           item.icon = item.icon ? item.icon : 'circle'
           return item.name
@@ -136,7 +139,7 @@ class BarpieChart extends BaseChart {
           height: '200px',
           ...childSetting['contentSize']
         }
-        initPieTooltip(childData, dimensionName, sum)
+        initPieTooltip(childData, dimensionName)
         return `<div id="tooltip" style="width: ${contentSize['width']};height: ${contentSize['height']}+30px;border-radius: 2px;box-shadow: 0 0 20px 0 rgba(110, 117, 145, 0.1);padding: 10px;">${params[0].name}<br/>
                  <div id="pieTooltip" style="width: ${contentSize['width']};height: ${contentSize['height']};"></div></div>`
       }
