@@ -1,3 +1,12 @@
+## [0.9.12](https://github.com/vueblocks/ve-charts/compare/v0.9.11...v0.9.12) (2023-12-14)
+
+
+### Features
+
+* 新增扩展组件：柱图悬浮饼图 ([361f656](https://github.com/vueblocks/ve-charts/pull/193/commits))
+
+
+
 ## [0.9.11](https://github.com/vueblocks/ve-charts/compare/v0.9.10...v0.9.11) (2021-07-12)
 
 

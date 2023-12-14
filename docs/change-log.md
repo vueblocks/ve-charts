@@ -1,5 +1,13 @@
 # 更新日志
 
+## v0.9.12
+
+* **新增** 扩展组件：柱图悬浮饼图
+
+### PRS
+
+* [#193](https://github.com/vueblocks/ve-charts/pull/193) by [xiaojingha](https://github.com/xiaojingha)
+* 
 ## v0.9.11
 
 * **新增** 柱状图新增（纵坐标指示器类型）配置项
