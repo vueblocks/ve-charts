@@ -1,6 +1,6 @@
 {
   "name": "ve-charts",
-  "version": "0.9.12",
+  "version": "0.9.13",
   "description": "ECharts 4.x for Vue.js 2.x.",
   "main": "lib/ve-charts.umd.min.js",
   "unpkg": "lib/ve-charts.umd.min.js",

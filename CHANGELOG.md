@@ -1,4 +1,4 @@
-## [0.9.12](https://github.com/vueblocks/ve-charts/compare/v0.9.11...v0.9.12) (2023-12-14)
+## [0.9.13](https://github.com/vueblocks/ve-charts/compare/v0.9.12...v0.9.13) (2023-12-14)
 
 
 ### Features
