@@ -12,7 +12,6 @@
 <script>
  module.exports = {
     created () {
-
       this.chartData = {
         dimensions: {
         name: 'date',
@@ -739,13 +738,13 @@
             show: true
           },
           color: ['#426fff', '#40adff', '#3fdace', '#18bdb0', '#ffda3e', '#ffa900', '#83dd89', '#bedf65', '#956bfd', '#f67bb2'],
-          toFix: 3,
+          toFix: 2,
           contentSize: {
-            width: '500px',
-            height: '200px'
+            width: '300px',
+            height: '130px'
           },
           legendShow: {
-            value: true,
+            value: false,
             percent: true
           }
         }
