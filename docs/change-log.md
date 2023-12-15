@@ -1,5 +1,13 @@
 # 更新日志
 
+## v0.9.14
+
+* **优化**：优化悬浮图的默认位置信息，确保其内容不会被遮挡或超出图表容器
+
+### PRS
+
+* [#194](https://github.com/vueblocks/ve-charts/pull/194) by [xiaojingha](https://github.com/xiaojingha)
+
 ## v0.9.13
 
 * **新增** 扩展组件：柱图悬浮饼图

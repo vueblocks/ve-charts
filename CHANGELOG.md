@@ -1,3 +1,11 @@
+## [0.9.14](https://github.com/vueblocks/ve-charts/compare/v0.9.13...v0.9.14) (2023-12-14)
+
+
+### Bug Fixes
+
+* 优化悬浮图的默认位置信息，确保其内容不会被遮挡或超出图表容器 ([3a05b9f](https://github.com/vueblocks/ve-charts/commit/3a05b9f2932a2684720122632e925e552542d370))
+
+
 ## [0.9.13](https://github.com/vueblocks/ve-charts/compare/v0.9.12...v0.9.13) (2023-12-14)
 
 
